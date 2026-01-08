@@ -1,0 +1,13 @@
+title: "Vibe Coding for Research"
+life_cycle: "experimental"
+license: "CC-BY 4.0"
+source: "https://github.com/carpentries/workbench"
+analytics: ""
+# These are the episodes in order
+episodes:
+  - 01-cli-intro.md
+  - 02-prompts.md
+  - 03-regression-demo.md
+  - 04-validation.md
+  - 05-limitations.md
+  - 06-resources.md
