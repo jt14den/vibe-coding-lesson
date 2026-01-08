@@ -21,6 +21,18 @@ keypoints:
 4. **Iterate**: Start simple and add complexity in follow-up prompts.
 5. **Include Validation**: Explicitly ask the AI to "verify" or "test".
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Concrete Example: From Bad to Good
+
+| Aspect | Bad Prompt | Good Prompt |
+| :--- | :--- | :--- |
+| **Vague vs Specific** | "Clean this data." | "In `data.csv`, remove rows with missing values in the 'age' column and save as `clean_data.csv`." |
+| **No Context vs Context** | "Write a plot script." | "I am building a report for a climate study. Write a Python script using seaborn to create a line plot of 'temp' over 'year' from `results.csv`." |
+| **Silent vs Validated** | "Run a t-test." | "Perform a paired t-test between 'pre' and 'post' columns. Print the t-statistic, p-value, and an interpretation of the result at alpha=0.05." |
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The CLEAR Framework
 
 - **C**oncise: Prioritize important information.

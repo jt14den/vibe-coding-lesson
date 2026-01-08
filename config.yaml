@@ -8,7 +8,6 @@ carpentry: 'incubator'
 # Alt-text description of the lesson.
 carpentry_description: 'A lesson on AI-assisted programming and validation best practices.'
 
-# Overall title for pages.
 title: 'Vibe Coding for Research'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
@@ -39,7 +38,7 @@ contact: 'timdennis@g.ucla.edu'
 episodes:
   - 01-cli-intro.md
   - 02-prompts.md
-  - 03-regression-demo.md
+  - 03-data-cleaning.md
   - 04-validation.md
   - 05-limitations.md
   - 06-resources.md

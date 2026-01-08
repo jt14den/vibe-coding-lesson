@@ -33,6 +33,20 @@ CLI tools like the Gemini CLI can:
 3. **Iterate** automatically based on terminal errors.
 4. **Maintain** context across long sessions.
 
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Your First AI CLI Command
+
+Let's verify the tool is working and see how it interacts with your system. In your terminal, run the following command:
+
+```bash
+gemini "Tell me what operating system I am currently using and list the files in this directory."
+```
+
+Compare the output to what you see when you run `ls` (or `dir` on Windows) and `uname -a`. Did the AI accurately describe your environment?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Project Context: GEMINI.md
 
 To get the most out of a CLI agent, you should provide it with persistent context about your project. By creating a `GEMINI.md` file in your project root, you can define:
