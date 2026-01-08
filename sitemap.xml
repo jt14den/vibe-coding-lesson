@@ -22,6 +22,12 @@
     <loc>https://carpentries.github.io/vibe-coding-lesson/404.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/images.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/vibe-coding-lesson/index.html</loc>
   </url>
   <url>
@@ -46,13 +52,31 @@
     <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/404.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/vibe-coding-lesson/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/vibe-coding-lesson/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/vibe-coding-lesson/profiles.html</loc>
