@@ -2,6 +2,15 @@
 title: "Validation Best Practices"
 teaching: 40
 exercises: 30
+questions:
+- "How do I know if the AI code is correct?"
+- "What are the 5 validation strategies?"
+objectives:
+- "Implement synthetic data validation."
+- "Perform theoretical and cross-AI checks."
+keypoints:
+- "Never trust AI without verification."
+- "Synthetic data is the gold standard for testing."
 ---
 
 ## Trust but Verify

@@ -2,6 +2,15 @@
 title: "Live Demo: Linear Regression"
 teaching: 30
 exercises: 20
+questions:
+- "How can I build a tool from scratch with AI?"
+- "How do I add features iteratively?"
+objectives:
+- "Use Gemini CLI to generate Python code."
+- "Refine code through follow-up prompts."
+keypoints:
+- "Iterative prompting builds complex tools."
+- "Visualizations help verify results."
 ---
 
 ## Building a Tool from Scratch

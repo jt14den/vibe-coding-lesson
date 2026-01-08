@@ -2,6 +2,15 @@
 title: "Limitations and Cautions"
 teaching: 15
 exercises: 0
+questions:
+- "When should I NOT use AI?"
+- "What are common failure modes?"
+objectives:
+- "Recognize high-risk scenarios."
+- "Identify hallucinated or outdated code."
+keypoints:
+- "Avoid AI for security-critical tasks."
+- "You are responsible for the final output."
 ---
 
 ## When NOT to Trust AI Code

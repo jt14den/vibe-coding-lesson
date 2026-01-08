@@ -2,6 +2,15 @@
 title: "Resources and Next Steps"
 teaching: 10
 exercises: 0
+questions:
+- "What other tools are available?"
+- "Where can I find help?"
+objectives:
+- "List alternative AI coding tools."
+- "Locate documentation and support."
+keypoints:
+- "Gemini, Claude, and Copilot serve different needs."
+- "Community support is vital."
 ---
 
 ## The AI Tool Landscape

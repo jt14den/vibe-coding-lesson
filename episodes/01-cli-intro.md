@@ -2,6 +2,15 @@
 title: "Understanding CLI-Based AI"
 teaching: 15
 exercises: 10
+questions:
+- "Why use a CLI for AI instead of a browser?"
+- "What is the GEMINI.md file?"
+objectives:
+- "Compare CLI and Browser-based AI tools."
+- "Create a project context file."
+keypoints:
+- "CLI tools can edit files directly."
+- "Persistent context in GEMINI.md improves AI performance."
 ---
 
 ## Why CLI Matters for Research

@@ -1,9 +1,41 @@
-title: "Vibe Coding for Research"
-life_cycle: "experimental"
-license: "CC-BY 4.0"
-source: "https://github.com/carpentries/workbench"
-analytics: ""
-# These are the episodes in order
+#------------------------------------------------------------
+# Values for this lesson.
+#------------------------------------------------------------
+
+# Which carpentry is this (swc, dc, lc, or cp)?
+carpentry: 'incubator'
+
+# Alt-text description of the lesson.
+carpentry_description: 'A lesson on AI-assisted programming and validation best practices.'
+
+# Overall title for pages.
+title: 'Vibe Coding for Research'
+
+# Date the lesson was created (YYYY-MM-DD, this is empty by default)
+created: '2026-01-08'
+
+# Comma-separated list of keywords for the lesson
+keywords: 'AI, LLM, research, validation, Python, Gemini'
+
+# Life cycle stage of the lesson
+# possible values: pre-alpha, alpha, beta, stable
+life_cycle: 'pre-alpha'
+
+# License of the lesson
+license: 'CC-BY 4.0'
+
+# Link to the source repository for this lesson
+source: 'https://github.com/carpentries/vibe-coding-lesson'
+
+# Default branch of your lesson
+branch: 'main'
+
+# Who to contact if there are any issues
+contact: 'timdennis@g.ucla.edu'
+
+# Navigation ------------------------------------------------
+
+# Order of episodes in your lesson
 episodes:
   - 01-cli-intro.md
   - 02-prompts.md
@@ -11,3 +43,16 @@ episodes:
   - 04-validation.md
   - 05-limitations.md
   - 06-resources.md
+
+# Information for Learners
+learners:
+  - setup.md
+  - reference.md
+
+# Information for Instructors
+instructors:
+  - instructor-notes.md
+
+# Learner Profiles
+profiles:
+  - learner-profile.md

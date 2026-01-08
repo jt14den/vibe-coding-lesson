@@ -2,6 +2,15 @@
 title: "Best Practices for Prompting"
 teaching: 20
 exercises: 15
+questions:
+- "How do I write effective prompts?"
+- "What are common AI failures?"
+objectives:
+- "Apply the CLEAR framework."
+- "Identify sneaky AI behaviors."
+keypoints:
+- "Be specific and provide context."
+- "Always validate AI outputs."
 ---
 
 ## The Five Principles
