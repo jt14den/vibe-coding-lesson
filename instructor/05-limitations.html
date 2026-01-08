@@ -225,7 +225,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-regression-demo.html">3. Live Demo: Linear Regression</a>
+        <a href="03-data-cleaning.html">3. Live Demo: The Data Cleaning Agent</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -255,6 +255,7 @@
       <div class="accordion-body">
         <ul><li><a href="#when-not-to-trust-ai-code">When NOT to Trust AI Code</a></li>
 <li><a href="#common-failure-modes">Common Failure Modes</a></li>
+<li><a href="#the-black-box-problem-open-science-vs.-proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -360,26 +361,42 @@ patterns).</li>
 <strong>Performance-Critical Sections</strong>: AI often picks the
 most common (not the fastest) algorithm.</li>
 </ul></section><section><h2 class="section-heading" id="common-failure-modes">Common Failure Modes<a class="anchor" aria-label="anchor" href="#common-failure-modes"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li>
-<strong>Hallucinated Functions</strong>: Invoking libraries or APIs
-that don’t actually exist.</li>
-<li>
-<strong>Outdated Approaches</strong>: Using deprecated code from its
-training data (e.g., old pandas syntax).</li>
-<li>
-<strong>Confident Incorrectness</strong>: Presenting a wrong formula
-with absolute certainty.</li>
-<li>
-<strong>Over-engineering</strong>: Adding 500 lines of code for a
-5-line problem.</li>
-</ol><blockquote>
+<hr class="half-width"><ol style="list-style-type: decimal"><li><p><strong>Hallucinated Functions</strong>: Invoking libraries or
+APIs that don’t actually exist.</p></li>
+<li><p><strong>Outdated Approaches</strong>: Using deprecated code from
+its training data (e.g., old pandas syntax).</p></li>
+<li><p><strong>Confident Incorrectness</strong>: Presenting a wrong
+formula with absolute certainty.</p></li>
+<li><p><strong>Over-engineering</strong>: Adding 500 lines of code for a
+5-line problem.</p></li>
+</ol></section><section><h2 class="section-heading" id="the-black-box-problem-open-science-vs--proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI<a class="anchor" aria-label="anchor" href="#the-black-box-problem-open-science-vs--proprietary-ai"></a></h2>
+<hr class="half-width"><p>It is important to acknowledge a tension in this workshop:
+<strong>The Gemini CLI is not Open Source.</strong></p>
+<ul><li><p><strong>Proprietary Models (Gemini, GPT-4, Claude):</strong>
+These are “closed.” You cannot verify their training data, and the model
+updates silently over time. Code generated today might be different next
+week.</p></li>
+<li><p><strong>Open Weights Models (Gemma, Llama, Mistral):</strong>
+These models can be downloaded and run locally (e.g., using tools like
+Ollama). They offer greater reproducibility because you can freeze the
+specific version of the “brain” you are using.</p></li>
+</ul><p><strong>Recommendation for Researchers:</strong></p>
+<p>Use powerful proprietary models (like Gemini) for the “Vibe Coding”
+phase—prototyping, cleaning, and writing scripts. However, be aware that
+the <em>generator</em> of your code is a black box. Always archive the
+<em>generated code</em> (which is open) rather than relying on the AI to
+regenerate it perfectly in the future.</p>
+<blockquote>
 <h2 id="key-lesson">Key Lesson</h2>
+</blockquote>
+<blockquote>
 <p>You remain the scientist. AI augments your speed, but it does not
-replace your expertise or your responsibility for the results. <!--
+replace your expertise or your responsibility for the results.</p>
+</blockquote>
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
---></p>
-</blockquote>
+ -->
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/04-validation.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>

@@ -269,7 +269,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-regression-demo.html">3. Live Demo: Linear Regression</a>
+        <a href="03-data-cleaning.html">3. Live Demo: The Data Cleaning Agent</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -430,6 +430,27 @@ in your project directory. 2. <strong>Create</strong> new scripts, data
 files, or configurations. 3. <strong>Iterate</strong> automatically
 based on terminal errors. 4. <strong>Maintain</strong> context across
 long sessions.</p>
+<div id="challenge-your-first-ai-cli-command" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="challenge-your-first-ai-cli-command" class="callout-inner">
+<h3 class="callout-title">Challenge: Your First AI CLI Command</h3>
+<div class="callout-content">
+<p>Let’s verify the tool is working and see how it interacts with your
+system. In your terminal, run the following command:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
+</div>
+<p>Compare the output to what you see when you run <code>ls</code> (or
+<code>dir</code> on Windows) and <code>uname -a</code>. Did the AI
+accurately describe your environment?</p>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="project-context-gemini-md">Project Context: GEMINI.md<a class="anchor" aria-label="anchor" href="#project-context-gemini-md"></a>
 </h2>
 <hr class="half-width">
@@ -486,7 +507,54 @@ follow-up prompts.</li>
 <li>
 <strong>Include Validation</strong>: Explicitly ask the AI to
 “verify” or “test”.</li>
-</ol></section><section><h2 class="section-heading" id="the-clear-framework">The CLEAR Framework<a class="anchor" aria-label="anchor" href="#the-clear-framework"></a>
+</ol>
+<div id="concrete-example-from-bad-to-good" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="concrete-example-from-bad-to-good" class="callout-inner">
+<h3 class="callout-title">Concrete Example: From Bad to Good</h3>
+<div class="callout-content">
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Aspect</th>
+<th align="left">Bad Prompt</th>
+<th align="left">Good Prompt</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Vague vs Specific</strong></td>
+<td align="left">“Clean this data.”</td>
+<td align="left">“In <code>data.csv</code>, remove rows with missing
+values in the ‘age’ column and save as
+<code>clean_data.csv</code>.”</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>No Context vs Context</strong></td>
+<td align="left">“Write a plot script.”</td>
+<td align="left">“I am building a report for a climate study. Write a
+Python script using seaborn to create a line plot of ‘temp’ over ‘year’
+from <code>results.csv</code>.”</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Silent vs Validated</strong></td>
+<td align="left">“Run a t-test.”</td>
+<td align="left">“Perform a paired t-test between ‘pre’ and ‘post’
+columns. Print the t-statistic, p-value, and an interpretation of the
+result at alpha=0.05.”</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-clear-framework">The CLEAR Framework<a class="anchor" aria-label="anchor" href="#the-clear-framework"></a>
 </h2>
 <hr class="half-width">
 <ul>
@@ -530,53 +598,75 @@ that hide errors from you.</p>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section></section><section id="aio-03-regression-demo"><p>Content from <a href="03-regression-demo.html">Live Demo: Linear Regression</a></p>
+</section></section><section id="aio-03-data-cleaning"><p>Content from <a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></p>
 <hr>
 <p>Last updated on 2026-01-08 |
 
-        <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/03-regression-demo.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
-<section><h2 class="section-heading" id="building-a-tool-from-scratch">Building a Tool from Scratch<a class="anchor" aria-label="anchor" href="#building-a-tool-from-scratch"></a>
+<section><h2 class="section-heading" id="the-universal-headache-messy-data">The Universal Headache: Messy Data<a class="anchor" aria-label="anchor" href="#the-universal-headache-messy-data"></a>
 </h2>
 <hr class="half-width">
-<p>In this section, we will use the Gemini CLI to build a linear
-regression class in Python without using <code>scikit-learn</code>.</p>
+<p>For most researchers, the bottleneck isn’t implementing complex
+algorithms—it’s cleaning and merging inconsistent files. In this demo,
+we will use Gemini to act as our “Data Janitor,” automating the
+standardization of messy CSV files.</p>
 <div class="section level3">
-<h3 id="step-1-initial-implementation">Step 1: Initial Implementation<a class="anchor" aria-label="anchor" href="#step-1-initial-implementation"></a>
+<h3 id="step-1-generating-the-messy-data">Step 1: generating the “Messy” Data<a class="anchor" aria-label="anchor" href="#step-1-generating-the-messy-data"></a>
 </h3>
-<p>Open your terminal and run the following prompt (or save it to a file
-and paste it):</p>
-<pre class="text"><code>Create a Python class called LinearRegression that implements
-ordinary least squares from scratch.
-Requirements:
-- Use only NumPy (no sklearn)
-- Methods: fit(X, y) and predict(X)
-- Properties: coefficients, intercept, r_squared, standard_errors
-- fit() should calculate all statistics
-- Save as linear_regression.py</code></pre>
+<p>First, we need something to clean. Ironically, we can use the AI to
+generate our problem. Run this command to create three inconsistent data
+files simulating a multi-site study:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and weird date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."</span></span></code></pre>
+</div>
+<p>Once you run the generated script
+(<code>python make_messy_data.py</code>), you will have three
+headache-inducing files in your directory.</p>
 </div>
 <div class="section level3">
-<h3 id="step-2-adding-visualization">Step 2: Adding Visualization<a class="anchor" aria-label="anchor" href="#step-2-adding-visualization"></a>
+<h3 id="step-2-the-audit">Step 2: The Audit<a class="anchor" aria-label="anchor" href="#step-2-the-audit"></a>
 </h3>
-<p>Once the file is created, ask for a visualization:</p>
-<pre class="text"><code>Add a method called plot_fit() to the LinearRegression class that:
-- Creates a scatter plot of the data points
-- Overlays the fitted regression line
-- Displays the equation and R-squared
-- Uses matplotlib
-- Saves the plot as regression_plot.png</code></pre>
+<p>Before fixing anything, we need to know what we’re dealing with.
+Instead of opening each Excel file manually, let the AI inspect
+them.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print: 1. The filename 2. The list of column names 3. The number of missing values in each column."</span></span></code></pre>
+</div>
+<p>Run the inspection script. You should see the chaos clearly (e.g.,
+<code>site_A</code> has <code>ParticipantID</code>, <code>site_B</code>
+has <code>id</code>).</p>
 </div>
 <div class="section level3">
-<h3 id="step-3-summary-statistics">Step 3: Summary Statistics<a class="anchor" aria-label="anchor" href="#step-3-summary-statistics"></a>
+<h3 id="step-3-the-harmonization">Step 3: The Harmonization<a class="anchor" aria-label="anchor" href="#step-3-the-harmonization"></a>
 </h3>
-<p>Finally, request a formatted output:</p>
-<pre class="text"><code>Add a method called summary() that prints a formatted table showing:
-- Coefficient estimates, Standard errors, t-stats, and p-values.
-- R-squared and adjusted R-squared.
-Make it look similar to statsmodels output.</code></pre>
+<p>Now for the magic. We will ask Gemini to write a script that handles
+these specific inconsistencies and merges them into a clean master
+dataset.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
+</div>
+<p>Run <code>python clean_and_merge.py</code>. You now have a single,
+clean dataset ready for analysis.</p>
+</div>
+<div class="section level3">
+<h3 id="step-4-automating-documentation">Step 4: Automating Documentation<a class="anchor" aria-label="anchor" href="#step-4-automating-documentation"></a>
+</h3>
+<p>Finally, a reproducible project needs a README.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -594,57 +684,62 @@ any links that you are not going to use.
 <section><h2 class="section-heading" id="trust-but-verify">Trust but Verify<a class="anchor" aria-label="anchor" href="#trust-but-verify"></a>
 </h2>
 <hr class="half-width">
-<p>AI writes the code, but <strong>you</strong> validate it. Never trust
-AI output without verification.</p>
+<p>AI is great at writing code that <em>runs</em>, but does it write
+code that is <em>right</em>? In data cleaning, a common failure is
+“silent dropping”—where the AI’s script runs without error but
+accidentally deletes 50% of your data because of a date parsing
+mismatch.</p>
 <div class="section level3">
-<h3 id="synthetic-data-validation">1. Synthetic Data Validation<a class="anchor" aria-label="anchor" href="#synthetic-data-validation"></a>
+<h3 id="the-sanity-check-post-processing-validation">1. The “Sanity Check” (Post-Processing Validation)<a class="anchor" aria-label="anchor" href="#the-sanity-check-post-processing-validation"></a>
 </h3>
-<p>Generate data with <strong>known</strong> parameters (e.g., you
-define the slope as 2.0) and see if the AI’s code can recover those
-exact values. If the code can’t find the truth when you know it, it
-won’t find it in your real research data.</p>
+<p>After merging data, you should always verify basic facts. *
+<strong>Row Counts</strong>: If you had 3 files of 50 rows, your master
+file should have 150 rows (unless you explicitly filtered). *
+<strong>Column Consistency</strong>: Do you have the expected columns? *
+<strong>Data Types</strong>: Are the dates actually dates, or just
+strings?</p>
 </div>
 <div class="section level3">
-<h3 id="theoretical-validation">2. Theoretical Validation<a class="anchor" aria-label="anchor" href="#theoretical-validation"></a>
+<h3 id="defensive-programming">2. Defensive Programming<a class="anchor" aria-label="anchor" href="#defensive-programming"></a>
 </h3>
-<p>Check if the code respects statistical laws. For example: - Does the
-Standard Error (SE) halve when the sample size <span class="math inline">\(n\)</span> quadruples (<span class="math inline">\(1/\sqrt{n}\)</span>)? - Does the SE scale
-proportionally with noise? - Does duplicating data (adding no new info)
-correctly leave the coefficients unchanged but potentially flag issues
-with SE?</p>
+<p>You can ask the AI to write “assert” statements inside your
+processing script. These will stop the script immediately if something
+looks wrong.</p>
+<ul>
+<li>
+<em>Example:</em>
+<code>assert len(df) == 150, "Rows missing!"</code>
+</li>
+</ul>
 </div>
 <div class="section level3">
 <h3 id="cross-ai-validation">3. Cross-AI Validation<a class="anchor" aria-label="anchor" href="#cross-ai-validation"></a>
 </h3>
-<p>Get a “second opinion”. Take the code generated by Gemini and ask
-Claude or ChatGPT to review it for mathematical correctness or numerical
-stability.</p>
-</div>
-<div class="section level3">
-<h3 id="unit-testing">4. Unit Testing<a class="anchor" aria-label="anchor" href="#unit-testing"></a>
-</h3>
-<p>Ask the AI to generate a <code>pytest</code> suite that covers edge
-cases: - Empty datasets. - Perfectly correlated data. - Constant <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> values. - Very large datasets.</p>
-</div>
-<div class="section level3">
-<h3 id="restructuring-documentation">5. Restructuring &amp; Documentation<a class="anchor" aria-label="anchor" href="#restructuring-documentation"></a>
-</h3>
-<p>Use the AI to make the code maintainable. Ask it to: - Add
-NumPy-style docstrings. - Add type hints. - Create a
-<code>README.md</code> and <code>requirements.txt</code>. - Organize the
-code into a proper Python package structure.</p>
-<div id="challenge-run-a-validation" class="callout discussion">
+<p>Just like with the regression model, you can ask a second AI (like
+Claude or ChatGPT) to audit your cleaning script.</p>
+<ul>
+<li>
+<em>Prompt:</em> “Review this pandas script. Are there any edge
+cases where it might fail to parse a date? Does it handle the median
+imputation correctly if all values are missing?”</li>
+</ul>
+<div id="challenge-the-integrity-check" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="challenge-run-a-validation" class="callout-inner">
-<h3 class="callout-title">Challenge: Run a Validation</h3>
+<div id="challenge-the-integrity-check" class="callout-inner">
+<h3 class="callout-title">Challenge: The Integrity Check</h3>
 <div class="callout-content">
-<p>Ask the Gemini CLI to “Create a validation script that generates
-synthetic data with a slope of 3.5 and intercept of -1.2, then tests if
-our LinearRegression class recovers these values within 2 standard
-errors.”</p>
+<p>We need to prove our <code>master_dataset.csv</code> is clean. Use
+the Gemini CLI to write a validation script.</p>
+<p>Run this command:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check three things: 1. There are no duplicate participant_ids (print 'Pass' or 'Fail'). 2. All 'score' values are between 0 and 100 (or whatever the range was). 3. There are zero missing values. If any check fails, print a warning."</span></span></code></pre>
+</div>
+<p>Run the script. Did your cleaning pipeline actually work?</p>
 </div>
 </div>
 </div>
@@ -686,27 +781,46 @@ most common (not the fastest) algorithm.</li>
 </h2>
 <hr class="half-width">
 <ol style="list-style-type: decimal">
-<li>
-<strong>Hallucinated Functions</strong>: Invoking libraries or APIs
-that don’t actually exist.</li>
-<li>
-<strong>Outdated Approaches</strong>: Using deprecated code from its
-training data (e.g., old pandas syntax).</li>
-<li>
-<strong>Confident Incorrectness</strong>: Presenting a wrong formula
-with absolute certainty.</li>
-<li>
-<strong>Over-engineering</strong>: Adding 500 lines of code for a
-5-line problem.</li>
-</ol>
+<li><p><strong>Hallucinated Functions</strong>: Invoking libraries or
+APIs that don’t actually exist.</p></li>
+<li><p><strong>Outdated Approaches</strong>: Using deprecated code from
+its training data (e.g., old pandas syntax).</p></li>
+<li><p><strong>Confident Incorrectness</strong>: Presenting a wrong
+formula with absolute certainty.</p></li>
+<li><p><strong>Over-engineering</strong>: Adding 500 lines of code for a
+5-line problem.</p></li>
+</ol></section><section><h2 class="section-heading" id="the-black-box-problem-open-science-vs--proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI<a class="anchor" aria-label="anchor" href="#the-black-box-problem-open-science-vs--proprietary-ai"></a>
+</h2>
+<hr class="half-width">
+<p>It is important to acknowledge a tension in this workshop:
+<strong>The Gemini CLI is not Open Source.</strong></p>
+<ul>
+<li><p><strong>Proprietary Models (Gemini, GPT-4, Claude):</strong>
+These are “closed.” You cannot verify their training data, and the model
+updates silently over time. Code generated today might be different next
+week.</p></li>
+<li><p><strong>Open Weights Models (Gemma, Llama, Mistral):</strong>
+These models can be downloaded and run locally (e.g., using tools like
+Ollama). They offer greater reproducibility because you can freeze the
+specific version of the “brain” you are using.</p></li>
+</ul>
+<p><strong>Recommendation for Researchers:</strong></p>
+<p>Use powerful proprietary models (like Gemini) for the “Vibe Coding”
+phase—prototyping, cleaning, and writing scripts. However, be aware that
+the <em>generator</em> of your code is a black box. Always archive the
+<em>generated code</em> (which is open) rather than relying on the AI to
+regenerate it perfectly in the future.</p>
 <blockquote>
 <h2 id="key-lesson">Key Lesson</h2>
+</blockquote>
+<blockquote>
 <p>You remain the scientist. AI augments your speed, but it does not
-replace your expertise or your responsibility for the results. <!--
+replace your expertise or your responsibility for the results.</p>
+</blockquote>
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
---></p>
-</blockquote>
+ -->
 </section></section><section id="aio-06-resources"><p>Content from <a href="06-resources.html">Resources and Next Steps</a></p>
 <hr>
 <p>Last updated on 2026-01-08 |

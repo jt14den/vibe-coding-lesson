@@ -238,7 +238,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-regression-demo.html">3. Live Demo: Linear Regression</a>
+        <a href="03-data-cleaning.html">3. Live Demo: The Data Cleaning Agent</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -314,7 +314,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="01-cli-intro.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="03-regression-demo.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="03-data-cleaning.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -322,8 +322,8 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Understanding
         </a>
-        <a class="chapter-link float-end" href="03-regression-demo.html" rel="next">
-          Next: Live Demo: Linear...
+        <a class="chapter-link float-end" href="03-data-cleaning.html" rel="next">
+          Next: Live Demo: The Data...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -357,7 +357,36 @@ follow-up prompts.</li>
 <li>
 <strong>Include Validation</strong>: Explicitly ask the AI to
 “verify” or “test”.</li>
-</ol></section><section><h2 class="section-heading" id="the-clear-framework">The CLEAR Framework<a class="anchor" aria-label="anchor" href="#the-clear-framework"></a></h2>
+</ol><div id="concrete-example-from-bad-to-good" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="concrete-example-from-bad-to-good" class="callout-inner">
+<h3 class="callout-title">Concrete Example: From Bad to Good</h3>
+<div class="callout-content">
+<table class="table"><colgroup><col width="33%"><col width="33%"><col width="33%"></colgroup><thead><tr class="header"><th align="left">Aspect</th>
+<th align="left">Bad Prompt</th>
+<th align="left">Good Prompt</th>
+</tr></thead><tbody><tr class="odd"><td align="left"><strong>Vague vs Specific</strong></td>
+<td align="left">“Clean this data.”</td>
+<td align="left">“In <code>data.csv</code>, remove rows with missing
+values in the ‘age’ column and save as
+<code>clean_data.csv</code>.”</td>
+</tr><tr class="even"><td align="left"><strong>No Context vs Context</strong></td>
+<td align="left">“Write a plot script.”</td>
+<td align="left">“I am building a report for a climate study. Write a
+Python script using seaborn to create a line plot of ‘temp’ over ‘year’
+from <code>results.csv</code>.”</td>
+</tr><tr class="odd"><td align="left"><strong>Silent vs Validated</strong></td>
+<td align="left">“Run a t-test.”</td>
+<td align="left">“Perform a paired t-test between ‘pre’ and ‘post’
+columns. Print the t-statistic, p-value, and an interpretation of the
+result at alpha=0.05.”</td>
+</tr></tbody></table></div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-clear-framework">The CLEAR Framework<a class="anchor" aria-label="anchor" href="#the-clear-framework"></a></h2>
 <hr class="half-width"><ul><li>
 <strong>C</strong>oncise: Prioritize important information.</li>
 <li>
@@ -399,7 +428,7 @@ any links that you are not going to use.
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="01-cli-intro.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="03-regression-demo.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="03-data-cleaning.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -407,8 +436,8 @@ any links that you are not going to use.
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Understanding
         </a>
-        <a class="chapter-link float-end" href="03-regression-demo.html" rel="next">
-          Next: Live Demo: Linear...
+        <a class="chapter-link float-end" href="03-data-cleaning.html" rel="next">
+          Next: Live Demo: The Data...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
