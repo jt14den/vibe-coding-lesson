@@ -24,10 +24,38 @@ Even with validation, there are areas where AI is particularly risky:
 
 ## Common Failure Modes
 
+
+
 1. **Hallucinated Functions**: Invoking libraries or APIs that don't actually exist.
+
 2. **Outdated Approaches**: Using deprecated code from its training data (e.g., old pandas syntax).
+
 3. **Confident Incorrectness**: Presenting a wrong formula with absolute certainty.
+
 4. **Over-engineering**: Adding 500 lines of code for a 5-line problem.
 
+
+
+## The Black Box Problem: Open Science vs. Proprietary AI
+
+
+
+It is important to acknowledge a tension in this workshop: **The Gemini CLI is not Open Source.**
+
+
+
+*   **Proprietary Models (Gemini, GPT-4, Claude):** These are "closed." You cannot verify their training data, and the model updates silently over time. Code generated today might be different next week.
+
+*   **Open Weights Models (Gemma, Llama, Mistral):** These models can be downloaded and run locally (e.g., using tools like Ollama). They offer greater reproducibility because you can freeze the specific version of the "brain" you are using.
+
+
+
+**Recommendation for Researchers:** 
+
+Use powerful proprietary models (like Gemini) for the "Vibe Coding" phase—prototyping, cleaning, and writing scripts. However, be aware that the *generator* of your code is a black box. Always archive the *generated code* (which is open) rather than relying on the AI to regenerate it perfectly in the future.
+
+
+
 > ## Key Lesson
+
 > You remain the scientist. AI augments your speed, but it does not replace your expertise or your responsibility for the results.
