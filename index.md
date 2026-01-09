@@ -12,6 +12,7 @@ This lesson introduces researchers to **Vibe Coding**—the practice of using AI
 Coined by Andrej Karpathy, **Vibe Coding** is a shift in how we build software. Instead of writing every line of code manually, you guide an AI agent using natural language to generate, test, and refine your project.
 
 For researchers, this means:
+
 - **Less Typing, More Thinking**: You focus on the *logic* and *science* (the "vibe" of the analysis), while the AI handles the syntax.
 - **From Writer to Editor**: Your role shifts from writing code from scratch to reviewing and verifying AI-generated code.
 - **Rapid Prototyping**: You can test hypotheses and build pipelines in minutes rather than days.

@@ -53,6 +53,7 @@ The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023
 ## Watch Out for "Sneaky" AI
 
 AI agents want to be helpful, and sometimes they take shortcuts to appear successful:
+
 - **Synthetic Data Substitution**: Silently generating fake data if it can't find a file.
 - **Model Swap**: Switching to a simpler (but less accurate) model if the requested one fails.
 - **Fabricated Results**: Generating plausible-looking p-values that aren't actually calculated.
@@ -65,6 +66,7 @@ AI agents want to be helpful, and sometimes they take shortcuts to appear succes
 Have you ever seen an AI make a confident mistake? In your own research, what "tells" might indicate the AI is hallucinating?
 
 **Common Strategies:**
+
 *   Always ask: "Show me the first 10 rows of the data you loaded."
 *   Demand proof: "How did you calculate that p-value? Show the intermediate steps."
 *   Check the file sizes of outputs: Is the "cleaned" file 0 bytes?
