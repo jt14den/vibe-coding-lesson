@@ -2,16 +2,23 @@
 title: "Understanding CLI-Based AI"
 teaching: 15
 exercises: 10
-questions:
-- "Why use a CLI for AI instead of a browser?"
-- "What is the GEMINI.md file?"
-objectives:
-- "Compare CLI and Browser-based AI tools."
-- "Create a project context file."
-keypoints:
-- "CLI tools can edit files directly."
-- "Persistent context in GEMINI.md improves AI performance."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+## Objectives
+
+- Compare CLI and Browser-based AI tools.
+- Create a project context file.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- Why use a CLI for AI instead of a browser?
+- What is the GEMINI.md file?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Why CLI Matters for Research
 
@@ -61,5 +68,36 @@ To get the most out of a CLI agent, you should provide it with persistent contex
 ## Challenge: Create your GEMINI.md
 
 In your project directory, create a file named `GEMINI.md` and add a brief description of a research project you are working on. Include at least two libraries you use and one coding convention (e.g., "Use snake_case for functions").
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Example GEMINI.md
+
+```markdown
+# Project: Arctic Sea Ice Analysis
+
+## Goal
+To analyze trends in sea ice extent using satellite data from 1980-2020.
+
+## Tech Stack
+- Python 3.9
+- Libraries: xarray, pandas, matplotlib, cartopy
+
+## Conventions
+- Use snake_case for variable names.
+- Include docstrings for all functions.
+- Save all plots to the `figures/` directory.
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+## Key Points
+
+- CLI tools can edit files directly.
+- Persistent context in GEMINI.md improves AI performance.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
