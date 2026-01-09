@@ -32,6 +32,24 @@ Most researchers are familiar with chat-based AI in a browser. However, for codi
 | **Execution** | You run the code | AI runs code and sees results |
 | **Autonomy** | One response at a time | Autonomous multi-step execution |
 
+## The Mental Shift: From Writer to Editor
+
+Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Vibe coding offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks.
+
+However, this introduces a new challenge: **Verification Load**. You must be vigilant in reading and testing code you didn't write.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Managing Cognitive Load
+
+It is common to feel "out of the loop" when the AI generates 50 lines of code in seconds. To manage this:
+
+1.  **Read the Comments**: Ask the AI to comment its code heavily.
+2.  **Test Frequently**: Run small pieces of code to "anchor" your understanding.
+3.  **Ask "Why?"**: If a piece of code looks complex, ask the AI to explain it to you.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The Power of the File System
 
 CLI tools like the Gemini CLI can:
