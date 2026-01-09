@@ -483,11 +483,19 @@ the AI to explain it to you.</li>
 </section><section><h2 class="section-heading" id="the-power-of-the-file-system">The Power of the File System<a class="anchor" aria-label="anchor" href="#the-power-of-the-file-system"></a>
 </h2>
 <hr class="half-width">
-<p>CLI tools like the Gemini CLI can: 1. <strong>Read</strong> any file
-in your project directory. 2. <strong>Create</strong> new scripts, data
-files, or configurations. 3. <strong>Iterate</strong> automatically
-based on terminal errors. 4. <strong>Maintain</strong> context across
-long sessions.</p>
+<p>CLI tools like the Gemini CLI can:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Read</strong> any file in your project directory.</li>
+<li>
+<strong>Create</strong> new scripts, data files, or
+configurations.</li>
+<li>
+<strong>Iterate</strong> automatically based on terminal
+errors.</li>
+<li>
+<strong>Maintain</strong> context across long sessions.</li>
+</ol>
 <div id="challenge-your-first-ai-cli-command" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -514,10 +522,14 @@ accurately describe your environment?</p>
 <hr class="half-width">
 <p>To get the most out of a CLI agent, you should provide it with
 persistent context about your project. By creating a
-<code>GEMINI.md</code> file in your project root, you can define: -
-Project goals. - File structure overview. - Tech stack
-(libraries/dependencies). - Coding conventions. - Specific constraints
-(e.g., “always use type hints”).</p>
+<code>GEMINI.md</code> file in your project root, you can define:</p>
+<ul>
+<li>Project goals.</li>
+<li>File structure overview.</li>
+<li>Tech stack (libraries/dependencies).</li>
+<li>Coding conventions.</li>
+<li>Specific constraints (e.g., “always use type hints”).</li>
+</ul>
 <div id="challenge-create-your-gemini.md" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -540,7 +552,7 @@ Include at least two libraries you use and one coding convention (e.g.,
   Example GEMINI.md
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -705,13 +717,21 @@ stuck.</li>
 </h2>
 <hr class="half-width">
 <p>AI agents want to be helpful, and sometimes they take shortcuts to
-appear successful: - <strong>Synthetic Data Substitution</strong>:
-Silently generating fake data if it can’t find a file. - <strong>Model
-Swap</strong>: Switching to a simpler (but less accurate) model if the
-requested one fails. - <strong>Fabricated Results</strong>: Generating
-plausible-looking p-values that aren’t actually calculated. -
-<strong>Silent Failure</strong>: Using <code>try/except</code> blocks
-that hide errors from you.</p>
+appear successful:</p>
+<ul>
+<li>
+<strong>Synthetic Data Substitution</strong>: Silently generating
+fake data if it can’t find a file.</li>
+<li>
+<strong>Model Swap</strong>: Switching to a simpler (but less
+accurate) model if the requested one fails.</li>
+<li>
+<strong>Fabricated Results</strong>: Generating plausible-looking
+p-values that aren’t actually calculated.</li>
+<li>
+<strong>Silent Failure</strong>: Using <code>try/except</code>
+blocks that hide errors from you.</li>
+</ul>
 <div id="discussion-how-to-catch-it" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -722,10 +742,13 @@ that hide errors from you.</p>
 <div class="callout-content">
 <p>Have you ever seen an AI make a confident mistake? In your own
 research, what “tells” might indicate the AI is hallucinating?</p>
-<p><strong>Common Strategies:</strong> * Always ask: “Show me the first
-10 rows of the data you loaded.” * Demand proof: “How did you calculate
-that p-value? Show the intermediate steps.” * Check the file sizes of
-outputs: Is the “cleaned” file 0 bytes?</p>
+<p><strong>Common Strategies:</strong></p>
+<ul>
+<li>Always ask: “Show me the first 10 rows of the data you loaded.”</li>
+<li>Demand proof: “How did you calculate that p-value? Show the
+intermediate steps.”</li>
+<li>Check the file sizes of outputs: Is the “cleaned” file 0 bytes?</li>
+</ul>
 </div>
 </div>
 </div>

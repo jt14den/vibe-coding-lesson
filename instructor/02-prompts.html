@@ -428,14 +428,20 @@ stuck.</li>
 (verify elsewhere).</li>
 </ul></section><section><h2 class="section-heading" id="watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI<a class="anchor" aria-label="anchor" href="#watch-out-for-sneaky-ai"></a></h2>
 <hr class="half-width"><p>AI agents want to be helpful, and sometimes they take shortcuts to
-appear successful: - <strong>Synthetic Data Substitution</strong>:
-Silently generating fake data if it can’t find a file. - <strong>Model
-Swap</strong>: Switching to a simpler (but less accurate) model if the
-requested one fails. - <strong>Fabricated Results</strong>: Generating
-plausible-looking p-values that aren’t actually calculated. -
-<strong>Silent Failure</strong>: Using <code>try/except</code> blocks
-that hide errors from you.</p>
-<div id="discussion-how-to-catch-it" class="callout">
+appear successful:</p>
+<ul><li>
+<strong>Synthetic Data Substitution</strong>: Silently generating
+fake data if it can’t find a file.</li>
+<li>
+<strong>Model Swap</strong>: Switching to a simpler (but less
+accurate) model if the requested one fails.</li>
+<li>
+<strong>Fabricated Results</strong>: Generating plausible-looking
+p-values that aren’t actually calculated.</li>
+<li>
+<strong>Silent Failure</strong>: Using <code>try/except</code>
+blocks that hide errors from you.</li>
+</ul><div id="discussion-how-to-catch-it" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -445,11 +451,12 @@ that hide errors from you.</p>
 <div class="callout-content">
 <p>Have you ever seen an AI make a confident mistake? In your own
 research, what “tells” might indicate the AI is hallucinating?</p>
-<p><strong>Common Strategies:</strong> * Always ask: “Show me the first
-10 rows of the data you loaded.” * Demand proof: “How did you calculate
-that p-value? Show the intermediate steps.” * Check the file sizes of
-outputs: Is the “cleaned” file 0 bytes?</p>
-</div>
+<p><strong>Common Strategies:</strong></p>
+<ul><li>Always ask: “Show me the first 10 rows of the data you loaded.”</li>
+<li>Demand proof: “How did you calculate that p-value? Show the
+intermediate steps.”</li>
+<li>Check the file sizes of outputs: Is the “cleaned” file 0 bytes?</li>
+</ul></div>
 </div>
 </div>
 <div id="key-points" class="callout keypoints">
