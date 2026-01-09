@@ -42,6 +42,8 @@ exercises: 15
 
 ## The CLEAR Framework
 
+The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023.102720), provides a structured approach to prompt engineering:
+
 - **C**oncise: Prioritize important information.
 - **L**ogical: Follow a coherent sequence of steps.
 - **E**xplicit: Specify scope, persona, and tone.
