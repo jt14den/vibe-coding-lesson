@@ -81,9 +81,16 @@ gemini "Create a README.md file that explains the data processing pipeline we ju
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
+
+
 ## Key Points
 
+
+
 - AI excels at tedious data harmonization tasks.
+
 - Asking the AI to 'audit' data first prevents errors.
+
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
