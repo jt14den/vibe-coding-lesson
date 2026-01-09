@@ -53,6 +53,7 @@ It is common to feel "out of the loop" when the AI generates 50 lines of code in
 ## The Power of the File System
 
 CLI tools like the Gemini CLI can:
+
 1. **Read** any file in your project directory.
 2. **Create** new scripts, data files, or configurations.
 3. **Iterate** automatically based on terminal errors.
@@ -75,6 +76,7 @@ Compare the output to what you see when you run `ls` (or `dir` on Windows) and `
 ## Project Context: GEMINI.md
 
 To get the most out of a CLI agent, you should provide it with persistent context about your project. By creating a `GEMINI.md` file in your project root, you can define:
+
 - Project goals.
 - File structure overview.
 - Tech stack (libraries/dependencies).
