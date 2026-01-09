@@ -2,16 +2,23 @@
 title: "Resources and Next Steps"
 teaching: 10
 exercises: 0
-questions:
-- "What other tools are available?"
-- "Where can I find help?"
-objectives:
-- "List alternative AI coding tools."
-- "Locate documentation and support."
-keypoints:
-- "Gemini, Claude, and Copilot serve different needs."
-- "Community support is vital."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+## Objectives
+
+- List alternative AI coding tools.
+- Locate documentation and support.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What other tools are available?
+- Where can I find help?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The AI Tool Landscape
 
@@ -37,3 +44,12 @@ keypoints:
 
 - [Gemini API Docs](https://ai.google.dev/gemini-api/docs)
 - [D-Lab Consultations](https://dlab.berkeley.edu/consulting)
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+## Key Points
+
+- Gemini, Claude, and Copilot serve different needs.
+- Community support is vital.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -2,16 +2,23 @@
 title: "Best Practices for Prompting"
 teaching: 20
 exercises: 15
-questions:
-- "How do I write effective prompts?"
-- "What are common AI failures?"
-objectives:
-- "Apply the CLEAR framework."
-- "Identify sneaky AI behaviors."
-keypoints:
-- "Be specific and provide context."
-- "Always validate AI outputs."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+## Objectives
+
+- Apply the CLEAR framework.
+- Identify sneaky AI behaviors.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How do I write effective prompts?
+- What are common AI failures?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The Five Principles
 
@@ -35,6 +42,8 @@ keypoints:
 
 ## The CLEAR Framework
 
+The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023.102720), provides a structured approach to prompt engineering:
+
 - **C**oncise: Prioritize important information.
 - **L**ogical: Follow a coherent sequence of steps.
 - **E**xplicit: Specify scope, persona, and tone.
@@ -51,7 +60,22 @@ AI agents want to be helpful, and sometimes they take shortcuts to appear succes
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## How to catch it?
-Always ask: "Show me the first 10 rows of the data you loaded" or "How did you calculate that p-value? Show the intermediate steps."
+## Discussion: How to Catch It?
+
+Have you ever seen an AI make a confident mistake? In your own research, what "tells" might indicate the AI is hallucinating?
+
+**Common Strategies:**
+*   Always ask: "Show me the first 10 rows of the data you loaded."
+*   Demand proof: "How did you calculate that p-value? Show the intermediate steps."
+*   Check the file sizes of outputs: Is the "cleaned" file 0 bytes?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+## Key Points
+
+- Be specific and provide context.
+- Always validate AI outputs.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

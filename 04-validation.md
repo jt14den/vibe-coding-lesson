@@ -2,16 +2,23 @@
 title: "Validation Best Practices"
 teaching: 40
 exercises: 30
-questions:
-- "How do I ensure the cleaned data is correct?"
-- "What is a 'sanity check' in code?"
-objectives:
-- "Implement data integrity checks."
-- "Use assert statements for defensive programming."
-keypoints:
-- "Never trust a cleaning script without verifying the output."
-- "Automated tests prevent 'silent' data corruption."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+## Objectives
+
+- Implement data integrity checks.
+- Use assert statements for defensive programming.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How do I know if the AI code is correct?
+- What is a 'sanity check' in code?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Trust but Verify
 
@@ -48,6 +55,32 @@ Run this command:
 gemini "Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check three things: 1. There are no duplicate participant_ids (print 'Pass' or 'Fail'). 2. All 'score' values are between 0 and 100 (or whatever the range was). 3. There are zero missing values. If any check fails, print a warning."
 ```
 
-Run the script. Did your cleaning pipeline actually work?
+Once generated, run the script with `python validate_data.py`. Did your cleaning pipeline actually work?
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Expected Output
+
+If your cleaning pipeline was successful, you should see something like:
+
+```text
+Checking for duplicates... PASS
+Checking score range (0-100)... PASS
+Checking for missing values... PASS
+Validation complete. No errors found.
+```
+
+If you see "FAIL" or "Warning", investigate your `clean_and_merge.py` script!
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+## Key Points
+
+- Never trust a cleaning script without verifying the output.
+- Automated tests prevent 'silent' data corruption.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
