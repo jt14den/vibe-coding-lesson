@@ -327,7 +327,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Live Demo: The Data Cleaning Agent</h1>
-        <p>Last updated on 2026-01-08 |
+        <p>Last updated on 2026-01-09 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -338,6 +338,32 @@
         </div>
 
         
+
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul><li>How can AI handle messy, real-world data?</li>
+<li>Can I trust AI to standardize inconsistent files?</li>
+</ul></div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul><li>Use Gemini to generate a realistic test dataset.</li>
+<li>Build a data processing pipeline that handles inconsistencies.</li>
+<li>Document the cleaning process automatically.</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+
 <section><h2 class="section-heading" id="the-universal-headache-messy-data">The Universal Headache: Messy Data<a class="anchor" aria-label="anchor" href="#the-universal-headache-messy-data"></a></h2>
 <hr class="half-width"><p>For most researchers, the bottleneck isn’t implementing complex
 algorithms—it’s cleaning and merging inconsistent files. In this demo,
@@ -383,6 +409,22 @@ dataset.</p>
 </div>
 <p>Run <code>python clean_and_merge.py</code>. You now have a single,
 clean dataset ready for analysis.</p>
+<div id="why-ask-for-comments" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="why-ask-for-comments" class="callout-inner">
+<h3 class="callout-title">Why ask for comments?</h3>
+<div class="callout-content">
+<p>Notice we explicitly asked the AI to “Add comments explaining each
+step.” This is crucial for <strong>Vibe Coding</strong>. Since you
+didn’t write the code yourself, these comments become your primary way
+of verifying the logic later. It transforms the script from a black box
+into a readable methodology.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="step-4-automating-documentation">Step 4: Automating Documentation<a class="anchor" aria-label="anchor" href="#step-4-automating-documentation"></a></h3>
@@ -391,6 +433,19 @@ clean dataset ready for analysis.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
+</div>
+<div id="key-points" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div id="key-points" class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul><li>AI excels at tedious data harmonization tasks.</li>
+<li>Asking the AI to ‘audit’ data first prevents errors.</li>
+</ul></div>
+</div>
 </div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
@@ -457,8 +512,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/03-data-cleaning.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/03-data-cleaning.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-08",
-  "datePublished": "2026-01-08"
+  "dateModified": "2026-01-09",
+  "datePublished": "2026-01-09"
 }
 
   </script><script>

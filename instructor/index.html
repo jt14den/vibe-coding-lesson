@@ -208,8 +208,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#questions">Questions</a></li>
-<li><a href="#objectives">Objectives</a></li>
+        <ul><li><a href="#objectives">Objectives</a></li>
 <li><a href="#acknowledgements">Acknowledgements</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -327,14 +326,23 @@
 Coding</strong>—the practice of using AI agents and CLI tools to
 accelerate research software development while maintaining high
 standards of scientific validation.</p>
-<section><h2 class="section-heading" id="questions">Questions<a class="anchor" aria-label="anchor" href="#questions"></a></h2>
-<hr class="half-width"><ul><li>What is CLI-based AI and how does it differ from browser chats?</li>
-<li>How can I install and use the Gemini CLI?</li>
-<li>What are the best practices for prompting in a research
-context?</li>
-<li>How can I validate AI-generated code to ensure scientific
-integrity?</li>
-</ul></section><section><h2 class="section-heading" id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a></h2>
+<div id="prerequisites" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<span class="callout-header">Prerequisite</span>
+<div id="prerequisites" class="callout-inner">
+<h3 class="callout-title">Prerequisites</h3>
+<div class="callout-content">
+<ul><li>Basic familiarity with the command line (navigating directories,
+running commands).</li>
+<li>Fundamental understanding of Python (variables, functions,
+scripts).</li>
+<li>No prior experience with AI coding agents is required.</li>
+</ul></div>
+</div>
+</div>
+<section><h2 class="section-heading" id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a></h2>
 <hr class="half-width"><ul><li>Install and authenticate the Gemini CLI.</li>
 <li>Understand the advantages of autonomous agents over simple chat
 interfaces.</li>
@@ -360,6 +368,8 @@ any links that you are not going to use.
  1. <a href="01-cli-intro.html">Understanding CLI-Based AI</a>
 </td>
 <td>
+Why use a CLI for AI instead of a browser?<br>What is the GEMINI.md
+file?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>00h 25m
@@ -368,6 +378,7 @@ any links that you are not going to use.
  2. <a href="02-prompts.html">Best Practices for Prompting</a>
 </td>
 <td>
+How do I write effective prompts?<br>What are common AI failures?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>01h 00m
@@ -377,6 +388,8 @@ any links that you are not going to use.
 Agent</a>
 </td>
 <td>
+How can AI handle messy, real-world data?<br>Can I trust AI to
+standardize inconsistent files?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>01h 50m
@@ -385,6 +398,8 @@ Agent</a>
  4. <a href="04-validation.html">Validation Best Practices</a>
 </td>
 <td>
+How do I know if the AI code is correct?<br>What is a ‘sanity check’ in
+code?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>03h 00m
@@ -393,6 +408,7 @@ Agent</a>
  5. <a href="05-limitations.html">Limitations and Cautions</a>
 </td>
 <td>
+When should I NOT use AI?<br>What are common failure modes?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>03h 15m
@@ -401,6 +417,7 @@ Agent</a>
  6. <a href="06-resources.html">Resources and Next Steps</a>
 </td>
 <td>
+What other tools are available?<br>Where can I find help?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>03h 25m
@@ -416,35 +433,129 @@ any links that you are not going to use.
  --></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><p>To follow this lesson, you will need the Gemini CLI installed on your
-machine.</p>
-<section><h2 class="section-heading" id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a></h2>
-<hr class="half-width"><ul><li>
-<strong>Node.js</strong>: The Gemini CLI is built with Node.js.
-<ul><li>
-<strong>Windows</strong>: Download the LTS version from <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</li>
+      </section><section id="setup"><p>To follow this lesson, you will need the Gemini CLI and Python
+installed on your machine.</p>
+<section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
+<hr class="half-width"><div id="details" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="details" class="callout-inner">
+<h3 class="callout-title">Details</h3>
+<div class="callout-content">
+<p>We will be using the Gemini CLI (built on Node.js) and Python for
+data processing. Please follow the instructions below for your operating
+system.</p>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Windows
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li><p><strong>Install Node.js</strong>: Download the LTS version from
+<a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p></li>
+<li><p><strong>Install Python</strong>: Download from <a href="https://python.org" class="external-link">python.org</a> (ensure “Add to PATH” is
+checked).</p></li>
 <li>
-<strong>macOS/Linux</strong>: Use your package manager (e.g.,
-<code>brew install node</code> or
-<code>sudo apt install nodejs npm</code>).</li>
-</ul></li>
-</ul></section><section><h2 class="section-heading" id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a></h2>
-<hr class="half-width"><p>Install the Google Generative AI CLI globally using
-<code>npm</code>:</p>
+<p><strong>Open PowerShell as Administrator</strong> and run:</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">POWERSHELL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
+<pre class="sourceCode powershell" tabindex="0"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>npm install <span class="op">-</span>g @google<span class="op">/</span>generative-ai-cli</span></code></pre>
 </div>
-</section><section><h2 class="section-heading" id="authentication">Authentication<a class="anchor" aria-label="anchor" href="#authentication"></a></h2>
-<hr class="half-width"><p>Once installed, you need to authenticate with your Google
-account:</p>
+</li>
+<li>
+<p><strong>Authenticate</strong>:</p>
 <div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">POWERSHELL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode powershell" tabindex="0"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>gemini auth</span></code></pre>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  MacOS
+  </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li><p><strong>Install Node.js</strong>: <code>brew install node</code>
+(if you have Homebrew) or download from <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p></li>
+<li><p><strong>Install Python</strong>: <code>brew install python</code>
+or download from <a href="https://python.org" class="external-link">python.org</a>.</p></li>
+<li>
+<p><strong>Open Terminal</strong> and run:</p>
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
 </div>
-<p>Follow the prompts in your browser to complete the setup.</p>
+</li>
+<li>
+<p><strong>Authenticate</strong>:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
+  <h3 class="accordion-header" id="headingSpoiler3">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Linux
+  </h3>
+</button>
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li>
+<p><strong>Install Node.js and npm</strong>:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">sudo</span> apt install nodejs npm</span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>Install Gemini CLI</strong>:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>Authenticate</strong>:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -500,8 +611,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/instructor/index.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/instructor/index.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-08",
-  "datePublished": "2026-01-08"
+  "dateModified": "2026-01-09",
+  "datePublished": "2026-01-09"
 }
 
   </script><script>

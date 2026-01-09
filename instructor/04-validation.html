@@ -327,7 +327,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Validation Best Practices</h1>
-        <p>Last updated on 2026-01-08 |
+        <p>Last updated on 2026-01-09 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/04-validation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -340,6 +340,30 @@
         </div>
 
         
+
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul><li>How do I know if the AI code is correct?</li>
+<li>What is a ‘sanity check’ in code?</li>
+</ul></div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul><li>Implement data integrity checks.</li>
+<li>Use assert statements for defensive programming.</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="trust-but-verify">Trust but Verify<a class="anchor" aria-label="anchor" href="#trust-but-verify"></a></h2>
 <hr class="half-width"><p>AI is great at writing code that <em>runs</em>, but does it write
 code that is <em>right</em>? In data cleaning, a common failure is
@@ -373,11 +397,11 @@ Claude or ChatGPT) to audit your cleaning script.</p>
 <em>Prompt:</em> “Review this pandas script. Are there any edge
 cases where it might fail to parse a date? Does it handle the median
 imputation correctly if all values are missing?”</li>
-</ul><div id="challenge-the-integrity-check" class="callout discussion">
+</ul><div id="challenge-the-integrity-check" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="challenge-the-integrity-check" class="callout-inner">
 <h3 class="callout-title">Challenge: The Integrity Check</h3>
 <div class="callout-content">
@@ -389,8 +413,44 @@ the Gemini CLI to write a validation script.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check three things: 1. There are no duplicate participant_ids (print 'Pass' or 'Fail'). 2. All 'score' values are between 0 and 100 (or whatever the range was). 3. There are zero missing values. If any check fails, print a warning."</span></span></code></pre>
 </div>
-<p>Run the script. Did your cleaning pipeline actually work?</p>
+<p>Once generated, run the script with
+<code>python validate_data.py</code>. Did your cleaning pipeline
+actually work?</p>
 </div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Expected Output
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>If your cleaning pipeline was successful, you should see something
+like:</p>
+<pre class="text"><code>Checking for duplicates... PASS
+Checking score range (0-100)... PASS
+Checking for missing values... PASS
+Validation complete. No errors found.</code></pre>
+<p>If you see “FAIL” or “Warning”, investigate your
+<code>clean_and_merge.py</code> script!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="key-points" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div id="key-points" class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul><li>Never trust a cleaning script without verifying the output.</li>
+<li>Automated tests prevent ‘silent’ data corruption.</li>
+</ul></div>
 </div>
 </div>
 <!--
@@ -458,8 +518,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/instructor/04-validation.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/instructor/04-validation.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-08",
-  "datePublished": "2026-01-08"
+  "dateModified": "2026-01-09",
+  "datePublished": "2026-01-09"
 }
 
   </script><script>
