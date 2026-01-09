@@ -23,11 +23,13 @@ exercises: 0
 ## The AI Tool Landscape
 
 ### Coding Tools
+
 - **Claude Code**: Anthropic's CLI (competitor to Gemini CLI).
 - **GitHub Copilot**: IDE-integrated autocomplete.
 - **Cursor**: A full code editor with built-in AI.
 
 ### Research-Specific Tools
+
 - **Elicit**: Paper discovery and data extraction.
 - **Consensus**: Searching for scientific consensus.
 - **NotebookLM**: Chatting with your own research PDFs.
