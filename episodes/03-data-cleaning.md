@@ -2,17 +2,33 @@
 title: "Live Demo: The Data Cleaning Agent"
 teaching: 30
 exercises: 20
-questions:
-- "How can AI handle messy, real-world data?"
-- "Can I trust AI to standardize inconsistent files?"
-objectives:
-- "Use Gemini to generate a realistic test dataset."
-- "Build a data processing pipeline that handles inconsistencies."
-- "Document the cleaning process automatically."
-keypoints:
-- "AI excels at tedious data harmonization tasks."
-- "Asking the AI to 'audit' data first prevents errors."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+## Objectives
+
+- Use Gemini to generate a realistic test dataset.
+- Build a data processing pipeline that handles inconsistencies.
+- Document the cleaning process automatically.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How can AI handle messy, real-world data?
+- Can I trust AI to standardize inconsistent files?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Live Demo Warning
+
+This episode is designed as a **Live Demo**. The instructor plays the role of the "Data Janitor" while learners watch or follow along. 
+**Prerequisite:** Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The Universal Headache: Messy Data
 
@@ -48,6 +64,13 @@ gemini "Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 sit
 
 Run `python clean_and_merge.py`. You now have a single, clean dataset ready for analysis.
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Why ask for comments?
+Notice we explicitly asked the AI to "Add comments explaining each step." This is crucial for **Vibe Coding**. Since you didn't write the code yourself, these comments become your primary way of verifying the logic later. It transforms the script from a black box into a readable methodology.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Step 4: Automating Documentation
 
 Finally, a reproducible project needs a README.
@@ -55,3 +78,12 @@ Finally, a reproducible project needs a README.
 ```bash
 gemini "Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."
 ```
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+## Key Points
+
+- AI excels at tedious data harmonization tasks.
+- Asking the AI to 'audit' data first prevents errors.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
