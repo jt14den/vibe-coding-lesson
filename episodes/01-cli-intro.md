@@ -90,15 +90,27 @@ Compare the output to what you see when you run `ls` (or `dir` on Windows) and `
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Project Context: GEMINI.md
+## Project Context: GEMINI.md and CONTEXT.md
 
-To get the most out of a CLI agent, you should provide it with persistent context about your project. In the broader AI world, this is often called a **Context File** (or `CONTEXT.md`), but different tools require specific filenames:
+To get the most out of a CLI agent, you should provide it with persistent context about your project. Different tools look for specific filenames to automatically load this context:
 
 *   **Gemini CLI**: Looks for `GEMINI.md`
 *   **Claude Code**: Looks for `CLAUDE.md`
 *   **Cursor**: Looks for `.cursorrules`
 
-By creating a `GEMINI.md` file in your project root, you can define:
+### The Emerging Standard: CONTEXT.md
+
+While these tools require specific filenames, an **emerging standard** is to maintain a single master file named `CONTEXT.md`.
+
+**Why use CONTEXT.md?**
+1.  **Tool Agnosticism**: It acts as a "Source of Truth." You can link it to tool-specific files (e.g., `cp CONTEXT.md GEMINI.md`) so you don't have to duplicate work if you switch tools.
+2.  **Web-Based AI**: If you use ChatGPT or Claude in the browser, they cannot read your files. You can quickly copy the contents of `CONTEXT.md` into the chat to "prime" the session with your project's rules.
+
+For this specific lesson, we will use `GEMINI.md` directly so the CLI works immediately.
+
+### What to Include
+
+By creating this file in your project root, you can define:
 
 - Project goals.
 - File structure overview.
