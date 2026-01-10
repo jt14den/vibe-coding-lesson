@@ -32,7 +32,7 @@ For researchers, this means:
 - Install and authenticate the Gemini CLI.
 - Understand the advantages of autonomous agents over simple chat interfaces.
 - Apply the CLEAR and CONTEXT frameworks for effective prompting.
-- Implement five key validation strategies: Synthetic Data, Theoretical, Cross-AI, Unit Testing, and Documentation.
+- Implement key validation strategies: Sanity Checks, Defensive Programming, and Cross-AI auditing.
 
 ## Acknowledgements
 This lesson is adapted from the workshop **"Vibe Coding for Research: AI-Assisted Programming with Validation Best Practices"** developed by **Bruno Smaniotto** and **Tom van Nuenen** at the **UC Berkeley D-Lab**. 
