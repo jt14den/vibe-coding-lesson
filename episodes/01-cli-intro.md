@@ -32,6 +32,23 @@ Most researchers are familiar with chat-based AI in a browser. However, for codi
 | **Execution** | You run the code | AI runs code and sees results |
 | **Autonomy** | One response at a time | Autonomous multi-step execution |
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Why Gemini? (UC & UCLA Context)
+
+We use the Gemini CLI for this lesson because the **University of California (UC)** system, including **UCLA**, has a Google Workspace agreement that offers significant benefits for researchers:
+
+1.  **Data Privacy**: When using "Gemini for Google Workspace" (the enterprise version), your data is **not** used to train the public models. Your research data stays yours.
+2.  **Access**: It is integrated into the tools we already use (Drive, Docs, etc.).
+3.  **Cost**: It is often included in institutional licenses, avoiding personal subscription fees.
+
+*Note: Always verify with your specific campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool.*
+
+**Looking Ahead: Open Models**
+While we use Gemini today, the skills you learn transfer directly to "Open LLMs" (like **Gemma** or **Llama**). These can be run locally on your own laptop (using tools like **Ollama**), offering the ultimate privacy: no data ever leaves your machine.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The Mental Shift: From Writer to Editor
 
 Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Vibe coding offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks.
@@ -75,7 +92,13 @@ Compare the output to what you see when you run `ls` (or `dir` on Windows) and `
 
 ## Project Context: GEMINI.md
 
-To get the most out of a CLI agent, you should provide it with persistent context about your project. By creating a `GEMINI.md` file in your project root, you can define:
+To get the most out of a CLI agent, you should provide it with persistent context about your project. In the broader AI world, this is often called a **Context File** (or `CONTEXT.md`), but different tools require specific filenames:
+
+*   **Gemini CLI**: Looks for `GEMINI.md`
+*   **Claude Code**: Looks for `CLAUDE.md`
+*   **Cursor**: Looks for `.cursorrules`
+
+By creating a `GEMINI.md` file in your project root, you can define:
 
 - Project goals.
 - File structure overview.
