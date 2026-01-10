@@ -5,7 +5,7 @@ start: true
 
 AI-Assisted Programming with Validation Best Practices.
 
-This lesson introduces researchers to **Vibe Coding**—the practice of using AI agents and CLI tools to accelerate research software development while maintaining high standards of scientific validation.
+This lesson introduces researchers to **Vibe Coding**—the practice of using AI agents and CLI tools to accelerate research software development while maintaining high standards of **software correctness and reproducibility**.
 
 ## What is "Vibe Coding"?
 
