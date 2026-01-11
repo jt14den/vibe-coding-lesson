@@ -419,10 +419,65 @@ engine).</li>
 <strong>Validation Focus</strong>: Emphasis on Synthetic Data,
 Theoretical validation, Cross-AI verification, Unit Testing, and
 Documentation.</li>
-</ul><!--
+</ul></div>
+<div class="section level2">
+<h2 id="carpentries-workbench-standards">Carpentries Workbench Standards<a class="anchor" aria-label="anchor" href="#carpentries-workbench-standards"></a></h2>
+<div class="section level3">
+<h3 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a></h3>
+<ul><li>
+<strong>Pedagogy</strong>: <a href="https://carpentries.github.io/lesson-development-training/" class="external-link">Carpentries
+Lesson Development Training</a>
+</li>
+<li>
+<strong>Technical</strong>: <a href="https://carpentries.github.io/workbench/" class="external-link">The Carpentries
+Workbench</a>
+</li>
+</ul></div>
+<div class="section level3">
+<h3 id="component-syntax">Component Syntax<a class="anchor" aria-label="anchor" href="#component-syntax"></a></h3>
+<p>The Workbench uses <strong>Pandoc fenced divs</strong> (colons
+<code>:::</code>) for special blocks. The opening and closing tags must
+match in length.</p>
+<p><strong>Common Blocks:</strong> *
+<code>::::::::::::::::::::::::::::::::::::::: objectives</code> (Start
+of episode) *
+<code>:::::::::::::::::::::::::::::::::::::::: questions</code> (Start
+of episode) *
+<code>::::::::::::::::::::::::::::::::::::::::: callout</code>
+(Info/Warning boxes) *
+<code>::::::::::::::::::::::::::::::::::::::::: challenge</code>
+(Exercises) *
+<code>:::::::::::::::::::::::::::::::::::::::: solution</code> (Must be
+nested inside challenge) *
+<code>::::::::::::::::::::::::::::::::::::::::: instructor</code>
+(Instructor-only notes) *
+<code>:::::::::::::::::::::::::::::::::::::::: keypoints</code> (End of
+episode)</p>
+</div>
+<div class="section level3">
+<h3 id="structure-rules">Structure Rules<a class="anchor" aria-label="anchor" href="#structure-rules"></a></h3>
+<ol style="list-style-type: decimal"><li>
+<strong>Front Matter</strong>: Each episode (<code>.md</code> file)
+must start with YAML front matter defining <code>title</code>,
+<code>teaching</code> (minutes), and <code>exercises</code>
+(minutes).</li>
+<li>
+<strong>Flow</strong>: <code>objectives</code> and
+<code>questions</code> blocks must appear immediately after the front
+matter.</li>
+<li>
+<strong>Closing</strong>: The <code>keypoints</code> block must be
+the final element of the episode.</li>
+<li>
+<strong>Nesting</strong>: A <code>solution</code> block must always
+be inside a <code>challenge</code> block. Always check for matching
+closing tags
+(<code>::::::::::::::::::::::::::::::::::::::::::::::::::</code>).</li>
+</ol><!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  --></div>
+</div>
 </div>
 
 
