@@ -365,22 +365,26 @@
 </div>
 </div>
 <section><h2 class="section-heading" id="trust-but-verify">Trust but Verify<a class="anchor" aria-label="anchor" href="#trust-but-verify"></a></h2>
-<hr class="half-width"><p>AI is great at writing code that <em>runs</em>, but does it write
-code that is <em>right</em>? In data cleaning, a common failure is
-“silent dropping”—where the AI’s script runs without error but
-accidentally deletes 50% of your data because of a date parsing
-mismatch.</p>
+<hr class="half-width"><p>AI is excellent at writing code that runs, but the primary challenge
+for researchers is ensuring that the code is <em>right</em>. In data
+cleaning, a common failure mode is “silent dropping”—a scenario where
+the AI’s script executes without error but accidentally deletes
+significant portions of your data due to a minor date parsing mismatch
+or an unhandled edge case. To mitigate this, we must build validation
+into every step of the workflow.</p>
 <div class="section level3">
-<h3 id="the-sanity-check-post-processing-validation">1. The “Sanity Check” (Post-Processing Validation)<a class="anchor" aria-label="anchor" href="#the-sanity-check-post-processing-validation"></a></h3>
-<p>After merging data, you should always verify basic facts. *
-<strong>Row Counts</strong>: If you had 3 files of 50 rows, your master
-file should have 150 rows (unless you explicitly filtered). *
-<strong>Column Consistency</strong>: Do you have the expected columns? *
-<strong>Data Types</strong>: Are the dates actually dates, or just
-strings?</p>
+<h3 id="the-sanity-check">The “Sanity Check”<a class="anchor" aria-label="anchor" href="#the-sanity-check"></a></h3>
+<p>After processing or merging data, your first step should always be a
+high-level sanity check to verify basic facts about your dataset. Start
+by checking row counts: if you merged three files of 50 rows each, your
+master file should contain exactly 150 rows unless you explicitly
+filtered them. You should also verify column consistency to ensure all
+expected variables are present and check data types to confirm that
+dates and numbers are being treated as their correct types rather than
+generic strings.</p>
 </div>
 <div class="section level3">
-<h3 id="defensive-programming">2. Defensive Programming<a class="anchor" aria-label="anchor" href="#defensive-programming"></a></h3>
+<h3 id="defensive-programming">Defensive Programming<a class="anchor" aria-label="anchor" href="#defensive-programming"></a></h3>
 <p>You can ask the AI to write “assert” statements inside your
 processing script. These will stop the script immediately if something
 looks wrong.</p>
@@ -391,54 +395,14 @@ looks wrong.</p>
 </li>
 </ul></div>
 <div class="section level3">
-<h3 id="cross-ai-validation">3. Cross-AI Validation<a class="anchor" aria-label="anchor" href="#cross-ai-validation"></a></h3>
-<p>Just like with the regression model, you can ask a second AI (like
-Claude or ChatGPT) to audit your cleaning script.</p>
-<ul><li>
-<em>Prompt:</em> “Review this pandas script. Are there any edge
-cases or might fail to parse a date? Does it handle the median
-imputation correctly if all values are missing?”</li>
-</ul><div id="challenge-the-second-opinion-cross-ai-audit" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="challenge-the-second-opinion-cross-ai-audit" class="callout-inner">
-<h3 class="callout-title">Challenge: The Second Opinion (Cross-AI
-Audit)</h3>
-<div class="callout-content">
-<p>Now that you have your <code>validate_data.py</code> script, let’s
-practice <strong>Cross-AI Validation</strong>.</p>
-<ol style="list-style-type: decimal"><li>Open a <strong>new</strong> chat session (or use a different model
-if available, like Claude or ChatGPT).</li>
-<li>Paste your <code>validate_data.py</code> code into the chat.</li>
-<li>Ask: “Review this Python script for potential bugs. Does it
-correctly handle a case where the file is completely empty? What happens
-if the ‘score’ column contains text?”</li>
-</ol><p><strong>Reflect:</strong> Did the second AI find something the first
-AI (and you) missed?</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Discussion
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>It is common for the second AI to point out edge cases, such as: *
-“The script might crash if the file doesn’t exist.” * “It treats ‘N/A’
-strings as valid values instead of missing data.” * “It checks for
-<code>score &lt; 0</code> but not <code>score &gt; 100</code>.”</p>
-<p>This “Peer Review” process is a powerful way to reduce your
-Verification Load.</p>
-</div>
-</div>
-</div>
-</div>
+<h3 id="cross-ai-validation">Cross-AI Validation<a class="anchor" aria-label="anchor" href="#cross-ai-validation"></a></h3>
+<p>Just as a researcher might ask a colleague to peer-review their
+methodology, you can use a second AI model to audit your cleaning
+scripts. By providing your script to a different model (such as Claude
+or ChatGPT) and asking it to look for edge cases, date parsing
+vulnerabilities, or logic errors, you gain a “second opinion” that often
+catches subtle bugs the first model might have missed.</p>
+
 <div id="challenge-the-integrity-check" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -447,28 +411,32 @@ Verification Load.</p>
 <div id="challenge-the-integrity-check" class="callout-inner">
 <h3 class="callout-title">Challenge: The Integrity Check</h3>
 <div class="callout-content">
-<p>We need to prove our <code>master_dataset.csv</code> is clean. Use
-the Gemini CLI to write a validation script.</p>
-<p>Run this command:</p>
+<p>To prove our <code>master_dataset.csv</code> is clean, we will write
+a dedicated validation script using the Gemini CLI. Run the following
+command to create a script that loads the dataset and performs three
+specific checks: ensuring there are no duplicate IDs, verifying that all
+scores fall within the expected range, and confirming that there are no
+missing values.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check three things: 1. There are no duplicate participant_ids (print 'Pass' or 'Fail'). 2. All 'score' values are between 0 and 100 (or whatever the range was). 3. There are zero missing values. If any check fails, print a warning."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check that there are no duplicate participant_ids, all 'score' values are between 0 and 100, and there are zero missing values. If any check fails, print a warning; otherwise, print 'PASS' for each step."</span></span></code></pre>
 </div>
 <p>Once generated, run the script with
-<code>python validate_data.py</code>. Did your cleaning pipeline
-actually work?</p>
+<code>python validate_data.py</code>. If you see a “FAIL” or a warning,
+you will need to investigate your <code>clean_and_merge.py</code> script
+to find the source of the error.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
   Expected Output
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>If your cleaning pipeline was successful, you should see something
 like:</p>
@@ -482,6 +450,46 @@ Validation complete. No errors found.</code></pre>
 </div>
 </div>
 </div>
+<div id="challenge-the-second-opinion" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-second-opinion" class="callout-inner">
+<h3 class="callout-title">Challenge: The Second Opinion</h3>
+<div class="callout-content">
+<p>Now that you have your validation script, let’s practice the
+<strong>Cross-AI Validation</strong> strategy.</p>
+<ol style="list-style-type: decimal"><li>Open a <strong>new</strong> chat session in a different AI tool
+(like Claude or ChatGPT).</li>
+<li>Paste the contents of your <code>validate_data.py</code> code into
+the chat.</li>
+<li>Ask the AI to review the script for potential bugs, specifically
+asking how it would handle empty files or columns containing unexpected
+text.</li>
+</ol><p><strong>Reflect:</strong> Did the second AI identify any
+vulnerabilities that you or the first AI missed?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Discussion
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>It is common for a second AI to point out important edge cases, such
+as the script crashing if a file is missing or failing to account for
+“N/A” strings that aren’t automatically recognized as missing data. This
+“Peer Review” process significantly reduces your individual verification
+load and increases the robustness of your research.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -490,9 +498,12 @@ Validation complete. No errors found.</code></pre>
 <div id="key-points" class="callout-inner">
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
-<ul><li>Never trust a cleaning script without verifying the output.</li>
-<li>Automated tests prevent ‘silent’ data corruption.</li>
-<li>Cross-AI auditing provides a second opinion.</li>
+<ul><li>Automated tests and ‘sanity checks’ prevent silent data
+corruption.</li>
+<li>Defensive programming with <code>assert</code> statements ensures
+that code fails loudly when errors occur.</li>
+<li>Cross-AI auditing provides a valuable second opinion for verifying
+complex logic.</li>
 </ul></div>
 </div>
 </div>

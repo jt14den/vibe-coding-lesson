@@ -265,7 +265,6 @@
         <ul><li><a href="#the-ai-tool-landscape">The AI Tool Landscape</a></li>
 <li><a href="#extending-capabilities">Extending Capabilities</a></li>
 <li><a href="#citing-and-crediting-ai">Citing and Crediting AI</a></li>
-<li><a href="#example-attribution-block">Example Attribution Block</a></li>
 <li><a href="#navigating-the-ai-landscape-signal-vs.-noise">Navigating the AI Landscape: Signal vs. Noise</a></li>
 <li><a href="#getting-help">Getting Help</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -369,41 +368,35 @@
 </div>
 </div>
 <section><h2 class="section-heading" id="the-ai-tool-landscape">The AI Tool Landscape<a class="anchor" aria-label="anchor" href="#the-ai-tool-landscape"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="coding-tools">Coding Tools<a class="anchor" aria-label="anchor" href="#coding-tools"></a></h3>
-<ul><li>
-<strong>Claude Code</strong>: Anthropic’s CLI (competitor to Gemini
-CLI).</li>
-<li>
-<strong>GitHub Copilot</strong>: IDE-integrated autocomplete.</li>
-<li>
-<strong>Cursor</strong>: A full code editor with built-in AI.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="research-specific-tools">Research-Specific Tools<a class="anchor" aria-label="anchor" href="#research-specific-tools"></a></h3>
-<ul><li>
-<strong>Elicit</strong>: Paper discovery and data extraction.</li>
-<li>
-<strong>Consensus</strong>: Searching for scientific consensus.</li>
-<li>
-<strong>NotebookLM</strong>: Chatting with your own research
-PDFs.</li>
-</ul></div>
+<hr class="half-width"><p>The ecosystem of AI tools for research is expanding rapidly, offering
+a variety of specialized interfaces for different stages of the
+development cycle. For direct coding, tools like <strong>Claude
+Code</strong> (Anthropic’s CLI competitor to Gemini) and <strong>GitHub
+Copilot</strong> provide integrated autocomplete and refactoring support
+within your existing environment. Some researchers prefer a full
+AI-native code editor like <strong>Cursor</strong>, which is built from
+the ground up to integrate AI into every aspect of file management and
+script generation.</p>
+<p>Beyond general-purpose coding assistants, research-specific tools are
+emerging to handle the literature and data extraction phases of
+scholarship. <strong>Elicit</strong> and <strong>Consensus</strong>
+focus on scientific paper discovery and extracting evidence-based
+claims, while Google’s <strong>NotebookLM</strong> allows you to ground
+an AI’s knowledge in your own collection of research PDFs, providing a
+private environment for summarizing and querying your specific
+documents.</p>
 </section><section><h2 class="section-heading" id="extending-capabilities">Extending Capabilities<a class="anchor" aria-label="anchor" href="#extending-capabilities"></a></h2>
-<hr class="half-width"><p>While we focused on the CLI, the ecosystem is evolving to let AI
-tools “reach out” to other software.</p>
-<ul><li>
-<strong>Browser Extensions (Plugins)</strong>: Tools like ChatGPT
-and Gemini (in browser) often have “extensions” to connect with Google
-Drive, Kayak, or WolframAlpha.</li>
-<li>
-<strong>Model Context Protocol (MCP)</strong>: This is an emerging
-open standard (adopted heavily by <strong>Claude</strong> and others)
-that lets you connect an AI assistant to <em>any</em> local or remote
-data source—like your PostgreSQL database, your Slack, or your local
-file system—without uploading everything. It is the “USB-C port” for AI
-applications.</li>
-</ul></section><section><h2 class="section-heading" id="citing-and-crediting-ai">Citing and Crediting AI<a class="anchor" aria-label="anchor" href="#citing-and-crediting-ai"></a></h2>
+<hr class="half-width"><p>While we have focused on the CLI, the ecosystem is evolving to allow
+AI tools to “reach out” to other software. Many browser-based models now
+offer extensions that connect with Google Drive, WolframAlpha, or other
+professional services. A significant development in this space is the
+<strong>Model Context Protocol (MCP)</strong>, an emerging open standard
+that allows an AI assistant to securely connect to any local or remote
+data source—such as a PostgreSQL database or your local file
+system—without requiring you to upload your data to a central server.
+This “USB-C port” for AI applications is quickly becoming the standard
+for tool interoperability.</p>
+</section><section><h2 class="section-heading" id="citing-and-crediting-ai">Citing and Crediting AI<a class="anchor" aria-label="anchor" href="#citing-and-crediting-ai"></a></h2>
 <hr class="half-width"><p>Transparent attribution is critical for Open Science. Current
 academic standards (including <strong>COPE</strong>,
 <strong>Nature</strong>, and <strong>Elsevier</strong>) agree that
@@ -413,11 +406,16 @@ methodological tools.</p>
 <div class="section level3">
 <h3 id="recommended-attribution-pattern">Recommended Attribution Pattern<a class="anchor" aria-label="anchor" href="#recommended-attribution-pattern"></a></h3>
 <p><strong>1. In Code Repositories (<code>README.md</code>):</strong>
-Add a specific “AI Usage” section to your project documentation:
-::::::::::::::::::::::::::::::::::::::::: callout</p>
+Add a specific “AI Usage” section to your project documentation:</p>
+<div id="example-attribution-block" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-</section><section><h2 class="section-heading" id="example-attribution-block">Example Attribution Block<a class="anchor" aria-label="anchor" href="#example-attribution-block"></a></h2>
-<hr class="half-width"><ul><li>
+<span class="callout-header">Callout</span>
+<div id="example-attribution-block" class="callout-inner">
+<h3 class="callout-title">Example Attribution Block</h3>
+<div class="callout-content">
+<ul><li>
 <strong>Model:</strong> Google Gemini 1.5 Pro (Jan 2026
 version)</li>
 <li>
@@ -426,12 +424,15 @@ Refactoring.</li>
 <li>
 <strong>Verification:</strong> All code verified by [Your Name] via
 unit tests.</li>
-</ul><p>::::::::::::::::::::::::::::::::::::::::::::::::::</p>
+</ul></div>
+</div>
+</div>
 <p><strong>2. In Manuscripts:</strong> Cite the model in the
 <strong>Methods</strong> section or <strong>Acknowledgements</strong>. *
 <em>Example:</em> “We used Google Gemini (version 1.5) to assist with
 data cleaning scripts. Prompts and raw outputs are available in the
 supplementary material.”</p>
+</div>
 <div class="section level3">
 <h3 id="resources-standards">Resources &amp; Standards<a class="anchor" aria-label="anchor" href="#resources-standards"></a></h3>
 <ul><li>
@@ -454,7 +455,7 @@ AI itself.</li>
 <div id="summary-checklist" class="callout-inner">
 <h3 class="callout-title">Summary Checklist</h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li><label><input type="checkbox"><strong>CLI tools</strong> operate
+<ul class="task-list"><li><label><input type="checkbox"><strong>CLI tools</strong> operate
 directly on your files—use them for multi-step tasks.</label></li>
 <li><label><input type="checkbox"><strong>GEMINI.md</strong> provides
 the persistent context your agent needs.</label></li>
@@ -464,7 +465,7 @@ frameworks improve your results.</label></li>
 synthetic data and statistical theory.</label></li>
 <li><label><input type="checkbox"><strong>You are the pilot</strong>;
 the AI is the co-pilot.</label></li>
-</ol></div>
+</ul></div>
 </div>
 </div>
 </div>
@@ -500,7 +501,7 @@ through this mental checklist:</p>
 <div id="hype-vs.-reality-checklist" class="callout-inner">
 <h3 class="callout-title">Hype vs. Reality Checklist</h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li><label><input type="checkbox"><strong>The “Magic” Test:</strong>
+<ul class="task-list"><li><label><input type="checkbox"><strong>The “Magic” Test:</strong>
 Does the tool claim to do <em>everything</em> (write, analyze, cite,
 submit)? <strong>Hype.</strong> Real tools usually do <em>one</em> thing
 well (e.g., “summarize PDFs” or “generate Python code”).</label></li>
@@ -516,7 +517,7 @@ assistant.</label></li>
 Test:</strong> If a service is free and seemingly unlimited, <strong>you
 (and your data)</strong> are likely the product. Check the privacy
 policy for “training on user data.”</label></li>
-</ol></div>
+</ul></div>
 </div>
 </div>
 </div>

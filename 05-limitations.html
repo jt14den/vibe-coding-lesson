@@ -366,36 +366,36 @@
 </div>
 </div>
 <section><h2 class="section-heading" id="when-not-to-trust-ai-code">When NOT to Trust AI Code<a class="anchor" aria-label="anchor" href="#when-not-to-trust-ai-code"></a></h2>
-<hr class="half-width"><p>Even with validation, there are areas where AI is particularly
-risky:</p>
-<ul><li>
-<strong>Security-Critical Code</strong>: Authentication, encryption,
-or sensitive data handling.</li>
-<li>
-<strong>Novel Research Methods</strong>: If you are inventing a new
-statistical method, the AI only knows what has been published
-before.</li>
-<li>
-<strong>Domain-Specific Quirks</strong>: AI doesn’t understand the
-specific “gotchas” of your field’s data (e.g., specific sensor noise
-patterns).</li>
-<li>
-<strong>Performance-Critical Sections</strong>: AI often picks the
-most common (not the fastest) algorithm.</li>
-</ul></section><section><h2 class="section-heading" id="common-failure-modes">Common Failure Modes<a class="anchor" aria-label="anchor" href="#common-failure-modes"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li>
-<strong>Hallucinated Functions</strong>: Invoking libraries or APIs
-that don’t actually exist.</li>
-<li>
-<strong>Outdated Approaches</strong>: Using deprecated code from its
-training data (e.g., old pandas syntax).</li>
-<li>
-<strong>Confident Incorrectness</strong>: Presenting a wrong formula
-with absolute certainty.</li>
-<li>
-<strong>Over-engineering</strong>: Adding 500 lines of code for a
-5-line problem.</li>
-</ol><div id="challenge-spot-the-hallucination" class="callout challenge">
+<hr class="half-width"><p>Even with robust validation practices, there are specific scenarios
+where using AI-generated code introduces unacceptable risks to research
+integrity. Security-critical tasks—such as authentication, encryption,
+or the handling of sensitive participant data—should never be left to an
+AI without expert oversight. Similarly, when your research involves
+novel statistical methods or domain-specific quirks, the AI may fail
+because it can only synthesize information from its training data, which
+might not include the latest breakthroughs or the specific sensor noise
+patterns unique to your field. In performance-critical sections of your
+code, AI models also tend to prioritize the most common algorithms
+rather than the most efficient ones, potentially leading to bottlenecks
+in large-scale data processing.</p>
+</section><section><h2 class="section-heading" id="common-failure-modes">Common Failure Modes<a class="anchor" aria-label="anchor" href="#common-failure-modes"></a></h2>
+<hr class="half-width"><p>Understanding the common ways AI fails can help you spot errors
+before they impact your results. One frequent issue is the generation of
+<strong>hallucinated functions</strong>, where the model invokes
+libraries or APIs that simply do not exist. You may also encounter
+<strong>outdated approaches</strong>, as the AI might use deprecated
+syntax from its training data that no longer works with current software
+versions.</p>
+<p>Perhaps the most dangerous failure mode is <strong>confident
+incorrectness</strong>, where the AI presents a fundamentally wrong
+formula or logic with absolute certainty. This is often accompanied by
+<strong>over-engineering</strong>, where the model generates hundreds of
+lines of complex code for a problem that requires only a few.
+Recognizing these patterns allows you to maintain the “Editor’s
+mindset,” treating the AI’s output as a draft that requires careful
+scrutiny rather than a finished product.</p>
+
+<div id="challenge-spot-the-hallucination" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -421,7 +421,7 @@ instructions for this non-existent library?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Often, the AI will confidently describe how to install and use the
 fake library. It might even provide fake code snippets like

@@ -372,42 +372,55 @@ algorithms—it’s cleaning and merging inconsistent files. In this demo,
 we will use Gemini to act as our “Data Janitor,” automating the
 standardization of messy CSV files.</p>
 <div class="section level3">
-<h3 id="step-1-generating-the-messy-data">Step 1: generating the “Messy” Data<a class="anchor" aria-label="anchor" href="#step-1-generating-the-messy-data"></a></h3>
-<p>First, we need something to clean. Ironically, we can use the AI to
-generate our problem. Run this command to create three inconsistent data
-files simulating a multi-site study:</p>
+<h3 id="generating-messy-data">Generating Messy Data<a class="anchor" aria-label="anchor" href="#generating-messy-data"></a></h3>
+<p>To practice cleaning, we first need a dataset with realistic
+inconsistencies. We can use the AI to simulate a multi-site study where
+each location used slightly different naming conventions or date
+formats. Run the following command to generate three CSV
+files—<code>site_A.csv</code>, <code>site_B.csv</code>, and
+<code>site_C.csv</code>. The prompt instructs the AI to purposefully
+include inconsistent column names (like <code>ParticipantID</code> vs
+<code>id</code>) and varied date formats to mimic real-world data
+collection errors.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and weird date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."</span></span></code></pre>
 </div>
-<p>Once you run the generated script
-(<code>python make_messy_data.py</code>), you will have three
+<p>Once you run the generated script with
+<code>python make_messy_data.py</code>, you will have three
 headache-inducing files in your directory.</p>
 </div>
 <div class="section level3">
-<h3 id="step-2-the-audit">Step 2: The Audit<a class="anchor" aria-label="anchor" href="#step-2-the-audit"></a></h3>
-<p>Before fixing anything, we need to know what we’re dealing with.
-Instead of opening each Excel file manually, let the AI inspect
-them.</p>
+<h3 id="auditing-the-data">Auditing the Data<a class="anchor" aria-label="anchor" href="#auditing-the-data"></a></h3>
+<p>Before attempting to fix the files, we need to understand the extent
+of the chaos. Instead of opening each file manually in a spreadsheet, we
+can ask the AI to write an inspection script. We want this script to
+read every CSV in the folder and report back on the filenames, the
+specific column names found in each, and the count of missing values.
+This audit gives us the “Source of Truth” needed to design our cleaning
+logic.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print: 1. The filename 2. The list of column names 3. The number of missing values in each column."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column."</span></span></code></pre>
 </div>
-<p>Run the inspection script. You should see the chaos clearly (e.g.,
-<code>site_A</code> has <code>ParticipantID</code>, <code>site_B</code>
-has <code>id</code>).</p>
+<p>Run the inspection script. You should see the inconsistencies
+clearly, such as <code>site_A</code> using <code>ParticipantID</code>
+while <code>site_B</code> uses <code>id</code>.</p>
 </div>
 <div class="section level3">
-<h3 id="step-3-the-harmonization">Step 3: The Harmonization<a class="anchor" aria-label="anchor" href="#step-3-the-harmonization"></a></h3>
-<p>Now for the magic. We will ask Gemini to write a script that handles
-these specific inconsistencies and merges them into a clean master
-dataset.</p>
+<h3 id="harmonizing-inconsistent-files">Harmonizing Inconsistent Files<a class="anchor" aria-label="anchor" href="#harmonizing-inconsistent-files"></a></h3>
+<p>With the audit complete, we can now perform the harmonization. We
+will ask Gemini to generate a single script that reads all three site
+files, standardizes the ID and date columns, and converts all dates to a
+uniform YYYY-MM-DD format. We’ll also include logic to fill missing
+scores with the site-specific median to ensure our data is complete.
+Finally, the script will merge these into a master dataset.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should read the 3 site CSVs, rename all ID columns to 'participant_id', and standardize date columns to 'date'. Convert all dates to standard YYYY-MM-DD format, fill missing scores with the median of that site, and save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
 </div>
 
 <div id="stop-and-read-the-editors-role" class="callout">
@@ -419,9 +432,10 @@ dataset.</p>
 <h3 class="callout-title">Stop and Read: The Editor’s Role</h3>
 <div class="callout-content">
 <p>Before you run this code, open <code>clean_and_merge.py</code> in
-your editor. * Does the logic make sense? * Are the comments clear? * Do
-you see any obvious errors?</p>
-<p>Remember: You are the pilot; the AI is just the co-pilot.</p>
+your editor. Evaluate whether the logic makes sense, if the comments
+accurately describe the code, and if there are any obvious syntax
+errors. Remember that while the AI acts as your co-pilot, you are the
+pilot responsible for the final output.</p>
 </div>
 </div>
 </div>
@@ -436,10 +450,10 @@ clean dataset ready for analysis.</p>
 <h3 class="callout-title">Why ask for comments?</h3>
 <div class="callout-content">
 <p>Notice we explicitly asked the AI to “Add comments explaining each
-step.” This is crucial for <strong>Vibe Coding</strong>. Since you
-didn’t write the code yourself, these comments become your primary way
-of verifying the logic later. It transforms the script from a black box
-into a readable methodology.</p>
+step.” In a Vibe Coding workflow, where you are editing rather than
+writing from scratch, these comments are essential. They transform a
+script from a “black box” into a readable methodology that you can
+verify and document.</p>
 </div>
 </div>
 </div>
@@ -452,14 +466,14 @@ into a readable methodology.</p>
 <div id="challenge-the-curveball" class="callout-inner">
 <h3 class="callout-title">Challenge: The Curveball</h3>
 <div class="callout-content">
-<p>Research requirements change. Imagine your Principal Investigator
-(PI) just emailed you: “We need to exclude any participant with a Score
-below 10, as they are likely outliers.”</p>
-<p><strong>Your Task:</strong> Instead of editing
-<code>clean_and_merge.py</code> manually, use the Gemini CLI to update
-the script. 1. Ask the AI to read the existing file. 2. Instruct it to
-add the filtering logic. 3. Run the updated script and verify the
-“Score” column in <code>master_dataset.csv</code>.</p>
+<p>Research requirements often change mid-stream. Imagine your Principal
+Investigator (PI) just emailed you to exclude any participant with a
+Score below 10, as they are likely outliers.</p>
+<p>Instead of editing <code>clean_and_merge.py</code> manually, use the
+Gemini CLI to update the script. Ask the AI to read the existing file
+and instruct it to add the filtering logic. Once done, run the updated
+script and verify the “Score” column in
+<code>master_dataset.csv</code>.</p>
 </div>
 </div>
 </div>
@@ -491,12 +505,15 @@ the diff first?</li>
 </div>
 </div>
 <div class="section level3">
-<h3 id="step-4-automating-documentation">Step 4: Automating Documentation<a class="anchor" aria-label="anchor" href="#step-4-automating-documentation"></a></h3>
-<p>Finally, a reproducible project needs a README.</p>
+<h3 id="automating-the-documentation">Automating the Documentation<a class="anchor" aria-label="anchor" href="#automating-the-documentation"></a></h3>
+<p>A reproducible project is only as good as its documentation. For the
+final step, we will have the AI generate a README that explains the
+entire pipeline we just built, from the original raw files through the
+cleaning and imputation steps to the final output format.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."</span></span></code></pre>
 </div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
@@ -506,9 +523,12 @@ the diff first?</li>
 <div id="key-points" class="callout-inner">
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
-<ul><li><p>AI excels at tedious data harmonization tasks.</p></li>
-<li><p>Asking the AI to ‘audit’ data first prevents errors.</p></li>
-<li><p>Always read the code before running it.</p></li>
+<ul><li>Use AI to automate the tedious aspects of data harmonization and
+standardization.</li>
+<li>Auditing your data before cleaning helps identify specific
+inconsistencies.</li>
+<li>Verification is mandatory: always read and test generated code
+before execution.</li>
 </ul></div>
 </div>
 </div>

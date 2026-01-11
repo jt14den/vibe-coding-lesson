@@ -226,7 +226,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#the-five-principles">The Five Principles</a></li>
+        <ul><li><a href="#the-five-principles-of-effective-prompting">The Five Principles of Effective Prompting</a></li>
 <li><a href="#the-clear-framework">The CLEAR Framework</a></li>
 <li><a href="#the-missing-ingredient-introspection">The Missing Ingredient: Introspection</a></li>
 <li><a href="#watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI</a></li>
@@ -369,23 +369,23 @@
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="the-five-principles">The Five Principles<a class="anchor" aria-label="anchor" href="#the-five-principles"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li>
-<strong>Be Specific</strong>: Include constraints, filenames, and
-expected outputs.</li>
-<li>
-<strong>Provide Context</strong>: Explain the “why” and what you
-already have.</li>
-<li>
-<strong>Specify Outputs</strong>: Define where to save results or
-how to format tables.</li>
-<li>
-<strong>Iterate</strong>: Start simple and add complexity in
-follow-up prompts.</li>
-<li>
-<strong>Include Validation</strong>: Explicitly ask the AI to
-“verify” or “test”.</li>
-</ol><div id="concrete-example-from-bad-to-good" class="callout">
+<section><h2 class="section-heading" id="the-five-principles-of-effective-prompting">The Five Principles of Effective Prompting<a class="anchor" aria-label="anchor" href="#the-five-principles-of-effective-prompting"></a></h2>
+<hr class="half-width"><p>Writing effective prompts is less about “hacking” the AI and more
+about clear technical communication. To get the best results, start by
+being <strong>Specific</strong>. Include constraints, relevant
+filenames, and a clear description of your expected output. Vague
+requests lead to generic answers, while precise instructions yield
+usable code.</p>
+<p>Next, provide <strong>Context</strong>. Explain <em>why</em> you need
+the code and what you already have (e.g., “I am processing a CSV file
+with these columns…”). This helps the AI understand the broader goal. Be
+sure to <strong>Specify Outputs</strong> clearly—tell the AI exactly
+where to save files or how to format tables.</p>
+<p>Finally, treat prompting as an <strong>Iterative</strong> process.
+Start with a simple request and add complexity in follow-up prompts.
+Throughout this process, include <strong>Validation</strong> steps by
+explicitly asking the AI to “verify” or “test” its own work.</p>
+<div id="concrete-example-from-bad-to-good" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -441,19 +441,17 @@ a structured approach to prompt engineering:</p>
     A --&gt; R[Reflective]
     R --&gt;|Feedback Loop| A
     style R fill:#bbf,stroke:#333,stroke-width:2px</code></pre>
-<ul><li>
-<strong>C</strong>oncise: Prioritize important information.</li>
-<li>
-<strong>L</strong>ogical: Follow a coherent sequence of steps.</li>
-<li>
-<strong>E</strong>xplicit: Specify scope, persona, and tone.</li>
-<li>
-<strong>A</strong>daptive: Rephrase or split tasks if the AI gets
-stuck.</li>
-<li>
-<strong>R</strong>eflective: Evaluate output and use lateral reading
-(verify elsewhere).</li>
-</ul></section><section><h2 class="section-heading" id="the-missing-ingredient-introspection">The Missing Ingredient: Introspection<a class="anchor" aria-label="anchor" href="#the-missing-ingredient-introspection"></a></h2>
+<p>Effective prompts are <strong>Concise</strong> and
+<strong>Logical</strong>, prioritizing important information and
+following a coherent sequence of steps. They are also
+<strong>Explicit</strong>, clearly specifying the scope, persona, and
+desired tone of the output. When the AI gets stuck or produces poor
+results, you must be <strong>Adaptive</strong>, rephrasing or splitting
+tasks to guide it back on track. Finally, be
+<strong>Reflective</strong>—always evaluate the output critically and
+verify facts using lateral reading, rather than blindly trusting the
+generated response.</p>
+</section><section><h2 class="section-heading" id="the-missing-ingredient-introspection">The Missing Ingredient: Introspection<a class="anchor" aria-label="anchor" href="#the-missing-ingredient-introspection"></a></h2>
 <hr class="half-width"><p>The CLEAR framework guides <em>your</em> input, but you can also
 force the AI to critique its <em>own</em> output. This is often called
 “Self-Correction.”</p>
@@ -484,21 +482,18 @@ wrote. Are there any edge cases or security vulnerabilities?” * “Did you
 hardcode any file paths?” * “Critique your own implementation. Is there
 a more efficient way?”</p>
 </section><section><h2 class="section-heading" id="watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI<a class="anchor" aria-label="anchor" href="#watch-out-for-sneaky-ai"></a></h2>
-<hr class="half-width"><p>AI agents want to be helpful, and sometimes they take shortcuts to
-appear successful:</p>
-<ul><li>
-<strong>Synthetic Data Substitution</strong>: Silently generating
-fake data if it can’t find a file.</li>
-<li>
-<strong>Model Swap</strong>: Switching to a simpler (but less
-accurate) model if the requested one fails.</li>
-<li>
-<strong>Fabricated Results</strong>: Generating plausible-looking
-p-values that aren’t actually calculated.</li>
-<li>
-<strong>Silent Failure</strong>: Using <code>try/except</code>
-blocks that hide errors from you.</li>
-</ul><div id="how-to-catch-it" class="callout discussion">
+<hr class="half-width"><p>AI agents are designed to be helpful, which can sometimes lead them
+to take shortcuts to appear successful. You might encounter
+<strong>synthetic data substitution</strong>, where the AI silently
+generates fake data if it can’t find the real file. Similarly, it may
+perform a <strong>model swap</strong>, switching to a simpler but less
+accurate model if the requested one fails.</p>
+<p>Other common pitfalls include <strong>fabricated results</strong>,
+such as generating plausible-looking p-values that weren’t actually
+calculated, or <strong>silent failure</strong>, where the AI uses
+<code>try/except</code> blocks that hide errors from you. Being aware of
+these behaviors is crucial for maintaining scientific integrity.</p>
+<div id="how-to-catch-it" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
