@@ -378,13 +378,17 @@
 <div class="accordion-body">
 <p>This episode is designed for <strong>Live Coding</strong>. Learners
 should follow along, executing the commands on their own machines.
-<strong>Prerequisite:</strong> Ensure your <code>GEMINI_API_KEY</code>
-is set and active. Generating these scripts can take 10-30 seconds
-each.</p>
+:::::::::::::::::::::::::::::::::::::::::: prereq</p>
+<div class="section level2">
+<h2 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a></h2>
+<p>Ensure your <code>GEMINI_API_KEY</code> is set and active. Generating
+these scripts can take 10-30 seconds each.</p>
 </div>
 </div>
 </div>
 </div>
+</div>
+<p>::::::::::::::::::::::::::::::::::::::::::::::::::</p>
 <section><h2 class="section-heading" id="the-universal-headache-messy-data">The Universal Headache: Messy Data<a class="anchor" aria-label="anchor" href="#the-universal-headache-messy-data"></a></h2>
 <hr class="half-width"><p>For most researchers, the bottleneck isn’t implementing complex
 algorithms—it’s cleaning and merging inconsistent files. In this demo,
@@ -428,6 +432,25 @@ dataset.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
 </div>
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Safety Net: Backup Scripts
+  </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div class="accordion-body">
+<p>This step involves complex logic. If a learner’s AI fails to generate
+a working <code>clean_and_merge.py</code> after 2-3 attempts, provide
+them with a pre-written version of the script (available in
+<code>episodes/files/backup_clean_and_merge.py</code>) so they can
+proceed to the next challenge without falling behind.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="stop-and-read-the-editors-role" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -461,15 +484,15 @@ into a readable methodology.</p>
 </div>
 </div>
 </div>
-<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div id="accordionInstructor3" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
-  <h3 class="accordion-header" id="headingInstructor2">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor3" aria-expanded="false" aria-controls="collapseInstructor3">
+  <h3 class="accordion-header" id="headingInstructor3">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
   Challenge Hint
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <p>This challenge is harder because it requires modifying
 <em>existing</em> code. If learners are stuck, hint: “Does the AI know
@@ -515,6 +538,14 @@ add the filtering logic. 3. Run the updated script and verify the
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."</span></span></code></pre>
 </div>
+<div class="section level3">
+<h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a></h3>
+<ul><li>Did the AI rewrite the whole file or just edit the relevant
+part?</li>
+<li>Did it remember to import <code>pandas</code> again?</li>
+<li>Did you trust it enough to run it without looking, or did you check
+the diff first?</li>
+</ul></div>
 </div>
 </div>
 </div>

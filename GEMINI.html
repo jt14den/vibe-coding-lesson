@@ -419,6 +419,62 @@ Theoretical validation, Cross-AI verification, Unit Testing, and
 Documentation.</li>
 </ul></div>
 <div class="section level2">
+<h2 id="pedagogical-standards">Pedagogical Standards<a class="anchor" aria-label="anchor" href="#pedagogical-standards"></a></h2>
+<div class="section level3">
+<h3 id="core-design-principles">Core Design Principles<a class="anchor" aria-label="anchor" href="#core-design-principles"></a></h3>
+<ol style="list-style-type: decimal"><li>
+<strong>Backward Design &amp; Constructive Alignment</strong>:
+<ul><li>
+<strong>Outcomes First</strong>: Define clear, measurable
+<em>Learning Objectives</em>.</li>
+<li>
+<strong>Alignment</strong>: Ensure teaching methods and assessments
+(challenges) directly match the objectives.</li>
+<li>
+<strong>Assessment</strong>: Create challenges that allow learners
+to demonstrate they have met the outcomes.</li>
+</ul></li>
+<li>
+<strong>Student-Centered Learning</strong>:
+<ul><li>
+<strong>Active Learning</strong>: Prioritize “doing” over
+“listening.” Use the “I Do, We Do, You Do” flow.</li>
+<li>
+<strong>Reflection</strong>: Include opportunities for learners to
+reflect on <em>how</em> they are solving problems (metacognition),
+especially when using AI.</li>
+<li>
+<strong>Diversity</strong>: Acknowledge different learning styles by
+offering various types of explanations (visual, code, text) and
+challenges.</li>
+</ul></li>
+<li>
+<strong>Cognitive Load Management</strong>:
+<ul><li>
+<strong>Minimize Extraneous Load</strong>: Remove complex setups or
+tools not central to the learning goal.</li>
+<li>
+<strong>Scaffolding</strong>: Provide partial code or “parsons
+problems” for complex tasks to reduce initial friction.</li>
+<li>
+<strong>The “Editor” Mindset</strong>: Shift focus from syntax
+generation (high load) to logic verification (high value).</li>
+</ul></li>
+<li>
+<strong>Professional Values</strong>:
+<ul><li>
+<strong>Scholarship</strong>: Connect AI tools to established
+research methods, not just “productivity hacks.”</li>
+<li>
+<strong>Inclusivity</strong>: Ensure examples and language are
+accessible to researchers from diverse backgrounds.</li>
+<li>
+<strong>Transparency</strong>: Be open about the limitations and
+“black box” nature of AI tools.</li>
+</ul></li>
+</ol></div>
+</div>
+<div class="section level2">
 <h2 id="carpentries-workbench-standards">Carpentries Workbench Standards<a class="anchor" aria-label="anchor" href="#carpentries-workbench-standards"></a></h2>
 <div class="section level3">
 <h3 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a></h3>
@@ -432,25 +488,69 @@ Workbench</a>
 </li>
 </ul></div>
 <div class="section level3">
+<h3 id="verification">Verification<a class="anchor" aria-label="anchor" href="#verification"></a></h3>
+<p>To ensure the lesson is correctly formatted and free of errors, run
+the following commands in the R console:</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Check Lesson Structure</strong>:
+<code>r     sandpaper::check_lesson()</code>
+</li>
+<li>
+<strong>Validate Lesson Content</strong> (links, images,
+components): <code>r     sandpaper::validate_lesson()</code>
+</li>
+<li>
+<strong>Build and Preview</strong>:
+<code>r     sandpaper::serve()</code>
+</li>
+</ol></div>
+<div class="section level3">
 <h3 id="component-syntax">Component Syntax<a class="anchor" aria-label="anchor" href="#component-syntax"></a></h3>
 <p>The Workbench uses <strong>Pandoc fenced divs</strong> (colons
 <code>:::</code>) for special blocks. The opening and closing tags must
-match in length.</p>
-<p><strong>Common Blocks:</strong> *
+match in length (at least 3 colons, usually recommended to use more to
+distinguish from nested blocks).</p>
+<p><strong>Episode Structure Blocks:</strong> *
 <code>::::::::::::::::::::::::::::::::::::::: objectives</code> (Start
 of episode) *
 <code>:::::::::::::::::::::::::::::::::::::::: questions</code> (Start
 of episode) *
-<code>::::::::::::::::::::::::::::::::::::::::: callout</code>
-(Info/Warning boxes) *
+<code>:::::::::::::::::::::::::::::::::::::::: keypoints</code> (End of
+episode)</p>
+<p><strong>Interactive Blocks:</strong> *
 <code>::::::::::::::::::::::::::::::::::::::::: challenge</code>
 (Exercises) *
 <code>:::::::::::::::::::::::::::::::::::::::: solution</code> (Must be
-nested inside challenge) *
+nested inside <code>challenge</code>) *
+<code>:::::::::::::::::::::::::::::::::::::::::::: hint</code>
+(Optional; Must be nested inside <code>challenge</code>)</p>
+<p><strong>Callout Blocks:</strong> *
+<code>::::::::::::::::::::::::::::::::::::::::: callout</code> (General
+info/warning) *
+<code>:::::::::::::::::::::::::::::::::::::::::: prereq</code>
+(Prerequisites) *
+<code>::::::::::::::::::::::::::::::::::::::: checklist</code>
+(Checklists) *
+<code>:::::::::::::::::::::::::::::::::::::: discussion</code>
+(Discussion topics) *
+<code>::::::::::::::::::::::::::::::::::::: testimonial</code>
+(Quotes/Testimonials)</p>
+<p><strong>Advanced Blocks:</strong> *
 <code>::::::::::::::::::::::::::::::::::::::::: instructor</code>
-(Instructor-only notes) *
-<code>:::::::::::::::::::::::::::::::::::::::: keypoints</code> (End of
-episode)</p>
+(Instructor-only notes - visible in instructor view) *
+<code>::::::::::::::::::::::::::::::::::::::::::::::::: spoiler</code>
+(Collapsible content) *
+<code>::::::::::::::::::::::::::::::::::::::::: output</code> (Output
+block for code results) *
+<code>::::::::::::::::::::::::::::::::::::::: div</code> (Generic div
+for custom styling)</p>
+<p><strong>Tabs:</strong> *
+<code>::::::::::::::::::::::::::::::::::::::::: panel-tabset</code>
+(Container for tabs - automatic tab creation from headers) * OR *
+<code>:::::::::::::::::::::::::::::::::::::::::: group-tab</code>
+(Manual Container for tabs) *
+<code>:::::::::::::::::::::::::::::::::::::::::: tab</code> (Individual
+tab content)</p>
 </div>
 <div class="section level3">
 <h3 id="structure-rules">Structure Rules<a class="anchor" aria-label="anchor" href="#structure-rules"></a></h3>
@@ -467,10 +567,15 @@ matter.</li>
 <strong>Closing</strong>: The <code>keypoints</code> block must be
 the final element of the episode.</li>
 <li>
-<strong>Nesting</strong>: A <code>solution</code> block must always
-be inside a <code>challenge</code> block. Always check for matching
-closing tags
-(<code>::::::::::::::::::::::::::::::::::::::::::::::::::</code>).</li>
+<strong>Nesting</strong>:
+<ul><li>
+<code>solution</code> and <code>hint</code> blocks
+<strong>must</strong> be inside a <code>challenge</code> block.</li>
+<li>Ensure nested blocks use a different number of colons than their
+parent block to avoid Markdown parsing errors (e.g., parent uses 40
+colons, child uses 35).</li>
+<li>Always check for matching closing tags.</li>
+</ul></li>
 </ol><!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.

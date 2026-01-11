@@ -265,7 +265,8 @@
         <ul><li><a href="#the-ai-tool-landscape">The AI Tool Landscape</a></li>
 <li><a href="#extending-capabilities">Extending Capabilities</a></li>
 <li><a href="#citing-and-crediting-ai">Citing and Crediting AI</a></li>
-<li><a href="#summary-checklist">Summary Checklist</a></li>
+<li><a href="#example-attribution-block">Example Attribution Block</a></li>
+<li><a href="#navigating-the-ai-landscape-signal-vs.-noise">Navigating the AI Landscape: Signal vs. Noise</a></li>
 <li><a href="#getting-help">Getting Help</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -412,18 +413,25 @@ methodological tools.</p>
 <div class="section level3">
 <h3 id="recommended-attribution-pattern">Recommended Attribution Pattern<a class="anchor" aria-label="anchor" href="#recommended-attribution-pattern"></a></h3>
 <p><strong>1. In Code Repositories (<code>README.md</code>):</strong>
-Add a specific “AI Usage” section to your project documentation: &gt;
-<strong>AI Attribution</strong> &gt; * <strong>Model:</strong> Google
-Gemini 1.5 Pro (Jan 2026 version) &gt; * <strong>Role:</strong> Code
-generation (scaffolding), Refactoring. &gt; *
-<strong>Verification:</strong> All code verified by [Your Name] via unit
-tests.</p>
+Add a specific “AI Usage” section to your project documentation:
+::::::::::::::::::::::::::::::::::::::::: callout</p>
+</div>
+</section><section><h2 class="section-heading" id="example-attribution-block">Example Attribution Block<a class="anchor" aria-label="anchor" href="#example-attribution-block"></a></h2>
+<hr class="half-width"><ul><li>
+<strong>Model:</strong> Google Gemini 1.5 Pro (Jan 2026
+version)</li>
+<li>
+<strong>Role:</strong> Code generation (scaffolding),
+Refactoring.</li>
+<li>
+<strong>Verification:</strong> All code verified by [Your Name] via
+unit tests.</li>
+</ul><p>::::::::::::::::::::::::::::::::::::::::::::::::::</p>
 <p><strong>2. In Manuscripts:</strong> Cite the model in the
 <strong>Methods</strong> section or <strong>Acknowledgements</strong>. *
 <em>Example:</em> “We used Google Gemini (version 1.5) to assist with
 data cleaning scripts. Prompts and raw outputs are available in the
 supplementary material.”</p>
-</div>
 <div class="section level3">
 <h3 id="resources-standards">Resources &amp; Standards<a class="anchor" aria-label="anchor" href="#resources-standards"></a></h3>
 <ul><li>
@@ -438,9 +446,15 @@ AI Policy</strong></a>: Guidelines on declaring AI use in research.</li>
 Taxonomy</strong></a>: Use the “Software” or “Methodology” roles to
 describe <em>your</em> use of the tool, but do not assign a role to the
 AI itself.</li>
-</ul></div>
-</section><section><h2 class="section-heading" id="summary-checklist">Summary Checklist<a class="anchor" aria-label="anchor" href="#summary-checklist"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li><label><input type="checkbox"><strong>CLI tools</strong> operate
+</ul><div id="summary-checklist" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<span class="callout-header">Checklist</span>
+<div id="summary-checklist" class="callout-inner">
+<h3 class="callout-title">Summary Checklist</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal"><li><label><input type="checkbox"><strong>CLI tools</strong> operate
 directly on your files—use them for multi-step tasks.</label></li>
 <li><label><input type="checkbox"><strong>GEMINI.md</strong> provides
 the persistent context your agent needs.</label></li>
@@ -450,7 +464,85 @@ frameworks improve your results.</label></li>
 synthetic data and statistical theory.</label></li>
 <li><label><input type="checkbox"><strong>You are the pilot</strong>;
 the AI is the co-pilot.</label></li>
-</ol></section><section><h2 class="section-heading" id="getting-help">Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"></a></h2>
+</ol></div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="navigating-the-ai-landscape-signal-vs--noise">Navigating the AI Landscape: Signal vs. Noise<a class="anchor" aria-label="anchor" href="#navigating-the-ai-landscape-signal-vs--noise"></a></h2>
+<hr class="half-width"><p>One of the hardest parts of using AI in research is separating
+genuine utility from marketing hyperbole. New tools appear daily,
+promising to “write your paper” or “automate your analysis.” How do you
+know what is worth your time?</p>
+<div id="how-do-you-find-tools" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="how-do-you-find-tools" class="callout-inner">
+<h3 class="callout-title">How do you find tools?</h3>
+<div class="callout-content">
+<p>Ask learners: “Where do you hear about new AI tools? TikTok?
+Twitter/X? Academic journals? Word of mouth?” * <strong>Goal:</strong>
+Acknowledge that “hype” channels are often the fastest, but “reputable”
+channels are safer.</p>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="the-hype-detection-kit">The Hype Detection Kit<a class="anchor" aria-label="anchor" href="#the-hype-detection-kit"></a></h3>
+<p>Before adopting a new AI tool for your research workflow, run it
+through this mental checklist:</p>
+<div id="hype-vs.-reality-checklist" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<span class="callout-header">Checklist</span>
+<div id="hype-vs.-reality-checklist" class="callout-inner">
+<h3 class="callout-title">Hype vs. Reality Checklist</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal"><li><label><input type="checkbox"><strong>The “Magic” Test:</strong>
+Does the tool claim to do <em>everything</em> (write, analyze, cite,
+submit)? <strong>Hype.</strong> Real tools usually do <em>one</em> thing
+well (e.g., “summarize PDFs” or “generate Python code”).</label></li>
+<li><label><input type="checkbox"><strong>The “Black Box”
+Test:</strong> Can you see the intermediate steps? If it gives you a
+final answer without showing the code or logic, it is unsafe for
+science.</label></li>
+<li><label><input type="checkbox"><strong>The Citation Test:</strong>
+Does it hallucinate sources? If it can’t link to a real DOI or URL,
+treat it as a creative writing tool, not a research
+assistant.</label></li>
+<li><label><input type="checkbox"><strong>The “Free Lunch”
+Test:</strong> If a service is free and seemingly unlimited, <strong>you
+(and your data)</strong> are likely the product. Check the privacy
+policy for “training on user data.”</label></li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="reputable-sources">Reputable Sources<a class="anchor" aria-label="anchor" href="#reputable-sources"></a></h3>
+<p>To stay informed without drowning in noise, we recommend following a
+few high-signal, low-hype sources:</p>
+<ul><li>
+<strong><a href="https://importai.net/" class="external-link">Import AI</a> (Jack
+Clark):</strong> A weekly newsletter that covers technical breakthroughs
+and policy with a critical, realistic lens.</li>
+<li>
+<strong><a href="https://www.deeplearning.ai/the-batch/" class="external-link">The
+Batch</a> (DeepLearning.AI):</strong> Andrew Ng’s organization provides
+balanced coverage of how AI is being applied in industry and
+science.</li>
+<li>
+<strong><a href="https://dataelixir.com/" class="external-link">Data Elixir</a>:</strong>
+A broader data science newsletter that often highlights useful,
+practical tools rather than just the latest “shiny object.”</li>
+<li>
+<strong><a href="https://thegradient.pub/" class="external-link">The
+Gradient</a>:</strong> Deep dives into AI research that explain the
+<em>why</em> and <em>how</em> without over-simplifying.</li>
+</ul></div>
+</section><section><h2 class="section-heading" id="getting-help">Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"></a></h2>
 <hr class="half-width"><ul><li><a href="https://ai.google.dev/gemini-api/docs" class="external-link">Gemini API
 Docs</a></li>
 <li><a href="https://dlab.berkeley.edu/consulting" class="external-link">D-Lab

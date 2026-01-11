@@ -435,6 +435,47 @@ it.</p>
 </div>
 </div>
 </div>
+<div id="challenge-the-second-opinion-cross-ai-audit" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-second-opinion-cross-ai-audit" class="callout-inner">
+<h3 class="callout-title">Challenge: The Second Opinion (Cross-AI
+Audit)</h3>
+<div class="callout-content">
+<p>Now that you have your <code>validate_data.py</code> script, let’s
+practice <strong>Cross-AI Validation</strong>.</p>
+<ol style="list-style-type: decimal"><li>Open a <strong>new</strong> chat session (or use a different model
+if available, like Claude or ChatGPT).</li>
+<li>Paste your <code>validate_data.py</code> code into the chat.</li>
+<li>Ask: “Review this Python script for potential bugs. Does it
+correctly handle a case where the file is completely empty? What happens
+if the ‘score’ column contains text?”</li>
+</ol><p><strong>Reflect:</strong> Did the second AI find something the first
+AI (and you) missed?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Discussion
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>It is common for the second AI to point out edge cases, such as: *
+“The script might crash if the file doesn’t exist.” * “It treats ‘N/A’
+strings as valid values instead of missing data.” * “It checks for
+<code>score &lt; 0</code> but not <code>score &gt; 100</code>.”</p>
+<p>This “Peer Review” process is a powerful way to reduce your
+Verification Load.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="challenge-the-integrity-check" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -457,14 +498,14 @@ actually work?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
   Expected Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>If your cleaning pipeline was successful, you should see something
 like:</p>

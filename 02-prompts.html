@@ -462,13 +462,13 @@ p-values that aren’t actually calculated.</li>
 <li>
 <strong>Silent Failure</strong>: Using <code>try/except</code>
 blocks that hide errors from you.</li>
-</ul><div id="discussion-how-to-catch-it" class="callout">
+</ul><div id="how-to-catch-it" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<span class="callout-header">Callout</span>
-<div id="discussion-how-to-catch-it" class="callout-inner">
-<h3 class="callout-title">Discussion: How to Catch It?</h3>
+<span class="callout-header">Discussion</span>
+<div id="how-to-catch-it" class="callout-inner">
+<h3 class="callout-title">How to Catch It?</h3>
 <div class="callout-content">
 <p>Have you ever seen an AI make a confident mistake? In your own
 research, what “tells” might indicate the AI is hallucinating?</p>
@@ -510,13 +510,21 @@ applies <strong>Context</strong> (what the data is),
   Example Refined Prompt
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."</span></span></code></pre>
 </div>
+<div class="section level3">
+<h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a></h3>
+<ul><li>How much longer was your “Good” prompt compared to your “Bad”
+one?</li>
+<li>Did defining the output filename save you from hunting for the file
+later?</li>
+<li>This extra “typing time” saves you “debugging time.”</li>
+</ul></div>
 </div>
 </div>
 </div>
