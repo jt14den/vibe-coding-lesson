@@ -24,7 +24,7 @@ life_cycle: 'pre-alpha'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/carpentries/vibe-coding-lesson'
+source: 'https://github.com/jt14den/vibe-coding-lesson'
 
 # Default branch of your lesson
 branch: 'main'
