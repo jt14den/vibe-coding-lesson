@@ -131,6 +131,8 @@ The AI should return a response similar to:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Project Context: GEMINI.md and CONTEXT.md
 
 To get the most out of a CLI agent, you should provide it with persistent context about your project. Different tools look for specific filenames to automatically load this context:

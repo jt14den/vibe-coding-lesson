@@ -67,6 +67,8 @@ This is a reminder to **always verify** the existence of libraries and functions
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The Black Box Problem: Open Science vs. Proprietary AI
 
 It is important to acknowledge a tension in this workshop: **The Gemini CLI is not Open Source.**
