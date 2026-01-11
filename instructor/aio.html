@@ -1307,7 +1307,7 @@ looks wrong.</p>
   Teaching Tip: Future-Proofing
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Remind learners: “Asserts aren’t just for checking the AI today; they
 are for protecting you 6 months from now when you get new data.” This
@@ -1342,7 +1342,7 @@ imputation correctly if all values are missing?”</li>
   Backup Plan
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Live coding with AI can be unpredictable. If the Gemini API hangs or
 returns garbage code during this challenge, have a working
@@ -1382,7 +1382,7 @@ actually work?</p>
   Expected Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>If your cleaning pipeline was successful, you should see something
 like:</p>
@@ -1689,7 +1689,50 @@ that lets you connect an AI assistant to <em>any</em> local or remote
 data source—like your PostgreSQL database, your Slack, or your local
 file system—without uploading everything. It is the “USB-C port” for AI
 applications.</li>
-</ul></section><section><h2 class="section-heading" id="summary-checklist">Summary Checklist<a class="anchor" aria-label="anchor" href="#summary-checklist"></a>
+</ul></section><section><h2 class="section-heading" id="citing-and-crediting-ai">Citing and Crediting AI<a class="anchor" aria-label="anchor" href="#citing-and-crediting-ai"></a>
+</h2>
+<hr class="half-width">
+<p>Transparent attribution is critical for Open Science. Current
+academic standards (including <strong>COPE</strong>,
+<strong>Nature</strong>, and <strong>Elsevier</strong>) agree that
+<strong>AI tools cannot be listed as authors</strong> because they
+cannot hold legal accountability. Instead, they should be cited as
+methodological tools.</p>
+<div class="section level3">
+<h3 id="recommended-attribution-pattern">Recommended Attribution Pattern<a class="anchor" aria-label="anchor" href="#recommended-attribution-pattern"></a>
+</h3>
+<p><strong>1. In Code Repositories (<code>README.md</code>):</strong>
+Add a specific “AI Usage” section to your project documentation: &gt;
+<strong>AI Attribution</strong> &gt; * <strong>Model:</strong> Google
+Gemini 1.5 Pro (Jan 2026 version) &gt; * <strong>Role:</strong> Code
+generation (scaffolding), Refactoring. &gt; *
+<strong>Verification:</strong> All code verified by [Your Name] via unit
+tests.</p>
+<p><strong>2. In Manuscripts:</strong> Cite the model in the
+<strong>Methods</strong> section or <strong>Acknowledgements</strong>. *
+<em>Example:</em> “We used Google Gemini (version 1.5) to assist with
+data cleaning scripts. Prompts and raw outputs are available in the
+supplementary material.”</p>
+</div>
+<div class="section level3">
+<h3 id="resources-standards">Resources &amp; Standards<a class="anchor" aria-label="anchor" href="#resources-standards"></a>
+</h3>
+<ul>
+<li>
+<a href="https://publicationethics.org/cope-position-statements/ai-author" class="external-link"><strong>COPE
+(Committee on Publication Ethics)</strong></a>: Position statement on
+why AI cannot be an author.</li>
+<li>
+<a href="https://www.elsevier.com/about/policies/publishing-ethics/usage-of-ai-tools-in-writing-for-research" class="external-link"><strong>Elsevier
+AI Policy</strong></a>: Guidelines on declaring AI use in research.</li>
+<li>
+<a href="https://credit.niso.org/" class="external-link"><strong>CRediT
+Taxonomy</strong></a>: Use the “Software” or “Methodology” roles to
+describe <em>your</em> use of the tool, but do not assign a role to the
+AI itself.</li>
+</ul>
+</div>
+</section><section><h2 class="section-heading" id="summary-checklist">Summary Checklist<a class="anchor" aria-label="anchor" href="#summary-checklist"></a>
 </h2>
 <hr class="half-width">
 <ol style="list-style-type: decimal">
@@ -1751,7 +1794,7 @@ any links that you are not going to use.
         | <a href="https://github.com/jt14den/vibe-coding-lesson/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/jt14den/vibe-coding-lesson/" class="external-link">Source</a></p>
         <p>
-        <a href="https://github.com/jt14den/vibe-coding-lesson/blob/main/" class="external-link">Cite</a>
+        <a href="../citation.html">Cite</a>
         | <a href="mailto:timdennis@g.ucla.edu">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 		</div>
 		<div class="col-md-6">
