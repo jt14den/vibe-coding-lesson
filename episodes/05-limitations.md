@@ -36,6 +36,15 @@ Even with validation, there are areas where AI is particularly risky:
 3. **Confident Incorrectness**: Presenting a wrong formula with absolute certainty.
 4. **Over-engineering**: Adding 500 lines of code for a 5-line problem.
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Managing Expectations
+As models improve (e.g., Gemini 1.5 Pro vs Flash), they are becoming harder to trick into hallucinating. 
+*   **If it refuses:** Praise the model! Point out that it correctly identified its lack of knowledge.
+*   **Backup:** Have a screenshot ready of a "classic" hallucination (like the famous "recurse-center" library or a made-up court case) just in case everyone's AI behaves perfectly.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge: Spot the Hallucination

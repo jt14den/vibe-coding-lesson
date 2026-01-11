@@ -84,6 +84,15 @@ Notice we explicitly asked the AI to "Add comments explaining each step." This i
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Challenge Hint
+This challenge is harder because it requires modifying *existing* code. 
+If learners are stuck, hint: "Does the AI know what is inside `clean_and_merge.py` yet?"
+**Strategy:** They should explicitly ask the AI to "Read clean_and_merge.py" *before* asking it to modify it, or use a command that combines both actions (e.g., `gemini "Read clean_and_merge.py and add..."`).
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge: The Curveball

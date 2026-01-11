@@ -40,6 +40,13 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Teaching Tip: Visual Aids
+Write **CLEAR** vertically on the whiteboard or shared document. As you explain each letter, add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This visual anchor helps retention.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The CLEAR Framework
 
 The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023.102720), provides a structured approach to prompt engineering:
@@ -53,6 +60,14 @@ The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023
 ## The Missing Ingredient: Introspection
 
 The CLEAR framework guides *your* input, but you can also force the AI to critique its *own* output. This is often called "Self-Correction."
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## The "Superpower" Concept
+Emphasize this section. Most learners treat the AI output as final. The idea that they can ask the AI to "fix its own work" is often a lightbulb moment. 
+*Analogy:* It's like asking a student, "Are you sure you checked your work?"—often they find their own mistakes just by being asked.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **The Principle:** AI models are often better at *verifying* code than *writing* it.
 

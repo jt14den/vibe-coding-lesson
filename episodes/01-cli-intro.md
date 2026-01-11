@@ -20,6 +20,14 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Setup Check
+Before starting, ensure all learners have their `GEMINI_API_KEY` exported in their shell.
+**Quick Test:** Ask them to run `echo $GEMINI_API_KEY`. If it returns a blank line, they need to run the export command again.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Why CLI Matters for Research
 
 Most researchers are familiar with chat-based AI in a browser. However, for coding and data analysis, CLI-based tools offer significant advantages.
@@ -52,6 +60,14 @@ While we use Gemini today, the skills you learn transfer directly to "Open LLMs"
 ## The Mental Shift: From Writer to Editor
 
 Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Vibe coding offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks.
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Discussion Prompt
+Ask learners: "Have you ever used ChatGPT to write code that *looked* correct but failed when you ran it?"
+This is a great moment to normalize the "Verification Load" concept. The goal is to shift their mindset from "trusting the machine" to "managing the machine."
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 However, this introduces a new challenge: **Verification Load**. You must be vigilant in reading and testing code you didn't write.
 
