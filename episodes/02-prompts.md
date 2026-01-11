@@ -73,6 +73,31 @@ Have you ever seen an AI make a confident mistake? In your own research, what "t
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: The Prompt Refinement Loop
+
+Let's practice the **CLEAR** framework. We want to visualize the relationship between "Date" and "Score" in our (theoretical) dataset.
+
+1.  **Run a vague command:**
+    `gemini "Create a plot of the data I just made."`
+    *Observe: Does it work? Is the plot useful? Where did it save it?*
+
+2.  **Refine the command:**
+    Write a new prompt that applies **Context** (what the data is), **Specificity** (scatterplot with regression line), and **Output** (save as `fig/trend_analysis.png`).
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Example Refined Prompt
+
+```bash
+gemini "Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 ## Key Points

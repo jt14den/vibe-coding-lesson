@@ -84,6 +84,30 @@ Notice we explicitly asked the AI to "Add comments explaining each step." This i
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: The Curveball
+
+Research requirements change. Imagine your Principal Investigator (PI) just emailed you: "We need to exclude any participant with a Score below 10, as they are likely outliers."
+
+**Your Task:**
+Instead of editing `clean_and_merge.py` manually, use the Gemini CLI to update the script.
+1.  Ask the AI to read the existing file.
+2.  Instruct it to add the filtering logic.
+3.  Run the updated script and verify the "Score" column in `master_dataset.csv`.
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Possible Command
+
+```bash
+gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Step 4: Automating Documentation
 
 Finally, a reproducible project needs a README.
