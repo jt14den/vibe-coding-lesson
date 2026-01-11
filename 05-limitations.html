@@ -119,11 +119,11 @@
   Vibe Coding for Research
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 88%" class="percentage">
-    88%
+<aside class="col-md-12 lesson-progress"><div style="width: 82%" class="percentage">
+    82%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 88%" aria-valuenow="88" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 82%" aria-valuenow="82" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -329,7 +329,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Limitations and Cautions</h1>
-        <p>Last updated on 2026-01-09 |
+        <p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/05-limitations.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -394,7 +394,45 @@ with absolute certainty.</li>
 <li>
 <strong>Over-engineering</strong>: Adding 500 lines of code for a
 5-line problem.</li>
-</ol></section><section><h2 class="section-heading" id="the-black-box-problem-open-science-vs--proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI<a class="anchor" aria-label="anchor" href="#the-black-box-problem-open-science-vs--proprietary-ai"></a></h2>
+</ol><div id="challenge-spot-the-hallucination" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-spot-the-hallucination" class="callout-inner">
+<h3 class="callout-title">Challenge: Spot the Hallucination</h3>
+<div class="callout-content">
+<p>AI models are trained to be helpful, which means they sometimes
+“guess” information they don’t have. Let’s see if we can trigger a
+hallucination.</p>
+<p><strong>Task:</strong> Ask Gemini to explain a package or function
+that doesn’t exist. For example:
+<code>gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"</code></p>
+<p>What did it say? Did it admit it doesn’t know, or did it invent
+instructions for this non-existent library?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Discussion
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>Often, the AI will confidently describe how to install and use the
+fake library. It might even provide fake code snippets like
+<code>import pypanda_researcher</code>.</p>
+<p>This is a reminder to <strong>always verify</strong> the existence of
+libraries and functions the AI suggests before relying on them in your
+research.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-black-box-problem-open-science-vs--proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI<a class="anchor" aria-label="anchor" href="#the-black-box-problem-open-science-vs--proprietary-ai"></a></h2>
 <hr class="half-width"><p>It is important to acknowledge a tension in this workshop:
 <strong>The Gemini CLI is not Open Source.</strong></p>
 <ul><li>
@@ -503,8 +541,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/05-limitations.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/05-limitations.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-09",
-  "datePublished": "2026-01-09"
+  "dateModified": "2026-01-11",
+  "datePublished": "2026-01-11"
 }
 
   </script><script>

@@ -119,11 +119,11 @@
   Vibe Coding for Research
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 54%" class="percentage">
-    54%
+<aside class="col-md-12 lesson-progress"><div style="width: 56%" class="percentage">
+    56%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 54%" aria-valuenow="54" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 56%" aria-valuenow="56" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -327,13 +327,13 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Validation Best Practices</h1>
-        <p>Last updated on 2026-01-09 |
+        <p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/04-validation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
 
 
-        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 70 minutes</p>
+        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
 
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -384,6 +384,23 @@ strings?</p>
 <p>You can ask the AI to write “assert” statements inside your
 processing script. These will stop the script immediately if something
 looks wrong.</p>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Teaching Tip: Future-Proofing
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div class="accordion-body">
+<p>Remind learners: “Asserts aren’t just for checking the AI today; they
+are for protecting you 6 months from now when you get new data.” This
+reframes validation from a “chore” to “insurance.”</p>
+</div>
+</div>
+</div>
+</div>
 <ul><li>
 <em>Example:</em>
 <code>assert len(df) == 150, "Rows missing!"</code>
@@ -395,9 +412,28 @@ looks wrong.</p>
 Claude or ChatGPT) to audit your cleaning script.</p>
 <ul><li>
 <em>Prompt:</em> “Review this pandas script. Are there any edge
-cases where it might fail to parse a date? Does it handle the median
+cases or might fail to parse a date? Does it handle the median
 imputation correctly if all values are missing?”</li>
-</ul><div id="challenge-the-integrity-check" class="callout challenge">
+</ul><div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Backup Plan
+  </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div class="accordion-body">
+<p>Live coding with AI can be unpredictable. If the Gemini API hangs or
+returns garbage code during this challenge, have a working
+<code>validate_data.py</code> ready to share (e.g., via a distinct
+“solution” file or a shared pad) so the class can proceed to running
+it.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge-the-integrity-check" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -518,8 +554,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/instructor/04-validation.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/instructor/04-validation.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-09",
-  "datePublished": "2026-01-09"
+  "dateModified": "2026-01-11",
+  "datePublished": "2026-01-11"
 }
 
   </script><script>

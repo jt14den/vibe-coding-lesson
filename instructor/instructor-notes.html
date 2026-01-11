@@ -382,21 +382,95 @@ time for the validation section.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  --></section><section id="aggregate-instructor-notes"><section id="01-cli-intro"><h2 class="section-heading"><a href="01-cli-intro.html">Understanding CLI-Based AI</a></h2>
-<hr class="half-width"></section><section id="02-prompts"><h2 class="section-heading"><a href="02-prompts.html">Best Practices for Prompting</a></h2>
-<hr class="half-width"></section><section id="03-data-cleaning"><h2 class="section-heading"><a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></h2>
+<hr class="half-width">
+<h3 id="01-cli-intro-headingInstructor1">
+<a href="01-cli-intro.html#headingInstructor1">Setup Check</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor1"></a>
+</h3>
+<p>Before starting, ensure all learners have their
+<code>GEMINI_API_KEY</code> exported in their shell. <strong>Quick
+Test:</strong> Ask them to run <code>echo $GEMINI_API_KEY</code>. If it
+returns a blank line, they need to run the export command again.</p>
+<hr>
+<br><h3 id="01-cli-intro-headingInstructor2">
+<a href="01-cli-intro.html#headingInstructor2">Discussion Prompt</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor2"></a>
+</h3>
+<p>Ask learners: “Have you ever used ChatGPT to write code that
+<em>looked</em> correct but failed when you ran it?” This is a great
+moment to normalize the “Verification Load” concept. The goal is to
+shift their mindset from “trusting the machine” to “managing the
+machine.”</p>
+<hr>
+<br></section><section id="02-prompts"><h2 class="section-heading"><a href="02-prompts.html">Best Practices for Prompting</a></h2>
+<hr class="half-width">
+<h3 id="02-prompts-headingInstructor1">
+<a href="02-prompts.html#headingInstructor1">Teaching Tip: Visual Aids</a><a class="anchor" aria-label="anchor" href="#02-prompts-headingInstructor1"></a>
+</h3>
+<p>Write <strong>CLEAR</strong> vertically on the whiteboard or shared
+document. As you explain each letter, add the keyword (Concise, Logical,
+Explicit, Adaptive, Reflective). This visual anchor helps retention.</p>
+<hr>
+<br><h3 id="02-prompts-headingInstructor2">
+<a href="02-prompts.html#headingInstructor2">The “Superpower” Concept</a><a class="anchor" aria-label="anchor" href="#02-prompts-headingInstructor2"></a>
+</h3>
+<p>Emphasize this section. Most learners treat the AI output as final.
+The idea that they can ask the AI to “fix its own work” is often a
+lightbulb moment. <em>Analogy:</em> It’s like asking a student, “Are you
+sure you checked your work?”—often they find their own mistakes just by
+being asked.</p>
+<hr>
+<br></section><section id="03-data-cleaning"><h2 class="section-heading"><a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></h2>
 <hr class="half-width">
 <h3 id="03-data-cleaning-headingInstructor1">
-<a href="03-data-cleaning.html#headingInstructor1">Live Demo Warning</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor1"></a>
+<a href="03-data-cleaning.html#headingInstructor1">Active Participation</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor1"></a>
 </h3>
-<p>This episode is designed as a <strong>Live Demo</strong>. The
-instructor plays the role of the “Data Janitor” while learners watch or
-follow along. <strong>Prerequisite:</strong> Ensure your
-<code>GEMINI_API_KEY</code> is set and active. Generating these scripts
-can take 10-30 seconds each.</p>
+<p>This episode is designed for <strong>Live Coding</strong>. Learners
+should follow along, executing the commands on their own machines.
+<strong>Prerequisite:</strong> Ensure your <code>GEMINI_API_KEY</code>
+is set and active. Generating these scripts can take 10-30 seconds
+each.</p>
+<hr>
+<br><h3 id="03-data-cleaning-headingInstructor2">
+<a href="03-data-cleaning.html#headingInstructor2">Challenge Hint</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor2"></a>
+</h3>
+<p>This challenge is harder because it requires modifying
+<em>existing</em> code. If learners are stuck, hint: “Does the AI know
+what is inside <code>clean_and_merge.py</code> yet?”
+<strong>Strategy:</strong> They should explicitly ask the AI to “Read
+clean_and_merge.py” <em>before</em> asking it to modify it, or use a
+command that combines both actions (e.g.,
+<code>gemini "Read clean_and_merge.py and add..."</code>).</p>
 <hr>
 <br></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation Best Practices</a></h2>
-<hr class="half-width"></section><section id="05-limitations"><h2 class="section-heading"><a href="05-limitations.html">Limitations and Cautions</a></h2>
-<hr class="half-width"></section><section id="06-resources"><h2 class="section-heading"><a href="06-resources.html">Resources and Next Steps</a></h2>
+<hr class="half-width">
+<h3 id="04-validation-headingInstructor1">
+<a href="04-validation.html#headingInstructor1">Teaching Tip: Future-Proofing</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor1"></a>
+</h3>
+<p>Remind learners: “Asserts aren’t just for checking the AI today; they
+are for protecting you 6 months from now when you get new data.” This
+reframes validation from a “chore” to “insurance.”</p>
+<hr>
+<br><h3 id="04-validation-headingInstructor2">
+<a href="04-validation.html#headingInstructor2">Backup Plan</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor2"></a>
+</h3>
+<p>Live coding with AI can be unpredictable. If the Gemini API hangs or
+returns garbage code during this challenge, have a working
+<code>validate_data.py</code> ready to share (e.g., via a distinct
+“solution” file or a shared pad) so the class can proceed to running
+it.</p>
+<hr>
+<br></section><section id="05-limitations"><h2 class="section-heading"><a href="05-limitations.html">Limitations and Cautions</a></h2>
+<hr class="half-width">
+<h3 id="05-limitations-headingInstructor1">
+<a href="05-limitations.html#headingInstructor1">Managing Expectations</a><a class="anchor" aria-label="anchor" href="#05-limitations-headingInstructor1"></a>
+</h3>
+<p>As models improve (e.g., Gemini 1.5 Pro vs Flash), they are becoming
+harder to trick into hallucinating. * <strong>If it refuses:</strong>
+Praise the model! Point out that it correctly identified its lack of
+knowledge. * <strong>Backup:</strong> Have a screenshot ready of a
+“classic” hallucination (like the famous “recurse-center” library or a
+made-up court case) just in case everyone’s AI behaves perfectly.</p>
+<hr>
+<br></section><section id="06-resources"><h2 class="section-heading"><a href="06-resources.html">Resources and Next Steps</a></h2>
 <hr class="half-width"></section></section>
 </div>
     </main>
@@ -447,8 +521,8 @@ can take 10-30 seconds each.</p>
   "url": "https://carpentries.github.io/vibe-coding-lesson/instructor/instructor-notes.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/instructor/instructor-notes.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-09",
-  "datePublished": "2026-01-09"
+  "dateModified": "2026-01-11",
+  "datePublished": "2026-01-11"
 }
 
   </script><script>

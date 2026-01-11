@@ -119,11 +119,11 @@
   Vibe Coding for Research
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 29%" class="percentage">
-    29%
+<aside class="col-md-12 lesson-progress"><div style="width: 31%" class="percentage">
+    31%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 29%" aria-valuenow="29" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 31%" aria-valuenow="31" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -327,7 +327,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Live Demo: The Data Cleaning Agent</h1>
-        <p>Last updated on 2026-01-09 |
+        <p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -370,16 +370,16 @@
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Live Demo Warning
+  Active Participation
   </h3>
 </button>
 <div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
-<p>This episode is designed as a <strong>Live Demo</strong>. The
-instructor plays the role of the “Data Janitor” while learners watch or
-follow along. <strong>Prerequisite:</strong> Ensure your
-<code>GEMINI_API_KEY</code> is set and active. Generating these scripts
-can take 10-30 seconds each.</p>
+<p>This episode is designed for <strong>Live Coding</strong>. Learners
+should follow along, executing the commands on their own machines.
+<strong>Prerequisite:</strong> Ensure your <code>GEMINI_API_KEY</code>
+is set and active. Generating these scripts can take 10-30 seconds
+each.</p>
 </div>
 </div>
 </div>
@@ -427,6 +427,21 @@ dataset.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
 </div>
+<div id="stop-and-read-the-editors-role" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="stop-and-read-the-editors-role" class="callout-inner">
+<h3 class="callout-title">Stop and Read: The Editor’s Role</h3>
+<div class="callout-content">
+<p>Before you run this code, open <code>clean_and_merge.py</code> in
+your editor. * Does the logic make sense? * Are the comments clear? * Do
+you see any obvious errors?</p>
+<p>Remember: You are the pilot; the AI is just the co-pilot.</p>
+</div>
+</div>
+</div>
 <p>Run <code>python clean_and_merge.py</code>. You now have a single,
 clean dataset ready for analysis.</p>
 <div id="why-ask-for-comments" class="callout">
@@ -445,14 +460,72 @@ into a readable methodology.</p>
 </div>
 </div>
 </div>
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Challenge Hint
+  </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div class="accordion-body">
+<p>This challenge is harder because it requires modifying
+<em>existing</em> code. If learners are stuck, hint: “Does the AI know
+what is inside <code>clean_and_merge.py</code> yet?”
+<strong>Strategy:</strong> They should explicitly ask the AI to “Read
+clean_and_merge.py” <em>before</em> asking it to modify it, or use a
+command that combines both actions (e.g.,
+<code>gemini "Read clean_and_merge.py and add..."</code>).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge-the-curveball" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-curveball" class="callout-inner">
+<h3 class="callout-title">Challenge: The Curveball</h3>
+<div class="callout-content">
+<p>Research requirements change. Imagine your Principal Investigator
+(PI) just emailed you: “We need to exclude any participant with a Score
+below 10, as they are likely outliers.”</p>
+<p><strong>Your Task:</strong> Instead of editing
+<code>clean_and_merge.py</code> manually, use the Gemini CLI to update
+the script. 1. Ask the AI to read the existing file. 2. Instruct it to
+add the filtering logic. 3. Run the updated script and verify the
+“Score” column in <code>master_dataset.csv</code>.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Possible Command
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="step-4-automating-documentation">Step 4: Automating Documentation<a class="anchor" aria-label="anchor" href="#step-4-automating-documentation"></a></h3>
 <p>Finally, a reproducible project needs a README.</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
 </div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
@@ -532,8 +605,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/instructor/03-data-cleaning.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/instructor/03-data-cleaning.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-09",
-  "datePublished": "2026-01-09"
+  "dateModified": "2026-01-11",
+  "datePublished": "2026-01-11"
 }
 
   </script><script>

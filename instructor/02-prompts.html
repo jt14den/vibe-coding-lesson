@@ -119,11 +119,11 @@
   Vibe Coding for Research
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 12%" class="percentage">
-    12%
+<aside class="col-md-12 lesson-progress"><div style="width: 13%" class="percentage">
+    13%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 12%" aria-valuenow="12" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 13%" aria-valuenow="13" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -228,6 +228,7 @@
       <div class="accordion-body">
         <ul><li><a href="#the-five-principles">The Five Principles</a></li>
 <li><a href="#the-clear-framework">The CLEAR Framework</a></li>
+<li><a href="#the-missing-ingredient-introspection">The Missing Ingredient: Introspection</a></li>
 <li><a href="#watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -329,7 +330,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Best Practices for Prompting</h1>
-        <p>Last updated on 2026-01-09 |
+        <p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/02-prompts.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -411,9 +412,33 @@ result at alpha=0.05.”</td>
 </tr></tbody></table></div>
 </div>
 </div>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Teaching Tip: Visual Aids
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div class="accordion-body">
+<p>Write <strong>CLEAR</strong> vertically on the whiteboard or shared
+document. As you explain each letter, add the keyword (Concise, Logical,
+Explicit, Adaptive, Reflective). This visual anchor helps retention.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="the-clear-framework">The CLEAR Framework<a class="anchor" aria-label="anchor" href="#the-clear-framework"></a></h2>
 <hr class="half-width"><p>The CLEAR framework, developed by <a href="https://doi.org/10.1016/j.acalib.2023.102720" class="external-link">Leo Lo</a>, provides
 a structured approach to prompt engineering:</p>
+<pre class="mermaid"><code>graph LR
+    C[Concise] --&gt; L[Logical]
+    L --&gt; E[Explicit]
+    E --&gt; A[Adaptive]
+    A --&gt; R[Reflective]
+    R --&gt;|Feedback Loop| A
+    style R fill:#bbf,stroke:#333,stroke-width:2px</code></pre>
 <ul><li>
 <strong>C</strong>oncise: Prioritize important information.</li>
 <li>
@@ -426,7 +451,37 @@ stuck.</li>
 <li>
 <strong>R</strong>eflective: Evaluate output and use lateral reading
 (verify elsewhere).</li>
-</ul></section><section><h2 class="section-heading" id="watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI<a class="anchor" aria-label="anchor" href="#watch-out-for-sneaky-ai"></a></h2>
+</ul></section><section><h2 class="section-heading" id="the-missing-ingredient-introspection">The Missing Ingredient: Introspection<a class="anchor" aria-label="anchor" href="#the-missing-ingredient-introspection"></a></h2>
+<hr class="half-width"><p>The CLEAR framework guides <em>your</em> input, but you can also
+force the AI to critique its <em>own</em> output. This is often called
+“Self-Correction.”</p>
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  The “Superpower” Concept
+  </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div class="accordion-body">
+<p>Emphasize this section. Most learners treat the AI output as final.
+The idea that they can ask the AI to “fix its own work” is often a
+lightbulb moment. <em>Analogy:</em> It’s like asking a student, “Are you
+sure you checked your work?”—often they find their own mistakes just by
+being asked.</p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>The Principle:</strong> AI models are often better at
+<em>verifying</em> code than <em>writing</em> it.</p>
+<p><strong>How to use it:</strong> Never accept the first draft. Always
+follow up with an “Introspection Prompt”: * “Review the code you just
+wrote. Are there any edge cases or security vulnerabilities?” * “Did you
+hardcode any file paths?” * “Critique your own implementation. Is there
+a more efficient way?”</p>
+</section><section><h2 class="section-heading" id="watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI<a class="anchor" aria-label="anchor" href="#watch-out-for-sneaky-ai"></a></h2>
 <hr class="half-width"><p>AI agents want to be helpful, and sometimes they take shortcuts to
 appear successful:</p>
 <ul><li>
@@ -457,6 +512,47 @@ research, what “tells” might indicate the AI is hallucinating?</p>
 intermediate steps.”</li>
 <li>Check the file sizes of outputs: Is the “cleaned” file 0 bytes?</li>
 </ul></div>
+</div>
+</div>
+<div id="challenge-the-prompt-refinement-loop" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-prompt-refinement-loop" class="callout-inner">
+<h3 class="callout-title">Challenge: The Prompt Refinement Loop</h3>
+<div class="callout-content">
+<p>Let’s practice the <strong>CLEAR</strong> framework. We want to
+visualize the relationship between “Date” and “Score” in our
+(theoretical) dataset.</p>
+<ol style="list-style-type: decimal"><li><p><strong>Run a vague command:</strong>
+<code>gemini "Create a plot of the data I just made."</code>
+<em>Observe: Does it work? Is the plot useful? Where did it save
+it?</em></p></li>
+<li><p><strong>Refine the command:</strong> Write a new prompt that
+applies <strong>Context</strong> (what the data is),
+<strong>Specificity</strong> (scatterplot with regression line), and
+<strong>Output</strong> (save as
+<code>fig/trend_analysis.png</code>).</p></li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Example Refined Prompt
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."</span></span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="key-points" class="callout keypoints">
@@ -536,8 +632,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/instructor/02-prompts.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/instructor/02-prompts.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-09",
-  "datePublished": "2026-01-09"
+  "dateModified": "2026-01-11",
+  "datePublished": "2026-01-11"
 }
 
   </script><script>

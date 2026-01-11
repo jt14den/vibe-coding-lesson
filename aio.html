@@ -369,7 +369,7 @@
         
 <section id="aio-01-cli-intro"><p>Content from <a href="01-cli-intro.html">Understanding CLI-Based AI</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/01-cli-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -446,13 +446,57 @@ advantages.</p>
 <td align="left">Autonomous multi-step execution</td>
 </tr>
 </tbody>
-</table></section><section><h2 class="section-heading" id="the-mental-shift-from-writer-to-editor">The Mental Shift: From Writer to Editor<a class="anchor" aria-label="anchor" href="#the-mental-shift-from-writer-to-editor"></a>
+</table>
+<div id="why-gemini-uc-ucla-context" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="why-gemini-uc-ucla-context" class="callout-inner">
+<h3 class="callout-title">Why Gemini? (UC &amp; UCLA Context)</h3>
+<div class="callout-content">
+<p>We use the Gemini CLI for this lesson because the <strong>University
+of California (UC)</strong> system, including <strong>UCLA</strong>, has
+a Google Workspace agreement that offers significant benefits for
+researchers:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Data Privacy</strong>: When using “Gemini for Google
+Workspace” (the enterprise version), your data is <strong>not</strong>
+used to train the public models. Your research data stays yours.</li>
+<li>
+<strong>Access</strong>: It is integrated into the tools we already
+use (Drive, Docs, etc.).</li>
+<li>
+<strong>Cost</strong>: It is often included in institutional
+licenses, avoiding personal subscription fees.</li>
+</ol>
+<p><em>Note: Always verify with your specific campus IT policy before
+uploading sensitive or PII (Personally Identifiable Information) data to
+any AI tool.</em></p>
+<p><strong>Looking Ahead: Open Models</strong> While we use Gemini
+today, the skills you learn transfer directly to “Open LLMs” (like
+<strong>Gemma</strong> or <strong>Llama</strong>). These can be run
+locally on your own laptop (using tools like <strong>Ollama</strong>),
+offering the ultimate privacy: no data ever leaves your machine.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-mental-shift-from-writer-to-editor">The Mental Shift: From Writer to Editor<a class="anchor" aria-label="anchor" href="#the-mental-shift-from-writer-to-editor"></a>
 </h2>
 <hr class="half-width">
 <p>Traditional programming requires you to hold the entire syntax and
 logic of a script in your working memory. Vibe coding offloads the
 <em>syntax</em> generation to the AI, freeing up your cognitive
 resources for higher-level tasks.</p>
+<pre class="mermaid"><code>graph TD
+    A[User Idea/Logic] --&gt;|Prompt| B(AI Agent)
+    B --&gt;|Draft Code| C{Verification}
+    C --&gt;|It Works!| D[Final Output]
+    C --&gt;|Bug/Hallucination| E[Refinement Prompt]
+    E --&gt; B
+    style C fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
+
 <p>However, this introduces a new challenge: <strong>Verification
 Load</strong>. You must be vigilant in reading and testing code you
 didn’t write.</p>
@@ -496,20 +540,20 @@ errors.</li>
 <li>
 <strong>Maintain</strong> context across long sessions.</li>
 </ol>
-<div id="challenge-your-first-ai-cli-command" class="callout discussion">
+<div id="challenge-your-first-ai-cli-command" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
+<span class="callout-header">Challenge</span>
 <div id="challenge-your-first-ai-cli-command" class="callout-inner">
 <h3 class="callout-title">Challenge: Your First AI CLI Command</h3>
 <div class="callout-content">
 <p>Let’s verify the tool is working and see how it interacts with your
 system. In your terminal, run the following command:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
 </div>
 <p>Compare the output to what you see when you run <code>ls</code> (or
 <code>dir</code> on Windows) and <code>uname -a</code>. Did the AI
@@ -517,12 +561,62 @@ accurately describe your environment?</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="project-context-gemini-md">Project Context: GEMINI.md<a class="anchor" aria-label="anchor" href="#project-context-gemini-md"></a>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Example Output
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>The AI should return a response similar to:</p>
+<p>“You are currently using macOS (Darwin). The files in this directory
+are: - index.md - config.yaml - episodes/ - data/ …”</p>
+<p><em>Note: The AI’s exact wording will vary, but it should correctly
+identify your OS and the files you see in your folder.</em></p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="project-context-gemini-md-and-context-md">Project Context: GEMINI.md and CONTEXT.md<a class="anchor" aria-label="anchor" href="#project-context-gemini-md-and-context-md"></a>
 </h2>
 <hr class="half-width">
 <p>To get the most out of a CLI agent, you should provide it with
-persistent context about your project. By creating a
-<code>GEMINI.md</code> file in your project root, you can define:</p>
+persistent context about your project. Different tools look for specific
+filenames to automatically load this context:</p>
+<ul>
+<li>
+<strong>Gemini CLI</strong>: Looks for <code>GEMINI.md</code>
+</li>
+<li>
+<strong>Claude Code</strong>: Looks for <code>CLAUDE.md</code>
+</li>
+<li>
+<strong>Cursor</strong>: Looks for <code>.cursorrules</code>
+</li>
+</ul>
+<div class="section level3">
+<h3 id="the-emerging-standard-context-md">The Emerging Standard: CONTEXT.md<a class="anchor" aria-label="anchor" href="#the-emerging-standard-context-md"></a>
+</h3>
+<p>While these tools require specific filenames, an <strong>emerging
+standard</strong> is to maintain a single master file named
+<code>CONTEXT.md</code>.</p>
+<p><strong>Why use CONTEXT.md?</strong> 1. <strong>Tool
+Agnosticism</strong>: It acts as a “Source of Truth.” You can link it to
+tool-specific files (e.g., <code>cp CONTEXT.md GEMINI.md</code>) so you
+don’t have to duplicate work if you switch tools. 2. <strong>Web-Based
+AI</strong>: If you use ChatGPT or Claude in the browser, they cannot
+read your files. You can quickly copy the contents of
+<code>CONTEXT.md</code> into the chat to “prime” the session with your
+project’s rules.</p>
+<p>For this specific lesson, we will use <code>GEMINI.md</code> directly
+so the CLI works immediately.</p>
+</div>
+<div class="section level3">
+<h3 id="what-to-include">What to Include<a class="anchor" aria-label="anchor" href="#what-to-include"></a>
+</h3>
+<p>By creating this file in your project root, you can define:</p>
 <ul>
 <li>Project goals.</li>
 <li>File structure overview.</li>
@@ -545,31 +639,31 @@ Include at least two libraries you use and one coding convention (e.g.,
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
   Example GEMINI.md
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>To analyze trends in sea ice extent using satellite data from 1980-2020.</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="ss">- </span>Python 3.9</span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="ss">- </span>Libraries: xarray, pandas, matplotlib, cartopy</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="ss">- </span>Include docstrings for all functions.</span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>To analyze trends in sea ice extent using satellite data from 1980-2020.</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ss">- </span>Python 3.9</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="ss">- </span>Libraries: xarray, pandas, matplotlib, cartopy</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>Include docstrings for all functions.</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -594,9 +688,10 @@ Include at least two libraries you use and one coding convention (e.g.,
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
+</div>
 </section></section><section id="aio-02-prompts"><p>Content from <a href="02-prompts.html">Best Practices for Prompting</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/02-prompts.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -695,11 +790,19 @@ result at alpha=0.05.”</td>
 </div>
 </div>
 </div>
+
 </section><section><h2 class="section-heading" id="the-clear-framework">The CLEAR Framework<a class="anchor" aria-label="anchor" href="#the-clear-framework"></a>
 </h2>
 <hr class="half-width">
 <p>The CLEAR framework, developed by <a href="https://doi.org/10.1016/j.acalib.2023.102720" class="external-link">Leo Lo</a>, provides
 a structured approach to prompt engineering:</p>
+<pre class="mermaid"><code>graph LR
+    C[Concise] --&gt; L[Logical]
+    L --&gt; E[Explicit]
+    E --&gt; A[Adaptive]
+    A --&gt; R[Reflective]
+    R --&gt;|Feedback Loop| A
+    style R fill:#bbf,stroke:#333,stroke-width:2px</code></pre>
 <ul>
 <li>
 <strong>C</strong>oncise: Prioritize important information.</li>
@@ -713,7 +816,21 @@ stuck.</li>
 <li>
 <strong>R</strong>eflective: Evaluate output and use lateral reading
 (verify elsewhere).</li>
-</ul></section><section><h2 class="section-heading" id="watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI<a class="anchor" aria-label="anchor" href="#watch-out-for-sneaky-ai"></a>
+</ul></section><section><h2 class="section-heading" id="the-missing-ingredient-introspection">The Missing Ingredient: Introspection<a class="anchor" aria-label="anchor" href="#the-missing-ingredient-introspection"></a>
+</h2>
+<hr class="half-width">
+<p>The CLEAR framework guides <em>your</em> input, but you can also
+force the AI to critique its <em>own</em> output. This is often called
+“Self-Correction.”</p>
+
+<p><strong>The Principle:</strong> AI models are often better at
+<em>verifying</em> code than <em>writing</em> it.</p>
+<p><strong>How to use it:</strong> Never accept the first draft. Always
+follow up with an “Introspection Prompt”: * “Review the code you just
+wrote. Are there any edge cases or security vulnerabilities?” * “Did you
+hardcode any file paths?” * “Critique your own implementation. Is there
+a more efficient way?”</p>
+</section><section><h2 class="section-heading" id="watch-out-for-sneaky-ai">Watch Out for “Sneaky” AI<a class="anchor" aria-label="anchor" href="#watch-out-for-sneaky-ai"></a>
 </h2>
 <hr class="half-width">
 <p>AI agents want to be helpful, and sometimes they take shortcuts to
@@ -752,6 +869,49 @@ intermediate steps.”</li>
 </div>
 </div>
 </div>
+<div id="challenge-the-prompt-refinement-loop" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-prompt-refinement-loop" class="callout-inner">
+<h3 class="callout-title">Challenge: The Prompt Refinement Loop</h3>
+<div class="callout-content">
+<p>Let’s practice the <strong>CLEAR</strong> framework. We want to
+visualize the relationship between “Date” and “Score” in our
+(theoretical) dataset.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Run a vague command:</strong>
+<code>gemini "Create a plot of the data I just made."</code>
+<em>Observe: Does it work? Is the plot useful? Where did it save
+it?</em></p></li>
+<li><p><strong>Refine the command:</strong> Write a new prompt that
+applies <strong>Context</strong> (what the data is),
+<strong>Specificity</strong> (scatterplot with regression line), and
+<strong>Output</strong> (save as
+<code>fig/trend_analysis.png</code>).</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Example Refined Prompt
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -773,7 +933,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-data-cleaning"><p>Content from <a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -855,6 +1015,21 @@ dataset.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
 </div>
+<div id="stop-and-read-the-editors-role" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="stop-and-read-the-editors-role" class="callout-inner">
+<h3 class="callout-title">Stop and Read: The Editor’s Role</h3>
+<div class="callout-content">
+<p>Before you run this code, open <code>clean_and_merge.py</code> in
+your editor. * Does the logic make sense? * Are the comments clear? * Do
+you see any obvious errors?</p>
+<p>Remember: You are the pilot; the AI is just the co-pilot.</p>
+</div>
+</div>
+</div>
 <p>Run <code>python clean_and_merge.py</code>. You now have a single,
 clean dataset ready for analysis.</p>
 <div id="why-ask-for-comments" class="callout">
@@ -873,15 +1048,53 @@ into a readable methodology.</p>
 </div>
 </div>
 </div>
+
+<div id="challenge-the-curveball" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-curveball" class="callout-inner">
+<h3 class="callout-title">Challenge: The Curveball</h3>
+<div class="callout-content">
+<p>Research requirements change. Imagine your Principal Investigator
+(PI) just emailed you: “We need to exclude any participant with a Score
+below 10, as they are likely outliers.”</p>
+<p><strong>Your Task:</strong> Instead of editing
+<code>clean_and_merge.py</code> manually, use the Gemini CLI to update
+the script. 1. Ask the AI to read the existing file. 2. Instruct it to
+add the filtering logic. 3. Run the updated script and verify the
+“Score” column in <code>master_dataset.csv</code>.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Possible Command
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="step-4-automating-documentation">Step 4: Automating Documentation<a class="anchor" aria-label="anchor" href="#step-4-automating-documentation"></a>
 </h3>
 <p>Finally, a reproducible project needs a README.</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed (normalization, imputation), and the final output format."</span></span></code></pre>
 </div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
@@ -905,7 +1118,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-04-validation"><p>Content from <a href="04-validation.html">Validation Best Practices</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/04-validation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -962,6 +1175,7 @@ strings?</p>
 <p>You can ask the AI to write “assert” statements inside your
 processing script. These will stop the script immediately if something
 looks wrong.</p>
+
 <ul>
 <li>
 <em>Example:</em>
@@ -977,7 +1191,7 @@ Claude or ChatGPT) to audit your cleaning script.</p>
 <ul>
 <li>
 <em>Prompt:</em> “Review this pandas script. Are there any edge
-cases where it might fail to parse a date? Does it handle the median
+cases or might fail to parse a date? Does it handle the median
 imputation correctly if all values are missing?”</li>
 </ul>
 <div id="challenge-the-integrity-check" class="callout challenge">
@@ -1045,7 +1259,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-05-limitations"><p>Content from <a href="05-limitations.html">Limitations and Cautions</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/05-limitations.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1114,7 +1328,46 @@ with absolute certainty.</li>
 <li>
 <strong>Over-engineering</strong>: Adding 500 lines of code for a
 5-line problem.</li>
-</ol></section><section><h2 class="section-heading" id="the-black-box-problem-open-science-vs--proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI<a class="anchor" aria-label="anchor" href="#the-black-box-problem-open-science-vs--proprietary-ai"></a>
+</ol>
+<div id="challenge-spot-the-hallucination" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-spot-the-hallucination" class="callout-inner">
+<h3 class="callout-title">Challenge: Spot the Hallucination</h3>
+<div class="callout-content">
+<p>AI models are trained to be helpful, which means they sometimes
+“guess” information they don’t have. Let’s see if we can trigger a
+hallucination.</p>
+<p><strong>Task:</strong> Ask Gemini to explain a package or function
+that doesn’t exist. For example:
+<code>gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"</code></p>
+<p>What did it say? Did it admit it doesn’t know, or did it invent
+instructions for this non-existent library?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Discussion
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>Often, the AI will confidently describe how to install and use the
+fake library. It might even provide fake code snippets like
+<code>import pypanda_researcher</code>.</p>
+<p>This is a reminder to <strong>always verify</strong> the existence of
+libraries and functions the AI suggests before relying on them in your
+research.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-black-box-problem-open-science-vs--proprietary-ai">The Black Box Problem: Open Science vs. Proprietary AI<a class="anchor" aria-label="anchor" href="#the-black-box-problem-open-science-vs--proprietary-ai"></a>
 </h2>
 <hr class="half-width">
 <p>It is important to acknowledge a tension in this workshop:
@@ -1171,7 +1424,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-06-resources"><p>Content from <a href="06-resources.html">Resources and Next Steps</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-01-11 |
 
         <a href="https://github.com/carpentries/vibe-coding-lesson/edit/main/episodes/06-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1233,7 +1486,24 @@ CLI).</li>
 PDFs.</li>
 </ul>
 </div>
-</section><section><h2 class="section-heading" id="summary-checklist">Summary Checklist<a class="anchor" aria-label="anchor" href="#summary-checklist"></a>
+</section><section><h2 class="section-heading" id="extending-capabilities">Extending Capabilities<a class="anchor" aria-label="anchor" href="#extending-capabilities"></a>
+</h2>
+<hr class="half-width">
+<p>While we focused on the CLI, the ecosystem is evolving to let AI
+tools “reach out” to other software.</p>
+<ul>
+<li>
+<strong>Browser Extensions (Plugins)</strong>: Tools like ChatGPT
+and Gemini (in browser) often have “extensions” to connect with Google
+Drive, Kayak, or WolframAlpha.</li>
+<li>
+<strong>Model Context Protocol (MCP)</strong>: This is an emerging
+open standard (adopted heavily by <strong>Claude</strong> and others)
+that lets you connect an AI assistant to <em>any</em> local or remote
+data source—like your PostgreSQL database, your Slack, or your local
+file system—without uploading everything. It is the “USB-C port” for AI
+applications.</li>
+</ul></section><section><h2 class="section-heading" id="summary-checklist">Summary Checklist<a class="anchor" aria-label="anchor" href="#summary-checklist"></a>
 </h2>
 <hr class="half-width">
 <ol style="list-style-type: decimal">
@@ -1325,8 +1595,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/vibe-coding-lesson/aio.html",
   "identifier": "https://carpentries.github.io/vibe-coding-lesson/aio.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-09",
-  "datePublished": "2026-01-09"
+  "dateModified": "2026-01-11",
+  "datePublished": "2026-01-11"
 }
 
   </script><script>
