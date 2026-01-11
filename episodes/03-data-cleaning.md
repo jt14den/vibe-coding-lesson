@@ -27,7 +27,13 @@ exercises: 20
 ## Active Participation
 
 This episode is designed for **Live Coding**. Learners should follow along, executing the commands on their own machines. 
-**Prerequisite:** Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
+:::::::::::::::::::::::::::::::::::::::::: prereq
+
+## Prerequisites
+
+Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

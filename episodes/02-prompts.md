@@ -98,9 +98,9 @@ AI agents want to be helpful, and sometimes they take shortcuts to appear succes
 - **Fabricated Results**: Generating plausible-looking p-values that aren't actually calculated.
 - **Silent Failure**: Using `try/except` blocks that hide errors from you.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::: discussion
 
-## Discussion: How to Catch It?
+## How to Catch It?
 
 Have you ever seen an AI make a confident mistake? In your own research, what "tells" might indicate the AI is hallucinating?
 
@@ -110,7 +110,7 @@ Have you ever seen an AI make a confident mistake? In your own research, what "t
 *   Demand proof: "How did you calculate that p-value? Show the intermediate steps."
 *   Check the file sizes of outputs: Is the "cleaned" file 0 bytes?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 

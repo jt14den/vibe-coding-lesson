@@ -47,19 +47,42 @@ This repository contains the "Vibe Coding for Research" lesson, part of the IMLS
 - **Technical**: [The Carpentries Workbench](https://carpentries.github.io/workbench/)
 
 ### Component Syntax
-The Workbench uses **Pandoc fenced divs** (colons `:::`) for special blocks. The opening and closing tags must match in length.
+The Workbench uses **Pandoc fenced divs** (colons `:::`) for special blocks. The opening and closing tags must match in length (at least 3 colons, usually recommended to use more to distinguish from nested blocks).
 
-**Common Blocks:**
+**Episode Structure Blocks:**
 *   `::::::::::::::::::::::::::::::::::::::: objectives` (Start of episode)
 *   `:::::::::::::::::::::::::::::::::::::::: questions` (Start of episode)
-*   `::::::::::::::::::::::::::::::::::::::::: callout` (Info/Warning boxes)
-*   `::::::::::::::::::::::::::::::::::::::::: challenge` (Exercises)
-*   `:::::::::::::::::::::::::::::::::::::::: solution` (Must be nested inside challenge)
-*   `::::::::::::::::::::::::::::::::::::::::: instructor` (Instructor-only notes)
 *   `:::::::::::::::::::::::::::::::::::::::: keypoints` (End of episode)
+
+**Interactive Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::::: challenge` (Exercises)
+    *   `:::::::::::::::::::::::::::::::::::::::: solution` (Must be nested inside `challenge`)
+    *   `:::::::::::::::::::::::::::::::::::::::::::: hint` (Optional; Must be nested inside `challenge`)
+
+**Callout Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::::: callout` (General info/warning)
+*   `:::::::::::::::::::::::::::::::::::::::::: prereq` (Prerequisites)
+*   `::::::::::::::::::::::::::::::::::::::: checklist` (Checklists)
+*   `:::::::::::::::::::::::::::::::::::::: discussion` (Discussion topics)
+*   `::::::::::::::::::::::::::::::::::::: testimonial` (Quotes/Testimonials)
+
+**Advanced Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::::: instructor` (Instructor-only notes - visible in instructor view)
+*   `::::::::::::::::::::::::::::::::::::::::::::::::: spoiler` (Collapsible content)
+*   `::::::::::::::::::::::::::::::::::::::::: output` (Output block for code results)
+*   `::::::::::::::::::::::::::::::::::::::: div` (Generic div for custom styling)
+
+**Tabs:**
+*   `::::::::::::::::::::::::::::::::::::::::: panel-tabset` (Container for tabs - automatic tab creation from headers)
+    *   OR
+*   `:::::::::::::::::::::::::::::::::::::::::: group-tab` (Manual Container for tabs)
+    *   `:::::::::::::::::::::::::::::::::::::::::: tab` (Individual tab content)
 
 ### Structure Rules
 1.  **Front Matter**: Each episode (`.md` file) must start with YAML front matter defining `title`, `teaching` (minutes), and `exercises` (minutes).
 2.  **Flow**: `objectives` and `questions` blocks must appear immediately after the front matter.
 3.  **Closing**: The `keypoints` block must be the final element of the episode.
-4.  **Nesting**: A `solution` block must always be inside a `challenge` block. Always check for matching closing tags (`::::::::::::::::::::::::::::::::::::::::::::::::::`).
+4.  **Nesting**: 
+    - `solution` and `hint` blocks **must** be inside a `challenge` block.
+    - Ensure nested blocks use a different number of colons than their parent block to avoid Markdown parsing errors (e.g., parent uses 40 colons, child uses 35).
+    - Always check for matching closing tags.

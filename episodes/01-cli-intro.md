@@ -51,7 +51,13 @@ We use the Gemini CLI for this lesson because the **University of California (UC
 2.  **Access**: It is integrated into the tools we already use (Drive, Docs, etc.).
 3.  **Cost**: It is often included in institutional licenses, avoiding personal subscription fees.
 
-*Note: Always verify with your specific campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool.*
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Data Privacy Warning
+
+Always verify with your specific campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **Looking Ahead: Open Models**
 While we use Gemini today, the skills you learn transfer directly to "Open LLMs" (like **Gemma** or **Llama**). These can be run locally on your own laptop (using tools like **Ollama**), offering the ultimate privacy: no data ever leaves your machine.
@@ -128,7 +134,13 @@ The AI should return a response similar to:
 - data/
 ..."
 
-*Note: The AI's exact wording will vary, but it should correctly identify your OS and the files you see in your folder.*
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Note on Variations
+
+The AI's exact wording will vary, but it should correctly identify your OS and the files you see in your folder.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

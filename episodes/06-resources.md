@@ -50,10 +50,15 @@ Transparent attribution is critical for Open Science. Current academic standards
 
 **1. In Code Repositories (`README.md`):**
 Add a specific "AI Usage" section to your project documentation:
-> **AI Attribution**
-> *   **Model:** Google Gemini 1.5 Pro (Jan 2026 version)
-> *   **Role:** Code generation (scaffolding), Refactoring.
-> *   **Verification:** All code verified by [Your Name] via unit tests.
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Example Attribution Block
+
+*   **Model:** Google Gemini 1.5 Pro (Jan 2026 version)
+*   **Role:** Code generation (scaffolding), Refactoring.
+*   **Verification:** All code verified by [Your Name] via unit tests.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **2. In Manuscripts:**
 Cite the model in the **Methods** section or **Acknowledgements**.
@@ -64,6 +69,8 @@ Cite the model in the **Methods** section or **Acknowledgements**.
 *   [**Elsevier AI Policy**](https://www.elsevier.com/about/policies/publishing-ethics/usage-of-ai-tools-in-writing-for-research): Guidelines on declaring AI use in research.
 *   [**CRediT Taxonomy**](https://credit.niso.org/): Use the "Software" or "Methodology" roles to describe *your* use of the tool, but do not assign a role to the AI itself.
 
+::::::::::::::::::::::::::::::::::::::: checklist
+
 ## Summary Checklist
 
 1. [ ] **CLI tools** operate directly on your files—use them for multi-step tasks.
@@ -71,6 +78,8 @@ Cite the model in the **Methods** section or **Acknowledgements**.
 3. [ ] **CLEAR/CONTEXT** frameworks improve your results.
 4. [ ] **Validate** using synthetic data and statistical theory.
 5. [ ] **You are the pilot**; the AI is the co-pilot.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Getting Help
 
