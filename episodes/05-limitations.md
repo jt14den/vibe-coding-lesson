@@ -36,6 +36,28 @@ Even with validation, there are areas where AI is particularly risky:
 3. **Confident Incorrectness**: Presenting a wrong formula with absolute certainty.
 4. **Over-engineering**: Adding 500 lines of code for a 5-line problem.
 
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Spot the Hallucination
+
+AI models are trained to be helpful, which means they sometimes "guess" information they don't have. Let's see if we can trigger a hallucination.
+
+**Task:**
+Ask Gemini to explain a package or function that doesn't exist. For example:
+`gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"`
+
+What did it say? Did it admit it doesn't know, or did it invent instructions for this non-existent library?
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Discussion
+
+Often, the AI will confidently describe how to install and use the fake library. It might even provide fake code snippets like `import pypanda_researcher`. 
+
+This is a reminder to **always verify** the existence of libraries and functions the AI suggests before relying on them in your research.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The Black Box Problem: Open Science vs. Proprietary AI
 
 It is important to acknowledge a tension in this workshop: **The Gemini CLI is not Open Source.**

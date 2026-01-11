@@ -88,6 +88,21 @@ gemini "Tell me what operating system I am currently using and list the files in
 
 Compare the output to what you see when you run `ls` (or `dir` on Windows) and `uname -a`. Did the AI accurately describe your environment?
 
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Example Output
+
+The AI should return a response similar to:
+
+"You are currently using macOS (Darwin). The files in this directory are: 
+- index.md
+- config.yaml
+- episodes/
+- data/
+..."
+
+*Note: The AI's exact wording will vary, but it should correctly identify your OS and the files you see in your folder.*
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Project Context: GEMINI.md and CONTEXT.md
