@@ -84,7 +84,7 @@ Use powerful proprietary models (like Gemini) for the "Vibe Coding" phase—prot
 
 ## Key Lesson
 
-You remain the scientist. AI augments your speed, but it does not replace your expertise or your responsibility for the results.
+You remain the scientist. AI augments your speed, but it does not replace your expertise or your responsibility for the results. Your primary job shifts from "writing code" to managing the **Verification Load** of the code the AI produces.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

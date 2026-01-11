@@ -133,6 +133,11 @@ Let's practice the **CLEAR** framework. We want to visualize the relationship be
 gemini "Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."
 ```
 
+### Reflection
+*   How much longer was your "Good" prompt compared to your "Bad" one?
+*   Did defining the output filename save you from hunting for the file later?
+*   This extra "typing time" saves you "debugging time."
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

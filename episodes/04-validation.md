@@ -62,6 +62,33 @@ Live coding with AI can be unpredictable. If the Gemini API hangs or returns gar
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
+## Challenge: The Second Opinion (Cross-AI Audit)
+
+Now that you have your `validate_data.py` script, let's practice **Cross-AI Validation**.
+
+1.  Open a **new** chat session (or use a different model if available, like Claude or ChatGPT).
+2.  Paste your `validate_data.py` code into the chat.
+3.  Ask: "Review this Python script for potential bugs. Does it correctly handle a case where the file is completely empty? What happens if the 'score' column contains text?"
+
+**Reflect:** Did the second AI find something the first AI (and you) missed?
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Discussion
+
+It is common for the second AI to point out edge cases, such as:
+*   "The script might crash if the file doesn't exist."
+*   "It treats 'N/A' strings as valid values instead of missing data."
+*   "It checks for `score < 0` but not `score > 100`."
+
+This "Peer Review" process is a powerful way to reduce your Verification Load.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
 ## Challenge: The Integrity Check
 
 We need to prove our `master_dataset.csv` is clean. Use the Gemini CLI to write a validation script.
