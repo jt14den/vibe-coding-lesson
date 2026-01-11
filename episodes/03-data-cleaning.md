@@ -72,7 +72,7 @@ gemini "Write a script called 'clean_and_merge.py'. It should read the 3 site CS
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Safety Net: Backup Scripts
-This step involves complex logic. If a learner's AI fails to generate a working `clean_and_merge.py` after 2-3 attempts, provide them with a pre-written version of the script (available in `episodes/files/backup_clean_and_merge.py`) so they can proceed to the next challenge without falling behind.
+This step involves complex logic. If a learner's AI fails to generate a working `clean_and_merge.py` after 2-3 attempts, provide them with a pre-written version of the script (available in `instructors/files/backup_clean_and_merge.py`) so they can proceed to the next challenge without falling behind.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
