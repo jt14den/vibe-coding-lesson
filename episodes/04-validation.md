@@ -1,7 +1,7 @@
 ---
 title: "Validation Best Practices"
-teaching: 40
-exercises: 30
+teaching: 30
+exercises: 20
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives

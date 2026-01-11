@@ -34,6 +34,13 @@ exercises: 0
 - **Consensus**: Searching for scientific consensus.
 - **NotebookLM**: Chatting with your own research PDFs.
 
+## Extending Capabilities
+
+While we focused on the CLI, the ecosystem is evolving to let AI tools "reach out" to other software.
+
+*   **Browser Extensions (Plugins)**: Tools like ChatGPT and Gemini (in browser) often have "extensions" to connect with Google Drive, Kayak, or WolframAlpha.
+*   **Model Context Protocol (MCP)**: This is an emerging open standard (adopted heavily by **Claude** and others) that lets you connect an AI assistant to *any* local or remote data source—like your PostgreSQL database, your Slack, or your local file system—without uploading everything. It is the "USB-C port" for AI applications.
+
 ## Summary Checklist
 
 1. [ ] **CLI tools** operate directly on your files—use them for multi-step tasks.
