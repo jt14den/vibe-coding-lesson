@@ -40,6 +40,29 @@ This repository contains the "Vibe Coding for Research" lesson, part of the IMLS
 - **Style**: Semantic HTML elements within markdown (e.g., definition lists), clear callout blocks.
 - **Validation Focus**: Emphasis on Synthetic Data, Theoretical validation, Cross-AI verification, Unit Testing, and Documentation.
 
+## Pedagogical Standards
+
+### Core Design Principles
+1.  **Backward Design & Constructive Alignment**:
+    *   **Outcomes First**: Define clear, measurable *Learning Objectives*.
+    *   **Alignment**: Ensure teaching methods and assessments (challenges) directly match the objectives.
+    *   **Assessment**: Create challenges that allow learners to demonstrate they have met the outcomes.
+
+2.  **Student-Centered Learning**:
+    *   **Active Learning**: Prioritize "doing" over "listening." Use the "I Do, We Do, You Do" flow.
+    *   **Reflection**: Include opportunities for learners to reflect on *how* they are solving problems (metacognition), especially when using AI.
+    *   **Diversity**: Acknowledge different learning styles by offering various types of explanations (visual, code, text) and challenges.
+
+3.  **Cognitive Load Management**:
+    *   **Minimize Extraneous Load**: Remove complex setups or tools not central to the learning goal.
+    *   **Scaffolding**: Provide partial code or "parsons problems" for complex tasks to reduce initial friction.
+    *   **The "Editor" Mindset**: Shift focus from syntax generation (high load) to logic verification (high value).
+
+4.  **Professional Values**:
+    *   **Scholarship**: Connect AI tools to established research methods, not just "productivity hacks."
+    *   **Inclusivity**: Ensure examples and language are accessible to researchers from diverse backgrounds.
+    *   **Transparency**: Be open about the limitations and "black box" nature of AI tools.
+
 ## Carpentries Workbench Standards
 
 ### Documentation
