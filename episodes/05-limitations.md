@@ -23,19 +23,13 @@ exercises: 10
 
 ## When NOT to Trust AI Code
 
-Even with validation, there are areas where AI is particularly risky:
-
-- **Security-Critical Code**: Authentication, encryption, or sensitive data handling.
-- **Novel Research Methods**: If you are inventing a new statistical method, the AI only knows what has been published before.
-- **Domain-Specific Quirks**: AI doesn't understand the specific "gotchas" of your field's data (e.g., specific sensor noise patterns).
-- **Performance-Critical Sections**: AI often picks the most common (not the fastest) algorithm.
+Even with robust validation practices, there are specific scenarios where using AI-generated code introduces unacceptable risks to research integrity. Security-critical tasks—such as authentication, encryption, or the handling of sensitive participant data—should never be left to an AI without expert oversight. Similarly, when your research involves novel statistical methods or domain-specific quirks, the AI may fail because it can only synthesize information from its training data, which might not include the latest breakthroughs or the specific sensor noise patterns unique to your field. In performance-critical sections of your code, AI models also tend to prioritize the most common algorithms rather than the most efficient ones, potentially leading to bottlenecks in large-scale data processing.
 
 ## Common Failure Modes
 
-1. **Hallucinated Functions**: Invoking libraries or APIs that don't actually exist.
-2. **Outdated Approaches**: Using deprecated code from its training data (e.g., old pandas syntax).
-3. **Confident Incorrectness**: Presenting a wrong formula with absolute certainty.
-4. **Over-engineering**: Adding 500 lines of code for a 5-line problem.
+Understanding the common ways AI fails can help you spot errors before they impact your results. One frequent issue is the generation of **hallucinated functions**, where the model invokes libraries or APIs that simply do not exist. You may also encounter **outdated approaches**, as the AI might use deprecated syntax from its training data that no longer works with current software versions.
+
+Perhaps the most dangerous failure mode is **confident incorrectness**, where the AI presents a fundamentally wrong formula or logic with absolute certainty. This is often accompanied by **over-engineering**, where the model generates hundreds of lines of complex code for a problem that requires only a few. Recognizing these patterns allows you to maintain the "Editor's mindset," treating the AI's output as a draft that requires careful scrutiny rather than a finished product.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
