@@ -10,6 +10,7 @@ exercises: 10
 
 - Recognize high-risk scenarios.
 - Identify hallucinated or outdated code.
+- Distinguish between Open and Proprietary models.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -93,5 +94,6 @@ You remain the scientist. AI augments your speed, but it does not replace your e
 
 - Avoid AI for security-critical tasks.
 - You are responsible for the final output.
+- Open models offer reproducibility; proprietary models offer power.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
