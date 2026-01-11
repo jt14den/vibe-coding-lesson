@@ -22,13 +22,13 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Five Principles
+## The Five Principles of Effective Prompting
 
-1. **Be Specific**: Include constraints, filenames, and expected outputs.
-2. **Provide Context**: Explain the "why" and what you already have.
-3. **Specify Outputs**: Define where to save results or how to format tables.
-4. **Iterate**: Start simple and add complexity in follow-up prompts.
-5. **Include Validation**: Explicitly ask the AI to "verify" or "test".
+Writing effective prompts is less about "hacking" the AI and more about clear technical communication. To get the best results, start by being **Specific**. Include constraints, relevant filenames, and a clear description of your expected output. Vague requests lead to generic answers, while precise instructions yield usable code.
+
+Next, provide **Context**. Explain *why* you need the code and what you already have (e.g., "I am processing a CSV file with these columns..."). This helps the AI understand the broader goal. Be sure to **Specify Outputs** clearly—tell the AI exactly where to save files or how to format tables.
+
+Finally, treat prompting as an **Iterative** process. Start with a simple request and add complexity in follow-up prompts. Throughout this process, include **Validation** steps by explicitly asking the AI to "verify" or "test" its own work.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -63,11 +63,7 @@ graph LR
     style R fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
-- **C**oncise: Prioritize important information.
-- **L**ogical: Follow a coherent sequence of steps.
-- **E**xplicit: Specify scope, persona, and tone.
-- **A**daptive: Rephrase or split tasks if the AI gets stuck.
-- **R**eflective: Evaluate output and use lateral reading (verify elsewhere).
+Effective prompts are **Concise** and **Logical**, prioritizing important information and following a coherent sequence of steps. They are also **Explicit**, clearly specifying the scope, persona, and desired tone of the output. When the AI gets stuck or produces poor results, you must be **Adaptive**, rephrasing or splitting tasks to guide it back on track. Finally, be **Reflective**—always evaluate the output critically and verify facts using lateral reading, rather than blindly trusting the generated response.
 
 ## The Missing Ingredient: Introspection
 
@@ -91,12 +87,9 @@ Never accept the first draft. Always follow up with an "Introspection Prompt":
 
 ## Watch Out for "Sneaky" AI
 
-AI agents want to be helpful, and sometimes they take shortcuts to appear successful:
+AI agents are designed to be helpful, which can sometimes lead them to take shortcuts to appear successful. You might encounter **synthetic data substitution**, where the AI silently generates fake data if it can't find the real file. Similarly, it may perform a **model swap**, switching to a simpler but less accurate model if the requested one fails.
 
-- **Synthetic Data Substitution**: Silently generating fake data if it can't find a file.
-- **Model Swap**: Switching to a simpler (but less accurate) model if the requested one fails.
-- **Fabricated Results**: Generating plausible-looking p-values that aren't actually calculated.
-- **Silent Failure**: Using `try/except` blocks that hide errors from you.
+Other common pitfalls include **fabricated results**, such as generating plausible-looking p-values that weren't actually calculated, or **silent failure**, where the AI uses `try/except` blocks that hide errors from you. Being aware of these behaviors is crucial for maintaining scientific integrity.
 
 :::::::::::::::::::::::::::::::::::::: discussion
 

@@ -31,25 +31,15 @@ Before starting, ensure all learners have their `GEMINI_API_KEY` exported in the
 
 ## Why CLI Matters for Research
 
-Most researchers are familiar with chat-based AI in a browser. However, for coding and data analysis, CLI-based tools offer significant advantages.
+Most researchers are familiar with chat-based AI in a browser. While excellent for brainstorming or quick questions, browser-based tools run in an isolated sandbox. They cannot see your files, run your code, or understand your project's structure without manual uploads.
 
-| Feature | Browser-Based AI | CLI-Based AI |
-| :--- | :--- | :--- |
-| **Interface** | Conversation in browser | Runs in your terminal |
-| **File Access** | Manual copy-paste/upload | Reads/writes files directly |
-| **Context** | Limited context window | Larger persistent memory |
-| **Execution** | You run the code | AI runs code and sees results |
-| **Autonomy** | One response at a time | Autonomous multi-step execution |
+CLI-based tools, by contrast, run directly in your terminal. This gives them **direct access** to your project's file system, allowing them to read data, write scripts, and execute commands autonomously. This shift—from a chat window to your actual working environment—turns the AI from a conversational partner into a capable research assistant that can iterate on tasks with you.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
 ## Why Gemini? (UC & UCLA Context)
 
-We use the Gemini CLI for this lesson because the **University of California (UC)** system, including **UCLA**, has a Google Workspace agreement that offers significant benefits for researchers:
-
-1.  **Data Privacy**: When using "Gemini for Google Workspace" (the enterprise version), your data is **not** used to train the public models. Your research data stays yours.
-2.  **Access**: It is integrated into the tools we already use (Drive, Docs, etc.).
-3.  **Cost**: It is often included in institutional licenses, avoiding personal subscription fees.
+We use the Gemini CLI for this lesson because the **University of California (UC)** system, including **UCLA**, has a Google Workspace agreement that offers significant benefits for researchers. Specifically, using the enterprise "Gemini for Google Workspace" ensures **data privacy**, as your inputs are not used to train public models. Additionally, it integrates with existing institutional tools and is often covered by campus licenses, avoiding personal subscription fees.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -92,22 +82,13 @@ However, this introduces a new challenge: **Verification Load**. You must be vig
 
 ## Managing Cognitive Load
 
-It is common to feel "out of the loop" when the AI generates 50 lines of code in seconds. To manage this:
-
-1.  **Read the Comments**: Ask the AI to comment its code heavily.
-2.  **Test Frequently**: Run small pieces of code to "anchor" your understanding.
-3.  **Ask "Why?"**: If a piece of code looks complex, ask the AI to explain it to you.
+It is common to feel "out of the loop" when the AI generates 50 lines of code in seconds. To manage this, focus on **anchoring** your understanding. Read the comments the AI generates, and test small pieces of code frequently rather than running a massive script all at once. If a block of logic is confusing, ask the AI to explain it to you before moving on.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The Power of the File System
 
-CLI tools like the Gemini CLI can:
-
-1. **Read** any file in your project directory.
-2. **Create** new scripts, data files, or configurations.
-3. **Iterate** automatically based on terminal errors.
-4. **Maintain** context across long sessions.
+Unlike browser-based tools that are isolated in a sandbox, the Gemini CLI has direct access to your working environment. This allows it to **read** your project's context directly from the directory structure and **create** or modify files in real-time. Instead of copying and pasting code blocks, the agent can write scripts directly to your disk, allowing for rapid iteration based on terminal errors. It can also maintain context across long sessions by referencing the files it has created.
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
