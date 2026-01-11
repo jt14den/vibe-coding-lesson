@@ -1,7 +1,7 @@
 ---
 title: "Limitations and Cautions"
 teaching: 15
-exercises: 0
+exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
