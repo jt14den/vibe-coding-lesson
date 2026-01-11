@@ -48,6 +48,17 @@ This lesson is written in Markdown and built with [Sandpaper](https://carpentrie
 
 This lesson is adapted from the workshop "Vibe Coding for Research" by **Bruno Smaniotto** and **Tom van Nuenen** at the **UC Berkeley D-Lab**.
 
+## AI Attribution
+
+This lesson was developed with the assistance of AI tools, adhering to the project's own transparency standards:
+
+*   **Model:** Google Gemini 1.5 Pro (Jan 2026 version)
+*   **Role:** 
+    *   **Porting & Conversion:** Assisted in porting the lesson content from original D-Lab workshop slides into the Carpentries Workbench markdown format.
+    *   **Curriculum Validation:** Performed automated checks for completeness and alignment with Carpentries pedagogical standards.
+    *   **Content Refactoring:** Identified gaps in the "Validation" and "Limitations" sections and assisted in refactoring the glossary into semantic HTML.
+*   **Verification:** All AI-assisted content was reviewed, edited, and validated by the maintainers to ensure pedagogical accuracy and technical correctness.
+
 ## License
 
 This content is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).

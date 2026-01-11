@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this lesson, please cite it as below."
+title: "Vibe Coding for Research"
+abstract: "A Carpentries-style lesson introducing researchers to AI-assisted programming (Vibe Coding), emphasizing CLI tools, context management, and rigorous validation strategies."
+authors:
+  - family-names: "Dennis"
+    given-names: "Tim"
+    email: "timdennis@g.ucla.edu"
+  - family-names: "Smaniotto"
+    given-names: "Bruno"
+    affiliation: "UC Berkeley D-Lab"
+  - family-names: "van Nuenen"
+    given-names: "Tom"
+    affiliation: "UC Berkeley D-Lab"
+version: 0.1.0
+date-released: 2026-01-10
+license: CC-BY-4.0
+repository-code: "https://github.com/jt14den/vibe-coding-lesson"
+keywords:
+  - "AI"
+  - "LLM"
+  - "Research Software Engineering"
+  - "Validation"
+  - "Reproducibility"
+references:
+  - type: software
+    title: "Google Gemini"
+    abstract: "Large Language Model used for porting content from slides, curriculum validation, and structural refactoring of the lesson materials."
+    version: "1.5 Pro"
+    date-accessed: "2026-01-10"
+    authors:
+      - name: "Google"
