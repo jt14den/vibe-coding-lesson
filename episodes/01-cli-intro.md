@@ -10,6 +10,7 @@ exercises: 10
 
 - Compare CLI and Browser-based AI tools.
 - Create a project context file.
+- Explain the shift from Writer to Editor.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -197,5 +198,6 @@ To analyze trends in sea ice extent using satellite data from 1980-2020.
 
 - CLI tools can edit files directly.
 - Persistent context in GEMINI.md improves AI performance.
+- Vibe Coding shifts focus from syntax to verification.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

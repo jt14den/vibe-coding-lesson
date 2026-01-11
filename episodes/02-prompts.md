@@ -10,6 +10,7 @@ exercises: 15
 
 - Apply the CLEAR framework.
 - Identify sneaky AI behaviors.
+- Use introspection to refine code.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -17,6 +18,7 @@ exercises: 15
 
 - How do I write effective prompts?
 - What are common AI failures?
+- How can I make the AI fix its own mistakes?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -141,5 +143,6 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 
 - Be specific and provide context.
 - Always validate AI outputs.
+- Introspection (Self-Correction) improves code quality.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

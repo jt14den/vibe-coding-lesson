@@ -10,6 +10,7 @@ exercises: 0
 
 - List alternative AI coding tools.
 - Locate documentation and support.
+- Understand plugins and Model Context Protocol (MCP).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -60,5 +61,6 @@ While we focused on the CLI, the ecosystem is evolving to let AI tools "reach ou
 
 - Gemini, Claude, and Copilot serve different needs.
 - Community support is vital.
+- Plugins and MCP allow AI to connect to external data.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

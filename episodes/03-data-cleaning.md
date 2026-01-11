@@ -10,6 +10,7 @@ exercises: 20
 
 - Use Gemini to generate a realistic test dataset.
 - Build a data processing pipeline that handles inconsistencies.
+- Verify AI-generated code before execution.
 - Document the cleaning process automatically.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -136,6 +137,7 @@ gemini "Create a README.md file that explains the data processing pipeline we ju
 - AI excels at tedious data harmonization tasks.
 
 - Asking the AI to 'audit' data first prevents errors.
+- Always read the code before running it.
 
 
 

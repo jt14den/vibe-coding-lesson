@@ -10,6 +10,7 @@ exercises: 20
 
 - Implement data integrity checks.
 - Use assert statements for defensive programming.
+- Perform Cross-AI auditing.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -17,6 +18,7 @@ exercises: 20
 
 - How do I know if the AI code is correct?
 - What is a 'sanity check' in code?
+- How can I use a second AI to check work?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -97,5 +99,6 @@ If you see "FAIL" or "Warning", investigate your `clean_and_merge.py` script!
 
 - Never trust a cleaning script without verifying the output.
 - Automated tests prevent 'silent' data corruption.
+- Cross-AI auditing provides a second opinion.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
