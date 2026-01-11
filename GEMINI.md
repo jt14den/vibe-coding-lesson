@@ -40,26 +40,88 @@ This repository contains the "Vibe Coding for Research" lesson, part of the IMLS
 - **Style**: Semantic HTML elements within markdown (e.g., definition lists), clear callout blocks.
 - **Validation Focus**: Emphasis on Synthetic Data, Theoretical validation, Cross-AI verification, Unit Testing, and Documentation.
 
+## Pedagogical Standards
+
+### Core Design Principles
+1.  **Backward Design & Constructive Alignment**:
+    *   **Outcomes First**: Define clear, measurable *Learning Objectives*.
+    *   **Alignment**: Ensure teaching methods and assessments (challenges) directly match the objectives.
+    *   **Assessment**: Create challenges that allow learners to demonstrate they have met the outcomes.
+
+2.  **Student-Centered Learning**:
+    *   **Active Learning**: Prioritize "doing" over "listening." Use the "I Do, We Do, You Do" flow.
+    *   **Reflection**: Include opportunities for learners to reflect on *how* they are solving problems (metacognition), especially when using AI.
+    *   **Diversity**: Acknowledge different learning styles by offering various types of explanations (visual, code, text) and challenges.
+
+3.  **Cognitive Load Management**:
+    *   **Minimize Extraneous Load**: Remove complex setups or tools not central to the learning goal.
+    *   **Scaffolding**: Provide partial code or "parsons problems" for complex tasks to reduce initial friction.
+    *   **The "Editor" Mindset**: Shift focus from syntax generation (high load) to logic verification (high value).
+
+4.  **Professional Values**:
+    *   **Scholarship**: Connect AI tools to established research methods, not just "productivity hacks."
+    *   **Inclusivity**: Ensure examples and language are accessible to researchers from diverse backgrounds.
+    *   **Transparency**: Be open about the limitations and "black box" nature of AI tools.
+
 ## Carpentries Workbench Standards
 
 ### Documentation
 - **Pedagogy**: [Carpentries Lesson Development Training](https://carpentries.github.io/lesson-development-training/)
 - **Technical**: [The Carpentries Workbench](https://carpentries.github.io/workbench/)
 
-### Component Syntax
-The Workbench uses **Pandoc fenced divs** (colons `:::`) for special blocks. The opening and closing tags must match in length.
+### Verification
+To ensure the lesson is correctly formatted and free of errors, run the following commands in the R console:
 
-**Common Blocks:**
+1.  **Check Lesson Structure**:
+    ```r
+    sandpaper::check_lesson()
+    ```
+2.  **Validate Lesson Content** (links, images, components):
+    ```r
+    sandpaper::validate_lesson()
+    ```
+3.  **Build and Preview**:
+    ```r
+    sandpaper::serve()
+    ```
+
+### Component Syntax
+The Workbench uses **Pandoc fenced divs** (colons `:::`) for special blocks. The opening and closing tags must match in length (at least 3 colons, usually recommended to use more to distinguish from nested blocks).
+
+**Episode Structure Blocks:**
 *   `::::::::::::::::::::::::::::::::::::::: objectives` (Start of episode)
 *   `:::::::::::::::::::::::::::::::::::::::: questions` (Start of episode)
-*   `::::::::::::::::::::::::::::::::::::::::: callout` (Info/Warning boxes)
-*   `::::::::::::::::::::::::::::::::::::::::: challenge` (Exercises)
-*   `:::::::::::::::::::::::::::::::::::::::: solution` (Must be nested inside challenge)
-*   `::::::::::::::::::::::::::::::::::::::::: instructor` (Instructor-only notes)
 *   `:::::::::::::::::::::::::::::::::::::::: keypoints` (End of episode)
+
+**Interactive Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::::: challenge` (Exercises)
+    *   `:::::::::::::::::::::::::::::::::::::::: solution` (Must be nested inside `challenge`)
+    *   `:::::::::::::::::::::::::::::::::::::::::::: hint` (Optional; Must be nested inside `challenge`)
+
+**Callout Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::::: callout` (General info/warning)
+*   `:::::::::::::::::::::::::::::::::::::::::: prereq` (Prerequisites)
+*   `::::::::::::::::::::::::::::::::::::::: checklist` (Checklists)
+*   `:::::::::::::::::::::::::::::::::::::: discussion` (Discussion topics)
+*   `::::::::::::::::::::::::::::::::::::: testimonial` (Quotes/Testimonials)
+
+**Advanced Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::::: instructor` (Instructor-only notes - visible in instructor view)
+*   `::::::::::::::::::::::::::::::::::::::::::::::::: spoiler` (Collapsible content)
+*   `::::::::::::::::::::::::::::::::::::::::: output` (Output block for code results)
+*   `::::::::::::::::::::::::::::::::::::::: div` (Generic div for custom styling)
+
+**Tabs:**
+*   `::::::::::::::::::::::::::::::::::::::::: panel-tabset` (Container for tabs - automatic tab creation from headers)
+    *   OR
+*   `:::::::::::::::::::::::::::::::::::::::::: group-tab` (Manual Container for tabs)
+    *   `:::::::::::::::::::::::::::::::::::::::::: tab` (Individual tab content)
 
 ### Structure Rules
 1.  **Front Matter**: Each episode (`.md` file) must start with YAML front matter defining `title`, `teaching` (minutes), and `exercises` (minutes).
 2.  **Flow**: `objectives` and `questions` blocks must appear immediately after the front matter.
 3.  **Closing**: The `keypoints` block must be the final element of the episode.
-4.  **Nesting**: A `solution` block must always be inside a `challenge` block. Always check for matching closing tags (`::::::::::::::::::::::::::::::::::::::::::::::::::`).
+4.  **Nesting**: 
+    - `solution` and `hint` blocks **must** be inside a `challenge` block.
+    - Ensure nested blocks use a different number of colons than their parent block to avoid Markdown parsing errors (e.g., parent uses 40 colons, child uses 35).
+    - Always check for matching closing tags.

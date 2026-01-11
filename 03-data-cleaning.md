@@ -27,7 +27,13 @@ exercises: 20
 ## Active Participation
 
 This episode is designed for **Live Coding**. Learners should follow along, executing the commands on their own machines. 
-**Prerequisite:** Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
+:::::::::::::::::::::::::::::::::::::::::: prereq
+
+## Prerequisites
+
+Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -62,6 +68,13 @@ Now for the magic. We will ask Gemini to write a script that handles these speci
 ```bash
 gemini "Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."
 ```
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Safety Net: Backup Scripts
+This step involves complex logic. If a learner's AI fails to generate a working `clean_and_merge.py` after 2-3 attempts, provide them with a pre-written version of the script (available in `episodes/files/backup_clean_and_merge.py`) so they can proceed to the next challenge without falling behind.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -113,6 +126,11 @@ Instead of editing `clean_and_merge.py` manually, use the Gemini CLI to update t
 ```bash
 gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."
 ```
+
+### Reflection
+*   Did the AI rewrite the whole file or just edit the relevant part?
+*   Did it remember to import `pandas` again?
+*   Did you trust it enough to run it without looking, or did you check the diff first?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

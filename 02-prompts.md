@@ -98,9 +98,9 @@ AI agents want to be helpful, and sometimes they take shortcuts to appear succes
 - **Fabricated Results**: Generating plausible-looking p-values that aren't actually calculated.
 - **Silent Failure**: Using `try/except` blocks that hide errors from you.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::: discussion
 
-## Discussion: How to Catch It?
+## How to Catch It?
 
 Have you ever seen an AI make a confident mistake? In your own research, what "tells" might indicate the AI is hallucinating?
 
@@ -110,7 +110,7 @@ Have you ever seen an AI make a confident mistake? In your own research, what "t
 *   Demand proof: "How did you calculate that p-value? Show the intermediate steps."
 *   Check the file sizes of outputs: Is the "cleaned" file 0 bytes?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
@@ -132,6 +132,11 @@ Let's practice the **CLEAR** framework. We want to visualize the relationship be
 ```bash
 gemini "Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."
 ```
+
+### Reflection
+*   How much longer was your "Good" prompt compared to your "Bad" one?
+*   Did defining the output filename save you from hunting for the file later?
+*   This extra "typing time" saves you "debugging time."
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
