@@ -46,6 +46,22 @@ This repository contains the "Vibe Coding for Research" lesson, part of the IMLS
 - **Pedagogy**: [Carpentries Lesson Development Training](https://carpentries.github.io/lesson-development-training/)
 - **Technical**: [The Carpentries Workbench](https://carpentries.github.io/workbench/)
 
+### Verification
+To ensure the lesson is correctly formatted and free of errors, run the following commands in the R console:
+
+1.  **Check Lesson Structure**:
+    ```r
+    sandpaper::check_lesson()
+    ```
+2.  **Validate Lesson Content** (links, images, components):
+    ```r
+    sandpaper::validate_lesson()
+    ```
+3.  **Build and Preview**:
+    ```r
+    sandpaper::serve()
+    ```
+
 ### Component Syntax
 The Workbench uses **Pandoc fenced divs** (colons `:::`) for special blocks. The opening and closing tags must match in length (at least 3 colons, usually recommended to use more to distinguish from nested blocks).
 
