@@ -40,15 +40,52 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Teaching Tip: Visual Aids
+Write **CLEAR** vertically on the whiteboard or shared document. As you explain each letter, add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This visual anchor helps retention.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## The CLEAR Framework
 
 The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023.102720), provides a structured approach to prompt engineering:
+
+```mermaid
+graph LR
+    C[Concise] --> L[Logical]
+    L --> E[Explicit]
+    E --> A[Adaptive]
+    A --> R[Reflective]
+    R -->|Feedback Loop| A
+    style R fill:#bbf,stroke:#333,stroke-width:2px
+```
 
 - **C**oncise: Prioritize important information.
 - **L**ogical: Follow a coherent sequence of steps.
 - **E**xplicit: Specify scope, persona, and tone.
 - **A**daptive: Rephrase or split tasks if the AI gets stuck.
 - **R**eflective: Evaluate output and use lateral reading (verify elsewhere).
+
+## The Missing Ingredient: Introspection
+
+The CLEAR framework guides *your* input, but you can also force the AI to critique its *own* output. This is often called "Self-Correction."
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## The "Superpower" Concept
+Emphasize this section. Most learners treat the AI output as final. The idea that they can ask the AI to "fix its own work" is often a lightbulb moment. 
+*Analogy:* It's like asking a student, "Are you sure you checked your work?"—often they find their own mistakes just by being asked.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+**The Principle:** AI models are often better at *verifying* code than *writing* it.
+
+**How to use it:**
+Never accept the first draft. Always follow up with an "Introspection Prompt":
+*   "Review the code you just wrote. Are there any edge cases or security vulnerabilities?"
+*   "Did you hardcode any file paths?"
+*   "Critique your own implementation. Is there a more efficient way?"
 
 ## Watch Out for "Sneaky" AI
 
@@ -70,6 +107,31 @@ Have you ever seen an AI make a confident mistake? In your own research, what "t
 *   Always ask: "Show me the first 10 rows of the data you loaded."
 *   Demand proof: "How did you calculate that p-value? Show the intermediate steps."
 *   Check the file sizes of outputs: Is the "cleaned" file 0 bytes?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: The Prompt Refinement Loop
+
+Let's practice the **CLEAR** framework. We want to visualize the relationship between "Date" and "Score" in our (theoretical) dataset.
+
+1.  **Run a vague command:**
+    `gemini "Create a plot of the data I just made."`
+    *Observe: Does it work? Is the plot useful? Where did it save it?*
+
+2.  **Refine the command:**
+    Write a new prompt that applies **Context** (what the data is), **Specificity** (scatterplot with regression line), and **Output** (save as `fig/trend_analysis.png`).
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Example Refined Prompt
+
+```bash
+gemini "Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

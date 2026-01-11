@@ -1,7 +1,7 @@
 ---
 title: "Validation Best Practices"
-teaching: 40
-exercises: 30
+teaching: 30
+exercises: 20
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -35,13 +35,28 @@ After merging data, you should always verify basic facts.
 
 You can ask the AI to write "assert" statements inside your processing script. These will stop the script immediately if something looks wrong.
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Teaching Tip: Future-Proofing
+Remind learners: "Asserts aren't just for checking the AI today; they are for protecting you 6 months from now when you get new data."
+This reframes validation from a "chore" to "insurance."
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 *   *Example:* `assert len(df) == 150, "Rows missing!"`
 
 ### 3. Cross-AI Validation
 
 Just like with the regression model, you can ask a second AI (like Claude or ChatGPT) to audit your cleaning script.
 
-*   *Prompt:* "Review this pandas script. Are there any edge cases where it might fail to parse a date? Does it handle the median imputation correctly if all values are missing?"
+*   *Prompt:* "Review this pandas script. Are there any edge cases or might fail to parse a date? Does it handle the median imputation correctly if all values are missing?"
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Backup Plan
+Live coding with AI can be unpredictable. If the Gemini API hangs or returns garbage code during this challenge, have a working `validate_data.py` ready to share (e.g., via a distinct "solution" file or a shared pad) so the class can proceed to running it.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 

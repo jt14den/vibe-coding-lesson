@@ -1,7 +1,7 @@
 ---
 title: "Limitations and Cautions"
 teaching: 15
-exercises: 0
+exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -35,6 +35,39 @@ Even with validation, there are areas where AI is particularly risky:
 2. **Outdated Approaches**: Using deprecated code from its training data (e.g., old pandas syntax).
 3. **Confident Incorrectness**: Presenting a wrong formula with absolute certainty.
 4. **Over-engineering**: Adding 500 lines of code for a 5-line problem.
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Managing Expectations
+As models improve (e.g., Gemini 1.5 Pro vs Flash), they are becoming harder to trick into hallucinating. 
+*   **If it refuses:** Praise the model! Point out that it correctly identified its lack of knowledge.
+*   **Backup:** Have a screenshot ready of a "classic" hallucination (like the famous "recurse-center" library or a made-up court case) just in case everyone's AI behaves perfectly.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Spot the Hallucination
+
+AI models are trained to be helpful, which means they sometimes "guess" information they don't have. Let's see if we can trigger a hallucination.
+
+**Task:**
+Ask Gemini to explain a package or function that doesn't exist. For example:
+`gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"`
+
+What did it say? Did it admit it doesn't know, or did it invent instructions for this non-existent library?
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Discussion
+
+Often, the AI will confidently describe how to install and use the fake library. It might even provide fake code snippets like `import pypanda_researcher`. 
+
+This is a reminder to **always verify** the existence of libraries and functions the AI suggests before relying on them in your research.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The Black Box Problem: Open Science vs. Proprietary AI
 

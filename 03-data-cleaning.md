@@ -23,9 +23,9 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Live Demo Warning
+## Active Participation
 
-This episode is designed as a **Live Demo**. The instructor plays the role of the "Data Janitor" while learners watch or follow along. 
+This episode is designed for **Live Coding**. Learners should follow along, executing the commands on their own machines. 
 **Prerequisite:** Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -62,12 +62,58 @@ Now for the magic. We will ask Gemini to write a script that handles these speci
 gemini "Write a script called 'clean_and_merge.py'. It should: 1. Read the 3 site CSVs. 2. Rename all ID columns to 'participant_id' and date columns to 'date'. 3. Convert all dates to standard YYYY-MM-DD format. 4. Fill missing scores with the median of that site. 5. Save the result to 'master_dataset.csv'. Add comments explaining each step."
 ```
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Stop and Read: The Editor's Role
+
+Before you run this code, open `clean_and_merge.py` in your editor. 
+*   Does the logic make sense?
+*   Are the comments clear?
+*   Do you see any obvious errors?
+
+Remember: You are the pilot; the AI is just the co-pilot.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 Run `python clean_and_merge.py`. You now have a single, clean dataset ready for analysis.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
 ## Why ask for comments?
 Notice we explicitly asked the AI to "Add comments explaining each step." This is crucial for **Vibe Coding**. Since you didn't write the code yourself, these comments become your primary way of verifying the logic later. It transforms the script from a black box into a readable methodology.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Challenge Hint
+This challenge is harder because it requires modifying *existing* code. 
+If learners are stuck, hint: "Does the AI know what is inside `clean_and_merge.py` yet?"
+**Strategy:** They should explicitly ask the AI to "Read clean_and_merge.py" *before* asking it to modify it, or use a command that combines both actions (e.g., `gemini "Read clean_and_merge.py and add..."`).
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: The Curveball
+
+Research requirements change. Imagine your Principal Investigator (PI) just emailed you: "We need to exclude any participant with a Score below 10, as they are likely outliers."
+
+**Your Task:**
+Instead of editing `clean_and_merge.py` manually, use the Gemini CLI to update the script.
+1.  Ask the AI to read the existing file.
+2.  Instruct it to add the filtering logic.
+3.  Run the updated script and verify the "Score" column in `master_dataset.csv`.
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Possible Command
+
+```bash
+gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
