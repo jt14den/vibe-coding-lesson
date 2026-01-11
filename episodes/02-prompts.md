@@ -51,6 +51,16 @@ Write **CLEAR** vertically on the whiteboard or shared document. As you explain 
 
 The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023.102720), provides a structured approach to prompt engineering:
 
+```mermaid
+graph LR
+    C[Concise] --> L[Logical]
+    L --> E[Explicit]
+    E --> A[Adaptive]
+    A --> R[Reflective]
+    R -->|Feedback Loop| A
+    style R fill:#bbf,stroke:#333,stroke-width:2px
+```
+
 - **C**oncise: Prioritize important information.
 - **L**ogical: Follow a coherent sequence of steps.
 - **E**xplicit: Specify scope, persona, and tone.

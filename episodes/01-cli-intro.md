@@ -61,6 +61,16 @@ While we use Gemini today, the skills you learn transfer directly to "Open LLMs"
 
 Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Vibe coding offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks.
 
+```mermaid
+graph TD
+    A[User Idea/Logic] -->|Prompt| B(AI Agent)
+    B -->|Draft Code| C{Verification}
+    C -->|It Works!| D[Final Output]
+    C -->|Bug/Hallucination| E[Refinement Prompt]
+    E --> B
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+```
+
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Discussion Prompt
