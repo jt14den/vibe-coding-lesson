@@ -50,6 +50,18 @@ The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023
 - **A**daptive: Rephrase or split tasks if the AI gets stuck.
 - **R**eflective: Evaluate output and use lateral reading (verify elsewhere).
 
+## The Missing Ingredient: Introspection
+
+The CLEAR framework guides *your* input, but you can also force the AI to critique its *own* output. This is often called "Self-Correction."
+
+**The Principle:** AI models are often better at *verifying* code than *writing* it.
+
+**How to use it:**
+Never accept the first draft. Always follow up with an "Introspection Prompt":
+*   "Review the code you just wrote. Are there any edge cases or security vulnerabilities?"
+*   "Did you hardcode any file paths?"
+*   "Critique your own implementation. Is there a more efficient way?"
+
 ## Watch Out for "Sneaky" AI
 
 AI agents want to be helpful, and sometimes they take shortcuts to appear successful:
