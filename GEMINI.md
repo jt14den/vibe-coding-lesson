@@ -39,3 +39,27 @@ This repository contains the "Vibe Coding for Research" lesson, part of the IMLS
 - **Language**: Markdown, with R-Markdown support.
 - **Style**: Semantic HTML elements within markdown (e.g., definition lists), clear callout blocks.
 - **Validation Focus**: Emphasis on Synthetic Data, Theoretical validation, Cross-AI verification, Unit Testing, and Documentation.
+
+## Carpentries Workbench Standards
+
+### Documentation
+- **Pedagogy**: [Carpentries Lesson Development Training](https://carpentries.github.io/lesson-development-training/)
+- **Technical**: [The Carpentries Workbench](https://carpentries.github.io/workbench/)
+
+### Component Syntax
+The Workbench uses **Pandoc fenced divs** (colons `:::`) for special blocks. The opening and closing tags must match in length.
+
+**Common Blocks:**
+*   `::::::::::::::::::::::::::::::::::::::: objectives` (Start of episode)
+*   `:::::::::::::::::::::::::::::::::::::::: questions` (Start of episode)
+*   `::::::::::::::::::::::::::::::::::::::::: callout` (Info/Warning boxes)
+*   `::::::::::::::::::::::::::::::::::::::::: challenge` (Exercises)
+*   `:::::::::::::::::::::::::::::::::::::::: solution` (Must be nested inside challenge)
+*   `::::::::::::::::::::::::::::::::::::::::: instructor` (Instructor-only notes)
+*   `:::::::::::::::::::::::::::::::::::::::: keypoints` (End of episode)
+
+### Structure Rules
+1.  **Front Matter**: Each episode (`.md` file) must start with YAML front matter defining `title`, `teaching` (minutes), and `exercises` (minutes).
+2.  **Flow**: `objectives` and `questions` blocks must appear immediately after the front matter.
+3.  **Closing**: The `keypoints` block must be the final element of the episode.
+4.  **Nesting**: A `solution` block must always be inside a `challenge` block. Always check for matching closing tags (`::::::::::::::::::::::::::::::::::::::::::::::::::`).
