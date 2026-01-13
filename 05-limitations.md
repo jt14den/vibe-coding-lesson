@@ -31,6 +31,21 @@ Understanding the common ways AI fails can help you spot errors before they impa
 
 Perhaps the most dangerous failure mode is **confident incorrectness**, where the AI presents a fundamentally wrong formula or logic with absolute certainty. This is often accompanied by **over-engineering**, where the model generates hundreds of lines of complex code for a problem that requires only a few. Recognizing these patterns allows you to maintain the "Editor's mindset," treating the AI's output as a draft that requires careful scrutiny rather than a finished product.
 
+## The Environmental Cost
+
+It is easy to forget that "the cloud" is actually a physical network of data centers that consume vast amounts of electricity and water. "Vibe Coding"—which relies on frequent, iterative prompting—can be surprisingly resource-intensive.
+
+*   **Inference Costs:** Every time you ask an AI to "rewrite this function," servers run complex matrix multiplications. Research estimates that a single generative AI query can consume **4–5 times more energy** than a standard web search engine query (Source: *Joule*, 2023).
+*   **Code Efficiency (Green Coding):** AI models often prioritize "working" code over "efficient" code. Recent studies suggest that AI-generated software can be significantly less energy-efficient than expert-written code, sometimes by margins of **30-40%** depending on the task (Source: *arXiv*, 2024). If you accept the AI's first draft without optimization, you may be deploying software that wastes battery life and server cycles for years.
+
+### Sustainable Practice
+
+To code responsibly in the age of AI, consider these three principles:
+
+1.  **Think before you prompt:** Use frameworks like **CLEAR** to get the right answer in one shot, rather than regenerating 20 times to find the right "vibe."
+2.  **Request optimization:** Explicitly prompt the AI to "rewrite this for memory efficiency" or "optimize for speed" once the logic is correct.
+3.  **Don't generate what you can look up:** If you just need the syntax for `pd.read_csv`, checking the documentation is far greener than querying an LLM.
+
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Managing Expectations
