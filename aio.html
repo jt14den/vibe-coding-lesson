@@ -528,7 +528,7 @@ accurately describe your environment?</p>
   Example Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
@@ -617,7 +617,7 @@ Include at least two libraries you use and one coding convention (e.g.,
   Example GEMINI.md
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -909,7 +909,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-data-cleaning"><p>Content from <a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></p>
 <hr>
-<p>Last updated on 2026-01-11 |
+<p>Last updated on 2026-01-13 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1068,7 +1068,7 @@ script and verify the “Score” column in
   Possible Command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1243,7 +1243,7 @@ to find the source of the error.</p>
   Expected Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>If your cleaning pipeline was successful, you should see something
 like:</p>
@@ -1288,7 +1288,7 @@ vulnerabilities that you or the first AI missed?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>It is common for a second AI to point out important edge cases, such
 as the script crashing if a file is missing or failing to account for
@@ -1325,7 +1325,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-05-limitations"><p>Content from <a href="05-limitations.html">Limitations and Cautions</a></p>
 <hr>
-<p>Last updated on 2026-01-11 |
+<p>Last updated on 2026-01-13 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/05-limitations.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1392,7 +1392,49 @@ lines of complex code for a problem that requires only a few.
 Recognizing these patterns allows you to maintain the “Editor’s
 mindset,” treating the AI’s output as a draft that requires careful
 scrutiny rather than a finished product.</p>
-
+</section><section><h2 class="section-heading" id="the-environmental-cost">The Environmental Cost<a class="anchor" aria-label="anchor" href="#the-environmental-cost"></a>
+</h2>
+<hr class="half-width">
+<p>It is easy to forget that “the cloud” is actually a physical network
+of data centers that consume vast amounts of electricity and water.
+“Vibe Coding”—which relies on frequent, iterative prompting—can be
+surprisingly resource-intensive.</p>
+<ul>
+<li>
+<strong>Inference Costs:</strong> Every time you ask an AI to
+“rewrite this function,” servers run complex matrix multiplications.
+Research estimates that a single generative AI query can consume
+<strong>4–5 times more energy</strong> than a standard web search engine
+query (Source: <em>Joule</em>, 2023).</li>
+<li>
+<strong>Code Efficiency (Green Coding):</strong> AI models often
+prioritize “working” code over “efficient” code. Recent studies suggest
+that AI-generated software can be significantly less energy-efficient
+than expert-written code, sometimes by margins of
+<strong>30-40%</strong> depending on the task (Source: <em>arXiv</em>,
+2024). If you accept the AI’s first draft without optimization, you may
+be deploying software that wastes battery life and server cycles for
+years.</li>
+</ul>
+<div class="section level3">
+<h3 id="sustainable-practice">Sustainable Practice<a class="anchor" aria-label="anchor" href="#sustainable-practice"></a>
+</h3>
+<p>To code responsibly in the age of AI, consider these three
+principles:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Think before you prompt:</strong> Use frameworks like
+<strong>CLEAR</strong> to get the right answer in one shot, rather than
+regenerating 20 times to find the right “vibe.”</li>
+<li>
+<strong>Request optimization:</strong> Explicitly prompt the AI to
+“rewrite this for memory efficiency” or “optimize for speed” once the
+logic is correct.</li>
+<li>
+<strong>Don’t generate what you can look up:</strong> If you just
+need the syntax for <code>pd.read_csv</code>, checking the documentation
+is far greener than querying an LLM.</li>
+</ol>
 <div id="challenge-spot-the-hallucination" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1419,7 +1461,7 @@ instructions for this non-existent library?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Often, the AI will confidently describe how to install and use the
 fake library. It might even provide fake code snippets like
@@ -1427,6 +1469,7 @@ fake library. It might even provide fake code snippets like
 <p>This is a reminder to <strong>always verify</strong> the existence of
 libraries and functions the AI suggests before relying on them in your
 research.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1492,7 +1535,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-06-resources"><p>Content from <a href="06-resources.html">Resources and Next Steps</a></p>
 <hr>
-<p>Last updated on 2026-01-11 |
+<p>Last updated on 2026-01-13 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/06-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1657,10 +1700,12 @@ know what is worth your time?</p>
 <div id="how-do-you-find-tools" class="callout-inner">
 <h3 class="callout-title">How do you find tools?</h3>
 <div class="callout-content">
-<p>Ask learners: “Where do you hear about new AI tools? TikTok?
-Twitter/X? Academic journals? Word of mouth?” * <strong>Goal:</strong>
-Acknowledge that “hype” channels are often the fastest, but “reputable”
-channels are safer.</p>
+<p>Where do you hear about new AI tools? TikTok? Twitter/X? Academic
+journals? Word of mouth?</p>
+<ul>
+<li>Acknowledge that “hype” channels are often the fastest, but
+“reputable” channels are safer.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1730,8 +1775,6 @@ Gradient</a>:</strong> Deep dives into AI research that explain the
 <ul>
 <li><a href="https://ai.google.dev/gemini-api/docs" class="external-link">Gemini API
 Docs</a></li>
-<li><a href="https://dlab.berkeley.edu/consulting" class="external-link">D-Lab
-Consultations</a></li>
 </ul>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
@@ -1803,8 +1846,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/aio.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/aio.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-01-11",
-  "datePublished": "2026-01-11"
+  "dateModified": "2026-01-13",
+  "datePublished": "2026-01-13"
 }
 
   </script><script>
