@@ -79,8 +79,9 @@ One of the hardest parts of using AI in research is separating genuine utility f
 
 ## How do you find tools?
 
-Ask learners: "Where do you hear about new AI tools? TikTok? Twitter/X? Academic journals? Word of mouth?"
-*   **Goal:** Acknowledge that "hype" channels are often the fastest, but "reputable" channels are safer.
+Where do you hear about new AI tools? TikTok? Twitter/X? Academic journals? Word of mouth?
+
+* Acknowledge that "hype" channels are often the fastest, but "reputable" channels are safer.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -111,7 +112,6 @@ To stay informed without drowning in noise, we recommend following a few high-si
 ## Getting Help
 
 - [Gemini API Docs](https://ai.google.dev/gemini-api/docs)
-- [D-Lab Consultations](https://dlab.berkeley.edu/consulting)
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
