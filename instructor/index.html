@@ -209,7 +209,9 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#what-is-vibe-coding">What is “Vibe Coding”?</a></li>
-<li><a href="#objectives">Objectives</a></li>
+<li><a href="#what-is-vibe-coding-1">What is “Vibe Coding”?</a></li>
+<li><a href="#what-vibe-coding-does-and-does-not-do-for-research">What Vibe Coding Does, and Does Not Do, for Research</a></li>
+<li><a href="#learning-objectives">Learning Objectives</a></li>
 <li><a href="#acknowledgements">Acknowledgements</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -323,29 +325,53 @@
       
 
 <p>AI-Assisted Programming with Validation Best Practices.</p>
-<p>This lesson introduces researchers to <strong>Vibe
-Coding</strong>—the practice of using AI agents and CLI tools to
-accelerate research software development while maintaining high
-standards of <strong>software correctness and
-reproducibility</strong>.</p>
+<p>This lesson introduces researchers to <strong>Vibe Coding</strong>,
+the practice of using AI tools to accelerate <em>implementation</em>
+work in research software, while maintaining strong standards for
+<strong>correctness, validation, and reproducibility</strong>.</p>
+<p>The focus is not on replacing research thinking, but on reducing the
+cost of turning research intent into runnable, inspectable code, and on
+learning how to verify what AI systems produce.</p>
 <section><h2 class="section-heading" id="what-is-vibe-coding">What is “Vibe Coding”?<a class="anchor" aria-label="anchor" href="#what-is-vibe-coding"></a></h2>
-<hr class="half-width"><p>Coined by Andrej Karpathy, <strong>Vibe Coding</strong> is a shift in
-how we build software. Instead of writing every line of code manually,
-you guide an AI agent using natural language to generate, test, and
-refine your project.</p>
-<p>For researchers, this means:</p>
+<hr class="half-width"></section><section><h2 class="section-heading" id="what-is-vibe-coding-1">What is “Vibe Coding”?<a class="anchor" aria-label="anchor" href="#what-is-vibe-coding-1"></a></h2>
+<hr class="half-width"><p>Coined by Andrej Karpathy, <strong>Vibe Coding</strong> describes a
+workflow in which you guide an AI system with natural-language prompts
+to generate, modify, and iterate on code, rather than writing every line
+manually.</p>
+<p>In practice, this means describing what you want the code to do,
+running the code and inspecting the outputs, and iterating based on
+failures or surprises.</p>
+<p>Vibe coding reduces the friction of writing and revising code. It
+does <strong>not</strong> remove the need to understand, validate, or
+justify what that code is doing.</p>
+</section><section><h2 class="section-heading" id="what-vibe-coding-does-and-does-not-do-for-research">What Vibe Coding Does, and Does Not Do, for Research<a class="anchor" aria-label="anchor" href="#what-vibe-coding-does-and-does-not-do-for-research"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="what-it-supports">What it supports<a class="anchor" aria-label="anchor" href="#what-it-supports"></a></h3>
 <ul><li>
-<strong>Less Typing, More Thinking</strong>: You focus on the
-<em>logic</em> and <em>science</em> (the “vibe” of the analysis), while
-the AI handles the syntax.</li>
+<strong>Less Boilerplate, More Research Decisions</strong><br>
+You spend less time assembling scaffolding and more time specifying
+assumptions, transformations, and checks.</li>
 <li>
-<strong>From Writer to Editor</strong>: Your role shifts from
-writing code from scratch to reviewing and verifying AI-generated
-code.</li>
+<strong>From Code Author to Code Reviewer</strong><br>
+Your role shifts toward inspecting outputs, auditing logic, and writing
+validations that catch quiet failures.</li>
 <li>
-<strong>Rapid Prototyping</strong>: You can test hypotheses and
-build pipelines in minutes rather than days.</li>
-</ul><div id="prerequisites" class="callout prereq">
+<strong>Faster Iteration, Not Faster Truth</strong><br>
+You can prototype analyses and pipelines quickly, which helps
+exploration and feasibility testing.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="what-it-does-not-do">What it does not do<a class="anchor" aria-label="anchor" href="#what-it-does-not-do"></a></h3>
+<ul><li>It does not validate your research question.</li>
+<li>It does not choose appropriate methods for your data.</li>
+<li>It does not detect subtle statistical, causal, or measurement errors
+by default.</li>
+<li>It does not reduce your responsibility for interpretation or
+reproducibility.</li>
+</ul><p>Using AI to generate code is <strong>research-adjacent
+labor</strong>. It becomes research only when embedded in a disciplined
+process of validation, documentation, and justification.</p>
+<div id="prerequisites" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
 </div>
@@ -353,21 +379,29 @@ build pipelines in minutes rather than days.</li>
 <div id="prerequisites" class="callout-inner">
 <h3 class="callout-title">Prerequisites</h3>
 <div class="callout-content">
-<ul><li>Basic familiarity with the command line (navigating directories,
-running commands).</li>
-<li>Fundamental understanding of Python (variables, functions,
-scripts).</li>
+<ul><li>Basic familiarity with the command line, including navigating
+directories and running commands.</li>
+<li>Fundamental understanding of Python, including variables, functions,
+and scripts.</li>
 <li>No prior experience with AI coding agents is required.</li>
 </ul></div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a></h2>
-<hr class="half-width"><ul><li>Install and authenticate the Gemini CLI.</li>
-<li>Understand the advantages of autonomous agents over simple chat
-interfaces.</li>
-<li>Apply the CLEAR and CONTEXT frameworks for effective prompting.</li>
-<li>Implement key validation strategies: Sanity Checks, Defensive
-Programming, and Cross-AI auditing.</li>
+</div>
+</section><section><h2 class="section-heading" id="learning-objectives">Learning Objectives<a class="anchor" aria-label="anchor" href="#learning-objectives"></a></h2>
+<hr class="half-width"><p>By the end of this lesson, participants will be able to:</p>
+<ul><li>Install and authenticate a CLI-based AI coding tool.</li>
+<li>Explain how autonomous agents differ from chat-based code
+assistance.</li>
+<li>Use structured prompting approaches to clearly specify intent and
+constraints.</li>
+<li>Apply validation strategies including:
+<ul><li>sanity checks,</li>
+<li>defensive programming,</li>
+<li>and cross-model or cross-tool auditing.</li>
+</ul></li>
+<li>Identify where AI-assisted programming accelerates research
+workflows, and where additional caution is required.</li>
 </ul></section><section><h2 class="section-heading" id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a></h2>
 <hr class="half-width"><p>This lesson is adapted from the workshop <strong>“Vibe Coding for
 Research: AI-Assisted Programming with Validation Best
@@ -478,7 +512,7 @@ system.</p>
   Windows
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p><strong>Install Node.js</strong>: Download the LTS version from
 <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p></li>
@@ -512,7 +546,7 @@ checked).</p></li>
   MacOS
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p><strong>Install Node.js</strong>: <code>brew install node</code>
 (if you have Homebrew) or download from <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p></li>
@@ -546,7 +580,7 @@ or download from <a href="https://python.org" class="external-link">python.org</
   Linux
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <p><strong>Install Node.js and npm</strong>:</p>
@@ -631,8 +665,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/index.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/index.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-02-03",
-  "datePublished": "2026-02-03"
+  "dateModified": "2026-02-09",
+  "datePublished": "2026-02-09"
 }
 
   </script><script>
