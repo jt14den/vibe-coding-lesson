@@ -9,7 +9,6 @@ This lesson introduces researchers to **Vibe Coding**, the practice of using AI 
 
 The focus is not on replacing research thinking, but on reducing the cost of turning research intent into runnable, inspectable code, and on learning how to verify what AI systems produce.
 
-## What is "Vibe Coding"?
 ## What is “Vibe Coding”?
 
 Coined by Andrej Karpathy, **Vibe Coding** describes a workflow in which you guide an AI system with natural-language prompts to generate, modify, and iterate on code, rather than writing every line manually.
