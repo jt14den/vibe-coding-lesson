@@ -164,6 +164,8 @@ When your "Vibe Coding" scripts become critical for your research, they need to 
 
 - [Gemini API Docs](https://ai.google.dev/gemini-api/docs)
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 ## Key Points
