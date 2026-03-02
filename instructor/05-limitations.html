@@ -464,7 +464,7 @@ is far greener than querying an LLM.</li>
   Managing Expectations
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>As models improve (e.g., Gemini 1.5 Pro vs Flash), they are becoming
 harder to trick into hallucinating. * <strong>If it refuses:</strong>
@@ -502,7 +502,7 @@ instructions for this non-existent library?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Often, the AI will confidently describe how to install and use the
 fake library. It might even provide fake code snippets like
@@ -521,8 +521,10 @@ research.</p>
 <ul><li>
 <strong>Proprietary Models (Gemini, GPT-4, Claude):</strong> These
 are “closed.” You cannot verify their training data, and the model
-updates silently over time. Code generated today might be different next
-week.</li>
+updates silently over time. While <strong>institutional
+agreements</strong> (like those at UC) provide critical data privacy and
+compliance protections, they do not resolve the reproducibility
+challenges inherent in closed-weight models.</li>
 <li>
 <strong>Open Weights Models (Gemma, Llama, Mistral):</strong> These
 models can be downloaded and run locally (e.g., using tools like
