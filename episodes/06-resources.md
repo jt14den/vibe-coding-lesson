@@ -33,6 +33,22 @@ Beyond general-purpose coding assistants, research-specific tools are emerging t
 
 While we have focused on the CLI, the ecosystem is evolving to allow AI tools to "reach out" to other software. Many browser-based models now offer extensions that connect with Google Drive, WolframAlpha, or other professional services. A significant development in this space is the **Model Context Protocol (MCP)**, an emerging open standard that allows an AI assistant to securely connect to any local or remote data source—such as a PostgreSQL database or your local file system—without requiring you to upload your data to a central server. This "USB-C port" for AI applications is quickly becoming the standard for tool interoperability.
 
+## Local Models & Open Tooling
+
+For researchers handling highly sensitive data or requiring absolute reproducibility, the trend is shifting toward **Local AI**. By running models on your own hardware, you ensure that no data ever leaves your machine and that the model version remains frozen.
+
+*   **Ollama**: The most popular tool for running "Open Weights" models (like **Llama 3**, **Mistral**, or **Gemma**) locally on macOS, Linux, and Windows. It provides a simple CLI and a local API that other tools can plug into.
+*   **Aider**: A state-of-the-art CLI coding agent that can connect to both proprietary APIs (like Gemini) and local models (via Ollama). It is specifically designed for "pair programming" in the terminal and excels at complex refactoring.
+*   **Qwen Coder**: A series of high-performance open models from Alibaba (e.g., **Qwen2.5-Coder**) that rival proprietary models in coding tasks. Because these are open weights, they can be run entirely offline for maximum security.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## The "Privacy vs. Performance" Tradeoff
+
+While local models (run via Ollama) offer 100% privacy, they require significant hardware (especially GPU VRAM) to match the "intelligence" of massive cloud models like Gemini 2.0. Many researchers adopt a **hybrid approach**: using cloud models for general scripting and local models for sensitive data cleaning.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Advanced 2026 Trends
 
 ### Multi-Model Ensembles
