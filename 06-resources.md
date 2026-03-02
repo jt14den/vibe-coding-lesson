@@ -142,16 +142,29 @@ Before adopting a new AI tool for your research workflow, run it through this me
 
 ### Reputable Sources
 
-To stay informed without drowning in noise, we recommend following a few high-signal, low-hype sources:
+To stay informed without drowning in noise, we recommend following a few high-signal, low-hype sources that focus on the *practicality* and *ethics* of AI in research:
 
+*   **[Simon Willison’s Weblog](https://simonwillison.net/):** An essential resource for understanding "AI Engineering" and "Vibe Coding." Willison is a master of the "human-in-the-loop" philosophy, offering deep dives into new tools, security risks like prompt injection, and the evolving role of the developer/researcher.
+*   **[Ethan Mollick’s "One Useful Thing"](https://www.oneusefulthing.org/):** A professor at Wharton, Mollick provides the most readable and research-grounded analysis of how AI impacts cognitive labor. His concept of the **"Jagged Frontier"** (AI being unpredictably brilliant and flawed) is a foundational mental model for this lesson.
+*   **[Hamel Husain’s Blog](https://hamel.dev/):** If you want to move from "vibes" to "rigor," Husain is the top resource. He focuses on **Evals (Evaluations)**—the systematic process of measuring how well your AI-assisted scripts actually perform using data-driven benchmarks.
 *   **[Import AI](https://importai.net/) (Jack Clark):** A weekly newsletter that covers technical breakthroughs and policy with a critical, realistic lens.
 *   **[The Batch](https://www.deeplearning.ai/the-batch/) (DeepLearning.AI):** Andrew Ng's organization provides balanced coverage of how AI is being applied in industry and science.
 *   **[Data Elixir](https://dataelixir.com/):** A broader data science newsletter that often highlights useful, practical tools rather than just the latest "shiny object."
 *   **[The Gradient](https://thegradient.pub/):** Deep dives into AI research that explain the *why* and *how* without over-simplifying.
 
-## Getting Help
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## From "Vibes" to "Evals" (Hamel Husain)
+
+When your "Vibe Coding" scripts become critical for your research, they need to move into an **Eval Loop**. This means creating a small "gold standard" dataset of known correct answers and testing every new iteration of your AI-generated code against that standard.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::: checklist
 
 - [Gemini API Docs](https://ai.google.dev/gemini-api/docs)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
