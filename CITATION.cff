@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this lesson, please cite it as below."
-title: "Vibe Coding for Research"
+title: "Agentic Research Workflows: Orchestrating AI and Validation"
 abstract: "A Carpentries-style lesson introducing researchers to AI-assisted programming (Vibe Coding), emphasizing CLI tools, context management, and rigorous validation strategies."
 authors:
   - family-names: "Dennis"

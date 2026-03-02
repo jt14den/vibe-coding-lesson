@@ -61,6 +61,14 @@ gemini "Write a Python script called 'inspect_data.py' that reads every CSV file
 
 Run the inspection script. You should see the inconsistencies clearly, such as `site_A` using `ParticipantID` while `site_B` uses `id`.
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Pro-Tip: Use Reasoning Models for Complexity
+
+If your data files are extremely inconsistent (e.g., hundreds of columns with overlapping names or multi-language headers), this is where **Reasoning Models** (like o1 or DeepSeek-R1) shine. While a standard model might miss a subtle naming pattern, reasoning models will "think" through the audit results more carefully before writing the cleaning script.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Harmonizing Inconsistent Files
 
 With the audit complete, we can now perform the harmonization. We will ask Gemini to generate a single script that reads all three site files, standardizes the ID and date columns, and converts all dates to a uniform YYYY-MM-DD format. We'll also include logic to fill missing scores with the site-specific median to ensure our data is complete. Finally, the script will merge these into a master dataset.
@@ -120,6 +128,7 @@ gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows wher
 ```
 
 ### Reflection
+
 *   Did the AI rewrite the whole file or just edit the relevant part?
 *   Did it remember to import `pandas` again?
 *   Did you trust it enough to run it without looking, or did you check the diff first?

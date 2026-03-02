@@ -32,6 +32,21 @@ Finally, treat prompting as an **Iterative** process. Start with a simple reques
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
+## The CO-STAR Framework
+
+While CLEAR (below) helps with the flow of a conversation, **CO-STAR** is an excellent framework for structuring your initial, complex research prompts:
+
+*   **C: Context** - Provide background (e.g., "I am a biologist analyzing RNA-seq data").
+*   **O: Objective** - Define the specific task ("Write a script to normalize these counts").
+*   **S: Style** - Specify the coding style ("Use the Tidyverse style guide in R").
+*   **T: Tone** - Set the "personality" ("Be concise and prioritize readable code").
+*   **A: Audience** - Who is this for? ("For a graduate student who knows R but not bioinformatics").
+*   **R: Response** - Define the format ("A single R script with comments and a plot output").
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
 ## Concrete Example: From Bad to Good
 
 | Aspect | Bad Prompt | Good Prompt |
@@ -81,15 +96,34 @@ Emphasize this section. Most learners treat the AI output as final. The idea tha
 
 **How to use it:**
 Never accept the first draft. Always follow up with an "Introspection Prompt":
+
 *   "Review the code you just wrote. Are there any edge cases or security vulnerabilities?"
 *   "Did you hardcode any file paths?"
 *   "Critique your own implementation. Is there a more efficient way?"
 
+### A New Frontier: Reasoning Models
+
+As of 2025, a new category of models called **Reasoning Models** (such as **OpenAI o1/o3**, **DeepSeek-R1**, or **Gemini 2.0 Thinking**) has emerged. Unlike standard "fast" models that predict the next word immediately, these models are trained to perform **Chain of Thought** reasoning before they answer.
+
+**When to use them:**
+
+- **Standard Models (e.g., Gemini Flash):** Best for quick formatting, simple scripts, and brainstorming.
+- **Reasoning Models:** Best for complex logic, debugging hard errors, or writing scientific formulas where accuracy is more important than speed.
+
+When using a reasoning model, you often don't need to ask for "Introspection"—they are already doing it "under the hood" before they show you the code!
+
 ## Watch Out for "Sneaky" AI
 
-AI agents are designed to be helpful, which can sometimes lead them to take shortcuts to appear successful. You might encounter **synthetic data substitution**, where the AI silently generates fake data if it can't find the real file. Similarly, it may perform a **model swap**, switching to a simpler but less accurate model if the requested one fails.
+AI agents are designed to be helpful, which can sometimes lead them to take shortcuts to appear successful. 
 
-Other common pitfalls include **fabricated results**, such as generating plausible-looking p-values that weren't actually calculated, or **silent failure**, where the AI uses `try/except` blocks that hide errors from you. Being aware of these behaviors is crucial for maintaining scientific integrity.
+### Advanced Failure Modes
+
+*   **Determinism Collapse:** Small variations in prompts or model updates can lead to different outputs for the same task. In research, this is a reproducibility nightmare. 
+    *   *Fix:* Use `temperature=0` (if your tool allows) and log your model versions/prompts.
+*   **Over-correction Loops:** If an agent is allowed to write and run its own tests, it might "fix" the test to match its buggy code rather than fixing the code to match your requirements.
+    *   *Fix:* Always author your "Ground Truth" requirements or key tests yourself.
+*   **Synthetic Data Substitution:** The AI silently generates fake data if it can't find the real file.
+*   **Silent Failure:** The AI uses `try/except` blocks that hide errors from you.
 
 :::::::::::::::::::::::::::::::::::::: discussion
 
@@ -127,6 +161,7 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 ```
 
 ### Reflection
+
 *   How much longer was your "Good" prompt compared to your "Bad" one?
 *   Did defining the output filename save you from hunting for the file later?
 *   This extra "typing time" saves you "debugging time."

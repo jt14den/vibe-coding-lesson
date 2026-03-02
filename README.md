@@ -1,15 +1,15 @@
-# Vibe Coding for Research: AI-Assisted Programming with Validation Best Practices
+# Agentic Research Workflows: Orchestrating AI and Validation
 
 [![Status](https://img.shields.io/badge/Status-pre--alpha-red.svg)](https://github.com/carpentries/vibe-coding-lesson)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This lesson introduces researchers to **Vibe Coding**—the practice of using AI agents and CLI tools to accelerate research software development while maintaining high standards of software correctness and reproducibility.
+This lesson introduces researchers to **Agentic Research Workflows**—the practice of using AI agents and CLI tools to accelerate research software development while maintaining high standards of software correctness and reproducibility.
 
 **[View the Lesson Website](https://carpentries.github.io/vibe-coding-lesson/)**
 
 ## Overview
 
-Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Vibe coding offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks. This lesson focuses on the **Gemini CLI** but teaches principles applicable to any "Open LLM" or coding agent.
+Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Agentic research workflows offload the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks. This lesson focuses on the **Gemini CLI** but teaches principles applicable to any "Open LLM" or coding agent.
 
 ## Key Features
 *   **CLI-First Approach**: Learn to use AI directly in your terminal where your data lives.

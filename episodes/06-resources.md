@@ -23,13 +23,35 @@ exercises: 0
 
 ## The AI Tool Landscape
 
-The ecosystem of AI tools for research is expanding rapidly, offering a variety of specialized interfaces for different stages of the development cycle. For direct coding, tools like **Claude Code** (Anthropic's CLI competitor to Gemini) and **GitHub Copilot** provide integrated autocomplete and refactoring support within your existing environment. Some researchers prefer a full AI-native code editor like **Cursor**, which is built from the ground up to integrate AI into every aspect of file management and script generation.
+The ecosystem of AI tools for research is expanding rapidly, offering a variety of specialized interfaces for different stages of the development cycle. For direct coding, tools like **Claude Code** (Anthropic's CLI), **GitHub Copilot**, and **Aider** (a powerful CLI agent that works with multiple models) provide integrated support within your terminal. 
+
+Some researchers prefer a full AI-native code editor like **Cursor**, which allows you to "chat" with your entire repository. New models like **Gemini 2.0** and **DeepSeek-V3/R1** have significantly lowered the cost and increased the speed of these interactions, making "Vibe Coding" more accessible than ever.
 
 Beyond general-purpose coding assistants, research-specific tools are emerging to handle the literature and data extraction phases of scholarship. **Elicit** and **Consensus** focus on scientific paper discovery and extracting evidence-based claims, while Google's **NotebookLM** allows you to ground an AI's knowledge in your own collection of research PDFs, providing a private environment for summarizing and querying your specific documents.
 
 ## Extending Capabilities
 
 While we have focused on the CLI, the ecosystem is evolving to allow AI tools to "reach out" to other software. Many browser-based models now offer extensions that connect with Google Drive, WolframAlpha, or other professional services. A significant development in this space is the **Model Context Protocol (MCP)**, an emerging open standard that allows an AI assistant to securely connect to any local or remote data source—such as a PostgreSQL database or your local file system—without requiring you to upload your data to a central server. This "USB-C port" for AI applications is quickly becoming the standard for tool interoperability.
+
+## Advanced 2026 Trends
+
+### Multi-Model Ensembles
+In advanced research workflows, you don't rely on just one model. You might use **Model A** to generate code, **Model B** to critique it, and **Model C** to write the validation tests. This "Ensemble" approach significantly reduces the chance of a single model's bias or hallucination affecting your results.
+
+### Provenance Tracking
+Every AI-generated file should ideally include metadata in the header:
+
+- Which model and version was used.
+- The date and a link to the prompt used.
+- A hash of the context files provided.
+
+This ensures that your research remains reproducible even as AI models evolve and "drift" over time.
+
+### Cost and Efficiency Monitoring
+With "Long Context" models, it is easy to accidentally spend significant funds by including unnecessary files in every prompt. 
+
+- **Track your tokens:** Monitor your API usage dashboard.
+- **Optimize context:** Only include the files the agent *actually* needs for the current task.
 
 ## Citing and Crediting AI
 
@@ -52,9 +74,11 @@ Add a specific "AI Usage" section to your project documentation:
 
 **2. In Manuscripts:**
 Cite the model in the **Methods** section or **Acknowledgements**.
+
 *   *Example:* "We used Google Gemini (version 1.5) to assist with data cleaning scripts. Prompts and raw outputs are available in the supplementary material."
 
 ### Resources & Standards
+
 *   [**COPE (Committee on Publication Ethics)**](https://publicationethics.org/cope-position-statements/ai-author): Position statement on why AI cannot be an author.
 *   [**Elsevier AI Policy**](https://www.elsevier.com/about/policies/publishing-ethics/usage-of-ai-tools-in-writing-for-research): Guidelines on declaring AI use in research.
 *   [**CRediT Taxonomy**](https://credit.niso.org/): Use the "Software" or "Methodology" roles to describe *your* use of the tool, but do not assign a role to the AI itself.
