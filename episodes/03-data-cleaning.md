@@ -145,6 +145,30 @@ A reproducible project is only as good as its documentation. For the final step,
 gemini "Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."
 ```
 
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Provenance Tracking
+
+To ensure your research is reproducible in 2026, you must track *which* model generated your code and *when*. 
+
+1. Use the Gemini CLI to add a "Provenance Header" to your `clean_and_merge.py` script.
+2. The header should be a Python docstring containing:
+    - The model used (e.g., Gemini 2.0 Flash)
+    - The date
+    - A summary of the primary prompt used.
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## Possible Command
+
+```bash
+gemini "Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 ## Key Points

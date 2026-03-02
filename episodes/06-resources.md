@@ -154,14 +154,6 @@ To stay informed without drowning in noise, we recommend following a few high-si
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## The "Jagged Frontier" (Ethan Mollick)
-
-Remember that AI capability is not a smooth curve. It may solve a complex differential equation perfectly but fail at a simple logic puzzle. As a researcher, your job is to **map this frontier** for your specific domain—knowing exactly where the AI is a genius and where it is a liability.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::: callout
-
 ## From "Vibes" to "Evals" (Hamel Husain)
 
 When your "Vibe Coding" scripts become critical for your research, they need to move into an **Eval Loop**. This means creating a small "gold standard" dataset of known correct answers and testing every new iteration of your AI-generated code against that standard.

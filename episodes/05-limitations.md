@@ -21,6 +21,14 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## The "Jagged Frontier" (Ethan Mollick)
+
+Remember that AI capability is not a smooth curve. It may solve a complex differential equation perfectly but fail at a simple logic puzzle. As a researcher, your job is to **map this frontier** for your specific domain—knowing exactly where the AI is a genius and where it is a liability.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## When NOT to Trust AI Code
 
 Even with robust validation practices, there are specific scenarios where using AI-generated code introduces unacceptable risks to research integrity. Security-critical tasks—such as authentication, encryption, or the handling of sensitive participant data—should never be left to an AI without expert oversight. Similarly, when your research involves novel statistical methods or domain-specific quirks, the AI may fail because it can only synthesize information from its training data, which might not include the latest breakthroughs or the specific sensor noise patterns unique to your field. In performance-critical sections of your code, AI models also tend to prioritize the most common algorithms rather than the most efficient ones, potentially leading to bottlenecks in large-scale data processing.

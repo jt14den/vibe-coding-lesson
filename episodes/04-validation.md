@@ -68,6 +68,14 @@ To maintain high-signal review, use these specific **Approval Gates** during you
 | **Snapshot Gate** | Create a Git commit or a folder backup *before* letting the agent attempt a complex refactor. |
 | **Explain-Before-Apply** | Ask: "Before you edit the file, explain your plan and how you will verify it." |
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## The "Snapshot Gate" (Git)
+
+While this lesson doesn't teach Git, using `git commit` before running a multi-file AI agent command is the single most important safety mechanism in 2026. If the agent makes a mess, you can simply `git reset --hard` and try again. If you aren't using Git, create a backup copy of your folder before letting an agent perform a complex refactor.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Teaching Tip: Approval Modes
@@ -107,18 +115,11 @@ This reframes validation from a "chore" to "insurance."
 
 ### Cross-AI Validation
 
-Just as a researcher might ask a colleague to peer-review their methodology, you can use a second AI model to audit your cleaning scripts. By providing your script to a different model (such as Claude or ChatGPT) and asking it to look for edge cases, date parsing vulnerabilities, or logic errors, you gain a "second opinion" that often catches subtle bugs the first model might have missed.
-
-::::::::::::::::::::::::::::::::::::::::: instructor
-
-## Backup Plan
-Live coding with AI can be unpredictable. If the Gemini API hangs or returns garbage code during this challenge, have a working `validate_data.py` ready to share (e.g., via a distinct "solution" file or a shared pad) so the class can proceed to running it.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+Just as a researcher might ask a colleague to peer-review their methodology, you can use a second AI model to audit your cleaning scripts.
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: The Integrity Check
+## Challenge: Create a Validation Script
 
 To prove our `master_dataset.csv` is clean, we will write a dedicated validation script using the Gemini CLI. Run the following command to create a script that loads the dataset and performs three specific checks: ensuring there are no duplicate IDs, verifying that all scores fall within the expected range, and confirming that there are no missing values.
 
@@ -149,7 +150,26 @@ If you see "FAIL" or "Warning", investigate your `clean_and_merge.py` script!
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: The Second Opinion
+## Challenge: LLM-as-a-Judge
+
+We will now use the "LLM-as-a-judge" pattern. We'll ask the Gemini CLI to audit the code it just wrote, but from a "strict auditor" persona.
+
+1.  Run the following command to have the AI critique `validate_data.py`.
+2.  `gemini "Read 'validate_data.py'. Act as a strict code auditor for a clinical trial. Does this script guarantee 100% data integrity? Point out 3 ways this script could be improved to be more rigorous."`
+3.  **Reflect:** Did the "Auditor" persona find problems that the "Writer" persona missed?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Teaching Tip: Persona Switching
+This demonstrates how changing the **Persona** (from 'Helpful Assistant' to 'Strict Auditor') can bypass the model's tendency to be over-confident in its own work.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: The Second Opinion (Optional)
 
 Now that you have your validation script, let's practice the **Cross-AI Validation** strategy.
 
