@@ -39,11 +39,11 @@ CLI-based tools, by contrast, run directly in your terminal. This gives them **d
 
 ## Data Privacy & Institutional Context
 
-Many universities, including the **University of California** system, have enterprise agreements with major AI vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for Gemini). These agreements typically ensure that your inputs are **not used to train public models**, providing a layer of data privacy essential for research.
+The **University of California** system and many campuses maintain enterprise agreements with major AI vendors, such as OpenAI (for ChatGPT Enterprise/Edu) and Google (for Gemini). These agreements generally include terms that your data won’t be used to train public models, providing enhanced privacy and compliance protections for research or instructional use.
 
-However, access to **command-line (CLI) or API interfaces** under these institutional deals is not universal. While we use the Gemini CLI in this lesson, you should verify if your specific campus license covers API access. If not, researchers often use personal accounts for CLI workflows, which may have different privacy terms.
+However, the **availability of CLI or API access under these agreements is not consistently documented** across campuses and vendors. In many cases, campus IT must provision or support CLI/API access, and those terms can differ by campus or user role. For this workshop, we use the Gemini CLI as an example, but you should verify with your own institution whether your license covers both web interfaces and CLI/API access. 
 
-**Warning:** Always verify with your campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool, even those with institutional agreements.
+**Warning:** Personal accounts often allow CLI/API usage but may not carry the same privacy or compliance protections as institutional licenses. Always consult your campus IT policy before using AI tools with sensitive data.
 
 **Looking Ahead:** If your research requires absolute privacy (no data leaves your machine), these skills transfer directly to "Open LLMs" (like **Gemma** or **Llama**) run locally via **Ollama**.
 

@@ -6,15 +6,17 @@ To follow this lesson, you will need the Gemini CLI and Python installed on your
 
 ## Institutional Context & Access
 
-Many universities, including campuses within the **University of California (UC)** system, have enterprise-wide agreements with major generative AI vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for Gemini). These agreements often provide **licensed web- or workspace-integrated access** with specific data protections and policy compliance.
+The **University of California (UC)** system and many other institutions have enterprise-wide agreements with major generative AI vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for Gemini). These agreements often provide **licensed web- or workspace-integrated access** with enhanced privacy protections and policy compliance.
 
-However, access to **command-line (CLI) or API interfaces** through these institutional agreements is **not universal** and depends on local licensing and IT support. For this workshop, we will demonstrate the setup using the **Gemini CLI**. If your campus license does not include API access, you may need to use a personal account for the following steps.
+However, the **availability of CLI or API access under these institutional deals is not consistently documented** across all campuses. In many cases, using a CLI tool under a campus enterprise license will require *explicit authorization or provisioning* by campus IT.
+
+For this workshop, we use the **Gemini CLI**. If your campus license does not include API access, you may need to use a personal account for the following steps.
 
 ::::::::::::::::::::::::::::::::::::::::: caution
 
 ## A Note on Privacy
 
-Using **personal or consumer accounts** for sensitive institutional data or research may not meet your campus's compliance requirements and could pose privacy or security risks. Always check your institution’s IT guidance and acceptable use policies before using AI tools for institutional work.
+Personal or consumer accounts often allow CLI/API usage but **may not carry the same privacy or compliance protections** as institutional licenses. Using personal accounts for sensitive research data may not meet your institution's compliance requirements. Always check your campus IT guidance and acceptable use policies before using AI tools for institutional work.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
