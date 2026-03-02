@@ -39,11 +39,13 @@ CLI-based tools, by contrast, run directly in your terminal. This gives them **d
 
 ## Data Privacy & Institutional Context
 
-We use the Gemini CLI because the **University of California** (including UCLA) enterprise agreement ensures **data privacy**; inputs are not used to train public models. This integration also avoids personal subscription fees.
+Many universities, including the **University of California** system, have enterprise agreements with major AI vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for Gemini). These agreements typically ensure that your inputs are **not used to train public models**, providing a layer of data privacy essential for research.
 
-**Warning:** Always verify with your campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool.
+However, access to **command-line (CLI) or API interfaces** under these institutional deals is not universal. While we use the Gemini CLI in this lesson, you should verify if your specific campus license covers API access. If not, researchers often use personal accounts for CLI workflows, which may have different privacy terms.
 
-**Looking Ahead:** While we use Gemini today, these skills transfer directly to "Open LLMs" (like **Gemma** or **Llama**) run locally via **Ollama** for maximum privacy.
+**Warning:** Always verify with your campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool, even those with institutional agreements.
+
+**Looking Ahead:** If your research requires absolute privacy (no data leaves your machine), these skills transfer directly to "Open LLMs" (like **Gemma** or **Llama**) run locally via **Ollama**.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

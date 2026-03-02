@@ -4,6 +4,20 @@ title: Setup
 
 To follow this lesson, you will need the Gemini CLI and Python installed on your machine.
 
+## Institutional Context & Access
+
+Many universities, including campuses within the **University of California (UC)** system, have enterprise-wide agreements with major generative AI vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for Gemini). These agreements often provide **licensed web- or workspace-integrated access** with specific data protections and policy compliance.
+
+However, access to **command-line (CLI) or API interfaces** through these institutional agreements is **not universal** and depends on local licensing and IT support. For this workshop, we will demonstrate the setup using the **Gemini CLI**. If your campus license does not include API access, you may need to use a personal account for the following steps.
+
+::::::::::::::::::::::::::::::::::::::::: caution
+
+## A Note on Privacy
+
+Using **personal or consumer accounts** for sensitive institutional data or research may not meet your campus's compliance requirements and could pose privacy or security risks. Always check your institution’s IT guidance and acceptable use policies before using AI tools for institutional work.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Software Setup
 
 ::::::::::::::::::::::::::::::::::::::: discussion
