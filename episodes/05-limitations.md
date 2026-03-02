@@ -96,7 +96,7 @@ This is a reminder to **always verify** the existence of libraries and functions
 
 It is important to acknowledge a tension in this workshop: **The Gemini CLI is not Open Source.**
 
-*   **Proprietary Models (Gemini, GPT-4, Claude):** These are "closed." You cannot verify their training data, and the model updates silently over time. Code generated today might be different next week.
+*   **Proprietary Models (Gemini, GPT-4, Claude):** These are "closed." You cannot verify their training data, and the model updates silently over time. While **institutional agreements** (like those at UC) provide critical data privacy and compliance protections, they do not resolve the reproducibility challenges inherent in closed-weight models.
 *   **Open Weights Models (Gemma, Llama, Mistral):** These models can be downloaded and run locally (e.g., using tools like Ollama). They offer greater reproducibility because you can freeze the specific version of the "brain" you are using.
 
 **Recommendation for Researchers:** 
