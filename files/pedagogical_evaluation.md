@@ -1,11 +1,11 @@
-# Pedagogical Evaluation: Vibe Coding for Research
+# Pedagogical Evaluation: Agentic Research Workflows
 
 **Date:** January 11, 2026
 **Evaluator:** Gemini Agent (Pedagogy & Design)
 **Standards Source:** `GEMINI.md` (Backward Design, Student-Centered Learning, Cognitive Load, Professional Values)
 
 ## Executive Summary
-The lesson "Vibe Coding for Research" effectively introduces AI-assisted programming using a CLI-first approach. It scores highly on **Professional Values** and **Active Learning** but has minor gaps in **Backward Design** (specifically assessment alignment) and **Cognitive Load** (some scaffolding could be improved).
+The lesson "Agentic Research Workflows" effectively introduces AI-assisted programming using a CLI-first approach. It scores highly on **Professional Values** and **Active Learning** but has minor gaps in **Backward Design** (specifically assessment alignment) and **Cognitive Load** (some scaffolding could be improved).
 
 ---
 

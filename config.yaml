@@ -8,7 +8,7 @@ carpentry: 'incubator'
 # Alt-text description of the lesson.
 carpentry_description: 'A lesson on AI-assisted programming and validation best practices.'
 
-title: 'Vibe Coding for Research'
+title: 'Agentic Research Workflows: Orchestrating AI and Validation'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2026-01-08'
