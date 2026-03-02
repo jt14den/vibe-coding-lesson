@@ -27,9 +27,20 @@ Even with robust validation practices, there are specific scenarios where using 
 
 ## Common Failure Modes
 
-Understanding the common ways AI fails can help you spot errors before they impact your results. One frequent issue is the generation of **hallucinated functions**, where the model invokes libraries or APIs that simply do not exist. You may also encounter **outdated approaches**, as the AI might use deprecated syntax from its training data that no longer works with current software versions.
+Understanding the common ways AI fails can help you spot errors before they impact your results. 
 
-Perhaps the most dangerous failure mode is **confident incorrectness**, where the AI presents a fundamentally wrong formula or logic with absolute certainty. This is often accompanied by **over-engineering**, where the model generates hundreds of lines of complex code for a problem that requires only a few. Recognizing these patterns allows you to maintain the "Editor's mindset," treating the AI's output as a draft that requires careful scrutiny rather than a finished product.
+### The Most Dangerous Failure: Silent Semantic Drift
+The most common 2026 failure mode is **Silent Semantic Drift**. This occurs when an agent makes a "reasonable" improvement or refactor that quietly changes your data semantics or assumptions. 
+- *What it looks like:* The code runs, the tests still pass, but your research conclusion shifts because a filtering threshold was silently changed or a data column was renamed incorrectly.
+- *How to catch it:* Use **Metamorphic Testing** and **Invariant Suites** (as discussed in Episode 4) to ensure your "Ground Truth" hasn't shifted.
+
+### Other Failure Modes
+*   **Hallucinated functions:** The model invokes libraries or APIs that do not exist.
+*   **Outdated approaches:** The AI uses deprecated syntax from its training data.
+*   **Confident incorrectness:** The AI presents a fundamentally wrong formula or logic with absolute certainty.
+*   **Over-engineering:** The model generates hundreds of lines of complex code for a problem that requires only a few.
+
+:::::::::::::::::::::::::::::::::::::: discussion
 
 ## The Environmental Cost
 
@@ -45,6 +56,8 @@ To code responsibly in the age of AI, consider these three principles:
 1.  **Think before you prompt:** Use frameworks like **CLEAR** to get the right answer in one shot, rather than regenerating 20 times to find the right "vibe."
 2.  **Request optimization:** Explicitly prompt the AI to "rewrite this for memory efficiency" or "optimize for speed" once the logic is correct.
 3.  **Don't generate what you can look up:** If you just need the syntax for `pd.read_csv`, checking the documentation is far greener than querying an LLM.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 

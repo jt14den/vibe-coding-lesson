@@ -22,15 +22,76 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Trust but Verify
+## The Three-Layer Validation Framework
 
-AI is excellent at writing code that runs, but the primary challenge for researchers is ensuring that the code is *right*. In data cleaning, a common failure mode is "silent dropping"—a scenario where the AI's script executes without error but accidentally deletes significant portions of your data due to a minor date parsing mismatch or an unhandled edge case. To mitigate this, we must build validation into every step of the workflow.
+In the age of autonomous agents, validation must be more than an afterthought. We recommend a three-layer approach to ensure scientific rigor.
 
-### The "Sanity Check"
+### Layer 1: Immutable Requirements (Human-Authored)
+Before asking an AI to code, define the "Ground Truth" that the AI **cannot** change. These are domain-specific rules that must always be true.
 
-After processing or merging data, your first step should always be a high-level sanity check to verify basic facts about your dataset. Start by checking row counts: if you merged three files of 50 rows each, your master file should contain exactly 150 rows unless you explicitly filtered them. You should also verify column consistency to ensure all expected variables are present and check data types to confirm that dates and numbers are being treated as their correct types rather than generic strings.
+- *Example:* "Participant IDs must be unique," or "Conservation of mass: total input must equal total output."
+- **Action:** Write these as a separate `requirements.py` or a simple checklist before starting.
 
-### Defensive Programming
+### Layer 2: Agent-Generated Tests (Supervised)
+Ask the AI to generate tests *based on its code*, but you must review and "freeze" them.
+
+- *Tip:* Use "Test-Driven Prompting." Tell the agent: "First, write 5 tests that would prove this script works. I will review them before you write the main script."
+
+### Layer 3: Metamorphic Testing
+For complex research where the "correct" answer isn't known (e.g., a new simulation), test the *relationships* in the data.
+
+- *Example:* "If I double the input values, does the output also double?" or "If I sort the input data, does the result stay the same?"
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## The Evidence Mantra: "No Evidence, No Merge"
+
+In 2026, the greatest risk is **Approval Fatigue**—simply clicking "Yes" because the agent is fast. To combat this, adopt the mantra: **I do not approve changes; I approve evidence.**
+
+Evidence means the agent must provide at least one of the following before you accept the code:
+
+1. **Passing Tests**: The new code passes the human-authored requirements.
+2. **Invariant Checks**: A "sanity report" showing the data still sums to 100% or has the correct row count.
+3. **A Small Diff**: You can personally read every line changed (the "Diff Budget").
+4. **Explanation of Intent**: The agent explains *why* it made the change and what the risks are.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Approval Gates: Friction in the Right Places
+
+To maintain high-signal review, use these specific **Approval Gates** during your workflow:
+
+| Gate Pattern | What it Forces |
+| :--- | :--- |
+| **Test-First Gate** | Require the agent to write (or pass) a test *before* applying the code change. |
+| **Diff Budget Gate** | Limit the agent to changing only a few files or lines at a time. Big changes require extra scrutiny. |
+| **Snapshot Gate** | Create a Git commit or a folder backup *before* letting the agent attempt a complex refactor. |
+| **Explain-Before-Apply** | Ask: "Before you edit the file, explain your plan and how you will verify it." |
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Teaching Tip: Approval Modes
+Help learners identify their "Review Mode":
+
+- **Safety Mode:** Are my data paths correct? Any secrets exposed?
+- **Correctness Mode:** Does the logic match my research requirements?
+- **Maintainability Mode:** Is the code readable for my future self?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Metamorphic Sanity Check
+
+Let's test our `clean_and_merge.py` logic. If we run our cleaning script on the same data twice, the result should be identical (Idempotency).
+
+1. Run `python clean_and_merge.py` and save the hash of `master_dataset.csv`.
+2. Run it again.
+3. Does the hash match? If not, the AI may have introduced a "hidden state" or randomness (like a random seed for missing value imputation) that makes your research non-reproducible.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Defensive Programming
 
 You can ask the AI to write "assert" statements inside your processing script. These will stop the script immediately if something looks wrong.
 

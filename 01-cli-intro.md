@@ -35,22 +35,15 @@ Most researchers are familiar with chat-based AI in a browser. While excellent f
 
 CLI-based tools, by contrast, run directly in your terminal. This gives them **direct access** to your project's file system, allowing them to read data, write scripts, and execute commands autonomously. This shift—from a chat window to your actual working environment—turns the AI from a conversational partner into a capable research assistant that can iterate on tasks with you.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::::::::::: caution
 
-## Why Gemini? (UC & UCLA Context)
+## Data Privacy & Institutional Context
 
-We use the Gemini CLI for this lesson because the **University of California (UC)** system, including **UCLA**, has a Google Workspace agreement that offers significant benefits for researchers. Specifically, using the enterprise "Gemini for Google Workspace" ensures **data privacy**, as your inputs are not used to train public models. Additionally, it integrates with existing institutional tools and is often covered by campus licenses, avoiding personal subscription fees.
+We use the Gemini CLI because the **University of California** (including UCLA) enterprise agreement ensures **data privacy**; inputs are not used to train public models. This integration also avoids personal subscription fees.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+**Warning:** Always verify with your campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool.
 
-## Data Privacy Warning
-
-Always verify with your specific campus IT policy before uploading sensitive or PII (Personally Identifiable Information) data to any AI tool.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-**Looking Ahead: Open Models**
-While we use Gemini today, the skills you learn transfer directly to "Open LLMs" (like **Gemma** or **Llama**). These can be run locally on your own laptop (using tools like **Ollama**), offering the ultimate privacy: no data ever leaves your machine.
+**Looking Ahead:** While we use Gemini today, these skills transfer directly to "Open LLMs" (like **Gemma** or **Llama**) run locally via **Ollama** for maximum privacy.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -88,7 +81,23 @@ It is common to feel "out of the loop" when the AI generates 50 lines of code in
 
 ## The Power of the File System
 
-Unlike browser-based tools that are isolated in a sandbox, the Gemini CLI has direct access to your working environment. This allows it to **read** your project's context directly from the directory structure and **create** or modify files in real-time. Instead of copying and pasting code blocks, the agent can write scripts directly to your disk, allowing for rapid iteration based on terminal errors. It can also maintain context across long sessions by referencing the files it has created.
+Unlike browser-based tools that are isolated in a sandbox, the Gemini CLI has direct access to your working environment. This allows it to **read** your project's context directly from the directory structure and **create** or modify files in real-time. Instead of copying and pasting code blocks, the agent can write scripts directly to your disk, allowing for rapid iteration based on terminal errors.
+
+### Superpower: Long Context
+
+Modern models like **Gemini 2.0** feature a **Long Context Window** (often 1 million to 2 million tokens). In practical terms, this means you can provide the AI with your *entire* project folder—scripts, documentation, and even small datasets—all at once. 
+
+This enables **Natural Language Orchestration**: instead of writing code line-by-line, you describe the desired state of your project, and the agent orchestrates the changes across multiple files. While we often call this "Vibe Coding" for its speed and feel, in a research context, it is more accurately described as **Declarative Programming with AI Agents**.
+
+::::::::::::::::::::::::::::::::::::::::: caution
+
+## The Risk: Context Poisoning
+
+With great context comes the risk of **Context Poisoning**. If your directory contains stale READMEs, old versions of scripts, or contradictory documentation in an `/archive` folder, the AI may "hallucinate" based on that outdated information.
+
+**Best Practice:** Use explicit scoping. Tell the agent: "Ignore the `/archive` folder and only consider `.py` files in the `src/` directory."
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 

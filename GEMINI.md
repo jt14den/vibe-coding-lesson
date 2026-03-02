@@ -1,6 +1,6 @@
-# Project Context: Vibe Coding for Research
+# Project Context: Agentic Research Workflows: Orchestrating AI and Validation
 
-This repository contains the "Vibe Coding for Research" lesson, part of the IMLS Open Science curriculum hub. It is a Carpentries-style lesson (using the Sandpaper framework) designed to introduce researchers to AI-assisted programming and validation best practices.
+This repository contains the "Agentic Research Workflows" lesson, part of the IMLS Open Science curriculum hub. It is a Carpentries-style lesson (using the Sandpaper framework) designed to introduce researchers to AI-assisted programming and validation best practices.
 
 ## Recent Accomplishments
 
@@ -16,16 +16,6 @@ This repository contains the "Vibe Coding for Research" lesson, part of the IMLS
     4. Validation Strategies
     5. Limitations & Bias
     6. Resources & Next Steps
-
-### Broader IMLS Open Science Project
-- **Astro v5 Migration**: Completed the migration of the curriculum hub to Astro v5.
-- **Redesign**: Transformed the site into a dynamic curriculum hub with lesson and author pages.
-- **Citations**: 
-    - Generated `CITATION.cff` files for all 15 curriculum lessons.
-    - Enriched CFF files with ORCIDs, versioning (1.0.0), and automated release dates.
-    - Implemented dynamic APA/BibTeX citation cards on all lesson pages.
-- **Automation**: Created and finalized `scripts/create_prs.sh` to automate the submission of CFF files as Pull Requests using the GitHub CLI.
-- **About Page**: Unified leadership, team, and community partner information in a redesigned about page.
 
 ## Project Structure
 - `episodes/`: Markdown files for each lesson chapter.
