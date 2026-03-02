@@ -374,7 +374,7 @@
   Active Participation
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>This episode is designed for <strong>Live Coding</strong>. Learners
 should follow along, executing the commands on their own machines.
@@ -471,7 +471,7 @@ Finally, the script will merge these into a master dataset.</p>
   Safety Net: Backup Scripts
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>This step involves complex logic. If a learner’s AI fails to generate
 a working <code>clean_and_merge.py</code> after 2-3 attempts, provide
@@ -524,7 +524,7 @@ verify and document.</p>
   Challenge Hint
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <p>This challenge is harder because it requires modifying
 <em>existing</em> code. If learners are stuck, hint: “Does the AI know
@@ -563,7 +563,7 @@ script and verify the “Score” column in
   Possible Command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -593,6 +593,44 @@ cleaning and imputation steps to the final output format.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."</span></span></code></pre>
+</div>
+<div id="challenge-provenance-tracking" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-provenance-tracking" class="callout-inner">
+<h3 class="callout-title">Challenge: Provenance Tracking</h3>
+<div class="callout-content">
+<p>To ensure your research is reproducible in 2026, you must track
+<em>which</em> model generated your code and <em>when</em>.</p>
+<ol style="list-style-type: decimal"><li>Use the Gemini CLI to add a “Provenance Header” to your
+<code>clean_and_merge.py</code> script.</li>
+<li>The header should be a Python docstring containing:
+<ul><li>The model used (e.g., Gemini 2.0 Flash)</li>
+<li>The date</li>
+<li>A summary of the primary prompt used.</li>
+</ul></li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Possible Command
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">

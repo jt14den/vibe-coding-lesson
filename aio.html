@@ -424,21 +424,23 @@ research assistant that can iterate on tasks with you.</p>
 <div id="data-privacy-institutional-context" class="callout-inner">
 <h3 class="callout-title">Data Privacy &amp; Institutional Context</h3>
 <div class="callout-content">
-<p>Many universities, including the <strong>University of
-California</strong> system, have enterprise agreements with major AI
-vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for Gemini).
-These agreements typically ensure that your inputs are <strong>not used
-to train public models</strong>, providing a layer of data privacy
-essential for research.</p>
-<p>However, access to <strong>command-line (CLI) or API
-interfaces</strong> under these institutional deals is not universal.
-While we use the Gemini CLI in this lesson, you should verify if your
-specific campus license covers API access. If not, researchers often use
-personal accounts for CLI workflows, which may have different privacy
-terms.</p>
-<p><strong>Warning:</strong> Always verify with your campus IT policy
-before uploading sensitive or PII (Personally Identifiable Information)
-data to any AI tool, even those with institutional agreements.</p>
+<p>The <strong>University of California</strong> system and many
+campuses maintain enterprise agreements with major AI vendors, such as
+OpenAI (for ChatGPT Enterprise/Edu) and Google (for Gemini). These
+agreements generally include terms that your data won’t be used to train
+public models, providing enhanced privacy and compliance protections for
+research or instructional use.</p>
+<p>However, the <strong>availability of CLI or API access under these
+agreements is not consistently documented</strong> across campuses and
+vendors. In many cases, campus IT must provision or support CLI/API
+access, and those terms can differ by campus or user role. For this
+workshop, we use the Gemini CLI as an example, but you should verify
+with your own institution whether your license covers both web
+interfaces and CLI/API access.</p>
+<p><strong>Warning:</strong> Personal accounts often allow CLI/API usage
+but may not carry the same privacy or compliance protections as
+institutional licenses. Always consult your campus IT policy before
+using AI tools with sensitive data.</p>
 <p><strong>Looking Ahead:</strong> If your research requires absolute
 privacy (no data leaves your machine), these skills transfer directly to
 “Open LLMs” (like <strong>Gemma</strong> or <strong>Llama</strong>) run
@@ -973,7 +975,7 @@ applies <strong>Context</strong> (what the data is),
   Example Refined Prompt
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1195,7 +1197,7 @@ script and verify the “Score” column in
   Possible Command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1229,6 +1231,48 @@ cleaning and imputation steps to the final output format.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."</span></span></code></pre>
+</div>
+<div id="challenge-provenance-tracking" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-provenance-tracking" class="callout-inner">
+<h3 class="callout-title">Challenge: Provenance Tracking</h3>
+<div class="callout-content">
+<p>To ensure your research is reproducible in 2026, you must track
+<em>which</em> model generated your code and <em>when</em>.</p>
+<ol style="list-style-type: decimal">
+<li>Use the Gemini CLI to add a “Provenance Header” to your
+<code>clean_and_merge.py</code> script.</li>
+<li>The header should be a Python docstring containing:
+<ul>
+<li>The model used (e.g., Gemini 2.0 Flash)</li>
+<li>The date</li>
+<li>A summary of the primary prompt used.</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Possible Command
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
@@ -1405,6 +1449,24 @@ how you will verify it.”</td>
 </tr>
 </tbody>
 </table>
+<div id="the-snapshot-gate-git" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="the-snapshot-gate-git" class="callout-inner">
+<h3 class="callout-title">The “Snapshot Gate” (Git)</h3>
+<div class="callout-content">
+<p>While this lesson doesn’t teach Git, using <code>git commit</code>
+before running a multi-file AI agent command is the single most
+important safety mechanism in 2026. If the agent makes a mess, you can
+simply <code>git reset --hard</code> and try again. If you aren’t using
+Git, create a backup copy of your folder before letting an agent perform
+a complex refactor.</p>
+</div>
+</div>
+</div>
+
 <div id="challenge-metamorphic-sanity-check" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -1445,18 +1507,14 @@ looks wrong.</p>
 </h3>
 <p>Just as a researcher might ask a colleague to peer-review their
 methodology, you can use a second AI model to audit your cleaning
-scripts. By providing your script to a different model (such as Claude
-or ChatGPT) and asking it to look for edge cases, date parsing
-vulnerabilities, or logic errors, you gain a “second opinion” that often
-catches subtle bugs the first model might have missed.</p>
-
-<div id="challenge-the-integrity-check" class="callout challenge">
+scripts.</p>
+<div id="challenge-create-a-validation-script" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-the-integrity-check" class="callout-inner">
-<h3 class="callout-title">Challenge: The Integrity Check</h3>
+<div id="challenge-create-a-validation-script" class="callout-inner">
+<h3 class="callout-title">Challenge: Create a Validation Script</h3>
 <div class="callout-content">
 <p>To prove our <code>master_dataset.csv</code> is clean, we will write
 a dedicated validation script using the Gemini CLI. Run the following
@@ -1483,7 +1541,7 @@ to find the source of the error.</p>
   Expected Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>If your cleaning pipeline was successful, you should see something
 like:</p>
@@ -1497,13 +1555,36 @@ Validation complete. No errors found.</code></pre>
 </div>
 </div>
 </div>
-<div id="challenge-the-second-opinion" class="callout challenge">
+<div id="challenge-llm-as-a-judge" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="challenge-llm-as-a-judge" class="callout-inner">
+<h3 class="callout-title">Challenge: LLM-as-a-Judge</h3>
+<div class="callout-content">
+<p>We will now use the “LLM-as-a-judge” pattern. We’ll ask the Gemini
+CLI to audit the code it just wrote, but from a “strict auditor”
+persona.</p>
+<ol style="list-style-type: decimal">
+<li>Run the following command to have the AI critique
+<code>validate_data.py</code>.</li>
+<li><code>gemini "Read 'validate_data.py'. Act as a strict code auditor for a clinical trial. Does this script guarantee 100% data integrity? Point out 3 ways this script could be improved to be more rigorous."</code></li>
+<li>
+<strong>Reflect:</strong> Did the “Auditor” persona find problems
+that the “Writer” persona missed?</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="challenge-the-second-opinion-optional" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-the-second-opinion" class="callout-inner">
-<h3 class="callout-title">Challenge: The Second Opinion</h3>
+<div id="challenge-the-second-opinion-optional" class="callout-inner">
+<h3 class="callout-title">Challenge: The Second Opinion (Optional)</h3>
 <div class="callout-content">
 <p>Now that you have your validation script, let’s practice the
 <strong>Cross-AI Validation</strong> strategy.</p>
@@ -1528,7 +1609,7 @@ vulnerabilities that you or the first AI missed?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>It is common for a second AI to point out important edge cases, such
 as the script crashing if a file is missing or failing to account for
@@ -1596,6 +1677,22 @@ any links that you are not going to use.
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div id="the-jagged-frontier-ethan-mollick" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="the-jagged-frontier-ethan-mollick" class="callout-inner">
+<h3 class="callout-title">The “Jagged Frontier” (Ethan Mollick)</h3>
+<div class="callout-content">
+<p>Remember that AI capability is not a smooth curve. It may solve a
+complex differential equation perfectly but fail at a simple logic
+puzzle. As a researcher, your job is to <strong>map this
+frontier</strong> for your specific domain—knowing exactly where the AI
+is a genius and where it is a liability.</p>
 </div>
 </div>
 </div>
@@ -2105,8 +2202,29 @@ policy for “training on user data.”</label></li>
 <h3 id="reputable-sources">Reputable Sources<a class="anchor" aria-label="anchor" href="#reputable-sources"></a>
 </h3>
 <p>To stay informed without drowning in noise, we recommend following a
-few high-signal, low-hype sources:</p>
+few high-signal, low-hype sources that focus on the
+<em>practicality</em> and <em>ethics</em> of AI in research:</p>
 <ul>
+<li>
+<strong><a href="https://simonwillison.net/" class="external-link">Simon Willison’s
+Weblog</a>:</strong> An essential resource for understanding “AI
+Engineering” and “Vibe Coding.” Willison is a master of the
+“human-in-the-loop” philosophy, offering deep dives into new tools,
+security risks like prompt injection, and the evolving role of the
+developer/researcher.</li>
+<li>
+<strong><a href="https://www.oneusefulthing.org/" class="external-link">Ethan Mollick’s
+“One Useful Thing”</a>:</strong> A professor at Wharton, Mollick
+provides the most readable and research-grounded analysis of how AI
+impacts cognitive labor. His concept of the <strong>“Jagged
+Frontier”</strong> (AI being unpredictably brilliant and flawed) is a
+foundational mental model for this lesson.</li>
+<li>
+<strong><a href="https://hamel.dev/" class="external-link">Hamel Husain’s
+Blog</a>:</strong> If you want to move from “vibes” to “rigor,” Husain
+is the top resource. He focuses on <strong>Evals
+(Evaluations)</strong>—the systematic process of measuring how well your
+AI-assisted scripts actually perform using data-driven benchmarks.</li>
 <li>
 <strong><a href="https://importai.net/" class="external-link">Import AI</a> (Jack
 Clark):</strong> A weekly newsletter that covers technical breakthroughs
@@ -2125,14 +2243,36 @@ practical tools rather than just the latest “shiny object.”</li>
 Gradient</a>:</strong> Deep dives into AI research that explain the
 <em>why</em> and <em>how</em> without over-simplifying.</li>
 </ul>
+<div id="from-vibes-to-evals-hamel-husain" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
 </div>
-</section><section><h2 class="section-heading" id="getting-help">Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
-</h2>
-<hr class="half-width">
+<span class="callout-header">Callout</span>
+<div id="from-vibes-to-evals-hamel-husain" class="callout-inner">
+<h3 class="callout-title">From “Vibes” to “Evals” (Hamel Husain)</h3>
+<div class="callout-content">
+<p>When your “Vibe Coding” scripts become critical for your research,
+they need to move into an <strong>Eval Loop</strong>. This means
+creating a small “gold standard” dataset of known correct answers and
+testing every new iteration of your AI-generated code against that
+standard.</p>
+</div>
+</div>
+</div>
+<div id="checklist3" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<span class="callout-header">Checklist</span>
+<div class="callout-inner">
+<div class="callout-content">
 <ul>
 <li><a href="https://ai.google.dev/gemini-api/docs" class="external-link">Gemini API
 Docs</a></li>
 </ul>
+</div>
+</div>
+</div>
 <div id="key-points" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -2153,6 +2293,7 @@ Docs</a></li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
+</div>
 </section></section>
 </div>
     </main>
