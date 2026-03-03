@@ -191,8 +191,6 @@ It is common for a second AI to point out important edge cases, such as the scri
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Key Points
-
 - Automated tests and 'sanity checks' prevent silent data corruption.
 - Defensive programming with `assert` statements ensures that code fails loudly when errors occur.
 - Cross-AI auditing provides a valuable second opinion for verifying complex logic.

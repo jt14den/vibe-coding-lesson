@@ -168,8 +168,6 @@ When your "Vibe Coding" scripts become critical for your research, they need to 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Key Points
-
 - Gemini, Claude, and Copilot serve different needs.
 - Community support is vital.
 - Plugins and MCP allow AI to connect to external data.

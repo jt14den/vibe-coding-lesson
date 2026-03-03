@@ -171,7 +171,6 @@ gemini "Read 'clean_and_merge.py'. Add a docstring at the very top of the file a
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Key Points
 
 - Use AI to automate the tedious aspects of data harmonization and standardization.
 - Auditing your data before cleaning helps identify specific inconsistencies.
