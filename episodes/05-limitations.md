@@ -120,7 +120,6 @@ You remain the scientist. AI augments your speed, but it does not replace your e
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Key Points
 
 - Avoid AI for security-critical tasks.
 - You are responsible for the final output.

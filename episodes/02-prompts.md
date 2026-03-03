@@ -172,7 +172,6 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Key Points
 
 - Be specific and provide context.
 - Always validate AI outputs.

@@ -198,7 +198,6 @@ To analyze trends in sea ice extent using satellite data from 1980-2020.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-## Key Points
 
 - CLI tools can edit files directly.
 - Persistent context in GEMINI.md improves AI performance.
