@@ -30,7 +30,7 @@ We will be using the Gemini CLI (built on Node.js) and Python for data processin
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::: spoiler
+::::::::::::::::::::: group-tab
 
 ### Windows
 
@@ -45,11 +45,7 @@ We will be using the Gemini CLI (built on Node.js) and Python for data processin
    gemini auth
    ```
 
-::::::::::::::::::::::::
-
-:::::::::::::::: spoiler
-
-### MacOS
+### Mac
 
 1. **Install Node.js**: `brew install node` (if you have Homebrew) or download from [nodejs.org](https://nodejs.org).
 2. **Install Python**: `brew install python` or download from [python.org](https://python.org).
@@ -61,11 +57,6 @@ We will be using the Gemini CLI (built on Node.js) and Python for data processin
    ```bash
    gemini auth
    ```
-
-::::::::::::::::::::::::
-
-
-:::::::::::::::: spoiler
 
 ### Linux
 
@@ -82,4 +73,4 @@ We will be using the Gemini CLI (built on Node.js) and Python for data processin
    gemini auth
    ```
 
-::::::::::::::::::::::::
+:::::::::::::::::::::

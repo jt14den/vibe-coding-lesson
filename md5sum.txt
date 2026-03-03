@@ -11,6 +11,6 @@
 "episodes/05-limitations.md" "1c567c942ee03544bc9eca64c40b92dc" "site/built/05-limitations.md" "2026-03-03"
 "episodes/06-resources.md" "a28e97f350572bb1f27f0c2558bd146f" "site/built/06-resources.md" "2026-03-03"
 "instructors/instructor-notes.md" "c348715682ca19cee64b0ef2f4bcd9e3" "site/built/instructor-notes.md" "2026-01-08"
-"learners/setup.md" "108610961fbea3c50fd6048b205dbf5a" "site/built/setup.md" "2026-03-02"
+"learners/setup.md" "691c341d9509db79d8b3a98c486242ab" "site/built/setup.md" "2026-03-03"
 "learners/reference.md" "8036849d86be7208059d8c8158abbe28" "site/built/reference.md" "2026-03-02"
 "profiles/learner-profile.md" "b0f309120aa9e523b4aae25be723facd" "site/built/learner-profile.md" "2026-01-08"
