@@ -4,7 +4,7 @@ teaching: 10
 exercises: 0
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+:::::::::::::::::::::::::::::::::::::::::::::::::: objectives
 
 ## Objectives
 
@@ -14,7 +14,7 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+:::::::::::::::::::::::::::::::::::::::::::::::::: questions
 
 - What other tools are available?
 - Where can I find help?
@@ -41,7 +41,7 @@ For researchers handling highly sensitive data or requiring absolute reproducibi
 *   **Aider**: A state-of-the-art CLI coding agent that can connect to both proprietary APIs (like Gemini) and local models (via Ollama). It is specifically designed for "pair programming" in the terminal and excels at complex refactoring.
 *   **Qwen Coder**: A series of high-performance open models from Alibaba (e.g., **Qwen2.5-Coder**) that rival proprietary models in coding tasks. Because these are open weights, they can be run entirely offline for maximum security.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
 ## The "Privacy vs. Performance" Tradeoff
 
@@ -78,7 +78,7 @@ Transparent attribution is critical for Open Science. Current academic standards
 **1. In Code Repositories (`README.md`):**
 Add a specific "AI Usage" section to your project documentation:
 
-::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
 ### Example Attribution Block
 
@@ -99,7 +99,7 @@ Cite the model in the **Methods** section or **Acknowledgements**.
 *   [**Elsevier AI Policy**](https://www.elsevier.com/about/policies/publishing-ethics/usage-of-ai-tools-in-writing-for-research): Guidelines on declaring AI use in research.
 *   [**CRediT Taxonomy**](https://credit.niso.org/): Use the "Software" or "Methodology" roles to describe *your* use of the tool, but do not assign a role to the AI itself.
 
-::::::::::::::::::::::::::::::::::::::: checklist
+:::::::::::::::::::::::::::::::::::::::::::::::::: checklist
 
 ## Summary Checklist
 
@@ -109,13 +109,13 @@ Cite the model in the **Methods** section or **Acknowledgements**.
 - [ ] **Validate** using synthetic data and statistical theory.
 - [ ] **You are the pilot**; the AI is the co-pilot.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Navigating the AI Landscape: Signal vs. Noise
 
 One of the hardest parts of using AI in research is separating genuine utility from marketing hyperbole. New tools appear daily, promising to "write your paper" or "automate your analysis." How do you know what is worth your time?
 
-:::::::::::::::::::::::::::::::::::::: discussion
+:::::::::::::::::::::::::::::::::::::::::::::::::: discussion
 
 ## How do you find tools?
 
@@ -123,13 +123,13 @@ Where do you hear about new AI tools? TikTok? Twitter/X? Academic journals? Word
 
 * Acknowledge that "hype" channels are often the fastest, but "reputable" channels are safer.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### The Hype Detection Kit
 
 Before adopting a new AI tool for your research workflow, run it through this mental checklist:
 
-::::::::::::::::::::::::::::::::::::::: checklist
+:::::::::::::::::::::::::::::::::::::::::::::::::: checklist
 
 ## Hype vs. Reality Checklist
 
@@ -138,7 +138,7 @@ Before adopting a new AI tool for your research workflow, run it through this me
 - [ ] **The Citation Test:** Does it hallucinate sources? If it can't link to a real DOI or URL, treat it as a creative writing tool, not a research assistant.
 - [ ] **The "Free Lunch" Test:** If a service is free and seemingly unlimited, **you (and your data)** are likely the product. Check the privacy policy for "training on user data."
 
-:::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Reputable Sources
 
@@ -152,7 +152,7 @@ To stay informed without drowning in noise, we recommend following a few high-si
 *   **[Data Elixir](https://dataelixir.com/):** A broader data science newsletter that often highlights useful, practical tools rather than just the latest "shiny object."
 *   **[The Gradient](https://thegradient.pub/):** Deep dives into AI research that explain the *why* and *how* without over-simplifying.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
 ## From "Vibes" to "Evals" (Hamel Husain)
 
@@ -160,13 +160,13 @@ When your "Vibe Coding" scripts become critical for your research, they need to 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::: checklist
+:::::::::::::::::::::::::::::::::::::::::::::::::: checklist
 
 - [Gemini API Docs](https://ai.google.dev/gemini-api/docs)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+:::::::::::::::::::::::::::::::::::::::::::::::::: keypoints
 
 ## Key Points
 
