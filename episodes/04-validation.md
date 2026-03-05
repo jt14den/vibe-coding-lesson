@@ -144,6 +144,11 @@ Validation complete. No errors found.
 
 If you see "FAIL" or "Warning", investigate your `clean_and_merge.py` script!
 
+### Reflection
+- Did the validation script catch any errors that were "silent" before?
+- If the script passed, do you feel more or less confident in the AI's work? Why?
+- What other "Sanity Checks" could you add for your specific research field?
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

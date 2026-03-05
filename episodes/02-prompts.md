@@ -1,7 +1,7 @@
 ---
 title: "Best Practices for Prompting"
 teaching: 20
-exercises: 15
+exercises: 20
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -170,7 +170,27 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+:::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: The Introspection Loop
+
+Let's test the "AI as a verifier" principle. We'll ask the AI to find flaws in its own code *before* we run it.
+
+1.  **Generate a script:** Use a slightly complex prompt, like: `gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."`
+2.  **Force Introspection:** Once the code is generated, do NOT run it. Instead, prompt the AI again: `gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."`
+3.  **Compare:** Did the AI find a mistake in its first draft? Did it add a guard clause (like `min_periods=1`)?
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+### Reflection
+
+AI models are often more accurate when they are asked to **critique** an existing piece of logic than when they are asked to **generate** it from scratch. This "Second Pass" is a core part of the Editor's Mindset. By making this a habit, you significantly reduce the amount of debugging you have to do manually.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::: keypoints
 
 
 - Be specific and provide context.
