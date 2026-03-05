@@ -85,6 +85,25 @@ It is common to feel "out of the loop" when the AI generates 50 lines of code in
 
 Unlike browser-based tools that are isolated in a sandbox, the Gemini CLI has direct access to your working environment. This allows it to **read** your project's context directly from the directory structure and **create** or modify files in real-time. Instead of copying and pasting code blocks, the agent can write scripts directly to your disk, allowing for rapid iteration based on terminal errors.
 
+::::::::::::::::::::::::::::::::::::::::: caution
+
+## Security: The Price of Power
+
+Giving an AI agent direct access to your filesystem is a significant security responsibility. While this access enables the "superpowers" described above, it also means that a buggy or misaligned agent could theoretically delete files, access sensitive configuration data (like `.ssh` keys or `.env` files), or perform unauthorized actions on your system.
+
+### Mitigating Risk with Sandboxing
+
+To manage this risk, we recommend **Sandboxing**. Sandboxing involves running the AI tool in a restricted environment where it can only see and modify a specific subset of your files.
+
+In this lesson, we use **Docker** to create this sandbox. When you run the agent inside a Docker container:
+1.  **Isolation**: The agent is isolated from your personal files and operating system.
+2.  **Controlled Access**: You explicitly choose which folder the agent can see by "mounting" it as a volume.
+3.  **Safe Failure**: If the agent runs a destructive command (like `rm -rf /`), it only affects the temporary files inside the container, not your host machine.
+
+Throughout this workshop, always consider the **Blast Radius** of the tool you are using. If a tool has write access to your files, ensure those files are backed up or under version control (like Git), so you can easily revert any unwanted changes.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Superpower: Long Context
 
 Modern models like **Gemini 2.0** feature a **Long Context Window** (often 1 million to 2 million tokens). In practical terms, this means you can provide the AI with your *entire* project folder—scripts, documentation, and even small datasets—all at once. 
@@ -125,6 +144,10 @@ The AI should return a response similar to:
 - episodes/
 - data/
 ..."
+
+### Reflection
+- Did the AI see files that you didn't manually "upload"?
+- How does this change your approach to "copy-pasting" code?
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 

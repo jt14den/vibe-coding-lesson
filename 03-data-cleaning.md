@@ -80,7 +80,12 @@ gemini "Write a script called 'clean_and_merge.py'. It should read the 3 site CS
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Safety Net: Backup Scripts
-This step involves complex logic. If a learner's AI fails to generate a working `clean_and_merge.py` after 2-3 attempts, provide them with a pre-written version of the script (available in `instructors/files/backup_clean_and_merge.py`) so they can proceed to the next challenge without falling behind.
+This step involves complex logic and multiple scripts. If a learner's AI fails to generate working code after 2-3 attempts, provide them with the pre-written versions available in the `instructors/files/` directory:
+- `backup_make_messy_data.py` (To generate the initial CSVs)
+- `backup_inspect_data.py` (To audit the CSVs)
+- `backup_clean_and_merge.py` (To perform the final harmonization)
+
+This ensures all learners can stay synced even if their specific AI outputs are buggy.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -164,6 +169,11 @@ To ensure your research is reproducible in 2026, you must track *which* model ge
 ```bash
 gemini "Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"
 ```
+
+### Reflection
+- Why is it important to record the model version and the date?
+- If you ran this script in 2 years, would it matter if the AI model had been updated?
+- How does this "Provenance Header" help with the reproducibility of your research?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

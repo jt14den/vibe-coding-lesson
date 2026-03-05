@@ -1,7 +1,7 @@
 ---
 title: "Resources and Next Steps"
 teaching: 10
-exercises: 0
+exercises: 10
 ---
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: objectives
@@ -166,7 +166,30 @@ When your "Vibe Coding" scripts become critical for your research, they need to 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::::::::::::: keypoints
+::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Your Personal Action Plan
+
+To wrap up this workshop, take 5 minutes to draft your "Agentic Research Protocol." Consider how you will integrate these tools into your specific research workflow while maintaining rigor.
+
+1.  **Select a Project:** Which of your current research projects would benefit most from an AI cleaning or validation pipeline?
+2.  **Choose Your Gates:** Which **Approval Gates** (Test-First, Diff Budget, Snapshot, etc.) will you commit to using?
+3.  **Define Your Ground Truth:** What are 2-3 "Immutable Requirements" for that project that the AI *cannot* change?
+4.  **Verification Strategy:** Will you use a second model (Cross-AI), unit tests, or metamorphic checks to verify the output?
+
+**Share:** If you are in a live workshop, share one part of your plan with a neighbor.
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+### Discussion
+
+Having a pre-defined protocol reduces **Decision Fatigue** when you are in the middle of a complex coding session. By deciding *now* how you will verify your work, you are less likely to fall into the trap of "Approval Fatigue" later.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Gemini, Claude, and Copilot serve different needs.
 - Community support is vital.
