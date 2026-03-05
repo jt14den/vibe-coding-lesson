@@ -371,7 +371,7 @@
         
 <section id="aio-01-cli-intro"><p>Content from <a href="01-cli-intro.html">Understanding CLI-Based AI</a></p>
 <hr>
-<p>Last updated on 2026-03-03 |
+<p>Last updated on 2026-03-05 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/01-cli-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -414,7 +414,7 @@
   Setup Check
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Before starting, ensure all learners have their
 <code>GEMINI_API_KEY</code> exported in their shell. <strong>Quick
@@ -491,7 +491,7 @@ resources for higher-level tasks.</p>
   Discussion Prompt
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Ask learners: “Have you ever used ChatGPT to write code that
 <em>looked</em> correct but failed when you ran it?” This is a great
@@ -532,6 +532,42 @@ structure and <strong>create</strong> or modify files in real-time.
 Instead of copying and pasting code blocks, the agent can write scripts
 directly to your disk, allowing for rapid iteration based on terminal
 errors.</p>
+<div id="security-the-price-of-power" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="security-the-price-of-power" class="callout-inner">
+<h3 class="callout-title">Security: The Price of Power</h3>
+<div class="callout-content">
+<p>Giving an AI agent direct access to your filesystem is a significant
+security responsibility. While this access enables the “superpowers”
+described above, it also means that a buggy or misaligned agent could
+theoretically delete files, access sensitive configuration data (like
+<code>.ssh</code> keys or <code>.env</code> files), or perform
+unauthorized actions on your system.</p>
+<div class="section level3">
+<h3 id="mitigating-risk-with-sandboxing">Mitigating Risk with Sandboxing<a class="anchor" aria-label="anchor" href="#mitigating-risk-with-sandboxing"></a>
+</h3>
+<p>To manage this risk, we recommend <strong>Sandboxing</strong>.
+Sandboxing involves running the AI tool in a restricted environment
+where it can only see and modify a specific subset of your files.</p>
+<p>In this lesson, we use <strong>Docker</strong> to create this
+sandbox. When you run the agent inside a Docker container: 1.
+<strong>Isolation</strong>: The agent is isolated from your personal
+files and operating system. 2. <strong>Controlled Access</strong>: You
+explicitly choose which folder the agent can see by “mounting” it as a
+volume. 3. <strong>Safe Failure</strong>: If the agent runs a
+destructive command (like <code>rm -rf /</code>), it only affects the
+temporary files inside the container, not your host machine.</p>
+<p>Throughout this workshop, always consider the <strong>Blast
+Radius</strong> of the tool you are using. If a tool has write access to
+your files, ensure those files are backed up or under version control
+(like Git), so you can easily revert any unwanted changes.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="superpower-long-context">Superpower: Long Context<a class="anchor" aria-label="anchor" href="#superpower-long-context"></a>
 </h3>
@@ -593,11 +629,18 @@ accurately describe your environment?</p>
   Example Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
 are: - index.md - config.yaml - episodes/ - data/ …”</p>
+<div class="section level3">
+<h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a>
+</h3>
+<ul>
+<li>Did the AI see files that you didn’t manually “upload”?</li>
+<li>How does this change your approach to “copy-pasting” code?</li>
+</ul>
 <div id="note-on-variations" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -608,6 +651,7 @@ are: - index.md - config.yaml - episodes/ - data/ …”</p>
 <div class="callout-content">
 <p>The AI’s exact wording will vary, but it should correctly identify
 your OS and the files you see in your folder.</p>
+</div>
 </div>
 </div>
 </div>
@@ -683,7 +727,7 @@ Include at least two libraries you use and one coding convention (e.g.,
   Example GEMINI.md
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -728,10 +772,10 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-02-prompts"><p>Content from <a href="02-prompts.html">Best Practices for Prompting</a></p>
 <hr>
-<p>Last updated on 2026-03-03 |
+<p>Last updated on 2026-03-05 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/02-prompts.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1070,6 +1114,53 @@ later?</li>
 </div>
 </div>
 </div>
+<div id="challenge-the-introspection-loop" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-introspection-loop" class="callout-inner">
+<h3 class="callout-title">Challenge: The Introspection Loop</h3>
+<div class="callout-content">
+<p>Let’s test the “AI as a verifier” principle. We’ll ask the AI to find
+flaws in its own code <em>before</em> we run it.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Generate a script:</strong> Use a slightly complex prompt,
+like:
+<code>gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."</code>
+</li>
+<li>
+<strong>Force Introspection:</strong> Once the code is generated, do
+NOT run it. Instead, prompt the AI again:
+<code>gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."</code>
+</li>
+<li>
+<strong>Compare:</strong> Did the AI find a mistake in its first
+draft? Did it add a guard clause (like <code>min_periods=1</code>)?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Reflection
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>AI models are often more accurate when they are asked to
+<strong>critique</strong> an existing piece of logic than when they are
+asked to <strong>generate</strong> it from scratch. This “Second Pass”
+is a core part of the Editor’s Mindset. By making this a habit, you
+significantly reduce the amount of debugging you have to do
+manually.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1092,7 +1183,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-03-data-cleaning"><p>Content from <a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></p>
 <hr>
-<p>Last updated on 2026-03-03 |
+<p>Last updated on 2026-03-05 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
@@ -1136,7 +1227,7 @@ any links that you are not going to use.
   Active Participation
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>This episode is designed for <strong>Live Coding</strong>. Learners
 should follow along, executing the commands on their own machines.
@@ -1239,13 +1330,18 @@ Finally, the script will merge these into a master dataset.</p>
   Safety Net: Backup Scripts
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
-<p>This step involves complex logic. If a learner’s AI fails to generate
-a working <code>clean_and_merge.py</code> after 2-3 attempts, provide
-them with a pre-written version of the script (available in
-<code>instructors/files/backup_clean_and_merge.py</code>) so they can
-proceed to the next challenge without falling behind.</p>
+<p>This step involves complex logic and multiple scripts. If a learner’s
+AI fails to generate working code after 2-3 attempts, provide them with
+the pre-written versions available in the
+<code>instructors/files/</code> directory: -
+<code>backup_make_messy_data.py</code> (To generate the initial CSVs) -
+<code>backup_inspect_data.py</code> (To audit the CSVs) -
+<code>backup_clean_and_merge.py</code> (To perform the final
+harmonization)</p>
+<p>This ensures all learners can stay synced even if their specific AI
+outputs are buggy.</p>
 </div>
 </div>
 </div>
@@ -1292,7 +1388,7 @@ verify and document.</p>
   Challenge Hint
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <p>This challenge is harder because it requires modifying
 <em>existing</em> code. If learners are stuck, hint: “Does the AI know
@@ -1331,7 +1427,7 @@ script and verify the “Score” column in
   Possible Command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1397,12 +1493,23 @@ cleaning and imputation steps to the final output format.</p>
   Possible Command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="reflection-1">Reflection<a class="anchor" aria-label="anchor" href="#reflection-1"></a>
+</h3>
+<ul>
+<li>Why is it important to record the model version and the date?</li>
+<li>If you ran this script in 2 years, would it matter if the AI model
+had been updated?</li>
+<li>How does this “Provenance Header” help with the reproducibility of
+your research?</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1433,7 +1540,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-04-validation"><p>Content from <a href="04-validation.html">Validation Best Practices</a></p>
 <hr>
-<p>Last updated on 2026-03-03 |
+<p>Last updated on 2026-03-05 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/04-validation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
@@ -1726,6 +1833,18 @@ Checking for missing values... PASS
 Validation complete. No errors found.</code></pre>
 <p>If you see “FAIL” or “Warning”, investigate your
 <code>clean_and_merge.py</code> script!</p>
+<div class="section level3">
+<h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a>
+</h3>
+<ul>
+<li>Did the validation script catch any errors that were “silent”
+before?</li>
+<li>If the script passed, do you feel more or less confident in the AI’s
+work? Why?</li>
+<li>What other “Sanity Checks” could you add for your specific research
+field?</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1997,7 +2116,7 @@ is far greener than querying an LLM.</li>
   Managing Expectations
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>As models improve (e.g., Gemini 1.5 Pro vs Flash), they are becoming
 harder to trick into hallucinating. * <strong>If it refuses:</strong>
@@ -2035,7 +2154,7 @@ instructions for this non-existent library?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Often, the AI will confidently describe how to install and use the
 fake library. It might even provide fake code snippets like
@@ -2110,10 +2229,10 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-06-resources"><p>Content from <a href="06-resources.html">Resources and Next Steps</a></p>
 <hr>
-<p>Last updated on 2026-03-03 |
+<p>Last updated on 2026-03-05 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/06-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -2483,6 +2602,55 @@ Docs</a></li>
 </div>
 </div>
 </div>
+<div id="challenge-your-personal-action-plan" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-your-personal-action-plan" class="callout-inner">
+<h3 class="callout-title">Challenge: Your Personal Action Plan</h3>
+<div class="callout-content">
+<p>To wrap up this workshop, take 5 minutes to draft your “Agentic
+Research Protocol.” Consider how you will integrate these tools into
+your specific research workflow while maintaining rigor.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Select a Project:</strong> Which of your current research
+projects would benefit most from an AI cleaning or validation
+pipeline?</li>
+<li>
+<strong>Choose Your Gates:</strong> Which <strong>Approval
+Gates</strong> (Test-First, Diff Budget, Snapshot, etc.) will you commit
+to using?</li>
+<li>
+<strong>Define Your Ground Truth:</strong> What are 2-3 “Immutable
+Requirements” for that project that the AI <em>cannot</em> change?</li>
+<li>
+<strong>Verification Strategy:</strong> Will you use a second model
+(Cross-AI), unit tests, or metamorphic checks to verify the output?</li>
+</ol>
+<p><strong>Share:</strong> If you are in a live workshop, share one part
+of your plan with a neighbor.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Discussion
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>Having a pre-defined protocol reduces <strong>Decision
+Fatigue</strong> when you are in the middle of a complex coding session.
+By deciding <em>now</em> how you will verify your work, you are less
+likely to fall into the trap of “Approval Fatigue” later.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -2553,8 +2721,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/aio.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/aio.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-03",
-  "datePublished": "2026-03-03"
+  "dateModified": "2026-03-05",
+  "datePublished": "2026-03-05"
 }
 
   </script><script>

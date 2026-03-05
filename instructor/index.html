@@ -433,7 +433,7 @@ How do I write effective prompts?<br>What are common AI
 failures?<br>How can I make the AI fix its own mistakes?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>01h 00m
+<span class="visually-hidden">Duration: </span>01h 05m
 </td>
 <td>
  3. <a href="03-data-cleaning.html">Live Demo: The Data Cleaning
@@ -444,7 +444,7 @@ How can AI handle messy, real-world data?<br>Can I trust AI to
 standardize inconsistent files?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>01h 50m
+<span class="visually-hidden">Duration: </span>01h 55m
 </td>
 <td>
  4. <a href="04-validation.html">Validation Best Practices</a>
@@ -454,7 +454,7 @@ How do I know if the AI code is correct?<br>What is a ‘sanity check’ in
 code?<br>How can I use a second AI to check work?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02h 40m
+<span class="visually-hidden">Duration: </span>02h 45m
 </td>
 <td>
  5. <a href="05-limitations.html">Limitations and Cautions</a>
@@ -463,7 +463,7 @@ code?<br>How can I use a second AI to check work?
 When should I NOT use AI?<br>What are common failure modes?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>03h 05m
+<span class="visually-hidden">Duration: </span>03h 10m
 </td>
 <td>
  6. <a href="06-resources.html">Resources and Next Steps</a>
@@ -472,7 +472,7 @@ When should I NOT use AI?<br>What are common failure modes?
 What other tools are available?<br>Where can I find help?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>03h 15m
+<span class="visually-hidden">Duration: </span>03h 30m
 </td>
 <td>
 Finish
@@ -486,194 +486,102 @@ any links that you are not going to use.
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
       </section><section id="setup"><p>To follow this lesson, you will need the Gemini CLI and Python
-installed on your machine.</p>
-<section><h2 class="section-heading" id="institutional-context-access">Institutional Context &amp; Access<a class="anchor" aria-label="anchor" href="#institutional-context-access"></a></h2>
-<hr class="half-width"><p>The <strong>University of California (UC)</strong> system and many
-other institutions have enterprise-wide agreements with major generative
-AI vendors (e.g., OpenAI for ChatGPT Enterprise/Edu and Google for
-Gemini). These agreements often provide <strong>licensed web- or
-workspace-integrated access</strong> with enhanced privacy protections
-and policy compliance.</p>
-<p>However, the <strong>availability of CLI or API access under these
-institutional deals is not consistently documented</strong> across all
-campuses. In many cases, using a CLI tool under a campus enterprise
-license will require <em>explicit authorization or provisioning</em> by
-campus IT.</p>
-<p>For this workshop, we use the <strong>Gemini CLI</strong>. If your
-campus license does not include API access, you may need to use a
-personal account for the following steps.</p>
-<div id="a-note-on-privacy" class="callout caution">
+installed on your machine. The primary benefit of a CLI-based AI is its
+ability to interact directly with your local files and environment.</p>
+<section><h2 class="section-heading" id="path-1-direct-local-install-recommended">Path 1: Direct Local Install (Recommended)<a class="anchor" aria-label="anchor" href="#path-1-direct-local-install-recommended"></a></h2>
+<hr class="half-width"><p>This is the standard way to use CLI AI tools. It gives the agent
+direct access to your project files, allowing it to read data, write
+scripts, and run commands in your actual working directory.</p>
+<div id="a-note-on-security-sandboxing" class="callout caution">
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
 <span class="callout-header">Caution</span>
-<div id="a-note-on-privacy" class="callout-inner">
-<h3 class="callout-title">A Note on Privacy</h3>
+<div id="a-note-on-security-sandboxing" class="callout-inner">
+<h3 class="callout-title">A Note on Security &amp; Sandboxing</h3>
 <div class="callout-content">
-<p>Personal or consumer accounts often allow CLI/API usage but
-<strong>may not carry the same privacy or compliance
-protections</strong> as institutional licenses. Using personal accounts
-for sensitive research data may not meet your institution’s compliance
-requirements. Always check your campus IT guidance and acceptable use
-policies before using AI tools for institutional work.</p>
+<p>Giving an AI agent direct access to your filesystem is a significant
+responsibility. A buggy or misaligned agent could theoretically modify
+or delete important files.</p>
+<p><strong>Some researchers prefer to run these tools in a “Sandbox”
+(like Docker)</strong> to isolate the agent from their personal files.
+We provide a <code>Dockerfile</code> and instructions for this in the
+<strong>Advanced Path</strong> below. However, for this workshop, you
+can run the tool directly as long as you: 1. Only run the agent in
+dedicated project folders. 2. Ensure you have a backup or use Git to
+track changes. 3. Never run the agent in folders containing sensitive
+system configuration or personal data (like your Home directory or
+<code>.ssh</code> folder).</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
-<hr class="half-width"><div id="details" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="details" class="callout-inner">
-<h3 class="callout-title">Details</h3>
-<div class="callout-content">
-<p>We will be using the Gemini CLI (built on Node.js) and Python for
-data processing. Please follow the instructions below for your operating
-system.</p>
-</div>
-</div>
-</div>
-<div class="tabs">
-<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
-<button class="nav-link active" id="nav-tab-1-Windows" name="Windows" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Windows" type="button" role="tab" aria-controls="nav-tabpanel-1-Windows" aria-selected="true">
-  <h3 class="tab-header" id="nav-tab-heading-1-Windows">
-  Windows
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-Mac" name="Mac" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Mac" type="button" role="tab" aria-controls="nav-tabpanel-1-Mac" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Mac">
-  Mac
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-Linux" name="Linux" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Linux" type="button" role="tab" aria-controls="nav-tabpanel-1-Linux" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Linux">
-  Linux
-  </h3>
-</button>
-</div>
-</nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-Windows" class="tab-pane show active" aria-labelledby="nav-tab-1-Windows" role="tabpanel">
-<p><strong>Install Node.js</strong>: Download the LTS version from <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p>
-<p><strong>Install Python</strong>: Download from <a href="https://python.org" class="external-link">python.org</a> (ensure “Add to PATH” is
-checked).</p>
-<p><strong>Open PowerShell as Administrator</strong> and run:</p>
+<div class="section level3">
+<h3 id="install-node-js-python">1. Install Node.js &amp; Python<a class="anchor" aria-label="anchor" href="#install-node-js-python"></a></h3>
+<ul><li>
+<strong>Node.js</strong>: Download the LTS version from <a href="https://nodejs.org" class="external-link">nodejs.org</a> or use a package manager
+(<code>brew install node</code>).</li>
+<li>
+<strong>Python</strong>: Ensure you have Python 3.9+ installed
+(<code>python --version</code>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="install-the-gemini-cli">2. Install the Gemini CLI<a class="anchor" aria-label="anchor" href="#install-the-gemini-cli"></a></h3>
+<p>Open your terminal and run:</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">POWERSHELL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode powershell" tabindex="0"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>npm install <span class="op">-</span>g @google<span class="op">/</span>generative-ai-cli</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
 </div>
-<p><strong>Authenticate</strong>:</p>
+</div>
+<div class="section level3">
+<h3 id="authenticate">3. Authenticate<a class="anchor" aria-label="anchor" href="#authenticate"></a></h3>
+<p>You will need an API key from <a href="https://aistudio.google.com/" class="external-link">Google AI Studio</a>.</p>
 <div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">POWERSHELL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode powershell" tabindex="0"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>gemini auth</span></code></pre>
-</div>
-<ol style="list-style-type: decimal"><li><p><strong>Install Node.js</strong>: Download the LTS version from
-<a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p></li>
-<li><p><strong>Install Python</strong>: Download from <a href="https://python.org" class="external-link">python.org</a> (ensure “Add to PATH” is
-checked).</p></li>
-<li>
-<p><strong>Open PowerShell as Administrator</strong> and run:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">POWERSHELL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode powershell" tabindex="0"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>npm install <span class="op">-</span>g @google<span class="op">/</span>generative-ai-cli</span></code></pre>
-</div>
-</li>
-<li>
-<p><strong>Authenticate</strong>:</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">POWERSHELL<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode powershell" tabindex="0"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>gemini auth</span></code></pre>
-</div>
-</li>
-</ol></div>
-<div id="nav-tabpanel-1-Mac" class="tab-pane" aria-labelledby="nav-tab-1-Mac" role="tabpanel">
-<p><strong>Install Node.js</strong>: <code>brew install node</code> (if
-you have Homebrew) or download from <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p>
-<p><strong>Install Python</strong>: <code>brew install python</code> or
-download from <a href="https://python.org" class="external-link">python.org</a>.</p>
-<p><strong>Open Terminal</strong> and run:</p>
-<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">export</span> <span class="va">GEMINI_API_KEY</span><span class="op">=</span>your_api_key_here</span></code></pre>
 </div>
-<p><strong>Authenticate</strong>:</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
-</div>
-<ol style="list-style-type: decimal"><li><p><strong>Install Node.js</strong>: <code>brew install node</code>
-(if you have Homebrew) or download from <a href="https://nodejs.org" class="external-link">nodejs.org</a>.</p></li>
-<li><p><strong>Install Python</strong>: <code>brew install python</code>
-or download from <a href="https://python.org" class="external-link">python.org</a>.</p></li>
-<li>
-<p><strong>Open Terminal</strong> and run:</p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
-</div>
-</li>
-<li>
-<p><strong>Authenticate</strong>:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
-</div>
-</li>
-</ol></div>
-<div id="nav-tabpanel-1-Linux" class="tab-pane" aria-labelledby="nav-tab-1-Linux" role="tabpanel">
-<p><strong>Install Node.js and npm</strong>:</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">sudo</span> apt install nodejs npm</span></code></pre>
-</div>
-<p><strong>Install Gemini CLI</strong>:</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
-</div>
-<p><strong>Authenticate</strong>:</p>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
-</div>
+<p><em>(Tip: Add this line to your <code>.bashrc</code> or
+<code>.zshrc</code> to make it permanent.)</em></p>
+<hr></div>
+</section><section><h2 class="section-heading" id="path-2-local-sandbox-advanced-docker">Path 2: Local Sandbox (Advanced / Docker)<a class="anchor" aria-label="anchor" href="#path-2-local-sandbox-advanced-docker"></a></h2>
+<hr class="half-width"><p>If you are comfortable with Docker and want the extra security of an
+isolated environment, you can use our pre-configured sandbox. This
+requires some additional setup but ensures the AI cannot see anything
+outside the folder you “mount” to it.</p>
 <ol style="list-style-type: decimal"><li>
-<p><strong>Install Node.js and npm</strong>:</p>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">sudo</span> apt install nodejs npm</span></code></pre>
-</div>
+<strong>Install Docker Desktop</strong>: Download from <a href="https://www.docker.com/" class="external-link">docker.com</a>.</li>
+<li>
+<strong>Build the Sandbox</strong>:
+<code>bash     docker build -t vibe-coding-sandbox .</code>
 </li>
 <li>
-<p><strong>Install Gemini CLI</strong>:</p>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/generative-ai-cli</span></code></pre>
-</div>
+<strong>Run the Sandbox</strong>:
+<code>bash     docker run -it -v "$(pwd):/home/researcher/project" -e GEMINI_API_KEY=$GEMINI_API_KEY vibe-coding-sandbox</code>
+<em>This command “mounts” your current folder into the container,
+allowing the AI to work only on those files.</em>
+</li>
+</ol><hr></section><section><h2 class="section-heading" id="path-3-github-codespaces-zero-install-trial">Path 3: GitHub Codespaces (Zero-Install Trial)<a class="anchor" aria-label="anchor" href="#path-3-github-codespaces-zero-install-trial"></a></h2>
+<hr class="half-width"><p>If you just want to try the tools without installing anything, you
+can launch this lesson in a browser. This is great for a quick demo, but
+remember that <strong>you are not acting on your own local
+files</strong>; you are in a temporary cloud environment.</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Open the Repository</strong>: <a href="https://github.com/jt14den/vibe-coding-lesson" class="external-link">jt14den/vibe-coding-lesson</a>
 </li>
 <li>
-<p><strong>Authenticate</strong>:</p>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">gemini</span> auth</span></code></pre>
-</div>
-</li>
-</ol></div>
-</div>
-</div>
+<strong>Launch Codespace</strong>: Click <strong>Code &gt;
+Codespaces &gt; Create codespace on main</strong>.</li>
+<li>
+<strong>Set Key</strong>: Run
+<code>export GEMINI_API_KEY=your_key</code> inside the codespace
+terminal.</li>
+</ol><hr></section><section><h2 class="section-heading" id="institutional-context-access">Institutional Context &amp; Access<a class="anchor" aria-label="anchor" href="#institutional-context-access"></a></h2>
+<hr class="half-width"><p>Many campuses (like the University of California) have enterprise AI
+agreements. However, CLI/API access is often a separate feature that
+must be requested from IT. If your campus license doesn’t cover the CLI,
+you may need to use a personal account for this workshop. <strong>Always
+follow your institution’s data privacy policies.</strong></p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -729,8 +637,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/index.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/index.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-03",
-  "datePublished": "2026-03-03"
+  "dateModified": "2026-03-05",
+  "datePublished": "2026-03-05"
 }
 
   </script><script>

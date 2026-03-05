@@ -369,19 +369,153 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Instructor Notes</h1>
         
-<section><h2 class="section-heading" id="teaching-tips">Teaching Tips<a class="anchor" aria-label="anchor" href="#teaching-tips"></a>
+
+<section><h2 class="section-heading" id="teaching-philosophy-the-shift-from-writer-to-editor">Teaching Philosophy: The Shift from Writer to Editor<a class="anchor" aria-label="anchor" href="#teaching-philosophy-the-shift-from-writer-to-editor"></a>
+</h2>
+<hr class="half-width">
+<p>This lesson is designed to help researchers navigate the transition
+from <strong>imperative coding</strong> (writing every line) to
+<strong>agentic orchestration</strong> (guiding an AI to write code and
+then validating it). The core challenge for learners isn’t learning
+syntax—it’s managing <strong>Cognitive Load</strong> and maintaining a
+rigorous <strong>Editor’s Mindset</strong>.</p>
+<div class="section level3">
+<h3 id="key-concepts-to-emphasize">Key Concepts to Emphasize:<a class="anchor" aria-label="anchor" href="#key-concepts-to-emphasize"></a>
+</h3>
+<ul>
+<li>
+<strong>Verification Load:</strong> It is often harder to
+<em>verify</em> code you didn’t write than to write it yourself.
+Normalize this “friction” as a sign of high-quality research.</li>
+<li>
+<strong>Evidence Mantra:</strong> “I do not approve changes; I
+approve evidence.” This should be the recurring theme of the
+workshop.</li>
+<li>
+<strong>Sandboxing:</strong> Always emphasize the security
+implications of giving an AI direct access to the filesystem.</li>
+</ul>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="episode-1-understanding-cli-based-ai">Episode 1: Understanding CLI-Based AI<a class="anchor" aria-label="anchor" href="#episode-1-understanding-cli-based-ai"></a>
 </h2>
 <hr class="half-width">
 <ul>
-<li>Ensure all students have the Gemini CLI authenticated before
-starting.</li>
-<li>The linear regression demo is the core of the lesson; allow extra
-time for the validation section.</li>
+<li>
+<strong>Auth Check:</strong> Ensure all learners have their
+<code>GEMINI_API_KEY</code> exported. If they are using Docker, confirm
+they passed the environment variable correctly.</li>
+<li>
+<strong>The Browser vs. CLI distinction:</strong> Use the analogy of
+a “consultant” (Browser) vs. a “research assistant with keys to the lab”
+(CLI).</li>
+<li>
+<strong>Discussion:</strong> The prompt about “ChatGPT writing code
+that looks correct but fails” is a great way to bond over shared
+frustration and set the stage for why we need the CLI (to run and test
+immediately).</li>
+</ul></section><section><h2 class="section-heading" id="episode-2-best-practices-for-prompting">Episode 2: Best Practices for Prompting<a class="anchor" aria-label="anchor" href="#episode-2-best-practices-for-prompting"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>CO-STAR vs. CLEAR:</strong> Don’t get bogged down in the
+acronyms. The goal is <em>intentionality</em>.</li>
+<li>
+<strong>Live Demo Tip:</strong> Show a “Bad Prompt” vs. a “Good
+Prompt” live. Purposely run a vague command and show how it fails or
+produces messy output before using the refined version.</li>
+<li>
+<strong>Self-Correction:</strong> This is the “lightbulb” moment.
+Demonstrate asking the AI, “Are you sure? Review your code for edge
+cases.”</li>
+</ul></section><section><h2 class="section-heading" id="episode-3-data-cleaning-live-demo">Episode 3: Data Cleaning (Live Demo)<a class="anchor" aria-label="anchor" href="#episode-3-data-cleaning-live-demo"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>High Intensity:</strong> This is the most technically
+demanding episode.</li>
+<li>
+<strong>The “Safety Net”:</strong> If a learner’s AI fails to
+generate working code after two attempts, have them copy the pre-written
+script from <code>instructors/files/backup_clean_and_merge.py</code>.
+This prevents them from falling behind.</li>
+<li>
+<strong>Stop and Read:</strong> Literally tell the class to “hands
+off keyboards” for 2 minutes to read the generated script before they
+run it.</li>
+</ul></section><section><h2 class="section-heading" id="episode-4-validation-best-practices">Episode 4: Validation Best Practices<a class="anchor" aria-label="anchor" href="#episode-4-validation-best-practices"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>Three-Layer Framework:</strong>
+<ol style="list-style-type: decimal">
+<li>Human Rules (Ground Truth)</li>
+<li>AI Tests (Supervised)</li>
+<li>Metamorphic Tests (Relationships)</li>
+</ol>
+</li>
+<li>
+<strong>Activity:</strong> Encourage learners to try the
+“Metamorphic Sanity Check” (Challenge). It’s a powerful way to show how
+“reproducibility” can be subtly broken by AI randomness.</li>
+</ul></section><section><h2 class="section-heading" id="episode-5-limitations-and-cautions">Episode 5: Limitations and Cautions<a class="anchor" aria-label="anchor" href="#episode-5-limitations-and-cautions"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>Silent Semantic Drift:</strong> This is the most “dangerous”
+failure. Use the example of a filtering threshold (e.g.,
+<code>&gt; 0.5</code> vs. <code>&gt;= 0.5</code>) that might not crash
+the code but changes the science.</li>
+<li>
+<strong>Environmental Cost:</strong> This is often a new topic for
+researchers. It grounds the “Vibe Coding” hype in physical reality.</li>
+</ul></section><section><h2 class="section-heading" id="episode-6-resources-and-next-steps">Episode 6: Resources and Next Steps<a class="anchor" aria-label="anchor" href="#episode-6-resources-and-next-steps"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>The Toolscape:</strong> Acknowledge that tools (Aider,
+Cursor, Claude Code) change weekly. Focus on the <em>principles</em>
+(CLI, validation, provenance) rather than specific software.</li>
+<li>
+<strong>Attribution:</strong> Remind learners that while AI can’t be
+an author, transparency about its use is a core tenet of Open
+Science.</li>
 </ul>
+<hr></section><section><h2 class="section-heading" id="troubleshooting-common-issues">Troubleshooting &amp; Common Issues<a class="anchor" aria-label="anchor" href="#troubleshooting-common-issues"></a>
+</h2>
+<hr class="half-width">
+<div class="section level3">
+<h3 id="api-quotas-limits">API Quotas &amp; Limits<a class="anchor" aria-label="anchor" href="#api-quotas-limits"></a>
+</h3>
+<p>If learners hit “Resource Exhausted” errors, it’s likely they’ve
+exceeded their free tier quota or are prompting too rapidly. Suggest
+they wait 60 seconds or use a smaller “context” (don’t send every file
+in the folder).</p>
+</div>
+<div class="section level3">
+<h3 id="gemini-not-found">“Gemini Not Found”<a class="anchor" aria-label="anchor" href="#gemini-not-found"></a>
+</h3>
+<p>Ensure the global npm install worked and that their <code>PATH</code>
+is updated. In Docker, this is handled automatically. On host machines,
+they might need to restart their terminal.</p>
+</div>
+<div class="section level3">
+<h3 id="hallucinations">Hallucinations<a class="anchor" aria-label="anchor" href="#hallucinations"></a>
+</h3>
+<p>If a learner gets a script that imports a non-existent library (e.g.,
+<code>import science_cleaner</code>), use it as a “teachable moment” for
+the whole class about verification.</p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></section><section id="aggregate-instructor-notes"><section id="01-cli-intro"><h2 class="section-heading"><a href="01-cli-intro.html">Understanding CLI-Based AI</a></h2>
+ -->
+</div>
+</section><section id="aggregate-instructor-notes"><section id="01-cli-intro"><h2 class="section-heading"><a href="01-cli-intro.html">Understanding CLI-Based AI</a></h2>
 <hr class="half-width">
 <h3 id="01-cli-intro-headingInstructor1">
 <a href="01-cli-intro.html#headingInstructor1">Setup Check</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor1"></a>
@@ -436,11 +570,16 @@ these scripts can take 10-30 seconds each.</p>
 <br><h3 id="03-data-cleaning-headingInstructor2">
 <a href="03-data-cleaning.html#headingInstructor2">Safety Net: Backup Scripts</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor2"></a>
 </h3>
-<p>This step involves complex logic. If a learner’s AI fails to generate
-a working <code>clean_and_merge.py</code> after 2-3 attempts, provide
-them with a pre-written version of the script (available in
-<code>instructors/files/backup_clean_and_merge.py</code>) so they can
-proceed to the next challenge without falling behind.</p>
+<p>This step involves complex logic and multiple scripts. If a learner’s
+AI fails to generate working code after 2-3 attempts, provide them with
+the pre-written versions available in the
+<code>instructors/files/</code> directory: -
+<code>backup_make_messy_data.py</code> (To generate the initial CSVs) -
+<code>backup_inspect_data.py</code> (To audit the CSVs) -
+<code>backup_clean_and_merge.py</code> (To perform the final
+harmonization)</p>
+<p>This ensures all learners can stay synced even if their specific AI
+outputs are buggy.</p>
 <hr>
 <br><h3 id="03-data-cleaning-headingInstructor3">
 <a href="03-data-cleaning.html#headingInstructor3">Challenge Hint</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor3"></a>
@@ -548,8 +687,8 @@ made-up court case) just in case everyone’s AI behaves perfectly.</p>
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/instructor-notes.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/instructor-notes.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-03",
-  "datePublished": "2026-03-03"
+  "dateModified": "2026-03-05",
+  "datePublished": "2026-03-05"
 }
 
   </script><script>

@@ -119,11 +119,11 @@
   Agentic Research Workflows: Orchestrating AI and Validation
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 13%" class="percentage">
-    13%
+<aside class="col-md-12 lesson-progress"><div style="width: 12%" class="percentage">
+    12%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 13%" aria-valuenow="13" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 12%" aria-valuenow="12" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -330,7 +330,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Best Practices for Prompting</h1>
-        <p>Last updated on 2026-03-03 |
+        <p>Last updated on 2026-03-05 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/02-prompts.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -593,6 +593,51 @@ later?</li>
 </div>
 </div>
 </div>
+<div id="challenge-the-introspection-loop" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-the-introspection-loop" class="callout-inner">
+<h3 class="callout-title">Challenge: The Introspection Loop</h3>
+<div class="callout-content">
+<p>Let’s test the “AI as a verifier” principle. We’ll ask the AI to find
+flaws in its own code <em>before</em> we run it.</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Generate a script:</strong> Use a slightly complex prompt,
+like:
+<code>gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."</code>
+</li>
+<li>
+<strong>Force Introspection:</strong> Once the code is generated, do
+NOT run it. Instead, prompt the AI again:
+<code>gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."</code>
+</li>
+<li>
+<strong>Compare:</strong> Did the AI find a mistake in its first
+draft? Did it add a guard clause (like <code>min_periods=1</code>)?</li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Reflection
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>AI models are often more accurate when they are asked to
+<strong>critique</strong> an existing piece of logic than when they are
+asked to <strong>generate</strong> it from scratch. This “Second Pass”
+is a core part of the Editor’s Mindset. By making this a habit, you
+significantly reduce the amount of debugging you have to do
+manually.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -671,8 +716,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/02-prompts.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/02-prompts.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-03",
-  "datePublished": "2026-03-03"
+  "dateModified": "2026-03-05",
+  "datePublished": "2026-03-05"
 }
 
   </script><script>
