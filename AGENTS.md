@@ -5,17 +5,17 @@ This repository contains the "Agentic Research Workflows" lesson, part of the IM
 ## Recent Accomplishments
 
 ### Current Lesson Development (`vibe-coding-lesson`)
-- **Vibe Coding Context**: Added sections on "Vibe Coding" and cognitive load management, emphasizing the shift from "writer" to "editor" in the development process.
-- **Framework Integration**: Integrated the **CO-STAR** prompting framework and the **CLEAR/CONTEXT** frameworks into the curriculum.
-- **Glossary & References**: Converted the glossary to a semantic definition list format and updated references.
+- **Orchestration Context**: Added sections on "Spec-Driven Research Orchestration" and cognitive load management, emphasizing the shift from "writer" to "orchestrator" in the development process.
+- **Framework Integration**: Integrated the **CO-STAR** prompting framework, the **CLEAR** framework, and the **Bootstrap Workflow** into the curriculum.
+- **Glossary & References**: Converted the glossary to a semantic definition list format and updated references to include Aider and the Spec-Driven workflow.
 - **Markdown Polish**: Performed multiple passes of markdown formatting improvements for better readability and accessibility.
 - **Lesson Structure**: Defined 6 core episodes:
-    1. Understanding CLI-Based AI
-    2. Effective Prompting (CO-STAR/CLEAR)
-    3. AI-Assisted Data Cleaning
-    4. Validation Strategies
-    5. Limitations & Bias
-    6. Resources & Next Steps
+    1. Understanding CLI-Based AI (Writer to Orchestrator)
+    2. Effective Prompting (The Bootstrap Workflow)
+    3. AI-Assisted Data Cleaning (Spec-Guided Cleaning)
+    4. Validation Strategies (The 4-Layer Validation Stack)
+    5. Limitations & Bias (Spec Drift & Bootstrap Failures)
+    6. Resources & Next Steps (Aider & Commit-as-Draft)
 
 ## Project Structure
 - `episodes/`: Markdown files for each lesson chapter.
@@ -24,11 +24,23 @@ This repository contains the "Agentic Research Workflows" lesson, part of the IM
 - `site/`: Built static site files and configuration.
 - `config.yaml`: Lesson configuration and episode order.
 
+## Orchestration Standards (2026)
+
+### Requirement Constraints (No-Go Zones)
+When editing this lesson, AI agents must adhere to these hard constraints:
+- **No-Go Zone 1**: Do not change the fundamental Carpentries Sandpaper syntax (e.g., keep the colons `:::` blocks).
+- **No-Go Zone 2**: Do not modify existing technical setup instructions in `learners/` without human approval.
+- **No-Go Zone 3**: Ensure all examples remain relevant to general research (avoid overly domain-specific jargon).
+
+### Efficiency Metrics
+- **Target Rewrite Time**: < 10% (Human review and refactoring should take minimal time).
+- **Validation Gate**: All new content must be cross-verified by a "Challenger" model (e.g., Gemini CLI auditing Claude Code).
+
 ## Tech Stack & Conventions
 - **Framework**: Carpentries Sandpaper (R-based lesson engine).
 - **Language**: Markdown, with R-Markdown support.
 - **Style**: Semantic HTML elements within markdown (e.g., definition lists), clear callout blocks.
-- **Validation Focus**: Emphasis on Synthetic Data, Theoretical validation, Cross-AI verification, Unit Testing, and Documentation.
+- **Validation Focus**: Emphasis on Synthetic Data, Domain Plausibility, Cross-AI verification, Unit Testing, and Traceable Commits (Aider).
 
 ## Pedagogical Standards
 
@@ -46,7 +58,7 @@ This repository contains the "Agentic Research Workflows" lesson, part of the IM
 3.  **Cognitive Load Management**:
     *   **Minimize Extraneous Load**: Remove complex setups or tools not central to the learning goal.
     *   **Scaffolding**: Provide partial code or "parsons problems" for complex tasks to reduce initial friction.
-    *   **The "Editor" Mindset**: Shift focus from syntax generation (high load) to logic verification (high value).
+    *   **The "Orchestrator" Mindset**: Shift focus from syntax generation (high load) to logic verification and spec management (high value).
 
 4.  **Professional Values**:
     *   **Scholarship**: Connect AI tools to established research methods, not just "productivity hacks."

@@ -67,12 +67,16 @@ If your data files are extremely inconsistent, reasoning models (like o1 or Deep
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Harmonizing files
+## Spec-guided cleaning
 
-We will now ask Gemini to generate a script that reads all three site files, standardizes the ID and date columns, and converts dates to YYYY-MM-DD format. The script will also fill missing scores with the site median and merge the files into a master dataset.
+In **Spec-Driven Research Orchestration**, we don't just ask for a script. We refer to the `AGENTS.md` file to ensure the script follows the project's rules.
+
+### Harmonizing files with the Spec
+
+We will now ask Gemini to generate a script using the rules defined in `AGENTS.md`.
 
 ```bash
-gemini "Write a script called 'clean_and_merge.py'. It should read the 3 site CSVs, rename all ID columns to 'participant_id', and standardize date columns to 'date'. Convert all dates to standard YYYY-MM-DD format, fill missing scores with the median of that site, and save the result to 'master_dataset.csv'. Add comments explaining each step."
+gemini "Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renaming IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules."
 ```
 
 ::::::::::::::::::::::::::::::::::::::::: instructor

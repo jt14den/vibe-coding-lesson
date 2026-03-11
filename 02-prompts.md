@@ -34,7 +34,7 @@ Treat prompting as an iterative process. Start with a simple request and add com
 
 ## The CO-STAR framework
 
-While CLEAR helps with conversation flow, CO-STAR structures complex research prompts:
+While CLEAR helps with conversation flow, CO-STAR structures complex research prompts that eventually become part of your `AGENTS.md`:
 
 *   **Context**: Provide background (e.g., "I am a biologist analyzing RNA-seq data").
 *   **Objective**: Define the specific task ("Write a script to normalize these counts").
@@ -42,6 +42,21 @@ While CLEAR helps with conversation flow, CO-STAR structures complex research pr
 *   **Tone**: Set the personality ("Be concise and prioritize readable code").
 *   **Audience**: Who is this for? ("For a graduate student who knows R but not bioinformatics").
 *   **Response**: Define the format ("A single R script with comments and a plot output").
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## The Bootstrap Workflow
+
+Instead of writing a full `AGENTS.md` by hand, use the **Bootstrap Workflow**. This lets the agent assist in defining the project spec from the start.
+
+1.  **Scan**: Ask the agent to scan your directory and data files.
+2.  **Draft**: Ask the agent to write an initial `AGENTS.md` based on what it sees and your high-level goal.
+3.  **Gate**: You review, edit, and approve the spec before any code is written.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Example bootstrap prompt
+"Scan the CSV files in `data/raw/`. Based on my goal of 'Analyzing water quality trends', draft an `AGENTS.md` file that defines the column schema, required libraries, and a plan for cleaning the data."
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

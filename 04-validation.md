@@ -1,198 +1,120 @@
 ---
-title: "Validation best practices"
+title: "Validation strategies: the approval gate"
 teaching: 30
 exercises: 20
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+:::::::::::::::::::::::::::::::::::::::::::::::::: objectives
 
 ## Objectives
 
-- Implement data integrity checks.
-- Use assert statements for defensive programming.
-- Perform cross-AI auditing.
+- Shift from a writer to an auditor mindset using the approval gate.
+- Calculate rewrite time to measure workflow efficiency.
+- Use a four-layer validation stack with explicit requirement constraints.
+- Use multi-model verification to peer-review research code.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+:::::::::::::::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I know if the AI code is correct?
-- What is a 'sanity check' in code?
-- How can I use a second AI to check work?
+- How do I move from vibe coding to research orchestration?
+- What is rewrite time and why does it matter for research reproducibility?
+- How can I use one AI to catch the errors of another?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Validation framework
+## The approval gate: verification over generation
 
-Validation is essential when using AI agents. A structured approach ensures research rigor.
+In an agentic research workflow, your role is to audit and approve code rather than write it. The standard has shifted from vibe coding to spec-driven orchestration.
 
-### Layer 1: Human-authored requirements
-Before asking an AI to code, define the rules it cannot change. These are domain-specific requirements.
+The approval gate is the point where you decide AI-generated code is robust enough for research production. It separates a working prototype from validated science.
 
-- *Example:* "Participant IDs must be unique," or "Total input must equal total output."
-- **Action:** Write these as a checklist or a separate `requirements.py` file.
+:::::::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-### Layer 2: Supervised tests
-Ask the AI to generate tests based on its code, then review and finalize them.
+## The review-first standard
+The bottleneck in research is no longer writing code; it is verifying it. A high-performance workflow follows this cycle:
+Plan → Agent Implementation → Automated AI-Powered Testing → Human Review.
 
-- *Tip:* Use test-driven prompting. Tell the agent: "First, write 5 tests that prove this script works. I will review them before you write the main script."
+::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Layer 3: Metamorphic testing
-For complex research where the correct answer is unknown, test the relationships in the data.
+## Measuring efficiency: rewrite time
 
-- *Example:* "If I double the input values, does the output also double?" or "If I sort the input data, does the result stay the same?"
+Rewrite time is a metric to determine if an AI workflow is actually helping your research.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+- **Definition:** The manual effort in minutes a researcher spends making AI-generated output production-ready.
+- **Goal:** If you spend 20 minutes prompting but then 40 minutes fixing the code, your rewrite time is too high. 
 
-## Approve evidence, not changes
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
 
-To avoid approval fatigue, focus on evidence. An agent should provide proof before you accept the code:
+## Challenge: calculate your rewrite time
 
-1. **Passing tests**: The code passes human-authored requirements.
-2. **Invariant checks**: A report shows the data sums correctly or has the right row count.
-3. **Small diffs**: You can read every line changed.
-4. **Explanation of intent**: The agent explains why it made the change and what the risks are.
+Look back at a script you recently generated with an AI agent.
+1. How many minutes did you spend fixing or refactoring the code to make it run?
+2. If this took more than 10% of the total task time, what was the likely cause? 
+    - Ambiguous specs? 
+    - AI over-confidence? 
+    - Lack of local context?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Approval gates
+## The four-layer validation stack
 
-Use specific gates in your workflow to maintain high-quality reviews:
+To minimize rewrite time and ensure research rigor, use a structured validation stack.
 
-| Gate pattern | Purpose |
-| :--- | :--- |
-| **Test-first** | Require the agent to pass a test before applying a code change. |
-| **Diff budget** | Limit the agent to changing only a few lines at a time. |
-| **Snapshot** | Create a Git commit or folder backup before complex refactors. |
-| **Explain-before-apply** | Ask the agent to explain its plan and verification strategy before editing files. |
+### Layer 1: Requirement constraints (No-Go Zones)
+Before the AI writes code, define requirement constraints in your `AGENTS.md`. These are rules the AI is not allowed to break.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+*Example:* "Do not change the column names in `raw_data.csv`" or "Use only base R for this visualization to ensure compatibility."
 
-## Using Git for snapshots
+### Layer 2: Automated unit tests
+Ask the agent to write tests before the implementation. Use a prompt pattern like: "First, write five Pytest cases that define the success of this data cleaning script. I will approve the tests before you write the logic."
 
-Using `git commit` before running an AI agent command is an important safety mechanism. If the agent makes a mistake, you can use `git reset --hard` to revert. If you are not using Git, back up your folder before complex changes.
+### Layer 3: Metamorphic and invariant checks
+Test the relationships in your data that should never change.
+- **Invariants:** The total number of participants must remain 150 after merging.
+- **Metamorphic checks:** If I change the order of the input rows, the final mean score should not change.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+### Layer 4: Domain plausibility
+This is where your research expertise is irreplaceable. AI does not know that a negative blood pressure reading is impossible.
 
-::::::::::::::::::::::::::::::::::::::::: instructor
+---
 
-## Teaching tip: Review modes
-Help learners identify their review focus:
+## Multi-model verification
 
-- **Safety:** Are data paths correct? Are secrets exposed?
-- **Correctness:** Does the logic match research requirements?
-- **Maintainability:** Is the code readable?
+We use a challenger model to audit an implementation model rather than trusting a single AI.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
 
-::::::::::::::::::::::::::::::::::::::::: challenge
+## Challenge: orchestrate a peer review
 
-## Challenge: Idempotency check
+1. Use Model A (such as Claude Code or Cursor) to generate a data cleaning script.
+2. Provide the code to Model B (such as Gemini CLI) with the following prompt:
+   
+   "Read this script. Act as a skeptical senior data scientist. Identify three potential edge cases where this script will fail, such as empty strings, NaN values, or encoding issues. Suggest specific assert statements to catch these."
 
-Test the `clean_and_merge.py` logic. Running the script on the same data twice should produce identical results.
+3. Reflect: Did the challenger model find something the implementation model missed?
 
-1. Run `python clean_and_merge.py` and save the hash of `master_dataset.csv`.
-2. Run it again.
-3. Does the hash match? If not, the AI may have introduced randomness (like a random seed for missing values) that affects reproducibility.
+::::::::::::::::::::::::::::::::::::::::::::::::: solution
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+## Why this works
+Models have different blind spots. Forcing a second AI to act as an auditor helps bypass the tendency of the primary assistant to be over-confident. This process reduces your manual rewrite time.
 
-## Defensive programming
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
-Ask the AI to include `assert` statements in your scripts. These will stop the script if a condition is not met.
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::: instructor
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Teaching tip: Future-proofing
-Remind learners that assertions protect them in the future when they receive new data, acting as a form of research insurance.
+## Teaching tip: approval fatigue
+Warn learners about approval fatigue the tendency to accept AI suggestions without reading them. The four-layer stack is designed to make the AI prove it is correct before you review the code.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-*   *Example:* `assert len(df) == 150, "Rows missing!"`
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: keypoints
 
-### Cross-AI validation
+- The approval gate separates experimental prototypes from validated research.
+- Rewrite time is the primary metric for measuring AI workflow value.
+- Requirement constraints prevent the AI from drifting away from research specs.
+- Multi-model verification uses a second AI to act as a skeptical peer reviewer.
 
-You can use a second AI model to audit your cleaning scripts, similar to peer review.
-
-::::::::::::::::::::::::::::::::::::::::: challenge
-
-## Challenge: Create a validation script
-
-Use the Gemini CLI to create a script that validates `master_dataset.csv`. The script should check for duplicate IDs, verify that scores are between 0 and 100, and confirm there are no missing values.
-
-```bash
-gemini "Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check that there are no duplicate participant_ids, all 'score' values are between 0 and 100, and there are zero missing values. If any check fails, print a warning; otherwise, print 'PASS' for each step."
-```
-
-Run the script with `python validate_data.py`. If it fails, investigate `clean_and_merge.py`.
-
-:::::::::::::::::::::::::::::::::::::::: solution
-
-## Expected output
-
-A successful pipeline should return:
-
-```text
-Checking for duplicates... PASS
-Checking score range (0-100)... PASS
-Checking for missing values... PASS
-Validation complete. No errors found.
-```
-
-### Reflection
-- Did the validation script catch any silent errors?
-- How does this script affect your confidence in the AI's work?
-- What other sanity checks would be useful for your field?
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::: challenge
-
-## Challenge: Auditor persona
-
-Use the LLM-as-a-judge pattern by asking the Gemini CLI to audit the code it wrote from a strict persona.
-
-1.  Ask the AI to critique `validate_data.py`.
-2.  `gemini "Read 'validate_data.py'. Act as a strict code auditor for a clinical trial. Does this script guarantee 100% data integrity? Point out 3 ways this script could be improved."`
-3.  **Reflect:** Did the auditor persona find problems that the writer persona missed?
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::: instructor
-
-## Teaching tip: Persona switching
-This shows how changing the persona from 'Helpful Assistant' to 'Strict Auditor' can bypass model over-confidence.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::: challenge
-
-## Challenge: Second opinion (optional)
-
-Practice cross-AI validation with a different tool.
-
-1.  Open a new chat in another AI tool (like Claude or ChatGPT).
-2.  Paste your `validate_data.py` code.
-3.  Ask the AI to review the script for bugs, specifically edge cases like empty files or unexpected text.
-
-**Reflect:** Did the second AI identify any vulnerabilities missed by the first one?
-
-:::::::::::::::::::::::::::::::::::::::: solution
-
-## Discussion
-
-A second AI often identifies edge cases, such as the script crashing on missing files or "N/A" strings. This peer review process reduces verification load and increases robustness.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::: keypoints
-
-- Automated tests and sanity checks prevent data corruption.
-- Assert statements ensure code fails loudly when errors occur.
-- Cross-AI auditing provides a second opinion for verifying logic.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
