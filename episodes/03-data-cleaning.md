@@ -1,5 +1,5 @@
 ---
-title: "Live Demo: The Data Cleaning Agent"
+title: "Data cleaning with AI"
 teaching: 30
 exercises: 20
 ---
@@ -8,70 +8,68 @@ exercises: 20
 
 ## Objectives
 
-- Use Gemini to generate a realistic test dataset.
-- Build a data processing pipeline that handles inconsistencies.
-- Verify AI-generated code before execution.
-- Document the cleaning process automatically.
+- Generate a test dataset using Gemini.
+- Build a data processing pipeline for inconsistent files.
+- Verify AI-generated code before running it.
+- Document the cleaning process.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can AI handle messy, real-world data?
+- How can AI handle messy data?
 - Can I trust AI to standardize inconsistent files?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Active Participation
+## Live coding
+This episode uses live coding. Learners should follow along by running commands on their own machines.
 
-This episode is designed for **Live Coding**. Learners should follow along, executing the commands on their own machines. 
 :::::::::::::::::::::::::::::::::::::::::: prereq
 
 ## Prerequisites
-
-Ensure your `GEMINI_API_KEY` is set and active. Generating these scripts can take 10-30 seconds each.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+Ensure your `GEMINI_API_KEY` is set. Generating scripts can take 10-30 seconds.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Universal Headache: Messy Data
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-For most researchers, the bottleneck isn't implementing complex algorithms—it's cleaning and merging inconsistent files. In this demo, we will use Gemini to act as our "Data Janitor," automating the standardization of messy CSV files.
+## Cleaning messy data
 
-### Generating Messy Data
+Cleaning and merging inconsistent files is a common bottleneck in research. We will use Gemini to standardize messy CSV files.
 
-To practice cleaning, we first need a dataset with realistic inconsistencies. We can use the AI to simulate a multi-site study where each location used slightly different naming conventions or date formats. Run the following command to generate three CSV files—`site_A.csv`, `site_B.csv`, and `site_C.csv`. The prompt instructs the AI to purposefully include inconsistent column names (like `ParticipantID` vs `id`) and varied date formats to mimic real-world data collection errors.
+### Generating test data
+
+To practice cleaning, we need a dataset with inconsistencies. We can use AI to simulate a multi-site study where each location used different naming conventions or date formats. Run this command to generate three files: `site_A.csv`, `site_B.csv`, and `site_C.csv`.
 
 ```bash
-gemini "Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and weird date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."
+gemini "Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."
 ```
 
-Once you run the generated script with `python make_messy_data.py`, you will have three headache-inducing files in your directory.
+After running `python make_messy_data.py`, you will have three inconsistent files in your directory.
 
-### Auditing the Data
+### Auditing the data
 
-Before attempting to fix the files, we need to understand the extent of the chaos. Instead of opening each file manually in a spreadsheet, we can ask the AI to write an inspection script. We want this script to read every CSV in the folder and report back on the filenames, the specific column names found in each, and the count of missing values. This audit gives us the "Source of Truth" needed to design our cleaning logic.
+Before fixing the files, we need to understand the inconsistencies. We can ask the AI to write an inspection script that reads every CSV in the folder and reports the filenames, column names, and missing value counts.
 
 ```bash
 gemini "Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column."
 ```
 
-Run the inspection script. You should see the inconsistencies clearly, such as `site_A` using `ParticipantID` while `site_B` uses `id`.
+Run the inspection script. You should see inconsistencies like `site_A` using `ParticipantID` while `site_B` uses `id`.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Pro-Tip: Use Reasoning Models for Complexity
-
-If your data files are extremely inconsistent (e.g., hundreds of columns with overlapping names or multi-language headers), this is where **Reasoning Models** (like o1 or DeepSeek-R1) shine. While a standard model might miss a subtle naming pattern, reasoning models will "think" through the audit results more carefully before writing the cleaning script.
+## Reasoning models
+If your data files are extremely inconsistent, reasoning models (like o1 or DeepSeek-R1) are often more effective. They can identify subtle naming patterns that standard models might miss.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Harmonizing Inconsistent Files
+### Harmonizing files
 
-With the audit complete, we can now perform the harmonization. We will ask Gemini to generate a single script that reads all three site files, standardizes the ID and date columns, and converts all dates to a uniform YYYY-MM-DD format. We'll also include logic to fill missing scores with the site-specific median to ensure our data is complete. Finally, the script will merge these into a master dataset.
+We will now ask Gemini to generate a script that reads all three site files, standardizes the ID and date columns, and converts dates to YYYY-MM-DD format. The script will also fill missing scores with the site median and merge the files into a master dataset.
 
 ```bash
 gemini "Write a script called 'clean_and_merge.py'. It should read the 3 site CSVs, rename all ID columns to 'participant_id', and standardize date columns to 'date'. Convert all dates to standard YYYY-MM-DD format, fill missing scores with the median of that site, and save the result to 'master_dataset.csv'. Add comments explaining each step."
@@ -79,54 +77,46 @@ gemini "Write a script called 'clean_and_merge.py'. It should read the 3 site CS
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Safety Net: Backup Scripts
-This step involves complex logic and multiple scripts. If a learner's AI fails to generate working code after 2-3 attempts, provide them with the pre-written versions available in the `instructors/files/` directory:
-- `backup_make_messy_data.py` (To generate the initial CSVs)
-- `backup_inspect_data.py` (To audit the CSVs)
-- `backup_clean_and_merge.py` (To perform the final harmonization)
-
-This ensures all learners can stay synced even if their specific AI outputs are buggy.
+## Backup scripts
+If a learner's AI fails to generate working code, provide the pre-written versions from `instructors/files/`:
+- `backup_make_messy_data.py`
+- `backup_inspect_data.py`
+- `backup_clean_and_merge.py`
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Stop and Read: The Editor's Role
-
-Before you run this code, open `clean_and_merge.py` in your editor. Evaluate whether the logic makes sense, if the comments accurately describe the code, and if there are any obvious syntax errors. Remember that while the AI acts as your co-pilot, you are the pilot responsible for the final output.
+## The editor role
+Before running the code, open `clean_and_merge.py`. Check if the logic is sound, if the comments match the code, and if there are syntax errors. You are responsible for the final output.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Run `python clean_and_merge.py`. You now have a single, clean dataset ready for analysis.
+Run `python clean_and_merge.py` to create the clean dataset.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Why ask for comments?
-
-Notice we explicitly asked the AI to "Add comments explaining each step." In a Vibe Coding workflow, where you are editing rather than writing from scratch, these comments are essential. They transform a script from a "black box" into a readable methodology that you can verify and document.
+## Using comments
+We asked the AI to "Add comments explaining each step." These comments make the script readable and help you verify the methodology.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Challenge Hint
-This challenge is harder because it requires modifying *existing* code. 
-If learners are stuck, hint: "Does the AI know what is inside `clean_and_merge.py` yet?"
-**Strategy:** They should explicitly ask the AI to "Read clean_and_merge.py" *before* asking it to modify it, or use a command that combines both actions (e.g., `gemini "Read clean_and_merge.py and add..."`).
+## Challenge tip
+This challenge requires modifying existing code. If learners are stuck, suggest they ask the AI to read `clean_and_merge.py` before asking for modifications.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: The Curveball
+## Challenge: Update the script
 
-Research requirements often change mid-stream. Imagine your Principal Investigator (PI) just emailed you to exclude any participant with a Score below 10, as they are likely outliers.
-
-Instead of editing `clean_and_merge.py` manually, use the Gemini CLI to update the script. Ask the AI to read the existing file and instruct it to add the filtering logic. Once done, run the updated script and verify the "Score" column in `master_dataset.csv`.
+Imagine you need to exclude any participant with a score below 10. Use the Gemini CLI to update `clean_and_merge.py` instead of editing it manually. Ask the AI to read the file and add the filtering logic. Run the updated script and verify the results in `master_dataset.csv`.
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Possible Command
+## Example command
 
 ```bash
 gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."
@@ -134,17 +124,17 @@ gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows wher
 
 ### Reflection
 
-*   Did the AI rewrite the whole file or just edit the relevant part?
-*   Did it remember to import `pandas` again?
-*   Did you trust it enough to run it without looking, or did you check the diff first?
+*   Did the AI edit the relevant part or rewrite the whole file?
+*   Did it include the necessary imports?
+*   Did you check the changes before running the script?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Automating the Documentation
+### Automating documentation
 
-A reproducible project is only as good as its documentation. For the final step, we will have the AI generate a README that explains the entire pipeline we just built, from the original raw files through the cleaning and imputation steps to the final output format.
+For the final step, have the AI generate a README that explains the data pipeline, including the raw files, cleaning steps, and final output format.
 
 ```bash
 gemini "Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."
@@ -152,28 +142,28 @@ gemini "Create a README.md file that explains the data processing pipeline we ju
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Provenance Tracking
+## Challenge: Provenance tracking
 
-To ensure your research is reproducible in 2026, you must track *which* model generated your code and *when*. 
+To ensure research is reproducible, track which model generated your code and when.
 
-1. Use the Gemini CLI to add a "Provenance Header" to your `clean_and_merge.py` script.
+1. Use the Gemini CLI to add a provenance header to `clean_and_merge.py`.
 2. The header should be a Python docstring containing:
     - The model used (e.g., Gemini 2.0 Flash)
     - The date
-    - A summary of the primary prompt used.
+    - A summary of the prompt.
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Possible Command
+## Example command
 
 ```bash
 gemini "Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"
 ```
 
 ### Reflection
-- Why is it important to record the model version and the date?
-- If you ran this script in 2 years, would it matter if the AI model had been updated?
-- How does this "Provenance Header" help with the reproducibility of your research?
+- Why record the model version and date?
+- Does it matter if the AI model is updated later?
+- How does this header help with reproducibility?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -181,9 +171,8 @@ gemini "Read 'clean_and_merge.py'. Add a docstring at the very top of the file a
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-
-- Use AI to automate the tedious aspects of data harmonization and standardization.
-- Auditing your data before cleaning helps identify specific inconsistencies.
-- Verification is mandatory: always read and test generated code before execution.
+- Use AI to automate data harmonization and standardization.
+- Audit data before cleaning to identify inconsistencies.
+- Read and test all generated code before running it.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

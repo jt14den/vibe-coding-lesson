@@ -1,5 +1,5 @@
 ---
-title: "Validation Best Practices"
+title: "Validation best practices"
 teaching: 30
 exercises: 20
 ---
@@ -10,7 +10,7 @@ exercises: 20
 
 - Implement data integrity checks.
 - Use assert statements for defensive programming.
-- Perform Cross-AI auditing.
+- Perform cross-AI auditing.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -22,118 +22,115 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Three-Layer Validation Framework
+## Validation framework
 
-In the age of autonomous agents, validation must be more than an afterthought. We recommend a three-layer approach to ensure scientific rigor.
+Validation is essential when using AI agents. A structured approach ensures research rigor.
 
-### Layer 1: Immutable Requirements (Human-Authored)
-Before asking an AI to code, define the "Ground Truth" that the AI **cannot** change. These are domain-specific rules that must always be true.
+### Layer 1: Human-authored requirements
+Before asking an AI to code, define the rules it cannot change. These are domain-specific requirements.
 
-- *Example:* "Participant IDs must be unique," or "Conservation of mass: total input must equal total output."
-- **Action:** Write these as a separate `requirements.py` or a simple checklist before starting.
+- *Example:* "Participant IDs must be unique," or "Total input must equal total output."
+- **Action:** Write these as a checklist or a separate `requirements.py` file.
 
-### Layer 2: Agent-Generated Tests (Supervised)
-Ask the AI to generate tests *based on its code*, but you must review and "freeze" them.
+### Layer 2: Supervised tests
+Ask the AI to generate tests based on its code, then review and finalize them.
 
-- *Tip:* Use "Test-Driven Prompting." Tell the agent: "First, write 5 tests that would prove this script works. I will review them before you write the main script."
+- *Tip:* Use test-driven prompting. Tell the agent: "First, write 5 tests that prove this script works. I will review them before you write the main script."
 
-### Layer 3: Metamorphic Testing
-For complex research where the "correct" answer isn't known (e.g., a new simulation), test the *relationships* in the data.
+### Layer 3: Metamorphic testing
+For complex research where the correct answer is unknown, test the relationships in the data.
 
 - *Example:* "If I double the input values, does the output also double?" or "If I sort the input data, does the result stay the same?"
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## The Evidence Mantra: "No Evidence, No Merge"
+## Approve evidence, not changes
 
-In 2026, the greatest risk is **Approval Fatigue**—simply clicking "Yes" because the agent is fast. To combat this, adopt the mantra: **I do not approve changes; I approve evidence.**
+To avoid approval fatigue, focus on evidence. An agent should provide proof before you accept the code:
 
-Evidence means the agent must provide at least one of the following before you accept the code:
-
-1. **Passing Tests**: The new code passes the human-authored requirements.
-2. **Invariant Checks**: A "sanity report" showing the data still sums to 100% or has the correct row count.
-3. **A Small Diff**: You can personally read every line changed (the "Diff Budget").
-4. **Explanation of Intent**: The agent explains *why* it made the change and what the risks are.
+1. **Passing tests**: The code passes human-authored requirements.
+2. **Invariant checks**: A report shows the data sums correctly or has the right row count.
+3. **Small diffs**: You can read every line changed.
+4. **Explanation of intent**: The agent explains why it made the change and what the risks are.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Approval Gates: Friction in the Right Places
+## Approval gates
 
-To maintain high-signal review, use these specific **Approval Gates** during your workflow:
+Use specific gates in your workflow to maintain high-quality reviews:
 
-| Gate Pattern | What it Forces |
+| Gate pattern | Purpose |
 | :--- | :--- |
-| **Test-First Gate** | Require the agent to write (or pass) a test *before* applying the code change. |
-| **Diff Budget Gate** | Limit the agent to changing only a few files or lines at a time. Big changes require extra scrutiny. |
-| **Snapshot Gate** | Create a Git commit or a folder backup *before* letting the agent attempt a complex refactor. |
-| **Explain-Before-Apply** | Ask: "Before you edit the file, explain your plan and how you will verify it." |
+| **Test-first** | Require the agent to pass a test before applying a code change. |
+| **Diff budget** | Limit the agent to changing only a few lines at a time. |
+| **Snapshot** | Create a Git commit or folder backup before complex refactors. |
+| **Explain-before-apply** | Ask the agent to explain its plan and verification strategy before editing files. |
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## The "Snapshot Gate" (Git)
+## Using Git for snapshots
 
-While this lesson doesn't teach Git, using `git commit` before running a multi-file AI agent command is the single most important safety mechanism in 2026. If the agent makes a mess, you can simply `git reset --hard` and try again. If you aren't using Git, create a backup copy of your folder before letting an agent perform a complex refactor.
+Using `git commit` before running an AI agent command is an important safety mechanism. If the agent makes a mistake, you can use `git reset --hard` to revert. If you are not using Git, back up your folder before complex changes.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Teaching Tip: Approval Modes
-Help learners identify their "Review Mode":
+## Teaching tip: Review modes
+Help learners identify their review focus:
 
-- **Safety Mode:** Are my data paths correct? Any secrets exposed?
-- **Correctness Mode:** Does the logic match my research requirements?
-- **Maintainability Mode:** Is the code readable for my future self?
+- **Safety:** Are data paths correct? Are secrets exposed?
+- **Correctness:** Does the logic match research requirements?
+- **Maintainability:** Is the code readable?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Metamorphic Sanity Check
+## Challenge: Idempotency check
 
-Let's test our `clean_and_merge.py` logic. If we run our cleaning script on the same data twice, the result should be identical (Idempotency).
+Test the `clean_and_merge.py` logic. Running the script on the same data twice should produce identical results.
 
 1. Run `python clean_and_merge.py` and save the hash of `master_dataset.csv`.
 2. Run it again.
-3. Does the hash match? If not, the AI may have introduced a "hidden state" or randomness (like a random seed for missing value imputation) that makes your research non-reproducible.
+3. Does the hash match? If not, the AI may have introduced randomness (like a random seed for missing values) that affects reproducibility.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Defensive Programming
+## Defensive programming
 
-You can ask the AI to write "assert" statements inside your processing script. These will stop the script immediately if something looks wrong.
+Ask the AI to include `assert` statements in your scripts. These will stop the script if a condition is not met.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Teaching Tip: Future-Proofing
-Remind learners: "Asserts aren't just for checking the AI today; they are for protecting you 6 months from now when you get new data."
-This reframes validation from a "chore" to "insurance."
+## Teaching tip: Future-proofing
+Remind learners that assertions protect them in the future when they receive new data, acting as a form of research insurance.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 *   *Example:* `assert len(df) == 150, "Rows missing!"`
 
-### Cross-AI Validation
+### Cross-AI validation
 
-Just as a researcher might ask a colleague to peer-review their methodology, you can use a second AI model to audit your cleaning scripts.
+You can use a second AI model to audit your cleaning scripts, similar to peer review.
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Create a Validation Script
+## Challenge: Create a validation script
 
-To prove our `master_dataset.csv` is clean, we will write a dedicated validation script using the Gemini CLI. Run the following command to create a script that loads the dataset and performs three specific checks: ensuring there are no duplicate IDs, verifying that all scores fall within the expected range, and confirming that there are no missing values.
+Use the Gemini CLI to create a script that validates `master_dataset.csv`. The script should check for duplicate IDs, verify that scores are between 0 and 100, and confirm there are no missing values.
 
 ```bash
 gemini "Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check that there are no duplicate participant_ids, all 'score' values are between 0 and 100, and there are zero missing values. If any check fails, print a warning; otherwise, print 'PASS' for each step."
 ```
 
-Once generated, run the script with `python validate_data.py`. If you see a "FAIL" or a warning, you will need to investigate your `clean_and_merge.py` script to find the source of the error.
+Run the script with `python validate_data.py`. If it fails, investigate `clean_and_merge.py`.
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Expected Output
+## Expected output
 
-If your cleaning pipeline was successful, you should see something like:
+A successful pipeline should return:
 
 ```text
 Checking for duplicates... PASS
@@ -142,12 +139,10 @@ Checking for missing values... PASS
 Validation complete. No errors found.
 ```
 
-If you see "FAIL" or "Warning", investigate your `clean_and_merge.py` script!
-
 ### Reflection
-- Did the validation script catch any errors that were "silent" before?
-- If the script passed, do you feel more or less confident in the AI's work? Why?
-- What other "Sanity Checks" could you add for your specific research field?
+- Did the validation script catch any silent errors?
+- How does this script affect your confidence in the AI's work?
+- What other sanity checks would be useful for your field?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -155,40 +150,40 @@ If you see "FAIL" or "Warning", investigate your `clean_and_merge.py` script!
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: LLM-as-a-Judge
+## Challenge: Auditor persona
 
-We will now use the "LLM-as-a-judge" pattern. We'll ask the Gemini CLI to audit the code it just wrote, but from a "strict auditor" persona.
+Use the LLM-as-a-judge pattern by asking the Gemini CLI to audit the code it wrote from a strict persona.
 
-1.  Run the following command to have the AI critique `validate_data.py`.
-2.  `gemini "Read 'validate_data.py'. Act as a strict code auditor for a clinical trial. Does this script guarantee 100% data integrity? Point out 3 ways this script could be improved to be more rigorous."`
-3.  **Reflect:** Did the "Auditor" persona find problems that the "Writer" persona missed?
+1.  Ask the AI to critique `validate_data.py`.
+2.  `gemini "Read 'validate_data.py'. Act as a strict code auditor for a clinical trial. Does this script guarantee 100% data integrity? Point out 3 ways this script could be improved."`
+3.  **Reflect:** Did the auditor persona find problems that the writer persona missed?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Teaching Tip: Persona Switching
-This demonstrates how changing the **Persona** (from 'Helpful Assistant' to 'Strict Auditor') can bypass the model's tendency to be over-confident in its own work.
+## Teaching tip: Persona switching
+This shows how changing the persona from 'Helpful Assistant' to 'Strict Auditor' can bypass model over-confidence.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: The Second Opinion (Optional)
+## Challenge: Second opinion (optional)
 
-Now that you have your validation script, let's practice the **Cross-AI Validation** strategy.
+Practice cross-AI validation with a different tool.
 
-1.  Open a **new** chat session in a different AI tool (like Claude or ChatGPT).
-2.  Paste the contents of your `validate_data.py` code into the chat.
-3.  Ask the AI to review the script for potential bugs, specifically asking how it would handle empty files or columns containing unexpected text.
+1.  Open a new chat in another AI tool (like Claude or ChatGPT).
+2.  Paste your `validate_data.py` code.
+3.  Ask the AI to review the script for bugs, specifically edge cases like empty files or unexpected text.
 
-**Reflect:** Did the second AI identify any vulnerabilities that you or the first AI missed?
+**Reflect:** Did the second AI identify any vulnerabilities missed by the first one?
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
 ## Discussion
 
-It is common for a second AI to point out important edge cases, such as the script crashing if a file is missing or failing to account for "N/A" strings that aren't automatically recognized as missing data. This "Peer Review" process significantly reduces your individual verification load and increases the robustness of your research.
+A second AI often identifies edge cases, such as the script crashing on missing files or "N/A" strings. This peer review process reduces verification load and increases robustness.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -196,8 +191,8 @@ It is common for a second AI to point out important edge cases, such as the scri
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Automated tests and 'sanity checks' prevent silent data corruption.
-- Defensive programming with `assert` statements ensures that code fails loudly when errors occur.
-- Cross-AI auditing provides a valuable second opinion for verifying complex logic.
+- Automated tests and sanity checks prevent data corruption.
+- Assert statements ensure code fails loudly when errors occur.
+- Cross-AI auditing provides a second opinion for verifying logic.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
