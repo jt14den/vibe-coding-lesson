@@ -9,12 +9,13 @@ This lesson introduces researchers to **Agentic Research Workflows**—the pract
 
 ## Overview
 
-Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Agentic research workflows offload the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks. This lesson focuses on the **Gemini CLI** but teaches principles applicable to any "Open LLM" or coding agent.
+Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. **Spec-Driven Research Orchestration** offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level orchestration and validation. This lesson focuses on the **Gemini CLI** but teaches principles applicable to any "Open LLM" or coding agent.
 
 ## Key Features
 *   **CLI-First Approach**: Learn to use AI directly in your terminal where your data lives.
-*   **Project Context**: Master the use of `GEMINI.md` (and the standard `CONTEXT.md`) to ground your AI in your specific project goals.
-*   **Validation**: Learn strategies like Synthetic Data Generation, Theoretical Validation, and Cross-AI Auditing to ensure code correctness.
+*   **The Living Spec**: Master the use of `AGENTS.md` (and the standard `CONTEXT.md`) to ground your AI in your specific project goals.
+*   **Validation**: Learn strategies like Synthetic Data Generation, Domain Plausibility, and Cross-AI Auditing to ensure research integrity.
+
 
 ## Contributing
 

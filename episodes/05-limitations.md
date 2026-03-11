@@ -39,6 +39,14 @@ AI may also fail when research involves new statistical methods or domain-specif
 
 Understanding AI failure modes helps you identify errors before they affect results.
 
+### Spec Drift
+Spec Drift occurs when the code and the `AGENTS.md` (Living Spec) become unaligned. The agent may fix a bug in the code but forget to update the spec, leading to future hallucinations.
+- *Prevention:* Regularly ask the agent to "Sync the spec with the current code."
+
+### Bootstrap Failures
+In the "Bootstrap Workflow," the AI may miss nuances in raw data during the initial scan. If you approve a flawed spec, the error will propagate through the entire project.
+- *Prevention:* Thoroughly audit the agent's first draft of `AGENTS.md`.
+
 ### Silent semantic drift
 Semantic drift occurs when an agent makes a change that alters data assumptions or logic without breaking the code.
 - *Example:* The code runs and tests pass, but a filtering threshold was changed or a column was renamed incorrectly, affecting the research conclusion.

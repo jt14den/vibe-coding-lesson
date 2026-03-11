@@ -80,9 +80,9 @@ Add an AI usage section to your project documentation:
 
 ### Example attribution
 
-*   **Model:** Google Gemini 1.5 Pro (Jan 2026 version)
-*   **Role:** Code generation and refactoring.
-*   **Verification:** Verified by [Your Name] via unit tests.
+*   **Model:** Google Gemini 2.0 Thinking (via Aider)
+*   **Role:** Spec drafting and spec-guided cleaning.
+*   **Verification:** Verified by [Your Name] via **AGENTS.md** rules and `validate_data.py`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -101,11 +101,11 @@ Cite the model in the methods or acknowledgements section.
 
 ## Summary checklist
 
-- [ ] CLI tools operate directly on your files.
-- [ ] GEMINI.md provides persistent context.
-- [ ] CLEAR and CONTEXT frameworks improve results.
-- [ ] Validate using synthetic data and statistical theory.
-- [ ] You are the pilot; the AI is the co-pilot.
+- [ ] CLI agents coordinate actions directly on your files.
+- [ ] **AGENTS.md** acts as your 'Living Spec' and source of truth.
+- [ ] The **Bootstrap Workflow** creates your spec from your data.
+- [ ] Use **Layer 4: Domain Plausibility** to catch research logic errors.
+- [ ] **Commit-as-Draft** with Aider ensures every change is traceable.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

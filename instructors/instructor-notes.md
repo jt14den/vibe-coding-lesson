@@ -37,7 +37,7 @@ This lesson is designed to help researchers navigate the transition from **imper
 
 ## Episode 5: Limitations and Cautions
 - **Silent Semantic Drift:** This is the most "dangerous" failure. Use the example of a filtering threshold (e.g., `> 0.5` vs. `>= 0.5`) that might not crash the code but changes the science.
-- **Environmental Cost:** This is often a new topic for researchers. It grounds the "Vibe Coding" hype in physical reality.
+- **Environmental Cost:** This is often a new topic for researchers. It grounds the "Spec-Driven Research Orchestration" hype in physical reality.
 
 ## Episode 6: Resources and Next Steps
 - **The Toolscape:** Acknowledge that tools (Aider, Cursor, Claude Code) change weekly. Focus on the *principles* (CLI, validation, provenance) rather than specific software.

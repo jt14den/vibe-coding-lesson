@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this lesson, please cite it as below."
 title: "Agentic Research Workflows: Orchestrating AI and Validation"
-abstract: "A Carpentries-style lesson introducing researchers to AI-assisted programming (Vibe Coding), emphasizing CLI tools, context management, and rigorous validation strategies."
+abstract: "A Carpentries-style lesson introducing researchers to Spec-Driven Research Orchestration, emphasizing CLI-based agents, the AGENTS.md Living Spec, and a four-layer validation stack."
 authors:
   - family-names: "Dennis"
     given-names: "Tim"

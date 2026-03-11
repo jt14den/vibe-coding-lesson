@@ -9,15 +9,15 @@ exercises: 10
 ## Objectives
 
 - Compare CLI and browser-based AI tools.
-- Create a project context file.
-- Explain the shift from writer to editor.
+- Create a 'Living Spec' (AGENTS.md) to guide an agent.
+- Explain the shift from writer to orchestrator.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - Why use a CLI for AI instead of a browser?
-- What is the GEMINI.md file?
+- What is the AGENTS.md file?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -49,29 +49,30 @@ However, CLI or API access under these agreements is not always documented. Camp
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Shift from writer to editor
+## Shift from writer to orchestrator
 
-Traditional programming requires you to remember the syntax and logic of a script. Vibe coding offloads syntax generation to the AI, letting you focus on higher-level logic.
+Traditional programming requires you to remember the syntax and logic of a script. **Spec-Driven Research Orchestration** offloads syntax generation to the AI, letting you focus on the high-level logic and the **Living Spec**.
 
 ```mermaid
 graph TD
-    A[User Idea/Logic] -->|Prompt| B(AI Agent)
-    B -->|Draft Code| C{Verification}
-    C -->|It Works!| D[Final Output]
-    C -->|Bug/Hallucination| E[Refinement Prompt]
-    E --> B
-    style C fill:#f9f,stroke:#333,stroke-width:2px
+    A[Researcher/Orchestrator] -->|High-Level Goal| B(AGENTS.md: The Living Spec)
+    B -->|Spec + Data| C(AI Agent)
+    C -->|Draft Code/Update| D{Verification}
+    D -->|Passed| E[Final Output]
+    D -->|Failed| F[Refinement]
+    F --> B
+    style D fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Discussion prompt
 Ask learners: "Have you ever used ChatGPT to write code that looked correct but failed when you ran it?"
-This is a good time to introduce the concept of verification load. The goal is to move from trusting the machine to managing it.
+This is a good time to introduce the concept of orchestration. The goal is not just to "fix" code, but to ensure the AI's *intent* (the spec) is correct.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-This introduces a new challenge: verification load. You must read and test code you didn't write.
+This introduces a new challenge: **verification load**. You must coordinate and validate the agent's actions against your requirements.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -161,57 +162,43 @@ The AI's exact wording will vary, but it should correctly identify your OS and t
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Project context: GEMINI.md and CONTEXT.md
+## The Living Spec: AGENTS.md and CONTEXT.md
 
-To get the most out of a CLI agent, provide it with persistent context about your project. Different tools look for specific filenames:
+To get the most out of a CLI agent, provide it with persistent context about your project. This acts as a "Living Spec"—a set of rules and goals the agent must follow.
 
-*   **Gemini CLI**: Looks for `GEMINI.md`
-*   **Claude Code**: Looks for `CLAUDE.md`
-*   **Cursor**: Looks for `.cursorrules`
+*   **Standard Agent Rule File**: `AGENTS.md` (or `CLAUDE.md`, `.cursorrules` depending on the tool).
+*   **The CONTEXT.md file**: A tool-agnostic master file that acts as a "Source of Truth."
 
-### The CONTEXT.md file
-
-While these tools require specific filenames, many users maintain a single master file named `CONTEXT.md`.
-
-**Benefits of CONTEXT.md:**
-1.  **Tool agnosticism**: It acts as a source of truth. You can link it to tool-specific files (e.g., `cp CONTEXT.md GEMINI.md`) to avoid duplicating work if you switch tools.
-2.  **Web-based AI**: If you use ChatGPT or Claude in the browser, you can copy the contents of `CONTEXT.md` into the chat to provide project rules.
-
-For this lesson, we will use `GEMINI.md` directly.
-
-### What to include
+### What to include in AGENTS.md
 
 Use this file to define:
 
-- Project goals.
-- File structure overview.
-- Tech stack and dependencies.
-- Coding conventions.
-- Specific constraints (e.g., "always use type hints").
+- **Current Goal**: What you are working on right now.
+- **Rules of the Road**: Technical constraints (e.g., "Always use `pandas` for dataframes").
+- **Verification Gates**: How you will confirm the code is correct.
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Create your GEMINI.md
+## Challenge: Create your AGENTS.md
 
-In your project directory, create a file named `GEMINI.md` and add a brief description of a research project. Include at least two libraries you use and one coding convention.
+In your project directory, create a file named `AGENTS.md`. Instead of just listing goals, define one "Hard Constraint" (something the AI *must* do) and one "Success Metric" (how you know it's done).
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Example GEMINI.md
+## Example AGENTS.md
 
 ```markdown
 # Project: Arctic Sea Ice Analysis
 
 ## Goal
-To analyze trends in sea ice extent using satellite data from 1980-2020.
+To analyze trends in sea ice extent from 1980-2020.
 
-## Tech Stack
-- Python 3.9
-- Libraries: xarray, pandas, matplotlib, cartopy
+## Rules of the Road
+- **Hard Constraint**: Only use the `xarray` library for spatial data processing.
+- **Success Metric**: All final plots must include a valid DOI reference for the data source.
 
 ## Conventions
 - Use snake_case for variable names.
-- Include docstrings for all functions.
 - Save all plots to the `figures/` directory.
 ```
 
@@ -221,8 +208,8 @@ To analyze trends in sea ice extent using satellite data from 1980-2020.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- CLI tools can edit files directly.
-- Persistent context in GEMINI.md improves AI performance.
-- Vibe coding shifts focus from syntax to verification.
+- CLI agents coordinate actions across multiple files.
+- The `AGENTS.md` file is a Living Spec that reduces "context drift."
+- Research orchestration shifts focus from writing syntax to validating intent.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

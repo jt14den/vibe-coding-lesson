@@ -4,14 +4,23 @@ title: "Reference"
 
 ## Glossary
 
+AGENTS.md (Living Spec)
+: A persistent project-level file that defines the goals, rules, and constraints of a research project. It acts as the "Source of Truth" that guides an AI agent's actions and prevents "Context Drift."
+
 Agent
 : An AI system capable of using tools (like reading files, running code, or searching the web) to complete autonomous tasks.
 
 Agentic Research Workflows
 : A paradigm shift in research software where AI agents handle the imperative syntax generation, while the researcher focuses on declarative specification and rigorous validation.
 
+Aider
+: A CLI coding agent designed for "Pair Programming" in the terminal. It is a key tool for **Spec-Driven Research Orchestration** because it automatically creates "Commits-with-Reasoning" for every change.
+
 Approval Gates
-: Strategic points of friction in an agentic workflow (e.g., Test-First, Diff Budget) designed to prevent approval fatigue and ensure human oversight.
+: Strategic points of friction in an agentic workflow (e.g., Test-First, Diff Budget, Commit-as-Draft) designed to prevent approval fatigue and ensure human oversight.
+
+Bootstrap Workflow
+: An iterative process where an AI agent scans a researcher's raw data and goals to draft the initial `AGENTS.md` spec, which the researcher then reviews and approves.
 
 Chain of Thought
 : A prompting technique that encourages the AI to explain its reasoning step-by-step. Reasoning models (like o1 or R1) have this capability built-in.
@@ -67,8 +76,11 @@ Silent Semantic Drift
 Synthetic Data
 : Artificially generated data used for testing validation pipelines without risking sensitive real-world data.
 
+Spec-Driven Research Orchestration
+: The practice of using AI agents to coordinate research tasks against a persistent, human-validated specification (`AGENTS.md`). This replaces the "vibe-based" approach with a disciplined, auditable workflow.
+
 Vibe Coding
-: The early (2023-2024) term for using AI to handle the "grunt work" of coding. In research, this has evolved into the more rigorous *Agent-Assisted Research Workflow*.
+: The early (2023-2024) term for using AI intuition and natural-language prompts to handle the "grunt work" of coding. In research, this has evolved into the more rigorous **Spec-Driven Research Orchestration**.
 
 ## References
 
