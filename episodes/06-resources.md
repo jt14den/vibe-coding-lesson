@@ -51,6 +51,23 @@ Local models offer privacy but require significant hardware (especially GPU VRAM
 
 ## Advanced trends
 
+### Automated research discovery
+For time-sensitive research, specialized agents can scan social platforms, developer forums, and prediction markets to identify trends before they appear in traditional journals. The `last30days` agent skill is a tool for this "real-time literature mapping."
+
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
+
+### The orchestrator's deep research prompt
+Use this prompt with a research discovery agent (like `last30days`) to trigger high-signal synthesis:
+
+"Act as a research orchestrator. Use the `last30days` tool to find the most discussed [TOPIC] from the last 30 days across Reddit, X, and Hacker News. 
+
+1. **Discovery**: Identify the top 3 tools or methodologies mentioned.
+2. **Sentiment**: Quote the most upvoted critique for each.
+3. **Verification**: Cross-reference these with Polymarket or web sources for real-world impact.
+4. **Validation**: Apply 'Layer 4: Domain Plausibility'—identify one trend that sounds plausible but may be an AI-generated 'vibe' without empirical backing."
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Multi-model ensembles
 In advanced workflows, you can use different models for different tasks. For example, one model generates code, another critiques it, and a third writes validation tests. This reduces the chance of a single model's bias affecting results.
 
