@@ -1,5 +1,5 @@
 ---
-title: "Resources and Next Steps"
+title: "Resources and next steps"
 teaching: 10
 exercises: 10
 ---
@@ -21,142 +21,138 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The AI Tool Landscape
+## AI tool landscape
 
-The ecosystem of AI tools for research is expanding rapidly, offering a variety of specialized interfaces for different stages of the development cycle. For direct coding, tools like **Claude Code** (Anthropic's CLI), **GitHub Copilot**, and **Aider** (a powerful CLI agent that works with multiple models) provide integrated support within your terminal. 
+The ecosystem of AI tools for research is expanding. For coding, tools like Claude Code (Anthropic's CLI), GitHub Copilot, and Aider (a CLI agent that works with multiple models) provide terminal support.
 
-Some researchers prefer a full AI-native code editor like **Cursor**, which allows you to "chat" with your entire repository. New models like **Gemini 2.0** and **DeepSeek-V3/R1** have significantly lowered the cost and increased the speed of these interactions, making "Vibe Coding" more accessible than ever.
+Some researchers use AI-native code editors like Cursor to interact with an entire repository. Models like Gemini 2.0 and DeepSeek-V3/R1 have increased the speed of these interactions.
 
-Beyond general-purpose coding assistants, research-specific tools are emerging to handle the literature and data extraction phases of scholarship. **Elicit** and **Consensus** focus on scientific paper discovery and extracting evidence-based claims, while Google's **NotebookLM** allows you to ground an AI's knowledge in your own collection of research PDFs, providing a private environment for summarizing and querying your specific documents.
+Research-specific tools are also emerging. Elicit and Consensus focus on scientific paper discovery and evidence-based claims. Google's NotebookLM allows you to ground an AI's knowledge in your own collection of research PDFs for summarizing and querying documents.
 
-## Extending Capabilities
+## Extending capabilities
 
-While we have focused on the CLI, the ecosystem is evolving to allow AI tools to "reach out" to other software. Many browser-based models now offer extensions that connect with Google Drive, WolframAlpha, or other professional services. A significant development in this space is the **Model Context Protocol (MCP)**, an emerging open standard that allows an AI assistant to securely connect to any local or remote data source—such as a PostgreSQL database or your local file system—without requiring you to upload your data to a central server. This "USB-C port" for AI applications is quickly becoming the standard for tool interoperability.
+AI tools can now connect with other software. Many browser-based models offer extensions for Google Drive, WolframAlpha, and other services. The Model Context Protocol (MCP) is an open standard that allows AI assistants to connect to local or remote data sources—such as a PostgreSQL database or your local file system—without requiring you to upload data to a central server.
 
-## Local Models & Open Tooling
+## Local models and open tooling
 
-For researchers handling highly sensitive data or requiring absolute reproducibility, the trend is shifting toward **Local AI**. By running models on your own hardware, you ensure that no data ever leaves your machine and that the model version remains frozen.
+For researchers handling sensitive data or requiring reproducibility, local AI is a growing trend. Running models on your own hardware ensures that data does not leave your machine.
 
-*   **Ollama**: The most popular tool for running "Open Weights" models (like **Llama 3**, **Mistral**, or **Gemma**) locally on macOS, Linux, and Windows. It provides a simple CLI and a local API that other tools can plug into.
-*   **Aider**: A state-of-the-art CLI coding agent that can connect to both proprietary APIs (like Gemini) and local models (via Ollama). It is specifically designed for "pair programming" in the terminal and excels at complex refactoring.
-*   **Qwen Coder**: A series of high-performance open models from Alibaba (e.g., **Qwen2.5-Coder**) that rival proprietary models in coding tasks. Because these are open weights, they can be run entirely offline for maximum security.
+*   **Ollama**: A tool for running open-weights models (like Llama 3, Mistral, or Gemma) locally on macOS, Linux, and Windows. It provides a CLI and a local API.
+*   **Aider**: A CLI coding agent that connects to proprietary APIs and local models (via Ollama). It is designed for pair programming and refactoring in the terminal.
+*   **Qwen Coder**: High-performance open models from Alibaba (e.g., Qwen2.5-Coder) that can be run offline for security.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-## The "Privacy vs. Performance" Tradeoff
+## Privacy and performance
 
-While local models (run via Ollama) offer 100% privacy, they require significant hardware (especially GPU VRAM) to match the "intelligence" of massive cloud models like Gemini 2.0. Many researchers adopt a **hybrid approach**: using cloud models for general scripting and local models for sensitive data cleaning.
+Local models offer privacy but require significant hardware (especially GPU VRAM) to match the performance of cloud models like Gemini 2.0. Many researchers use a hybrid approach: cloud models for general scripting and local models for sensitive data.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Advanced 2026 Trends
+## Advanced trends
 
-### Multi-Model Ensembles
-In advanced research workflows, you don't rely on just one model. You might use **Model A** to generate code, **Model B** to critique it, and **Model C** to write the validation tests. This "Ensemble" approach significantly reduces the chance of a single model's bias or hallucination affecting your results.
+### Multi-model ensembles
+In advanced workflows, you can use different models for different tasks. For example, one model generates code, another critiques it, and a third writes validation tests. This reduces the chance of a single model's bias affecting results.
 
-### Provenance Tracking
-Every AI-generated file should ideally include metadata in the header:
+### Provenance tracking
+Include metadata in the header of AI-generated files to ensure reproducibility:
 
-- Which model and version was used.
-- The date and a link to the prompt used.
+- Model name and version.
+- Date and a link to the prompt used.
 - A hash of the context files provided.
 
-This ensures that your research remains reproducible even as AI models evolve and "drift" over time.
+### Cost and efficiency
+With long-context models, it is easy to include unnecessary files in prompts, which increases costs.
 
-### Cost and Efficiency Monitoring
-With "Long Context" models, it is easy to accidentally spend significant funds by including unnecessary files in every prompt. 
+- **Monitor tokens:** Check your API usage dashboard.
+- **Optimize context:** Only include the files needed for the current task.
 
-- **Track your tokens:** Monitor your API usage dashboard.
-- **Optimize context:** Only include the files the agent *actually* needs for the current task.
+## Citing and crediting AI
 
-## Citing and Crediting AI
+Transparent attribution is essential for open science. Academic standards (including COPE, Nature, and Elsevier) state that AI tools cannot be listed as authors because they lack legal accountability. Instead, cite them as methodological tools.
 
-Transparent attribution is critical for Open Science. Current academic standards (including **COPE**, **Nature**, and **Elsevier**) agree that **AI tools cannot be listed as authors** because they cannot hold legal accountability. Instead, they should be cited as methodological tools.
+### Recommended attribution
 
-### Recommended Attribution Pattern
-
-**1. In Code Repositories (`README.md`):**
-Add a specific "AI Usage" section to your project documentation:
+**1. In code repositories (`README.md`):**
+Add an AI usage section to your project documentation:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-### Example Attribution Block
+### Example attribution
 
 *   **Model:** Google Gemini 1.5 Pro (Jan 2026 version)
-*   **Role:** Code generation (scaffolding), Refactoring.
-*   **Verification:** All code verified by [Your Name] via unit tests.
+*   **Role:** Code generation and refactoring.
+*   **Verification:** Verified by [Your Name] via unit tests.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-**2. In Manuscripts:**
-Cite the model in the **Methods** section or **Acknowledgements**.
+**2. In manuscripts:**
+Cite the model in the methods or acknowledgements section.
 
 *   *Example:* "We used Google Gemini (version 1.5) to assist with data cleaning scripts. Prompts and raw outputs are available in the supplementary material."
 
-### Resources & Standards
+### Resources and standards
 
 *   [**COPE (Committee on Publication Ethics)**](https://publicationethics.org/cope-position-statements/ai-author): Position statement on why AI cannot be an author.
 *   [**Elsevier AI Policy**](https://www.elsevier.com/about/policies/publishing-ethics/usage-of-ai-tools-in-writing-for-research): Guidelines on declaring AI use in research.
-*   [**CRediT Taxonomy**](https://credit.niso.org/): Use the "Software" or "Methodology" roles to describe *your* use of the tool, but do not assign a role to the AI itself.
+*   [**CRediT Taxonomy**](https://credit.niso.org/): Use "Software" or "Methodology" roles to describe your use of the tool.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: checklist
 
-## Summary Checklist
+## Summary checklist
 
-- [ ] **CLI tools** operate directly on your files—use them for multi-step tasks.
-- [ ] **GEMINI.md** provides the persistent context your agent needs.
-- [ ] **CLEAR/CONTEXT** frameworks improve your results.
-- [ ] **Validate** using synthetic data and statistical theory.
-- [ ] **You are the pilot**; the AI is the co-pilot.
+- [ ] CLI tools operate directly on your files.
+- [ ] GEMINI.md provides persistent context.
+- [ ] CLEAR and CONTEXT frameworks improve results.
+- [ ] Validate using synthetic data and statistical theory.
+- [ ] You are the pilot; the AI is the co-pilot.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Navigating the AI Landscape: Signal vs. Noise
+## Navigating the AI landscape
 
-One of the hardest parts of using AI in research is separating genuine utility from marketing hyperbole. New tools appear daily, promising to "write your paper" or "automate your analysis." How do you know what is worth your time?
+Separating utility from marketing is a challenge. New tools appear daily, but many are more hype than substance.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: discussion
 
-## How do you find tools?
+## Finding tools
 
-Where do you hear about new AI tools? TikTok? Twitter/X? Academic journals? Word of mouth?
-
-* Acknowledge that "hype" channels are often the fastest, but "reputable" channels are safer.
+Where do you hear about new AI tools? Social media, academic journals, or word of mouth? Note that while social media is fast, reputable channels are more reliable.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### The Hype Detection Kit
+### Identifying hype
 
-Before adopting a new AI tool for your research workflow, run it through this mental checklist:
+Before adopting a new tool, consider these points:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: checklist
 
-## Hype vs. Reality Checklist
+## Hype detection
 
-- [ ] **The "Magic" Test:** Does the tool claim to do *everything* (write, analyze, cite, submit)? **Hype.** Real tools usually do *one* thing well (e.g., "summarize PDFs" or "generate Python code").
-- [ ] **The "Black Box" Test:** Can you see the intermediate steps? If it gives you a final answer without showing the code or logic, it is unsafe for science.
-- [ ] **The Citation Test:** Does it hallucinate sources? If it can't link to a real DOI or URL, treat it as a creative writing tool, not a research assistant.
-- [ ] **The "Free Lunch" Test:** If a service is free and seemingly unlimited, **you (and your data)** are likely the product. Check the privacy policy for "training on user data."
+- [ ] **Scope:** Does the tool claim to do everything? Specialized tools usually perform better than those claiming to automate the entire research process.
+- [ ] **Transparency:** Can you see the intermediate steps? Tools that provide answers without showing the underlying logic are less safe for research.
+- [ ] **Citations:** Does it provide real DOIs or URLs? Verify all sources.
+- [ ] **Data privacy:** If a service is free, check if your data is used for training.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Reputable Sources
+### Reputable sources
 
-To stay informed without drowning in noise, we recommend following a few high-signal, low-hype sources that focus on the *practicality* and *ethics* of AI in research:
+Follow sources that focus on the practical and ethical aspects of AI in research:
 
-*   **[Simon Willison’s Weblog](https://simonwillison.net/):** An essential resource for understanding "AI Engineering" and "Vibe Coding." Willison is a master of the "human-in-the-loop" philosophy, offering deep dives into new tools, security risks like prompt injection, and the evolving role of the developer/researcher.
-*   **[Ethan Mollick’s "One Useful Thing"](https://www.oneusefulthing.org/):** A professor at Wharton, Mollick provides the most readable and research-grounded analysis of how AI impacts cognitive labor. His concept of the **"Jagged Frontier"** (AI being unpredictably brilliant and flawed) is a foundational mental model for this lesson.
-*   **[Hamel Husain’s Blog](https://hamel.dev/):** If you want to move from "vibes" to "rigor," Husain is the top resource. He focuses on **Evals (Evaluations)**—the systematic process of measuring how well your AI-assisted scripts actually perform using data-driven benchmarks.
-*   **[Import AI](https://importai.net/) (Jack Clark):** A weekly newsletter that covers technical breakthroughs and policy with a critical, realistic lens.
-*   **[The Batch](https://www.deeplearning.ai/the-batch/) (DeepLearning.AI):** Andrew Ng's organization provides balanced coverage of how AI is being applied in industry and science.
-*   **[Data Elixir](https://dataelixir.com/):** A broader data science newsletter that often highlights useful, practical tools rather than just the latest "shiny object."
-*   **[The Gradient](https://thegradient.pub/):** Deep dives into AI research that explain the *why* and *how* without over-simplifying.
+*   **[Simon Willison’s Weblog](https://simonwillison.net/):** Focuses on AI engineering and security risks.
+*   **[Ethan Mollick’s "One Useful Thing"](https://www.oneusefulthing.org/):** Analyzes how AI impacts cognitive labor.
+*   **[Hamel Husain’s Blog](https://hamel.dev/):** Focuses on systematic evaluation of AI performance.
+*   **[Import AI](https://importai.net/) (Jack Clark):** Covers technical breakthroughs and policy.
+*   **[The Batch](https://www.deeplearning.ai/the-batch/):** Balanced coverage of AI in industry and science.
+*   **[Data Elixir](https://dataelixir.com/):** Highlights practical tools for data science.
+*   **[The Gradient](https://thegradient.pub/):** Detailed articles on AI research.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-## From "Vibes" to "Evals" (Hamel Husain)
+## From vibes to evals
 
-When your "Vibe Coding" scripts become critical for your research, they need to move into an **Eval Loop**. This means creating a small "gold standard" dataset of known correct answers and testing every new iteration of your AI-generated code against that standard.
+When AI scripts become critical for research, move to systematic evaluation. Create a "gold standard" dataset of known correct answers and test new iterations of AI-generated code against it.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -168,22 +164,20 @@ When your "Vibe Coding" scripts become critical for your research, they need to 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Your Personal Action Plan
+## Challenge: Your research protocol
 
-To wrap up this workshop, take 5 minutes to draft your "Agentic Research Protocol." Consider how you will integrate these tools into your specific research workflow while maintaining rigor.
+Draft a plan for integrating these tools into your research workflow while maintaining rigor.
 
-1.  **Select a Project:** Which of your current research projects would benefit most from an AI cleaning or validation pipeline?
-2.  **Choose Your Gates:** Which **Approval Gates** (Test-First, Diff Budget, Snapshot, etc.) will you commit to using?
-3.  **Define Your Ground Truth:** What are 2-3 "Immutable Requirements" for that project that the AI *cannot* change?
-4.  **Verification Strategy:** Will you use a second model (Cross-AI), unit tests, or metamorphic checks to verify the output?
-
-**Share:** If you are in a live workshop, share one part of your plan with a neighbor.
+1.  **Select a project:** Which project would benefit most from an AI cleaning or validation pipeline?
+2.  **Choose your gates:** Which approval gates (Test-first, Diff budget, Snapshot) will you use?
+3.  **Define requirements:** What are 2-3 requirements for that project that the AI cannot change?
+4.  **Verification strategy:** Will you use a second model, unit tests, or metamorphic checks?
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
 ### Discussion
 
-Having a pre-defined protocol reduces **Decision Fatigue** when you are in the middle of a complex coding session. By deciding *now* how you will verify your work, you are less likely to fall into the trap of "Approval Fatigue" later.
+A pre-defined protocol reduces decision fatigue during complex coding sessions. Deciding how to verify work early prevents approval fatigue later.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

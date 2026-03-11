@@ -1,5 +1,5 @@
 ---
-title: "Understanding CLI-Based AI"
+title: "CLI-based AI"
 teaching: 15
 exercises: 10
 ---
@@ -8,9 +8,9 @@ exercises: 10
 
 ## Objectives
 
-- Compare CLI and Browser-based AI tools.
+- Compare CLI and browser-based AI tools.
 - Create a project context file.
-- Explain the shift from Writer to Editor.
+- Explain the shift from writer to editor.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -23,35 +23,35 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Setup Check
+## Setup check
 Before starting, ensure all learners have their `GEMINI_API_KEY` exported in their shell.
-**Quick Test:** Ask them to run `echo $GEMINI_API_KEY`. If it returns a blank line, they need to run the export command again.
+**Quick test:** Ask them to run `echo $GEMINI_API_KEY`. If it returns a blank line, they need to run the export command again.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Why CLI Matters for Research
+## Why CLI matters for research
 
-Most researchers are familiar with chat-based AI in a browser. While excellent for brainstorming or quick questions, browser-based tools run in an isolated sandbox. They cannot see your files, run your code, or understand your project's structure without manual uploads.
+Most researchers use chat-based AI in a browser. These tools are good for brainstorming but run in an isolated sandbox. They cannot see your files, run your code, or understand your project structure without manual uploads.
 
-CLI-based tools, by contrast, run directly in your terminal. This gives them **direct access** to your project's file system, allowing them to read data, write scripts, and execute commands autonomously. This shift—from a chat window to your actual working environment—turns the AI from a conversational partner into a capable research assistant that can iterate on tasks with you.
+CLI tools run in your terminal and have access to your project's file system. They can read data, write scripts, and execute commands. This turns the AI into a research assistant that can iterate on tasks within your working environment.
 
 ::::::::::::::::::::::::::::::::::::::::: caution
 
-## Data Privacy & Institutional Context
+## Data privacy and institutional context
 
-The **University of California** system and many campuses maintain enterprise agreements with major AI vendors, such as OpenAI (for ChatGPT Enterprise/Edu) and Google (for Gemini). These agreements generally include terms that your data won’t be used to train public models, providing enhanced privacy and compliance protections for research or instructional use.
+The University of California and many other campuses have enterprise agreements with AI vendors like OpenAI and Google. These agreements usually state that your data will not be used to train public models.
 
-However, the **availability of CLI or API access under these agreements is not consistently documented** across campuses and vendors. In many cases, campus IT must provision or support CLI/API access, and those terms can differ by campus or user role. For this workshop, we use the Gemini CLI as an example, but you should verify with your own institution whether your license covers both web interfaces and CLI/API access. 
+However, CLI or API access under these agreements is not always documented. Campus IT often needs to provision this access, and terms can vary. Verify with your institution whether your license covers both web interfaces and CLI/API access.
 
-**Warning:** Personal accounts often allow CLI/API usage but may not carry the same privacy or compliance protections as institutional licenses. Always consult your campus IT policy before using AI tools with sensitive data.
+**Warning:** Personal accounts may allow CLI/API usage but often lack the privacy protections of institutional licenses. Consult your campus IT policy before using AI tools with sensitive data.
 
-**Looking Ahead:** If your research requires absolute privacy (no data leaves your machine), these skills transfer directly to "Open LLMs" (like **Gemma** or **Llama**) run locally via **Ollama**.
+**Looking ahead:** If your research requires absolute privacy, these skills transfer to open LLMs (like Gemma or Llama) run locally via Ollama.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Mental Shift: From Writer to Editor
+## Shift from writer to editor
 
-Traditional programming requires you to hold the entire syntax and logic of a script in your working memory. Vibe coding offloads the *syntax* generation to the AI, freeing up your cognitive resources for higher-level tasks.
+Traditional programming requires you to remember the syntax and logic of a script. Vibe coding offloads syntax generation to the AI, letting you focus on higher-level logic.
 
 ```mermaid
 graph TD
@@ -65,66 +65,66 @@ graph TD
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Discussion Prompt
-Ask learners: "Have you ever used ChatGPT to write code that *looked* correct but failed when you ran it?"
-This is a great moment to normalize the "Verification Load" concept. The goal is to shift their mindset from "trusting the machine" to "managing the machine."
+## Discussion prompt
+Ask learners: "Have you ever used ChatGPT to write code that looked correct but failed when you ran it?"
+This is a good time to introduce the concept of verification load. The goal is to move from trusting the machine to managing it.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-However, this introduces a new challenge: **Verification Load**. You must be vigilant in reading and testing code you didn't write.
+This introduces a new challenge: verification load. You must read and test code you didn't write.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Managing Cognitive Load
+## Managing cognitive load
 
-It is common to feel "out of the loop" when the AI generates 50 lines of code in seconds. To manage this, focus on **anchoring** your understanding. Read the comments the AI generates, and test small pieces of code frequently rather than running a massive script all at once. If a block of logic is confusing, ask the AI to explain it to you before moving on.
+It is common to feel "out of the loop" when the AI generates many lines of code quickly. To manage this, focus on anchoring your understanding. Read the comments the AI generates and test small pieces of code frequently. If a block of logic is confusing, ask the AI to explain it before moving on.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Power of the File System
+## File system access
 
-Unlike browser-based tools that are isolated in a sandbox, the Gemini CLI has direct access to your working environment. This allows it to **read** your project's context directly from the directory structure and **create** or modify files in real-time. Instead of copying and pasting code blocks, the agent can write scripts directly to your disk, allowing for rapid iteration based on terminal errors.
+Unlike browser tools, the Gemini CLI has access to your working environment. It can read project context from the directory structure and modify files. Instead of copying and pasting code, the agent writes scripts to your disk and can iterate based on terminal errors.
 
 ::::::::::::::::::::::::::::::::::::::::: caution
 
-## Security: The Price of Power
+## Security responsibility
 
-Giving an AI agent direct access to your filesystem is a significant security responsibility. While this access enables the "superpowers" described above, it also means that a buggy or misaligned agent could theoretically delete files, access sensitive configuration data (like `.ssh` keys or `.env` files), or perform unauthorized actions on your system.
+Giving an AI agent access to your filesystem is a security responsibility. A buggy or misaligned agent could delete files or access sensitive data like `.ssh` keys or `.env` files.
 
-### Mitigating Risk with Sandboxing
+### Mitigating risk with sandboxing
 
-To manage this risk, we recommend **Sandboxing**. Sandboxing involves running the AI tool in a restricted environment where it can only see and modify a specific subset of your files.
+Sandboxing runs the AI tool in a restricted environment where it can only see and modify specific files.
 
-In this lesson, we use **Docker** to create this sandbox. When you run the agent inside a Docker container:
+In this lesson, we use Docker to create a sandbox. When you run the agent inside a Docker container:
 1.  **Isolation**: The agent is isolated from your personal files and operating system.
-2.  **Controlled Access**: You explicitly choose which folder the agent can see by "mounting" it as a volume.
-3.  **Safe Failure**: If the agent runs a destructive command (like `rm -rf /`), it only affects the temporary files inside the container, not your host machine.
+2.  **Controlled access**: You choose which folder the agent can see by mounting it as a volume.
+3.  **Safe failure**: If the agent runs a destructive command, it only affects temporary files inside the container.
 
-Throughout this workshop, always consider the **Blast Radius** of the tool you are using. If a tool has write access to your files, ensure those files are backed up or under version control (like Git), so you can easily revert any unwanted changes.
+Always consider the blast radius of your tools. Ensure files are backed up or under version control (like Git) so you can revert unwanted changes.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Superpower: Long Context
+### Long context
 
-Modern models like **Gemini 2.0** feature a **Long Context Window** (often 1 million to 2 million tokens). In practical terms, this means you can provide the AI with your *entire* project folder—scripts, documentation, and even small datasets—all at once. 
+Models like Gemini 2.0 have a long context window of 1 million to 2 million tokens. You can provide the AI with your entire project folder—scripts, documentation, and small datasets—at once.
 
-This enables **Natural Language Orchestration**: instead of writing code line-by-line, you describe the desired state of your project, and the agent orchestrates the changes across multiple files. While we often call this "Vibe Coding" for its speed and feel, in a research context, it is more accurately described as **Declarative Programming with AI Agents**.
+This allows you to describe the desired state of your project, and the agent coordinates changes across multiple files. In a research context, this is declarative programming with AI agents.
 
 ::::::::::::::::::::::::::::::::::::::::: caution
 
-## The Risk: Context Poisoning
+## Context poisoning
 
-With great context comes the risk of **Context Poisoning**. If your directory contains stale READMEs, old versions of scripts, or contradictory documentation in an `/archive` folder, the AI may "hallucinate" based on that outdated information.
+Large context windows carry a risk of context poisoning. If your directory contains old scripts or contradictory documentation in an `/archive` folder, the AI may hallucinate based on that outdated information.
 
-**Best Practice:** Use explicit scoping. Tell the agent: "Ignore the `/archive` folder and only consider `.py` files in the `src/` directory."
+**Best practice:** Use explicit scoping. Tell the agent: "Ignore the `/archive` folder and only consider `.py` files in the `src/` directory."
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Your First AI CLI Command
+## Challenge: Your first AI CLI command
 
-Let's verify the tool is working and see how it interacts with your system. In your terminal, run the following command:
+Verify the tool is working by running this command in your terminal:
 
 ```bash
 gemini "Tell me what operating system I am currently using and list the files in this directory."
@@ -134,7 +134,7 @@ Compare the output to what you see when you run `ls` (or `dir` on Windows) and `
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Example Output
+## Example output
 
 The AI should return a response similar to:
 
@@ -146,46 +146,46 @@ The AI should return a response similar to:
 ..."
 
 ### Reflection
-- Did the AI see files that you didn't manually "upload"?
-- How does this change your approach to "copy-pasting" code?
+- Did the AI see files that you didn't manually upload?
+- How does this change your approach to copying and pasting code?
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Note on Variations
+## Note on variations
 
-The AI's exact wording will vary, but it should correctly identify your OS and the files you see in your folder.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+The AI's exact wording will vary, but it should correctly identify your OS and the files in your folder.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Project Context: GEMINI.md and CONTEXT.md
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-To get the most out of a CLI agent, you should provide it with persistent context about your project. Different tools look for specific filenames to automatically load this context:
+## Project context: GEMINI.md and CONTEXT.md
+
+To get the most out of a CLI agent, provide it with persistent context about your project. Different tools look for specific filenames:
 
 *   **Gemini CLI**: Looks for `GEMINI.md`
 *   **Claude Code**: Looks for `CLAUDE.md`
 *   **Cursor**: Looks for `.cursorrules`
 
-### The Emerging Standard: CONTEXT.md
+### The CONTEXT.md file
 
-While these tools require specific filenames, an **emerging standard** is to maintain a single master file named `CONTEXT.md`.
+While these tools require specific filenames, many users maintain a single master file named `CONTEXT.md`.
 
-**Why use CONTEXT.md?**
-1.  **Tool Agnosticism**: It acts as a "Source of Truth." You can link it to tool-specific files (e.g., `cp CONTEXT.md GEMINI.md`) so you don't have to duplicate work if you switch tools.
-2.  **Web-Based AI**: If you use ChatGPT or Claude in the browser, they cannot read your files. You can quickly copy the contents of `CONTEXT.md` into the chat to "prime" the session with your project's rules.
+**Benefits of CONTEXT.md:**
+1.  **Tool agnosticism**: It acts as a source of truth. You can link it to tool-specific files (e.g., `cp CONTEXT.md GEMINI.md`) to avoid duplicating work if you switch tools.
+2.  **Web-based AI**: If you use ChatGPT or Claude in the browser, you can copy the contents of `CONTEXT.md` into the chat to provide project rules.
 
-For this specific lesson, we will use `GEMINI.md` directly so the CLI works immediately.
+For this lesson, we will use `GEMINI.md` directly.
 
-### What to Include
+### What to include
 
-By creating this file in your project root, you can define:
+Use this file to define:
 
 - Project goals.
 - File structure overview.
-- Tech stack (libraries/dependencies).
+- Tech stack and dependencies.
 - Coding conventions.
 - Specific constraints (e.g., "always use type hints").
 
@@ -193,7 +193,7 @@ By creating this file in your project root, you can define:
 
 ## Challenge: Create your GEMINI.md
 
-In your project directory, create a file named `GEMINI.md` and add a brief description of a research project you are working on. Include at least two libraries you use and one coding convention (e.g., "Use snake_case for functions").
+In your project directory, create a file named `GEMINI.md` and add a brief description of a research project. Include at least two libraries you use and one coding convention.
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
@@ -221,9 +221,8 @@ To analyze trends in sea ice extent using satellite data from 1980-2020.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-
 - CLI tools can edit files directly.
 - Persistent context in GEMINI.md improves AI performance.
-- Vibe Coding shifts focus from syntax to verification.
+- Vibe coding shifts focus from syntax to verification.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

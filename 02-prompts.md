@@ -1,5 +1,5 @@
 ---
-title: "Best Practices for Prompting"
+title: "Best practices for prompting"
 teaching: 20
 exercises: 20
 ---
@@ -9,7 +9,7 @@ exercises: 20
 ## Objectives
 
 - Apply the CLEAR framework.
-- Identify sneaky AI behaviors.
+- Identify common AI failures.
 - Use introspection to refine code.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -22,49 +22,49 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Five Principles of Effective Prompting
+## Five principles of effective prompting
 
-Writing effective prompts is less about "hacking" the AI and more about clear technical communication. To get the best results, start by being **Specific**. Include constraints, relevant filenames, and a clear description of your expected output. Vague requests lead to generic answers, while precise instructions yield usable code.
+Effective prompting is clear technical communication. To get the best results, start by being specific. Include constraints, filenames, and a description of your expected output. Vague requests lead to generic answers, while precise instructions result in usable code.
 
-Next, provide **Context**. Explain *why* you need the code and what you already have (e.g., "I am processing a CSV file with these columns..."). This helps the AI understand the broader goal. Be sure to **Specify Outputs** clearly—tell the AI exactly where to save files or how to format tables.
+Provide context. Explain why you need the code and what data you have (e.g., "I am processing a CSV file with these columns..."). This helps the AI understand the goal. Specify outputs clearly—tell the AI where to save files or how to format tables.
 
-Finally, treat prompting as an **Iterative** process. Start with a simple request and add complexity in follow-up prompts. Throughout this process, include **Validation** steps by explicitly asking the AI to "verify" or "test" its own work.
+Treat prompting as an iterative process. Start with a simple request and add complexity in follow-up prompts. Include validation steps by asking the AI to verify or test its own work.
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## The CO-STAR Framework
+## The CO-STAR framework
 
-While CLEAR (below) helps with the flow of a conversation, **CO-STAR** is an excellent framework for structuring your initial, complex research prompts:
+While CLEAR helps with conversation flow, CO-STAR structures complex research prompts:
 
-*   **C: Context** - Provide background (e.g., "I am a biologist analyzing RNA-seq data").
-*   **O: Objective** - Define the specific task ("Write a script to normalize these counts").
-*   **S: Style** - Specify the coding style ("Use the Tidyverse style guide in R").
-*   **T: Tone** - Set the "personality" ("Be concise and prioritize readable code").
-*   **A: Audience** - Who is this for? ("For a graduate student who knows R but not bioinformatics").
-*   **R: Response** - Define the format ("A single R script with comments and a plot output").
+*   **Context**: Provide background (e.g., "I am a biologist analyzing RNA-seq data").
+*   **Objective**: Define the specific task ("Write a script to normalize these counts").
+*   **Style**: Specify the coding style ("Use the Tidyverse style guide in R").
+*   **Tone**: Set the personality ("Be concise and prioritize readable code").
+*   **Audience**: Who is this for? ("For a graduate student who knows R but not bioinformatics").
+*   **Response**: Define the format ("A single R script with comments and a plot output").
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Concrete Example: From Bad to Good
+## Concrete example: From bad to good
 
-| Aspect | Bad Prompt | Good Prompt |
+| Aspect | Bad prompt | Good prompt |
 | :--- | :--- | :--- |
-| **Vague vs Specific** | "Clean this data." | "In `data.csv`, remove rows with missing values in the 'age' column and save as `clean_data.csv`." |
-| **No Context vs Context** | "Write a plot script." | "I am building a report for a climate study. Write a Python script using seaborn to create a line plot of 'temp' over 'year' from `results.csv`." |
-| **Silent vs Validated** | "Run a t-test." | "Perform a paired t-test between 'pre' and 'post' columns. Print the t-statistic, p-value, and an interpretation of the result at alpha=0.05." |
+| Vague vs specific | "Clean this data." | "In `data.csv`, remove rows with missing values in the 'age' column and save as `clean_data.csv`." |
+| No context vs context | "Write a plot script." | "I am building a report for a climate study. Write a Python script using seaborn to create a line plot of 'temp' over 'year' from `results.csv`." |
+| Silent vs validated | "Run a t-test." | "Perform a paired t-test between 'pre' and 'post' columns. Print the t-statistic, p-value, and an interpretation of the result at alpha=0.05." |
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Teaching Tip: Visual Aids
-Write **CLEAR** vertically on the whiteboard or shared document. As you explain each letter, add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This visual anchor helps retention.
+## Teaching tip: Visual aids
+Write CLEAR vertically on a whiteboard. As you explain each letter, add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This helps students remember the framework.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The CLEAR Framework
+## The CLEAR framework
 
 The CLEAR framework, developed by [Leo Lo](https://doi.org/10.1016/j.acalib.2023.102720), provides a structured approach to prompt engineering:
 
@@ -78,83 +78,79 @@ graph LR
     style R fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
-Effective prompts are **Concise** and **Logical**, prioritizing important information and following a coherent sequence of steps. They are also **Explicit**, clearly specifying the scope, persona, and desired tone of the output. When the AI gets stuck or produces poor results, you must be **Adaptive**, rephrasing or splitting tasks to guide it back on track. Finally, be **Reflective**—always evaluate the output critically and verify facts using lateral reading, rather than blindly trusting the generated response.
+Effective prompts are concise and logical, prioritizing important information and following a sequence of steps. They are also explicit, specifying the scope, persona, and tone of the output. When the AI produces poor results, be adaptive by rephrasing or splitting tasks. Finally, be reflective—evaluate the output and verify facts using other sources rather than trusting the response.
 
-## The Missing Ingredient: Introspection
+## Introspection
 
-The CLEAR framework guides *your* input, but you can also force the AI to critique its *own* output. This is often called "Self-Correction."
+The CLEAR framework guides your input, but you can also force the AI to critique its own output. This is often called self-correction.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## The "Superpower" Concept
-Emphasize this section. Most learners treat the AI output as final. The idea that they can ask the AI to "fix its own work" is often a lightbulb moment. 
-*Analogy:* It's like asking a student, "Are you sure you checked your work?"—often they find their own mistakes just by being asked.
+## The introspection concept
+Emphasize this section. Most learners treat AI output as final. The idea that they can ask the AI to fix its own work is often a new concept. It is like asking a student, "Are you sure you checked your work?"—they often find their own mistakes when asked.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-**The Principle:** AI models are often better at *verifying* code than *writing* it.
-
-**How to use it:**
-Never accept the first draft. Always follow up with an "Introspection Prompt":
+AI models are often better at verifying code than writing it. Never accept the first draft. Follow up with an introspection prompt:
 
 *   "Review the code you just wrote. Are there any edge cases or security vulnerabilities?"
 *   "Did you hardcode any file paths?"
 *   "Critique your own implementation. Is there a more efficient way?"
 
-### A New Frontier: Reasoning Models
+### Reasoning models
 
-As of 2025, a new category of models called **Reasoning Models** (such as **OpenAI o1/o3**, **DeepSeek-R1**, or **Gemini 2.0 Thinking**) has emerged. Unlike standard "fast" models that predict the next word immediately, these models are trained to perform **Chain of Thought** reasoning before they answer.
+As of 2025, reasoning models (such as OpenAI o1/o3, DeepSeek-R1, or Gemini 2.0 Thinking) have emerged. These models perform chain of thought reasoning before they answer.
 
 **When to use them:**
 
-- **Standard Models (e.g., Gemini Flash):** Best for quick formatting, simple scripts, and brainstorming.
-- **Reasoning Models:** Best for complex logic, debugging hard errors, or writing scientific formulas where accuracy is more important than speed.
+- **Standard models (e.g., Gemini Flash):** Best for quick formatting, simple scripts, and brainstorming.
+- **Reasoning models:** Best for complex logic, debugging hard errors, or writing scientific formulas where accuracy is important.
 
-When using a reasoning model, you often don't need to ask for "Introspection"—they are already doing it "under the hood" before they show you the code!
+When using a reasoning model, you often do not need to ask for introspection—they do it before showing the code.
 
-## Watch Out for "Sneaky" AI
+## AI failures
 
-AI agents are designed to be helpful, which can sometimes lead them to take shortcuts to appear successful. 
+AI agents are designed to be helpful, which can lead them to take shortcuts.
 
-### Advanced Failure Modes
+### Common failure modes
 
-*   **Determinism Collapse:** Small variations in prompts or model updates can lead to different outputs for the same task. In research, this is a reproducibility nightmare. 
-    *   *Fix:* Use `temperature=0` (if your tool allows) and log your model versions/prompts.
-*   **Over-correction Loops:** If an agent is allowed to write and run its own tests, it might "fix" the test to match its buggy code rather than fixing the code to match your requirements.
-    *   *Fix:* Always author your "Ground Truth" requirements or key tests yourself.
-*   **Synthetic Data Substitution:** The AI silently generates fake data if it can't find the real file.
-*   **Silent Failure:** The AI uses `try/except` blocks that hide errors from you.
+*   **Determinism collapse:** Small variations in prompts or model updates can lead to different outputs for the same task, which affects reproducibility. 
+    *   *Fix:* Use `temperature=0` (if available) and log your model versions and prompts.
+*   **Over-correction loops:** If an agent runs its own tests, it might fix the test to match its buggy code.
+    *   *Fix:* Write your own requirements and key tests.
+*   **Synthetic data substitution:** The AI may generate fake data if it cannot find the real file.
+*   **Silent failure:** The AI uses `try/except` blocks that hide errors.
 
 :::::::::::::::::::::::::::::::::::::: discussion
 
-## How to Catch It?
+## How to catch failures
 
-Have you ever seen an AI make a confident mistake? In your own research, what "tells" might indicate the AI is hallucinating?
+Have you seen an AI make a confident mistake? In your research, what signs indicate the AI is hallucinating?
 
-**Common Strategies:**
+**Common strategies:**
 
 *   Always ask: "Show me the first 10 rows of the data you loaded."
 *   Demand proof: "How did you calculate that p-value? Show the intermediate steps."
-*   Check the file sizes of outputs: Is the "cleaned" file 0 bytes?
+*   Check file sizes: Is the cleaned file 0 bytes?
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: The Prompt Refinement Loop
+## Challenge: The prompt refinement loop
 
-Let's practice the **CLEAR** framework. We want to visualize the relationship between "Date" and "Score" in our (theoretical) dataset.
+Practice the CLEAR framework to visualize the relationship between "Date" and "Score" in a dataset.
 
 1.  **Run a vague command:**
     `gemini "Create a plot of the data I just made."`
     *Observe: Does it work? Is the plot useful? Where did it save it?*
 
 2.  **Refine the command:**
-    Write a new prompt that applies **Context** (what the data is), **Specificity** (scatterplot with regression line), and **Output** (save as `fig/trend_analysis.png`).
+    Write a new prompt that applies context (what the data is), specificity (scatterplot with regression line), and output instructions (save as `fig/trend_analysis.png`).
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Example Refined Prompt
+## Example refined prompt
 
 ```bash
 gemini "Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."
@@ -162,9 +158,9 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 
 ### Reflection
 
-*   How much longer was your "Good" prompt compared to your "Bad" one?
-*   Did defining the output filename save you from hunting for the file later?
-*   This extra "typing time" saves you "debugging time."
+*   How much longer was your refined prompt compared to your first one?
+*   Did defining the output filename save you from searching for the file?
+*   Extra typing time can save debugging time.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -172,19 +168,19 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 
 :::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: The Introspection Loop
+## Challenge: The introspection loop
 
-Let's test the "AI as a verifier" principle. We'll ask the AI to find flaws in its own code *before* we run it.
+Test the AI as a verifier principle. Ask the AI to find flaws in its code before you run it.
 
-1.  **Generate a script:** Use a slightly complex prompt, like: `gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."`
-2.  **Force Introspection:** Once the code is generated, do NOT run it. Instead, prompt the AI again: `gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."`
-3.  **Compare:** Did the AI find a mistake in its first draft? Did it add a guard clause (like `min_periods=1`)?
+1.  **Generate a script:** Use a prompt like: `gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."`
+2.  **Force introspection:** Once the code is generated, do not run it. Instead, prompt the AI again: `gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."`
+3.  **Compare:** Did the AI find a mistake in its first draft? Did it add a guard clause like `min_periods=1`?
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
 ### Reflection
 
-AI models are often more accurate when they are asked to **critique** an existing piece of logic than when they are asked to **generate** it from scratch. This "Second Pass" is a core part of the Editor's Mindset. By making this a habit, you significantly reduce the amount of debugging you have to do manually.
+AI models are often more accurate when asked to critique logic than when asked to generate it. This second pass is part of the editor mindset and reduces manual debugging.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -192,9 +188,8 @@ AI models are often more accurate when they are asked to **critique** an existin
 
 ::::::::::::::::::::::::::::::::::::::: keypoints
 
-
 - Be specific and provide context.
 - Always validate AI outputs.
-- Introspection (Self-Correction) improves code quality.
+- Introspection improves code quality.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
