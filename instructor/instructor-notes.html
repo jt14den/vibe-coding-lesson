@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -472,7 +472,8 @@ failure. Use the example of a filtering threshold (e.g.,
 the code but changes the science.</li>
 <li>
 <strong>Environmental Cost:</strong> This is often a new topic for
-researchers. It grounds the “Vibe Coding” hype in physical reality.</li>
+researchers. It grounds the “Spec-Driven Research Orchestration” hype in
+physical reality.</li>
 </ul></section><section><h2 class="section-heading" id="episode-6-resources-and-next-steps">Episode 6: Resources and Next Steps<a class="anchor" aria-label="anchor" href="#episode-6-resources-and-next-steps"></a>
 </h2>
 <hr class="half-width">
@@ -530,8 +531,8 @@ returns a blank line, they need to run the export command again.</p>
 </h3>
 <p>Ask learners: “Have you ever used ChatGPT to write code that looked
 correct but failed when you ran it?” This is a good time to introduce
-the concept of verification load. The goal is to move from trusting the
-machine to managing it.</p>
+the concept of orchestration. The goal is not just to “fix” code, but to
+ensure the AI’s <em>intent</em> (the spec) is correct.</p>
 <hr>
 <br></section><section id="02-prompts"><h2 class="section-heading"><a href="02-prompts.html">Best practices for prompting</a></h2>
 <hr class="half-width">
@@ -587,34 +588,14 @@ pre-written versions from <code>instructors/files/</code>: -
 stuck, suggest they ask the AI to read <code>clean_and_merge.py</code>
 before asking for modifications.</p>
 <hr>
-<br></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation best practices</a></h2>
+<br></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation strategies: the approval gate</a></h2>
 <hr class="half-width">
 <h3 id="04-validation-headingInstructor1">
-<a href="04-validation.html#headingInstructor1">Teaching tip: Review modes</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor1"></a>
+<a href="04-validation.html#headingInstructor1">Teaching tip: approval fatigue</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor1"></a>
 </h3>
-<p>Help learners identify their review focus:</p>
-<ul>
-<li>
-<strong>Safety:</strong> Are data paths correct? Are secrets
-exposed?</li>
-<li>
-<strong>Correctness:</strong> Does the logic match research
-requirements?</li>
-<li>
-<strong>Maintainability:</strong> Is the code readable?</li>
-</ul>
-<hr>
-<br><h3 id="04-validation-headingInstructor2">
-<a href="04-validation.html#headingInstructor2">Teaching tip: Future-proofing</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor2"></a>
-</h3>
-<p>Remind learners that assertions protect them in the future when they
-receive new data, acting as a form of research insurance.</p>
-<hr>
-<br><h3 id="04-validation-headingInstructor3">
-<a href="04-validation.html#headingInstructor3">Teaching tip: Persona switching</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor3"></a>
-</h3>
-<p>This shows how changing the persona from ‘Helpful Assistant’ to
-‘Strict Auditor’ can bypass model over-confidence.</p>
+<p>Warn learners about approval fatigue the tendency to accept AI
+suggestions without reading them. The four-layer stack is designed to
+make the AI prove it is correct before you review the code.</p>
 <hr>
 <br></section><section id="05-limitations"><h2 class="section-heading"><a href="05-limitations.html">Limitations and cautions</a></h2>
 <hr class="half-width">

@@ -2,10 +2,10 @@
 
 **Date:** January 11, 2026
 **Evaluator:** Gemini Agent (Pedagogy & Design)
-**Standards Source:** `GEMINI.md` (Backward Design, Student-Centered Learning, Cognitive Load, Professional Values)
+**Standards Source:** `AGENTS.md` (Backward Design, Student-Centered Learning, Cognitive Load, Professional Values)
 
 ## Executive Summary
-The lesson "Agentic Research Workflows" effectively introduces AI-assisted programming using a CLI-first approach. It scores highly on **Professional Values** and **Active Learning** but has minor gaps in **Backward Design** (specifically assessment alignment) and **Cognitive Load** (some scaffolding could be improved).
+The lesson "Agentic Research Workflows" effectively introduces AI-assisted programming using a CLI-first approach. It scores highly on **Professional Values** and **Active Learning** but has minor gaps in **Backward Design** (specifically assessment alignment) and **Cognitive Load** (some scaffolding could be improved). The shift to **Spec-Driven Research Orchestration** clarifies the researcher's role.
 
 ---
 
@@ -13,8 +13,8 @@ The lesson "Agentic Research Workflows" effectively introduces AI-assisted progr
 
 ### Episode 1: Understanding CLI-Based AI
 *   **Backward Design:** 
-    *   *Objectives:* "Compare CLI and Browser-based AI", "Create project context", "Explain shift to Editor".
-    *   *Alignment:* Strong. The challenges directly ask users to compare output (`ls` vs AI) and create `GEMINI.md`.
+    *   *Objectives:* "Compare CLI and Browser-based AI", "Create Living Spec (AGENTS.md)", "Explain shift to Orchestrator".
+    *   *Alignment:* Strong. The challenges directly ask users to compare output (`ls` vs AI) and create `AGENTS.md`.
 *   **Student-Centered:** 
     *   Uses "I Do" (Explanation) -> "You Do" (Challenges).
     *   Includes a `Discussion Prompt` to activate prior knowledge ("Have you ever used ChatGPT...").
@@ -26,20 +26,20 @@ The lesson "Agentic Research Workflows" effectively introduces AI-assisted progr
 
 ### Episode 2: Best Practices for Prompts
 *   **Backward Design:**
-    *   *Objectives:* "Apply CLEAR framework", "Identify sneaky behaviors", "Use introspection".
-    *   *Alignment:* The challenge "The Prompt Refinement Loop" directly tests applying CLEAR.
+    *   *Objectives:* "Apply CLEAR framework", "Identify sneaky behaviors", "The Bootstrap Workflow".
+    *   *Alignment:* The challenge "The Prompt Refinement Loop" directly tests applying CLEAR. The Bootstrap Workflow encourages iterative spec drafting.
 *   **Student-Centered:**
     *   The "Bad vs Good" table serves as a good scaffold.
     *   *Gap:* The "Introspection" objective is taught but not explicitly tested in a challenge (only mentioned in text).
 *   **Cognitive Load:**
     *   The acronym "CLEAR" provides good mnemonic scaffolding.
 *   **Professional Values:**
-    *   Strong focus on "Self-Correction" and "Sneaky AI" aligns with the "Editor" mindset.
+    *   Strong focus on "Self-Correction" and "Sneaky AI" aligns with the "Orchestrator" mindset.
 
 ### Episode 3: Data Cleaning (Live Demo)
 *   **Backward Design:**
-    *   *Objectives:* "Generate test dataset", "Build pipeline", "Verify code", "Document process".
-    *   *Alignment:* Strong. The episode is a continuous project where learners build the pipeline step-by-step.
+    *   *Objectives:* "Generate test dataset", "Spec-Guided Cleaning", "Verify code", "Document process".
+    *   *Alignment:* Strong. The episode is a continuous project where learners build the pipeline step-by-step using the `AGENTS.md` spec.
 *   **Student-Centered:**
     *   "The Curveball" challenge (PI changing requirements) is an excellent real-world scenario that promotes adaptability.
 *   **Cognitive Load:**
@@ -47,17 +47,17 @@ The lesson "Agentic Research Workflows" effectively introduces AI-assisted progr
     *   *Mitigation:* The `prereq` block helps setup.
     *   *Suggestion:* Consider providing the `make_messy_data.py` code directly instead of generating it, if time is tight, to focus purely on *cleaning*.
 *   **Professional Values:**
-    *   The "Stop and Read" callout is a critical intervention for the "Editor" mindset.
+    *   The "Stop and Read" callout is a critical intervention for the "Orchestrator" mindset.
 
 ### Episode 4: Validation Best Practices
 *   **Backward Design:**
-    *   *Objectives:* "Implement checks", "Use asserts", "Cross-AI auditing".
-    *   *Alignment:* Challenge "The Integrity Check" covers implementing checks.
-    *   *Gap:* "Cross-AI auditing" is an objective but the challenge focuses mainly on writing a Python validation script. The "Cross-AI" part is an instructor teaching tip/backup plan, not a learner activity.
+    *   *Objectives:* "Implement checks", "Domain Plausibility", "Traceable Orchestration (Aider)".
+    *   *Alignment:* Challenge "The Integrity Check" covers implementing checks. Layer 4 (Domain Plausibility) is a key addition.
+    *   *Gap:* "Cross-AI auditing" is an objective but the challenge focuses mainly on writing a Python validation script.
 *   **Student-Centered:**
     *   Good use of "Future-Proofing" to motivate *why* validation matters.
 *   **Professional Values:**
-    *   Strong emphasis on "Defensive Programming" as research insurance.
+    *   Strong emphasis on "Defensive Programming" and "Commit-as-Draft" as research insurance.
 
 ### Episode 5: Limitations and Cautions
 *   **Backward Design:**

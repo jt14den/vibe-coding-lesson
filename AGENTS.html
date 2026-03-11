@@ -234,7 +234,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -339,28 +339,31 @@ to AI-assisted programming and validation best practices.</p>
 <div class="section level3">
 <h3 id="current-lesson-development-vibe-coding-lesson">Current Lesson Development (<code>vibe-coding-lesson</code>)<a class="anchor" aria-label="anchor" href="#current-lesson-development-vibe-coding-lesson"></a></h3>
 <ul><li>
-<strong>Vibe Coding Context</strong>: Added sections on “Vibe
-Coding” and cognitive load management, emphasizing the shift from
-“writer” to “editor” in the development process.</li>
+<strong>Orchestration Context</strong>: Added sections on
+“Spec-Driven Research Orchestration” and cognitive load management,
+emphasizing the shift from “writer” to “orchestrator” in the development
+process.</li>
 <li>
 <strong>Framework Integration</strong>: Integrated the
-<strong>CO-STAR</strong> prompting framework and the
-<strong>CLEAR/CONTEXT</strong> frameworks into the curriculum.</li>
+<strong>CO-STAR</strong> prompting framework, the <strong>CLEAR</strong>
+framework, and the <strong>Bootstrap Workflow</strong> into the
+curriculum.</li>
 <li>
 <strong>Glossary &amp; References</strong>: Converted the glossary
-to a semantic definition list format and updated references.</li>
+to a semantic definition list format and updated references to include
+Aider and the Spec-Driven workflow.</li>
 <li>
 <strong>Markdown Polish</strong>: Performed multiple passes of
 markdown formatting improvements for better readability and
 accessibility.</li>
 <li>
 <strong>Lesson Structure</strong>: Defined 6 core episodes:
-<ol style="list-style-type: decimal"><li>Understanding CLI-Based AI</li>
-<li>Effective Prompting (CO-STAR/CLEAR)</li>
-<li>AI-Assisted Data Cleaning</li>
-<li>Validation Strategies</li>
-<li>Limitations &amp; Bias</li>
-<li>Resources &amp; Next Steps</li>
+<ol style="list-style-type: decimal"><li>Understanding CLI-Based AI (Writer to Orchestrator)</li>
+<li>Effective Prompting (The Bootstrap Workflow)</li>
+<li>AI-Assisted Data Cleaning (Spec-Guided Cleaning)</li>
+<li>Validation Strategies (The 4-Layer Validation Stack)</li>
+<li>Limitations &amp; Bias (Spec Drift &amp; Bootstrap Failures)</li>
+<li>Resources &amp; Next Steps (Aider &amp; Commit-as-Draft)</li>
 </ol></li>
 </ul></div>
 </div>
@@ -380,6 +383,30 @@ materials.</li>
 order.</li>
 </ul></div>
 <div class="section level2">
+<h2 id="orchestration-standards-2026">Orchestration Standards (2026)<a class="anchor" aria-label="anchor" href="#orchestration-standards-2026"></a></h2>
+<div class="section level3">
+<h3 id="requirement-constraints-no-go-zones">Requirement Constraints (No-Go Zones)<a class="anchor" aria-label="anchor" href="#requirement-constraints-no-go-zones"></a></h3>
+<p>When editing this lesson, AI agents must adhere to these hard
+constraints: - <strong>No-Go Zone 1</strong>: Do not change the
+fundamental Carpentries Sandpaper syntax (e.g., keep the colons
+<code>:::</code> blocks). - <strong>No-Go Zone 2</strong>: Do not modify
+existing technical setup instructions in <code>learners/</code> without
+human approval. - <strong>No-Go Zone 3</strong>: Ensure all examples
+remain relevant to general research (avoid overly domain-specific
+jargon).</p>
+</div>
+<div class="section level3">
+<h3 id="efficiency-metrics">Efficiency Metrics<a class="anchor" aria-label="anchor" href="#efficiency-metrics"></a></h3>
+<ul><li>
+<strong>Target Rewrite Time</strong>: &lt; 10% (Human review and
+refactoring should take minimal time).</li>
+<li>
+<strong>Validation Gate</strong>: All new content must be
+cross-verified by a “Challenger” model (e.g., Gemini CLI auditing Claude
+Code).</li>
+</ul></div>
+</div>
+<div class="section level2">
 <h2 id="tech-stack-conventions">Tech Stack &amp; Conventions<a class="anchor" aria-label="anchor" href="#tech-stack-conventions"></a></h2>
 <ul><li>
 <strong>Framework</strong>: Carpentries Sandpaper (R-based lesson
@@ -391,8 +418,8 @@ engine).</li>
 (e.g., definition lists), clear callout blocks.</li>
 <li>
 <strong>Validation Focus</strong>: Emphasis on Synthetic Data,
-Theoretical validation, Cross-AI verification, Unit Testing, and
-Documentation.</li>
+Domain Plausibility, Cross-AI verification, Unit Testing, and Traceable
+Commits (Aider).</li>
 </ul></div>
 <div class="section level2">
 <h2 id="pedagogical-standards">Pedagogical Standards<a class="anchor" aria-label="anchor" href="#pedagogical-standards"></a></h2>
@@ -433,8 +460,9 @@ tools not central to the learning goal.</li>
 <strong>Scaffolding</strong>: Provide partial code or “parsons
 problems” for complex tasks to reduce initial friction.</li>
 <li>
-<strong>The “Editor” Mindset</strong>: Shift focus from syntax
-generation (high load) to logic verification (high value).</li>
+<strong>The “Orchestrator” Mindset</strong>: Shift focus from syntax
+generation (high load) to logic verification and spec management (high
+value).</li>
 </ul></li>
 <li>
 <strong>Professional Values</strong>:

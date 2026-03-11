@@ -234,7 +234,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -418,6 +418,42 @@ general scripting and local models for sensitive data.</p>
 </div>
 </section><section><h2 class="section-heading" id="advanced-trends">Advanced trends<a class="anchor" aria-label="anchor" href="#advanced-trends"></a></h2>
 <hr class="half-width"><div class="section level3">
+<h3 id="automated-research-discovery">Automated research discovery<a class="anchor" aria-label="anchor" href="#automated-research-discovery"></a></h3>
+<p>For time-sensitive research, specialized agents can scan social
+platforms, developer forums, and prediction markets to identify trends
+before they appear in traditional journals. The <code>last30days</code>
+agent skill is a tool for this “real-time literature mapping.”</p>
+<div id="the-orchestrators-deep-research-prompt" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="the-orchestrators-deep-research-prompt" class="callout-inner">
+<h3 class="callout-title">The orchestrator’s deep research prompt</h3>
+<div class="callout-content">
+<p>Use this prompt with a research discovery agent (like
+<code>last30days</code>) to trigger high-signal synthesis:</p>
+<p>“Act as a research orchestrator. Use the <code>last30days</code> tool
+to find the most discussed [TOPIC] from the last 30 days across Reddit,
+X, and Hacker News.</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Discovery</strong>: Identify the top 3 tools or
+methodologies mentioned.</li>
+<li>
+<strong>Sentiment</strong>: Quote the most upvoted critique for
+each.</li>
+<li>
+<strong>Verification</strong>: Cross-reference these with Polymarket
+or web sources for real-world impact.</li>
+<li>
+<strong>Validation</strong>: Apply ‘Layer 4: Domain
+Plausibility’—identify one trend that sounds plausible but may be an
+AI-generated ‘vibe’ without empirical backing.”</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="section level3">
 <h3 id="multi-model-ensembles">Multi-model ensembles<a class="anchor" aria-label="anchor" href="#multi-model-ensembles"></a></h3>
 <p>In advanced workflows, you can use different models for different
 tasks. For example, one model generates code, another critiques it, and
@@ -461,13 +497,12 @@ Add an AI usage section to your project documentation:</p>
 <h3 class="callout-title">Example attribution</h3>
 <div class="callout-content">
 <ul><li>
-<strong>Model:</strong> Google Gemini 1.5 Pro (Jan 2026
-version)</li>
+<strong>Model:</strong> Google Gemini 2.0 Thinking (via Aider)</li>
 <li>
-<strong>Role:</strong> Code generation and refactoring.</li>
+<strong>Role:</strong> Spec drafting and spec-guided cleaning.</li>
 <li>
-<strong>Verification:</strong> Verified by [Your Name] via unit
-tests.</li>
+<strong>Verification:</strong> Verified by [Your Name] via
+<strong>AGENTS.md</strong> rules and <code>validate_data.py</code>.</li>
 </ul></div>
 </div>
 </div>
@@ -499,16 +534,16 @@ your use of the tool.</li>
 <div id="summary-checklist" class="callout-inner">
 <h3 class="callout-title">Summary checklist</h3>
 <div class="callout-content">
-<ul class="task-list"><li><label><input type="checkbox">CLI tools operate directly on your
-files.</label></li>
-<li><label><input type="checkbox">GEMINI.md provides persistent
-context.</label></li>
-<li><label><input type="checkbox">CLEAR and CONTEXT frameworks improve
-results.</label></li>
-<li><label><input type="checkbox">Validate using synthetic data and
-statistical theory.</label></li>
-<li><label><input type="checkbox">You are the pilot; the AI is the
-co-pilot.</label></li>
+<ul class="task-list"><li><label><input type="checkbox">CLI agents coordinate actions
+directly on your files.</label></li>
+<li><label><input type="checkbox"><strong>AGENTS.md</strong> acts as
+your ‘Living Spec’ and source of truth.</label></li>
+<li><label><input type="checkbox">The <strong>Bootstrap
+Workflow</strong> creates your spec from your data.</label></li>
+<li><label><input type="checkbox">Use <strong>Layer 4: Domain
+Plausibility</strong> to catch research logic errors.</label></li>
+<li><label><input type="checkbox"><strong>Commit-as-Draft</strong>
+with Aider ensures every change is traceable.</label></li>
 </ul></div>
 </div>
 </div>

@@ -236,6 +236,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#cleaning-messy-data">Cleaning messy data</a></li>
+<li><a href="#spec-guided-cleaning">Spec-guided cleaning</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -245,7 +246,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -321,7 +322,7 @@
           Previous: Best practices for
         </a>
         <a class="chapter-link float-end" href="../instructor/04-validation.html" rel="next">
-          Next: Validation best...
+          Next: Validation...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -442,16 +443,18 @@ naming patterns that standard models might miss.</p>
 </div>
 </div>
 </div>
+</section><section><h2 class="section-heading" id="spec-guided-cleaning">Spec-guided cleaning<a class="anchor" aria-label="anchor" href="#spec-guided-cleaning"></a></h2>
+<hr class="half-width"><p>In <strong>Spec-Driven Research Orchestration</strong>, we don’t just
+ask for a script. We refer to the <code>AGENTS.md</code> file to ensure
+the script follows the project’s rules.</p>
 <div class="section level3">
-<h3 id="harmonizing-files">Harmonizing files<a class="anchor" aria-label="anchor" href="#harmonizing-files"></a></h3>
-<p>We will now ask Gemini to generate a script that reads all three site
-files, standardizes the ID and date columns, and converts dates to
-YYYY-MM-DD format. The script will also fill missing scores with the
-site median and merge the files into a master dataset.</p>
+<h3 id="harmonizing-files-with-the-spec">Harmonizing files with the Spec<a class="anchor" aria-label="anchor" href="#harmonizing-files-with-the-spec"></a></h3>
+<p>We will now ask Gemini to generate a script using the rules defined
+in <code>AGENTS.md</code>.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should read the 3 site CSVs, rename all ID columns to 'participant_id', and standardize date columns to 'date'. Convert all dates to standard YYYY-MM-DD format, fill missing scores with the median of that site, and save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renaming IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules."</span></span></code></pre>
 </div>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
@@ -644,7 +647,7 @@ any links that you are not going to use.
           Previous: Best practices for
         </a>
         <a class="chapter-link float-end" href="../instructor/04-validation.html" rel="next">
-          Next: Validation best...
+          Next: Validation...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>

@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -387,7 +387,7 @@
 <h3 class="card-title">Questions</h3>
 <ul>
 <li>Why use a CLI for AI instead of a browser?</li>
-<li>What is the GEMINI.md file?</li>
+<li>What is the AGENTS.md file?</li>
 </ul>
 </div>
 </div>
@@ -398,8 +398,8 @@
 <h3 class="card-title">Objectives</h3>
 <ul>
 <li>Compare CLI and browser-based AI tools.</li>
-<li>Create a project context file.</li>
-<li>Explain the shift from writer to editor.</li>
+<li>Create a ‘Living Spec’ (AGENTS.md) to guide an agent.</li>
+<li>Explain the shift from writer to orchestrator.</li>
 </ul>
 </div>
 </div>
@@ -414,7 +414,7 @@
   Setup check
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Before starting, ensure all learners have their
 <code>GEMINI_API_KEY</code> exported in their shell. <strong>Quick
@@ -461,19 +461,21 @@ locally via Ollama.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="shift-from-writer-to-editor">Shift from writer to editor<a class="anchor" aria-label="anchor" href="#shift-from-writer-to-editor"></a>
+</section><section><h2 class="section-heading" id="shift-from-writer-to-orchestrator">Shift from writer to orchestrator<a class="anchor" aria-label="anchor" href="#shift-from-writer-to-orchestrator"></a>
 </h2>
 <hr class="half-width">
 <p>Traditional programming requires you to remember the syntax and logic
-of a script. Vibe coding offloads syntax generation to the AI, letting
-you focus on higher-level logic.</p>
+of a script. <strong>Spec-Driven Research Orchestration</strong>
+offloads syntax generation to the AI, letting you focus on the
+high-level logic and the <strong>Living Spec</strong>.</p>
 <pre class="mermaid"><code>graph TD
-    A[User Idea/Logic] --&gt;|Prompt| B(AI Agent)
-    B --&gt;|Draft Code| C{Verification}
-    C --&gt;|It Works!| D[Final Output]
-    C --&gt;|Bug/Hallucination| E[Refinement Prompt]
-    E --&gt; B
-    style C fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
+    A[Researcher/Orchestrator] --&gt;|High-Level Goal| B(AGENTS.md: The Living Spec)
+    B --&gt;|Spec + Data| C(AI Agent)
+    C --&gt;|Draft Code/Update| D{Verification}
+    D --&gt;|Passed| E[Final Output]
+    D --&gt;|Failed| F[Refinement]
+    F --&gt; B
+    style D fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
@@ -482,18 +484,19 @@ you focus on higher-level logic.</p>
   Discussion prompt
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Ask learners: “Have you ever used ChatGPT to write code that looked
 correct but failed when you ran it?” This is a good time to introduce
-the concept of verification load. The goal is to move from trusting the
-machine to managing it.</p>
+the concept of orchestration. The goal is not just to “fix” code, but to
+ensure the AI’s <em>intent</em> (the spec) is correct.</p>
 </div>
 </div>
 </div>
 </div>
-<p>This introduces a new challenge: verification load. You must read and
-test code you didn’t write.</p>
+<p>This introduces a new challenge: <strong>verification load</strong>.
+You must coordinate and validate the agent’s actions against your
+requirements.</p>
 <div id="managing-cognitive-load" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -603,7 +606,7 @@ accurately describe your environment?</p>
   Example output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
@@ -634,59 +637,48 @@ your OS and the files in your folder.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="project-context-gemini-md-and-context-md">Project context: GEMINI.md and CONTEXT.md<a class="anchor" aria-label="anchor" href="#project-context-gemini-md-and-context-md"></a>
+</section><section><h2 class="section-heading" id="the-living-spec-agents-md-and-context-md">The Living Spec: AGENTS.md and CONTEXT.md<a class="anchor" aria-label="anchor" href="#the-living-spec-agents-md-and-context-md"></a>
 </h2>
 <hr class="half-width">
 <p>To get the most out of a CLI agent, provide it with persistent
-context about your project. Different tools look for specific
-filenames:</p>
+context about your project. This acts as a “Living Spec”—a set of rules
+and goals the agent must follow.</p>
 <ul>
 <li>
-<strong>Gemini CLI</strong>: Looks for <code>GEMINI.md</code>
-</li>
+<strong>Standard Agent Rule File</strong>: <code>AGENTS.md</code>
+(or <code>CLAUDE.md</code>, <code>.cursorrules</code> depending on the
+tool).</li>
 <li>
-<strong>Claude Code</strong>: Looks for <code>CLAUDE.md</code>
-</li>
-<li>
-<strong>Cursor</strong>: Looks for <code>.cursorrules</code>
-</li>
+<strong>The CONTEXT.md file</strong>: A tool-agnostic master file
+that acts as a “Source of Truth.”</li>
 </ul>
 <div class="section level3">
-<h3 id="the-context-md-file">The CONTEXT.md file<a class="anchor" aria-label="anchor" href="#the-context-md-file"></a>
-</h3>
-<p>While these tools require specific filenames, many users maintain a
-single master file named <code>CONTEXT.md</code>.</p>
-<p><strong>Benefits of CONTEXT.md:</strong> 1. <strong>Tool
-agnosticism</strong>: It acts as a source of truth. You can link it to
-tool-specific files (e.g., <code>cp CONTEXT.md GEMINI.md</code>) to
-avoid duplicating work if you switch tools. 2. <strong>Web-based
-AI</strong>: If you use ChatGPT or Claude in the browser, you can copy
-the contents of <code>CONTEXT.md</code> into the chat to provide project
-rules.</p>
-<p>For this lesson, we will use <code>GEMINI.md</code> directly.</p>
-</div>
-<div class="section level3">
-<h3 id="what-to-include">What to include<a class="anchor" aria-label="anchor" href="#what-to-include"></a>
+<h3 id="what-to-include-in-agents-md">What to include in AGENTS.md<a class="anchor" aria-label="anchor" href="#what-to-include-in-agents-md"></a>
 </h3>
 <p>Use this file to define:</p>
 <ul>
-<li>Project goals.</li>
-<li>File structure overview.</li>
-<li>Tech stack and dependencies.</li>
-<li>Coding conventions.</li>
-<li>Specific constraints (e.g., “always use type hints”).</li>
+<li>
+<strong>Current Goal</strong>: What you are working on right
+now.</li>
+<li>
+<strong>Rules of the Road</strong>: Technical constraints (e.g.,
+“Always use <code>pandas</code> for dataframes”).</li>
+<li>
+<strong>Verification Gates</strong>: How you will confirm the code
+is correct.</li>
 </ul>
-<div id="challenge-create-your-gemini.md" class="callout challenge">
+<div id="challenge-create-your-agents.md" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-create-your-gemini.md" class="callout-inner">
-<h3 class="callout-title">Challenge: Create your GEMINI.md</h3>
+<div id="challenge-create-your-agents.md" class="callout-inner">
+<h3 class="callout-title">Challenge: Create your AGENTS.md</h3>
 <div class="callout-content">
-<p>In your project directory, create a file named <code>GEMINI.md</code>
-and add a brief description of a research project. Include at least two
-libraries you use and one coding convention.</p>
+<p>In your project directory, create a file named
+<code>AGENTS.md</code>. Instead of just listing goals, define one “Hard
+Constraint” (something the AI <em>must</em> do) and one “Success Metric”
+(how you know it’s done).</p>
 </div>
 </div>
 </div>
@@ -694,10 +686,10 @@ libraries you use and one coding convention.</p>
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">
-  Example GEMINI.md
+  Example AGENTS.md
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -705,16 +697,15 @@ libraries you use and one coding convention.</p>
 <pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>To analyze trends in sea ice extent using satellite data from 1980-2020.</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ss">- </span>Python 3.9</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="ss">- </span>Libraries: xarray, pandas, matplotlib, cartopy</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
 <span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
 <span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>Include docstrings for all functions.</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -728,9 +719,11 @@ libraries you use and one coding convention.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>CLI tools can edit files directly.</li>
-<li>Persistent context in GEMINI.md improves AI performance.</li>
-<li>Vibe coding shifts focus from syntax to verification.</li>
+<li>CLI agents coordinate actions across multiple files.</li>
+<li>The <code>AGENTS.md</code> file is a Living Spec that reduces
+“context drift.”</li>
+<li>Research orchestration shifts focus from writing syntax to
+validating intent.</li>
 </ul>
 </div>
 </div>
@@ -801,7 +794,8 @@ asking the AI to verify or test its own work.</p>
 <h3 class="callout-title">The CO-STAR framework</h3>
 <div class="callout-content">
 <p>While CLEAR helps with conversation flow, CO-STAR structures complex
-research prompts:</p>
+research prompts that eventually become part of your
+<code>AGENTS.md</code>:</p>
 <ul>
 <li>
 <strong>Context</strong>: Provide background (e.g., “I am a
@@ -822,6 +816,39 @@ who knows R but not bioinformatics”).</li>
 <strong>Response</strong>: Define the format (“A single R script
 with comments and a plot output”).</li>
 </ul>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-bootstrap-workflow">The Bootstrap Workflow<a class="anchor" aria-label="anchor" href="#the-bootstrap-workflow"></a>
+</h2>
+<hr class="half-width">
+<p>Instead of writing a full <code>AGENTS.md</code> by hand, use the
+<strong>Bootstrap Workflow</strong>. This lets the agent assist in
+defining the project spec from the start.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Scan</strong>: Ask the agent to scan your directory and data
+files.</li>
+<li>
+<strong>Draft</strong>: Ask the agent to write an initial
+<code>AGENTS.md</code> based on what it sees and your high-level
+goal.</li>
+<li>
+<strong>Gate</strong>: You review, edit, and approve the spec before
+any code is written.</li>
+</ol>
+<div id="example-bootstrap-prompt" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="example-bootstrap-prompt" class="callout-inner">
+<h3 class="callout-title">Example bootstrap prompt</h3>
+<div class="callout-content">
+<p>“Scan the CSV files in <code>data/raw/</code>. Based on my goal of
+‘Analyzing water quality trends’, draft an <code>AGENTS.md</code> file
+that defines the column schema, required libraries, and a plan for
+cleaning the data.”</p>
 </div>
 </div>
 </div>
@@ -879,7 +906,7 @@ result at alpha=0.05.”</td>
   Teaching tip: Visual aids
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Write CLEAR vertically on a whiteboard. As you explain each letter,
 add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This
@@ -919,7 +946,7 @@ to critique its own output. This is often called self-correction.</p>
   The introspection concept
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Emphasize this section. Most learners treat AI output as final. The
 idea that they can ask the AI to fix its own work is often a new
@@ -1041,7 +1068,7 @@ regression line), and output instructions (save as
   Example refined prompt
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1097,7 +1124,7 @@ draft? Did it add a guard clause like <code>min_periods=1</code>?</li>
   Reflection
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>AI models are often more accurate when asked to critique logic than
 when asked to generate it. This second pass is part of the editor
@@ -1244,17 +1271,21 @@ naming patterns that standard models might miss.</p>
 </div>
 </div>
 </div>
+</section><section><h2 class="section-heading" id="spec-guided-cleaning">Spec-guided cleaning<a class="anchor" aria-label="anchor" href="#spec-guided-cleaning"></a>
+</h2>
+<hr class="half-width">
+<p>In <strong>Spec-Driven Research Orchestration</strong>, we don’t just
+ask for a script. We refer to the <code>AGENTS.md</code> file to ensure
+the script follows the project’s rules.</p>
 <div class="section level3">
-<h3 id="harmonizing-files">Harmonizing files<a class="anchor" aria-label="anchor" href="#harmonizing-files"></a>
+<h3 id="harmonizing-files-with-the-spec">Harmonizing files with the Spec<a class="anchor" aria-label="anchor" href="#harmonizing-files-with-the-spec"></a>
 </h3>
-<p>We will now ask Gemini to generate a script that reads all three site
-files, standardizes the ID and date columns, and converts dates to
-YYYY-MM-DD format. The script will also fill missing scores with the
-site median and merge the files into a master dataset.</p>
+<p>We will now ask Gemini to generate a script using the rules defined
+in <code>AGENTS.md</code>.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a script called 'clean_and_merge.py'. It should read the 3 site CSVs, rename all ID columns to 'participant_id', and standardize date columns to 'date'. Convert all dates to standard YYYY-MM-DD format, fill missing scores with the median of that site, and save the result to 'master_dataset.csv'. Add comments explaining each step."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renaming IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules."</span></span></code></pre>
 </div>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
@@ -1448,7 +1479,7 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
 </div>
-</section></section><section id="aio-04-validation"><p>Content from <a href="04-validation.html">Validation best practices</a></p>
+</section></section><section id="aio-04-validation"><p>Content from <a href="04-validation.html">Validation strategies: the approval gate</a></p>
 <hr>
 <p>Last updated on 2026-03-11 |
 
@@ -1465,9 +1496,10 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do I know if the AI code is correct?</li>
-<li>What is a ‘sanity check’ in code?</li>
-<li>How can I use a second AI to check work?</li>
+<li>How do I move from vibe coding to research orchestration?</li>
+<li>What is rewrite time and why does it matter for research
+reproducibility?</li>
+<li>How can I use one AI to catch the errors of another?</li>
 </ul>
 </div>
 </div>
@@ -1477,133 +1509,152 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Implement data integrity checks.</li>
-<li>Use assert statements for defensive programming.</li>
-<li>Perform cross-AI auditing.</li>
+<li>Shift from a writer to an auditor mindset using the approval
+gate.</li>
+<li>Calculate rewrite time to measure workflow efficiency.</li>
+<li>Use a four-layer validation stack with explicit requirement
+constraints.</li>
+<li>Use multi-model verification to peer-review research code.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="validation-framework">Validation framework<a class="anchor" aria-label="anchor" href="#validation-framework"></a>
+<section><h2 class="section-heading" id="the-approval-gate-verification-over-generation">The approval gate: verification over generation<a class="anchor" aria-label="anchor" href="#the-approval-gate-verification-over-generation"></a>
 </h2>
 <hr class="half-width">
-<p>Validation is essential when using AI agents. A structured approach
-ensures research rigor.</p>
-<div class="section level3">
-<h3 id="layer-1-human-authored-requirements">Layer 1: Human-authored requirements<a class="anchor" aria-label="anchor" href="#layer-1-human-authored-requirements"></a>
-</h3>
-<p>Before asking an AI to code, define the rules it cannot change. These
-are domain-specific requirements.</p>
-<ul>
-<li>
-<em>Example:</em> “Participant IDs must be unique,” or “Total input
-must equal total output.”</li>
-<li>
-<strong>Action:</strong> Write these as a checklist or a separate
-<code>requirements.py</code> file.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="layer-2-supervised-tests">Layer 2: Supervised tests<a class="anchor" aria-label="anchor" href="#layer-2-supervised-tests"></a>
-</h3>
-<p>Ask the AI to generate tests based on its code, then review and
-finalize them.</p>
-<ul>
-<li>
-<em>Tip:</em> Use test-driven prompting. Tell the agent: “First,
-write 5 tests that prove this script works. I will review them before
-you write the main script.”</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="layer-3-metamorphic-testing">Layer 3: Metamorphic testing<a class="anchor" aria-label="anchor" href="#layer-3-metamorphic-testing"></a>
-</h3>
-<p>For complex research where the correct answer is unknown, test the
-relationships in the data.</p>
-<ul>
-<li>
-<em>Example:</em> “If I double the input values, does the output
-also double?” or “If I sort the input data, does the result stay the
-same?”</li>
-</ul>
-<div id="approve-evidence-not-changes" class="callout">
+<p>In an agentic research workflow, your role is to audit and approve
+code rather than write it. The standard has shifted from vibe coding to
+spec-driven orchestration.</p>
+<p>The approval gate is the point where you decide AI-generated code is
+robust enough for research production. It separates a working prototype
+from validated science.</p>
+<div id="the-review-first-standard" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="approve-evidence-not-changes" class="callout-inner">
-<h3 class="callout-title">Approve evidence, not changes</h3>
+<div id="the-review-first-standard" class="callout-inner">
+<h3 class="callout-title">The review-first standard</h3>
 <div class="callout-content">
-<p>To avoid approval fatigue, focus on evidence. An agent should provide
-proof before you accept the code:</p>
+<p>The bottleneck in research is no longer writing code; it is verifying
+it. A high-performance workflow follows this cycle: Plan → Agent
+Implementation → Automated AI-Powered Testing → Human Review.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="measuring-efficiency-rewrite-time">Measuring efficiency: rewrite time<a class="anchor" aria-label="anchor" href="#measuring-efficiency-rewrite-time"></a>
+</h2>
+<hr class="half-width">
+<p>Rewrite time is a metric to determine if an AI workflow is actually
+helping your research.</p>
+<ul>
+<li>
+<strong>Definition:</strong> The manual effort in minutes a
+researcher spends making AI-generated output production-ready.</li>
+<li>
+<strong>Goal:</strong> If you spend 20 minutes prompting but then 40
+minutes fixing the code, your rewrite time is too high.</li>
+</ul>
+<div id="challenge-calculate-your-rewrite-time" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="challenge-calculate-your-rewrite-time" class="callout-inner">
+<h3 class="callout-title">Challenge: calculate your rewrite time</h3>
+<div class="callout-content">
+<p>Look back at a script you recently generated with an AI agent. 1. How
+many minutes did you spend fixing or refactoring the code to make it
+run? 2. If this took more than 10% of the total task time, what was the
+likely cause? - Ambiguous specs? - AI over-confidence? - Lack of local
+context?</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-four-layer-validation-stack">The four-layer validation stack<a class="anchor" aria-label="anchor" href="#the-four-layer-validation-stack"></a>
+</h2>
+<hr class="half-width">
+<p>To minimize rewrite time and ensure research rigor, use a structured
+validation stack.</p>
+<div class="section level3">
+<h3 id="layer-1-requirement-constraints-no-go-zones">Layer 1: Requirement constraints (No-Go Zones)<a class="anchor" aria-label="anchor" href="#layer-1-requirement-constraints-no-go-zones"></a>
+</h3>
+<p>Before the AI writes code, define requirement constraints in your
+<code>AGENTS.md</code>. These are rules the AI is not allowed to
+break.</p>
+<p><em>Example:</em> “Do not change the column names in
+<code>raw_data.csv</code>” or “Use only base R for this visualization to
+ensure compatibility.”</p>
+</div>
+<div class="section level3">
+<h3 id="layer-2-automated-unit-tests">Layer 2: Automated unit tests<a class="anchor" aria-label="anchor" href="#layer-2-automated-unit-tests"></a>
+</h3>
+<p>Ask the agent to write tests before the implementation. Use a prompt
+pattern like: “First, write five Pytest cases that define the success of
+this data cleaning script. I will approve the tests before you write the
+logic.”</p>
+</div>
+<div class="section level3">
+<h3 id="layer-3-metamorphic-and-invariant-checks">Layer 3: Metamorphic and invariant checks<a class="anchor" aria-label="anchor" href="#layer-3-metamorphic-and-invariant-checks"></a>
+</h3>
+<p>Test the relationships in your data that should never change. -
+<strong>Invariants:</strong> The total number of participants must
+remain 150 after merging. - <strong>Metamorphic checks:</strong> If I
+change the order of the input rows, the final mean score should not
+change.</p>
+</div>
+<div class="section level3">
+<h3 id="layer-4-domain-plausibility">Layer 4: Domain plausibility<a class="anchor" aria-label="anchor" href="#layer-4-domain-plausibility"></a>
+</h3>
+<p>This is where your research expertise is irreplaceable. AI does not
+know that a negative blood pressure reading is impossible.</p>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="multi-model-verification">Multi-model verification<a class="anchor" aria-label="anchor" href="#multi-model-verification"></a>
+</h2>
+<hr class="half-width">
+<p>We use a challenger model to audit an implementation model rather
+than trusting a single AI.</p>
+<div id="challenge-orchestrate-a-peer-review" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-orchestrate-a-peer-review" class="callout-inner">
+<h3 class="callout-title">Challenge: orchestrate a peer review</h3>
+<div class="callout-content">
 <ol style="list-style-type: decimal">
+<li><p>Use Model A (such as Claude Code or Cursor) to generate a data
+cleaning script.</p></li>
 <li>
-<strong>Passing tests</strong>: The code passes human-authored
-requirements.</li>
-<li>
-<strong>Invariant checks</strong>: A report shows the data sums
-correctly or has the right row count.</li>
-<li>
-<strong>Small diffs</strong>: You can read every line changed.</li>
-<li>
-<strong>Explanation of intent</strong>: The agent explains why it
-made the change and what the risks are.</li>
+<p>Provide the code to Model B (such as Gemini CLI) with the
+following prompt:</p>
+<p>“Read this script. Act as a skeptical senior data scientist. Identify
+three potential edge cases where this script will fail, such as empty
+strings, NaN values, or encoding issues. Suggest specific assert
+statements to catch these.”</p>
+</li>
+<li><p>Reflect: Did the challenger model find something the
+implementation model missed?</p></li>
 </ol>
 </div>
 </div>
 </div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Why this works
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>Models have different blind spots. Forcing a second AI to act as an
+auditor helps bypass the tendency of the primary assistant to be
+over-confident. This process reduces your manual rewrite time.</p>
 </div>
-</section><section><h2 class="section-heading" id="approval-gates">Approval gates<a class="anchor" aria-label="anchor" href="#approval-gates"></a>
-</h2>
-<hr class="half-width">
-<p>Use specific gates in your workflow to maintain high-quality
-reviews:</p>
-<table class="table">
-<colgroup>
-<col width="50%">
-<col width="50%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Gate pattern</th>
-<th align="left">Purpose</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>Test-first</strong></td>
-<td align="left">Require the agent to pass a test before applying a code
-change.</td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Diff budget</strong></td>
-<td align="left">Limit the agent to changing only a few lines at a
-time.</td>
-</tr>
-<tr class="odd">
-<td align="left"><strong>Snapshot</strong></td>
-<td align="left">Create a Git commit or folder backup before complex
-refactors.</td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Explain-before-apply</strong></td>
-<td align="left">Ask the agent to explain its plan and verification
-strategy before editing files.</td>
-</tr>
-</tbody>
-</table>
-<div id="using-git-for-snapshots" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="using-git-for-snapshots" class="callout-inner">
-<h3 class="callout-title">Using Git for snapshots</h3>
-<div class="callout-content">
-<p>Using <code>git commit</code> before running an AI agent command is
-an important safety mechanism. If the agent makes a mistake, you can use
-<code>git reset --hard</code> to revert. If you are not using Git, back
-up your folder before complex changes.</p>
 </div>
 </div>
 </div>
@@ -1612,196 +1663,14 @@ up your folder before complex changes.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Teaching tip: Review modes
+  Teaching tip: approval fatigue
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
-<p>Help learners identify their review focus:</p>
-<ul>
-<li>
-<strong>Safety:</strong> Are data paths correct? Are secrets
-exposed?</li>
-<li>
-<strong>Correctness:</strong> Does the logic match research
-requirements?</li>
-<li>
-<strong>Maintainability:</strong> Is the code readable?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-idempotency-check" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="challenge-idempotency-check" class="callout-inner">
-<h3 class="callout-title">Challenge: Idempotency check</h3>
-<div class="callout-content">
-<p>Test the <code>clean_and_merge.py</code> logic. Running the script on
-the same data twice should produce identical results.</p>
-<ol style="list-style-type: decimal">
-<li>Run <code>python clean_and_merge.py</code> and save the hash of
-<code>master_dataset.csv</code>.</li>
-<li>Run it again.</li>
-<li>Does the hash match? If not, the AI may have introduced randomness
-(like a random seed for missing values) that affects
-reproducibility.</li>
-</ol>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="defensive-programming">Defensive programming<a class="anchor" aria-label="anchor" href="#defensive-programming"></a>
-</h2>
-<hr class="half-width">
-<p>Ask the AI to include <code>assert</code> statements in your scripts.
-These will stop the script if a condition is not met.</p>
-<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
-  <h3 class="accordion-header" id="headingInstructor2">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Teaching tip: Future-proofing
-  </h3>
-</button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
-<div class="accordion-body">
-<p>Remind learners that assertions protect them in the future when they
-receive new data, acting as a form of research insurance.</p>
-</div>
-</div>
-</div>
-</div>
-<ul>
-<li>
-<em>Example:</em>
-<code>assert len(df) == 150, "Rows missing!"</code>
-</li>
-</ul>
-<div class="section level3">
-<h3 id="cross-ai-validation">Cross-AI validation<a class="anchor" aria-label="anchor" href="#cross-ai-validation"></a>
-</h3>
-<p>You can use a second AI model to audit your cleaning scripts, similar
-to peer review.</p>
-<div id="challenge-create-a-validation-script" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="challenge-create-a-validation-script" class="callout-inner">
-<h3 class="callout-title">Challenge: Create a validation script</h3>
-<div class="callout-content">
-<p>Use the Gemini CLI to create a script that validates
-<code>master_dataset.csv</code>. The script should check for duplicate
-IDs, verify that scores are between 0 and 100, and confirm there are no
-missing values.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a script called 'validate_data.py'. It should load 'master_dataset.csv' and check that there are no duplicate participant_ids, all 'score' values are between 0 and 100, and there are zero missing values. If any check fails, print a warning; otherwise, print 'PASS' for each step."</span></span></code></pre>
-</div>
-<p>Run the script with <code>python validate_data.py</code>. If it
-fails, investigate <code>clean_and_merge.py</code>.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Expected output
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<p>A successful pipeline should return:</p>
-<pre class="text"><code>Checking for duplicates... PASS
-Checking score range (0-100)... PASS
-Checking for missing values... PASS
-Validation complete. No errors found.</code></pre>
-<div class="section level3">
-<h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a>
-</h3>
-<ul>
-<li>Did the validation script catch any silent errors?</li>
-<li>How does this script affect your confidence in the AI’s work?</li>
-<li>What other sanity checks would be useful for your field?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-auditor-persona" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="challenge-auditor-persona" class="callout-inner">
-<h3 class="callout-title">Challenge: Auditor persona</h3>
-<div class="callout-content">
-<p>Use the LLM-as-a-judge pattern by asking the Gemini CLI to audit the
-code it wrote from a strict persona.</p>
-<ol style="list-style-type: decimal">
-<li>Ask the AI to critique <code>validate_data.py</code>.</li>
-<li><code>gemini "Read 'validate_data.py'. Act as a strict code auditor for a clinical trial. Does this script guarantee 100% data integrity? Point out 3 ways this script could be improved."</code></li>
-<li>
-<strong>Reflect:</strong> Did the auditor persona find problems that
-the writer persona missed?</li>
-</ol>
-</div>
-</div>
-</div>
-<div id="accordionInstructor3" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor3" aria-expanded="false" aria-controls="collapseInstructor3">
-  <h3 class="accordion-header" id="headingInstructor3">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Teaching tip: Persona switching
-  </h3>
-</button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
-<div class="accordion-body">
-<p>This shows how changing the persona from ‘Helpful Assistant’ to
-‘Strict Auditor’ can bypass model over-confidence.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-second-opinion-optional" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="challenge-second-opinion-optional" class="callout-inner">
-<h3 class="callout-title">Challenge: Second opinion (optional)</h3>
-<div class="callout-content">
-<p>Practice cross-AI validation with a different tool.</p>
-<ol style="list-style-type: decimal">
-<li>Open a new chat in another AI tool (like Claude or ChatGPT).</li>
-<li>Paste your <code>validate_data.py</code> code.</li>
-<li>Ask the AI to review the script for bugs, specifically edge cases
-like empty files or unexpected text.</li>
-</ol>
-<p><strong>Reflect:</strong> Did the second AI identify any
-vulnerabilities missed by the first one?</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Discussion
-  </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>A second AI often identifies edge cases, such as the script crashing
-on missing files or “N/A” strings. This peer review process reduces
-verification load and increases robustness.</p>
+<p>Warn learners about approval fatigue the tendency to accept AI
+suggestions without reading them. The four-layer stack is designed to
+make the AI prove it is correct before you review the code.</p>
 </div>
 </div>
 </div>
@@ -1814,10 +1683,14 @@ verification load and increases robustness.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>Automated tests and sanity checks prevent data corruption.</li>
-<li>Assert statements ensure code fails loudly when errors occur.</li>
-<li>Cross-AI auditing provides a second opinion for verifying
-logic.</li>
+<li>The approval gate separates experimental prototypes from validated
+research.</li>
+<li>Rewrite time is the primary metric for measuring AI workflow
+value.</li>
+<li>Requirement constraints prevent the AI from drifting away from
+research specs.</li>
+<li>Multi-model verification uses a second AI to act as a skeptical peer
+reviewer.</li>
 </ul>
 </div>
 </div>
@@ -1826,7 +1699,6 @@ logic.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></section><section id="aio-05-limitations"><p>Content from <a href="05-limitations.html">Limitations and cautions</a></p>
 <hr>
 <p>Last updated on 2026-03-11 |
@@ -1896,6 +1768,23 @@ bottlenecks in large-scale processing.</p>
 <hr class="half-width">
 <p>Understanding AI failure modes helps you identify errors before they
 affect results.</p>
+<div class="section level3">
+<h3 id="spec-drift">Spec Drift<a class="anchor" aria-label="anchor" href="#spec-drift"></a>
+</h3>
+<p>Spec Drift occurs when the code and the <code>AGENTS.md</code>
+(Living Spec) become unaligned. The agent may fix a bug in the code but
+forget to update the spec, leading to future hallucinations. -
+<em>Prevention:</em> Regularly ask the agent to “Sync the spec with the
+current code.”</p>
+</div>
+<div class="section level3">
+<h3 id="bootstrap-failures">Bootstrap Failures<a class="anchor" aria-label="anchor" href="#bootstrap-failures"></a>
+</h3>
+<p>In the “Bootstrap Workflow,” the AI may miss nuances in raw data
+during the initial scan. If you approve a flawed spec, the error will
+propagate through the entire project. - <em>Prevention:</em> Thoroughly
+audit the agent’s first draft of <code>AGENTS.md</code>.</p>
+</div>
 <div class="section level3">
 <h3 id="silent-semantic-drift">Silent semantic drift<a class="anchor" aria-label="anchor" href="#silent-semantic-drift"></a>
 </h3>
@@ -2165,6 +2054,45 @@ general scripting and local models for sensitive data.</p>
 </h2>
 <hr class="half-width">
 <div class="section level3">
+<h3 id="automated-research-discovery">Automated research discovery<a class="anchor" aria-label="anchor" href="#automated-research-discovery"></a>
+</h3>
+<p>For time-sensitive research, specialized agents can scan social
+platforms, developer forums, and prediction markets to identify trends
+before they appear in traditional journals. The <code>last30days</code>
+agent skill is a tool for this “real-time literature mapping.”</p>
+<div id="the-orchestrators-deep-research-prompt" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="the-orchestrators-deep-research-prompt" class="callout-inner">
+<h3 class="callout-title">The orchestrator’s deep research prompt</h3>
+<div class="callout-content">
+<p>Use this prompt with a research discovery agent (like
+<code>last30days</code>) to trigger high-signal synthesis:</p>
+<p>“Act as a research orchestrator. Use the <code>last30days</code> tool
+to find the most discussed [TOPIC] from the last 30 days across Reddit,
+X, and Hacker News.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Discovery</strong>: Identify the top 3 tools or
+methodologies mentioned.</li>
+<li>
+<strong>Sentiment</strong>: Quote the most upvoted critique for
+each.</li>
+<li>
+<strong>Verification</strong>: Cross-reference these with Polymarket
+or web sources for real-world impact.</li>
+<li>
+<strong>Validation</strong>: Apply ‘Layer 4: Domain
+Plausibility’—identify one trend that sounds plausible but may be an
+AI-generated ‘vibe’ without empirical backing.”</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
 <h3 id="multi-model-ensembles">Multi-model ensembles<a class="anchor" aria-label="anchor" href="#multi-model-ensembles"></a>
 </h3>
 <p>In advanced workflows, you can use different models for different
@@ -2219,13 +2147,12 @@ Add an AI usage section to your project documentation:</p>
 <div class="callout-content">
 <ul>
 <li>
-<strong>Model:</strong> Google Gemini 1.5 Pro (Jan 2026
-version)</li>
+<strong>Model:</strong> Google Gemini 2.0 Thinking (via Aider)</li>
 <li>
-<strong>Role:</strong> Code generation and refactoring.</li>
+<strong>Role:</strong> Spec drafting and spec-guided cleaning.</li>
 <li>
-<strong>Verification:</strong> Verified by [Your Name] via unit
-tests.</li>
+<strong>Verification:</strong> Verified by [Your Name] via
+<strong>AGENTS.md</strong> rules and <code>validate_data.py</code>.</li>
 </ul>
 </div>
 </div>
@@ -2264,16 +2191,16 @@ your use of the tool.</li>
 <h3 class="callout-title">Summary checklist</h3>
 <div class="callout-content">
 <ul class="task-list">
-<li><label><input type="checkbox">CLI tools operate directly on your
-files.</label></li>
-<li><label><input type="checkbox">GEMINI.md provides persistent
-context.</label></li>
-<li><label><input type="checkbox">CLEAR and CONTEXT frameworks improve
-results.</label></li>
-<li><label><input type="checkbox">Validate using synthetic data and
-statistical theory.</label></li>
-<li><label><input type="checkbox">You are the pilot; the AI is the
-co-pilot.</label></li>
+<li><label><input type="checkbox">CLI agents coordinate actions
+directly on your files.</label></li>
+<li><label><input type="checkbox"><strong>AGENTS.md</strong> acts as
+your ‘Living Spec’ and source of truth.</label></li>
+<li><label><input type="checkbox">The <strong>Bootstrap
+Workflow</strong> creates your spec from your data.</label></li>
+<li><label><input type="checkbox">Use <strong>Layer 4: Domain
+Plausibility</strong> to catch research logic errors.</label></li>
+<li><label><input type="checkbox"><strong>Commit-as-Draft</strong>
+with Aider ensures every change is traceable.</label></li>
 </ul>
 </div>
 </div>

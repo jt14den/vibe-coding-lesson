@@ -218,9 +218,9 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#why-cli-matters-for-research">Why CLI matters for research</a></li>
-<li><a href="#shift-from-writer-to-editor">Shift from writer to editor</a></li>
+<li><a href="#shift-from-writer-to-orchestrator">Shift from writer to orchestrator</a></li>
 <li><a href="#file-system-access">File system access</a></li>
-<li><a href="#project-context-gemini.md-and-context.md">Project context: GEMINI.md and CONTEXT.md</a></li>
+<li><a href="#the-living-spec-agents.md-and-context.md">The Living Spec: AGENTS.md and CONTEXT.md</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -248,7 +248,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -352,7 +352,7 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>Why use a CLI for AI instead of a browser?</li>
-<li>What is the GEMINI.md file?</li>
+<li>What is the AGENTS.md file?</li>
 </ul></div>
 </div>
 </div>
@@ -361,8 +361,8 @@
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul><li>Compare CLI and browser-based AI tools.</li>
-<li>Create a project context file.</li>
-<li>Explain the shift from writer to editor.</li>
+<li>Create a ‘Living Spec’ (AGENTS.md) to guide an agent.</li>
+<li>Explain the shift from writer to orchestrator.</li>
 </ul></div>
 </div>
 </div>
@@ -376,7 +376,7 @@
   Setup check
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Before starting, ensure all learners have their
 <code>GEMINI_API_KEY</code> exported in their shell. <strong>Quick
@@ -421,17 +421,19 @@ locally via Ollama.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="shift-from-writer-to-editor">Shift from writer to editor<a class="anchor" aria-label="anchor" href="#shift-from-writer-to-editor"></a></h2>
+</section><section><h2 class="section-heading" id="shift-from-writer-to-orchestrator">Shift from writer to orchestrator<a class="anchor" aria-label="anchor" href="#shift-from-writer-to-orchestrator"></a></h2>
 <hr class="half-width"><p>Traditional programming requires you to remember the syntax and logic
-of a script. Vibe coding offloads syntax generation to the AI, letting
-you focus on higher-level logic.</p>
+of a script. <strong>Spec-Driven Research Orchestration</strong>
+offloads syntax generation to the AI, letting you focus on the
+high-level logic and the <strong>Living Spec</strong>.</p>
 <pre class="mermaid"><code>graph TD
-    A[User Idea/Logic] --&gt;|Prompt| B(AI Agent)
-    B --&gt;|Draft Code| C{Verification}
-    C --&gt;|It Works!| D[Final Output]
-    C --&gt;|Bug/Hallucination| E[Refinement Prompt]
-    E --&gt; B
-    style C fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
+    A[Researcher/Orchestrator] --&gt;|High-Level Goal| B(AGENTS.md: The Living Spec)
+    B --&gt;|Spec + Data| C(AI Agent)
+    C --&gt;|Draft Code/Update| D{Verification}
+    D --&gt;|Passed| E[Final Output]
+    D --&gt;|Failed| F[Refinement]
+    F --&gt; B
+    style D fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
@@ -440,18 +442,19 @@ you focus on higher-level logic.</p>
   Discussion prompt
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Ask learners: “Have you ever used ChatGPT to write code that looked
 correct but failed when you ran it?” This is a good time to introduce
-the concept of verification load. The goal is to move from trusting the
-machine to managing it.</p>
+the concept of orchestration. The goal is not just to “fix” code, but to
+ensure the AI’s <em>intent</em> (the spec) is correct.</p>
 </div>
 </div>
 </div>
 </div>
-<p>This introduces a new challenge: verification load. You must read and
-test code you didn’t write.</p>
+<p>This introduces a new challenge: <strong>verification load</strong>.
+You must coordinate and validate the agent’s actions against your
+requirements.</p>
 <div id="managing-cognitive-load" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -557,7 +560,7 @@ accurately describe your environment?</p>
   Example output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
@@ -585,51 +588,41 @@ your OS and the files in your folder.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="project-context-gemini-md-and-context-md">Project context: GEMINI.md and CONTEXT.md<a class="anchor" aria-label="anchor" href="#project-context-gemini-md-and-context-md"></a></h2>
+</section><section><h2 class="section-heading" id="the-living-spec-agents-md-and-context-md">The Living Spec: AGENTS.md and CONTEXT.md<a class="anchor" aria-label="anchor" href="#the-living-spec-agents-md-and-context-md"></a></h2>
 <hr class="half-width"><p>To get the most out of a CLI agent, provide it with persistent
-context about your project. Different tools look for specific
-filenames:</p>
+context about your project. This acts as a “Living Spec”—a set of rules
+and goals the agent must follow.</p>
 <ul><li>
-<strong>Gemini CLI</strong>: Looks for <code>GEMINI.md</code>
-</li>
+<strong>Standard Agent Rule File</strong>: <code>AGENTS.md</code>
+(or <code>CLAUDE.md</code>, <code>.cursorrules</code> depending on the
+tool).</li>
 <li>
-<strong>Claude Code</strong>: Looks for <code>CLAUDE.md</code>
-</li>
-<li>
-<strong>Cursor</strong>: Looks for <code>.cursorrules</code>
-</li>
+<strong>The CONTEXT.md file</strong>: A tool-agnostic master file
+that acts as a “Source of Truth.”</li>
 </ul><div class="section level3">
-<h3 id="the-context-md-file">The CONTEXT.md file<a class="anchor" aria-label="anchor" href="#the-context-md-file"></a></h3>
-<p>While these tools require specific filenames, many users maintain a
-single master file named <code>CONTEXT.md</code>.</p>
-<p><strong>Benefits of CONTEXT.md:</strong> 1. <strong>Tool
-agnosticism</strong>: It acts as a source of truth. You can link it to
-tool-specific files (e.g., <code>cp CONTEXT.md GEMINI.md</code>) to
-avoid duplicating work if you switch tools. 2. <strong>Web-based
-AI</strong>: If you use ChatGPT or Claude in the browser, you can copy
-the contents of <code>CONTEXT.md</code> into the chat to provide project
-rules.</p>
-<p>For this lesson, we will use <code>GEMINI.md</code> directly.</p>
-</div>
-<div class="section level3">
-<h3 id="what-to-include">What to include<a class="anchor" aria-label="anchor" href="#what-to-include"></a></h3>
+<h3 id="what-to-include-in-agents-md">What to include in AGENTS.md<a class="anchor" aria-label="anchor" href="#what-to-include-in-agents-md"></a></h3>
 <p>Use this file to define:</p>
-<ul><li>Project goals.</li>
-<li>File structure overview.</li>
-<li>Tech stack and dependencies.</li>
-<li>Coding conventions.</li>
-<li>Specific constraints (e.g., “always use type hints”).</li>
-</ul><div id="challenge-create-your-gemini.md" class="callout challenge">
+<ul><li>
+<strong>Current Goal</strong>: What you are working on right
+now.</li>
+<li>
+<strong>Rules of the Road</strong>: Technical constraints (e.g.,
+“Always use <code>pandas</code> for dataframes”).</li>
+<li>
+<strong>Verification Gates</strong>: How you will confirm the code
+is correct.</li>
+</ul><div id="challenge-create-your-agents.md" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-create-your-gemini.md" class="callout-inner">
-<h3 class="callout-title">Challenge: Create your GEMINI.md</h3>
+<div id="challenge-create-your-agents.md" class="callout-inner">
+<h3 class="callout-title">Challenge: Create your AGENTS.md</h3>
 <div class="callout-content">
-<p>In your project directory, create a file named <code>GEMINI.md</code>
-and add a brief description of a research project. Include at least two
-libraries you use and one coding convention.</p>
+<p>In your project directory, create a file named
+<code>AGENTS.md</code>. Instead of just listing goals, define one “Hard
+Constraint” (something the AI <em>must</em> do) and one “Success Metric”
+(how you know it’s done).</p>
 </div>
 </div>
 </div>
@@ -637,10 +630,10 @@ libraries you use and one coding convention.</p>
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">
-  Example GEMINI.md
+  Example AGENTS.md
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -648,16 +641,15 @@ libraries you use and one coding convention.</p>
 <pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>To analyze trends in sea ice extent using satellite data from 1980-2020.</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ss">- </span>Python 3.9</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="ss">- </span>Libraries: xarray, pandas, matplotlib, cartopy</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
 <span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
 <span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>Include docstrings for all functions.</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -670,9 +662,11 @@ libraries you use and one coding convention.</p>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>CLI tools can edit files directly.</li>
-<li>Persistent context in GEMINI.md improves AI performance.</li>
-<li>Vibe coding shifts focus from syntax to verification.</li>
+<ul><li>CLI agents coordinate actions across multiple files.</li>
+<li>The <code>AGENTS.md</code> file is a Living Spec that reduces
+“context drift.”</li>
+<li>Research orchestration shifts focus from writing syntax to
+validating intent.</li>
 </ul></div>
 </div>
 </div>

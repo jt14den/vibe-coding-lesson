@@ -227,6 +227,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#five-principles-of-effective-prompting">Five principles of effective prompting</a></li>
+<li><a href="#the-bootstrap-workflow">The Bootstrap Workflow</a></li>
 <li><a href="#the-clear-framework">The CLEAR framework</a></li>
 <li><a href="#introspection">Introspection</a></li>
 <li><a href="#ai-failures">AI failures</a></li>
@@ -248,7 +249,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -390,7 +391,8 @@ asking the AI to verify or test its own work.</p>
 <h3 class="callout-title">The CO-STAR framework</h3>
 <div class="callout-content">
 <p>While CLEAR helps with conversation flow, CO-STAR structures complex
-research prompts:</p>
+research prompts that eventually become part of your
+<code>AGENTS.md</code>:</p>
 <ul><li>
 <strong>Context</strong>: Provide background (e.g., “I am a
 biologist analyzing RNA-seq data”).</li>
@@ -410,6 +412,35 @@ who knows R but not bioinformatics”).</li>
 <strong>Response</strong>: Define the format (“A single R script
 with comments and a plot output”).</li>
 </ul></div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-bootstrap-workflow">The Bootstrap Workflow<a class="anchor" aria-label="anchor" href="#the-bootstrap-workflow"></a></h2>
+<hr class="half-width"><p>Instead of writing a full <code>AGENTS.md</code> by hand, use the
+<strong>Bootstrap Workflow</strong>. This lets the agent assist in
+defining the project spec from the start.</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Scan</strong>: Ask the agent to scan your directory and data
+files.</li>
+<li>
+<strong>Draft</strong>: Ask the agent to write an initial
+<code>AGENTS.md</code> based on what it sees and your high-level
+goal.</li>
+<li>
+<strong>Gate</strong>: You review, edit, and approve the spec before
+any code is written.</li>
+</ol><div id="example-bootstrap-prompt" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="example-bootstrap-prompt" class="callout-inner">
+<h3 class="callout-title">Example bootstrap prompt</h3>
+<div class="callout-content">
+<p>“Scan the CSV files in <code>data/raw/</code>. Based on my goal of
+‘Analyzing water quality trends’, draft an <code>AGENTS.md</code> file
+that defines the column schema, required libraries, and a plan for
+cleaning the data.”</p>
+</div>
 </div>
 </div>
 <div id="concrete-example-from-bad-to-good" class="callout">
@@ -449,7 +480,7 @@ result at alpha=0.05.”</td>
   Teaching tip: Visual aids
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Write CLEAR vertically on a whiteboard. As you explain each letter,
 add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This
@@ -485,7 +516,7 @@ to critique its own output. This is often called self-correction.</p>
   The introspection concept
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Emphasize this section. Most learners treat AI output as final. The
 idea that they can ask the AI to fix its own work is often a new
@@ -589,7 +620,7 @@ regression line), and output instructions (save as
   Example refined prompt
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -640,7 +671,7 @@ draft? Did it add a guard clause like <code>min_periods=1</code>?</li>
   Reflection
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>AI models are often more accurate when asked to critique logic than
 when asked to generate it. This second pass is part of the editor

@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -372,9 +372,11 @@
 <section id="01-cli-intro"><h2 class="section-heading"><a href="01-cli-intro.html">CLI-based AI</a></h2>
 <hr class="half-width">
 <ul>
-<li>CLI tools can edit files directly.</li>
-<li>Persistent context in GEMINI.md improves AI performance.</li>
-<li>Vibe coding shifts focus from syntax to verification.</li>
+<li>CLI agents coordinate actions across multiple files.</li>
+<li>The <code>AGENTS.md</code> file is a Living Spec that reduces
+“context drift.”</li>
+<li>Research orchestration shifts focus from writing syntax to
+validating intent.</li>
 </ul></section><section id="02-prompts"><h2 class="section-heading"><a href="02-prompts.html">Best practices for prompting</a></h2>
 <hr class="half-width">
 <ul>
@@ -387,13 +389,17 @@
 <li>Use AI to automate data harmonization and standardization.</li>
 <li>Audit data before cleaning to identify inconsistencies.</li>
 <li>Read and test all generated code before running it.</li>
-</ul></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation best practices</a></h2>
+</ul></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation strategies: the approval gate</a></h2>
 <hr class="half-width">
 <ul>
-<li>Automated tests and sanity checks prevent data corruption.</li>
-<li>Assert statements ensure code fails loudly when errors occur.</li>
-<li>Cross-AI auditing provides a second opinion for verifying
-logic.</li>
+<li>The approval gate separates experimental prototypes from validated
+research.</li>
+<li>Rewrite time is the primary metric for measuring AI workflow
+value.</li>
+<li>Requirement constraints prevent the AI from drifting away from
+research specs.</li>
+<li>Multi-model verification uses a second AI to act as a skeptical peer
+reviewer.</li>
 </ul></section><section id="05-limitations"><h2 class="section-heading"><a href="05-limitations.html">Limitations and cautions</a></h2>
 <hr class="half-width">
 <ul>

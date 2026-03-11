@@ -234,7 +234,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -320,7 +320,7 @@
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/04-validation.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Validation best
+          Previous: Validation
         </a>
         <a class="chapter-link float-end" href="../instructor/06-resources.html" rel="next">
           Next: Resources and next...
@@ -395,6 +395,21 @@ bottlenecks in large-scale processing.</p>
 </section><section><h2 class="section-heading" id="common-failure-modes">Common failure modes<a class="anchor" aria-label="anchor" href="#common-failure-modes"></a></h2>
 <hr class="half-width"><p>Understanding AI failure modes helps you identify errors before they
 affect results.</p>
+<div class="section level3">
+<h3 id="spec-drift">Spec Drift<a class="anchor" aria-label="anchor" href="#spec-drift"></a></h3>
+<p>Spec Drift occurs when the code and the <code>AGENTS.md</code>
+(Living Spec) become unaligned. The agent may fix a bug in the code but
+forget to update the spec, leading to future hallucinations. -
+<em>Prevention:</em> Regularly ask the agent to “Sync the spec with the
+current code.”</p>
+</div>
+<div class="section level3">
+<h3 id="bootstrap-failures">Bootstrap Failures<a class="anchor" aria-label="anchor" href="#bootstrap-failures"></a></h3>
+<p>In the “Bootstrap Workflow,” the AI may miss nuances in raw data
+during the initial scan. If you approve a flawed spec, the error will
+propagate through the entire project. - <em>Prevention:</em> Thoroughly
+audit the agent’s first draft of <code>AGENTS.md</code>.</p>
+</div>
 <div class="section level3">
 <h3 id="silent-semantic-drift">Silent semantic drift<a class="anchor" aria-label="anchor" href="#silent-semantic-drift"></a></h3>
 <p>Semantic drift occurs when an agent makes a change that alters data
@@ -561,7 +576,7 @@ any links that you are not going to use.
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/04-validation.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Validation best
+          Previous: Validation
         </a>
         <a class="chapter-link float-end" href="../instructor/06-resources.html" rel="next">
           Next: Resources and next...

@@ -234,7 +234,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation best practices</a>
+        <a href="04-validation.html">4. Validation strategies: the approval gate</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -316,7 +316,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Reference</h1>
-        <p>Last updated on 2026-03-02 |
+        <p>Last updated on 2026-03-11 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/learners/reference.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -329,7 +329,13 @@
         
 
 <section><h2 class="section-heading" id="glossary">Glossary<a class="anchor" aria-label="anchor" href="#glossary"></a></h2>
-<hr class="half-width"><dl><dt>Agent</dt>
+<hr class="half-width"><dl><dt>AGENTS.md (Living Spec)</dt>
+<dd>
+A persistent project-level file that defines the goals, rules, and
+constraints of a research project. It acts as the “Source of Truth” that
+guides an AI agent’s actions and prevents “Context Drift.”
+</dd>
+<dt>Agent</dt>
 <dd>
 An AI system capable of using tools (like reading files, running code,
 or searching the web) to complete autonomous tasks.
@@ -340,11 +346,24 @@ A paradigm shift in research software where AI agents handle the
 imperative syntax generation, while the researcher focuses on
 declarative specification and rigorous validation.
 </dd>
+<dt>Aider</dt>
+<dd>
+A CLI coding agent designed for “Pair Programming” in the terminal. It
+is a key tool for <strong>Spec-Driven Research Orchestration</strong>
+because it automatically creates “Commits-with-Reasoning” for every
+change.
+</dd>
 <dt>Approval Gates</dt>
 <dd>
 Strategic points of friction in an agentic workflow (e.g., Test-First,
-Diff Budget) designed to prevent approval fatigue and ensure human
-oversight.
+Diff Budget, Commit-as-Draft) designed to prevent approval fatigue and
+ensure human oversight.
+</dd>
+<dt>Bootstrap Workflow</dt>
+<dd>
+An iterative process where an AI agent scans a researcher’s raw data and
+goals to draft the initial <code>AGENTS.md</code> spec, which the
+researcher then reviews and approves.
 </dd>
 <dt>Chain of Thought</dt>
 <dd>
@@ -442,11 +461,19 @@ quietly changes the underlying research assumptions or data meanings.
 Artificially generated data used for testing validation pipelines
 without risking sensitive real-world data.
 </dd>
+<dt>Spec-Driven Research Orchestration</dt>
+<dd>
+The practice of using AI agents to coordinate research tasks against a
+persistent, human-validated specification (<code>AGENTS.md</code>). This
+replaces the “vibe-based” approach with a disciplined, auditable
+workflow.
+</dd>
 <dt>Vibe Coding</dt>
 <dd>
-The early (2023-2024) term for using AI to handle the “grunt work” of
-coding. In research, this has evolved into the more rigorous
-<em>Agent-Assisted Research Workflow</em>.
+The early (2023-2024) term for using AI intuition and natural-language
+prompts to handle the “grunt work” of coding. In research, this has
+evolved into the more rigorous <strong>Spec-Driven Research
+Orchestration</strong>.
 </dd>
 </dl></section><section><h2 class="section-heading" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
 <hr class="half-width"><ol style="list-style-type: decimal"><li>Lo, L. S. (2023). The CLEAR path: A framework for enhancing
@@ -525,7 +552,7 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/reference.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/reference.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-02",
+  "dateModified": "2026-03-11",
   "datePublished": "2026-03-11"
 }
 
