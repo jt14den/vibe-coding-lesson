@@ -233,7 +233,7 @@
                   <div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
-        <a href="index.html">Agentic Research Workflows: Orchestrating AI and Validation</a>
+        <a href="index.html">Agentic Research Workflows: AI and Validation</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -245,7 +245,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="01-cli-intro.html">1. Understanding CLI-Based AI</a>
+        <a href="01-cli-intro.html">1. CLI-based AI</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -257,7 +257,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-prompts.html">2. Best Practices for Prompting</a>
+        <a href="02-prompts.html">2. Best practices for prompting</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -269,7 +269,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-data-cleaning.html">3. Live Demo: The Data Cleaning Agent</a>
+        <a href="03-data-cleaning.html">3. Data cleaning with AI</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-validation.html">4. Validation Best Practices</a>
+        <a href="04-validation.html">4. Validation best practices</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -293,7 +293,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-limitations.html">5. Limitations and Cautions</a>
+        <a href="05-limitations.html">5. Limitations and cautions</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -305,7 +305,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-resources.html">6. Resources and Next Steps</a>
+        <a href="06-resources.html">6. Resources and next steps</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -515,128 +515,119 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
 </div>
-</section><section id="aggregate-instructor-notes"><section id="01-cli-intro"><h2 class="section-heading"><a href="01-cli-intro.html">Understanding CLI-Based AI</a></h2>
+</section><section id="aggregate-instructor-notes"><section id="01-cli-intro"><h2 class="section-heading"><a href="01-cli-intro.html">CLI-based AI</a></h2>
 <hr class="half-width">
 <h3 id="01-cli-intro-headingInstructor1">
-<a href="01-cli-intro.html#headingInstructor1">Setup Check</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor1"></a>
+<a href="01-cli-intro.html#headingInstructor1">Setup check</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor1"></a>
 </h3>
 <p>Before starting, ensure all learners have their
 <code>GEMINI_API_KEY</code> exported in their shell. <strong>Quick
-Test:</strong> Ask them to run <code>echo $GEMINI_API_KEY</code>. If it
+test:</strong> Ask them to run <code>echo $GEMINI_API_KEY</code>. If it
 returns a blank line, they need to run the export command again.</p>
 <hr>
 <br><h3 id="01-cli-intro-headingInstructor2">
-<a href="01-cli-intro.html#headingInstructor2">Discussion Prompt</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor2"></a>
+<a href="01-cli-intro.html#headingInstructor2">Discussion prompt</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor2"></a>
 </h3>
-<p>Ask learners: “Have you ever used ChatGPT to write code that
-<em>looked</em> correct but failed when you ran it?” This is a great
-moment to normalize the “Verification Load” concept. The goal is to
-shift their mindset from “trusting the machine” to “managing the
-machine.”</p>
+<p>Ask learners: “Have you ever used ChatGPT to write code that looked
+correct but failed when you ran it?” This is a good time to introduce
+the concept of verification load. The goal is to move from trusting the
+machine to managing it.</p>
 <hr>
-<br></section><section id="02-prompts"><h2 class="section-heading"><a href="02-prompts.html">Best Practices for Prompting</a></h2>
+<br></section><section id="02-prompts"><h2 class="section-heading"><a href="02-prompts.html">Best practices for prompting</a></h2>
 <hr class="half-width">
 <h3 id="02-prompts-headingInstructor1">
-<a href="02-prompts.html#headingInstructor1">Teaching Tip: Visual Aids</a><a class="anchor" aria-label="anchor" href="#02-prompts-headingInstructor1"></a>
+<a href="02-prompts.html#headingInstructor1">Teaching tip: Visual aids</a><a class="anchor" aria-label="anchor" href="#02-prompts-headingInstructor1"></a>
 </h3>
-<p>Write <strong>CLEAR</strong> vertically on the whiteboard or shared
-document. As you explain each letter, add the keyword (Concise, Logical,
-Explicit, Adaptive, Reflective). This visual anchor helps retention.</p>
+<p>Write CLEAR vertically on a whiteboard. As you explain each letter,
+add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This
+helps students remember the framework.</p>
 <hr>
 <br><h3 id="02-prompts-headingInstructor2">
-<a href="02-prompts.html#headingInstructor2">The “Superpower” Concept</a><a class="anchor" aria-label="anchor" href="#02-prompts-headingInstructor2"></a>
+<a href="02-prompts.html#headingInstructor2">The introspection concept</a><a class="anchor" aria-label="anchor" href="#02-prompts-headingInstructor2"></a>
 </h3>
-<p>Emphasize this section. Most learners treat the AI output as final.
-The idea that they can ask the AI to “fix its own work” is often a
-lightbulb moment. <em>Analogy:</em> It’s like asking a student, “Are you
-sure you checked your work?”—often they find their own mistakes just by
-being asked.</p>
+<p>Emphasize this section. Most learners treat AI output as final. The
+idea that they can ask the AI to fix its own work is often a new
+concept. It is like asking a student, “Are you sure you checked your
+work?”—they often find their own mistakes when asked.</p>
 <hr>
-<br></section><section id="03-data-cleaning"><h2 class="section-heading"><a href="03-data-cleaning.html">Live Demo: The Data Cleaning Agent</a></h2>
+<br></section><section id="03-data-cleaning"><h2 class="section-heading"><a href="03-data-cleaning.html">Data cleaning with AI</a></h2>
 <hr class="half-width">
 <h3 id="03-data-cleaning-headingInstructor1">
-<a href="03-data-cleaning.html#headingInstructor1">Active Participation</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor1"></a>
+<a href="03-data-cleaning.html#headingInstructor1">Live coding</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor1"></a>
 </h3>
-<p>This episode is designed for <strong>Live Coding</strong>. Learners
-should follow along, executing the commands on their own machines.
-:::::::::::::::::::::::::::::::::::::::::: prereq</p>
-<div class="section level2">
-<h2 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
-</h2>
-<p>Ensure your <code>GEMINI_API_KEY</code> is set and active. Generating
-these scripts can take 10-30 seconds each.</p>
+<p>This episode uses live coding. Learners should follow along by
+running commands on their own machines.</p>
+<div id="prerequisites" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<span class="callout-header">Prerequisite</span>
+<div id="prerequisites" class="callout-inner">
+<h3 class="callout-title">Prerequisites</h3>
+<div class="callout-content">
+<p>Ensure your <code>GEMINI_API_KEY</code> is set. Generating scripts
+can take 10-30 seconds.</p>
+</div>
+</div>
 </div>
 <hr>
 <br><h3 id="03-data-cleaning-headingInstructor2">
-<a href="03-data-cleaning.html#headingInstructor2">Safety Net: Backup Scripts</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor2"></a>
+<a href="03-data-cleaning.html#headingInstructor2">Backup scripts</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor2"></a>
 </h3>
-<p>This step involves complex logic and multiple scripts. If a learner’s
-AI fails to generate working code after 2-3 attempts, provide them with
-the pre-written versions available in the
-<code>instructors/files/</code> directory: -
-<code>backup_make_messy_data.py</code> (To generate the initial CSVs) -
-<code>backup_inspect_data.py</code> (To audit the CSVs) -
-<code>backup_clean_and_merge.py</code> (To perform the final
-harmonization)</p>
-<p>This ensures all learners can stay synced even if their specific AI
-outputs are buggy.</p>
+<p>If a learner’s AI fails to generate working code, provide the
+pre-written versions from <code>instructors/files/</code>: -
+<code>backup_make_messy_data.py</code> -
+<code>backup_inspect_data.py</code> -
+<code>backup_clean_and_merge.py</code></p>
 <hr>
 <br><h3 id="03-data-cleaning-headingInstructor3">
-<a href="03-data-cleaning.html#headingInstructor3">Challenge Hint</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor3"></a>
+<a href="03-data-cleaning.html#headingInstructor3">Challenge tip</a><a class="anchor" aria-label="anchor" href="#03-data-cleaning-headingInstructor3"></a>
 </h3>
-<p>This challenge is harder because it requires modifying
-<em>existing</em> code. If learners are stuck, hint: “Does the AI know
-what is inside <code>clean_and_merge.py</code> yet?”
-<strong>Strategy:</strong> They should explicitly ask the AI to “Read
-clean_and_merge.py” <em>before</em> asking it to modify it, or use a
-command that combines both actions (e.g.,
-<code>gemini "Read clean_and_merge.py and add..."</code>).</p>
+<p>This challenge requires modifying existing code. If learners are
+stuck, suggest they ask the AI to read <code>clean_and_merge.py</code>
+before asking for modifications.</p>
 <hr>
-<br></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation Best Practices</a></h2>
+<br></section><section id="04-validation"><h2 class="section-heading"><a href="04-validation.html">Validation best practices</a></h2>
 <hr class="half-width">
 <h3 id="04-validation-headingInstructor1">
-<a href="04-validation.html#headingInstructor1">Teaching Tip: Approval Modes</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor1"></a>
+<a href="04-validation.html#headingInstructor1">Teaching tip: Review modes</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor1"></a>
 </h3>
-<p>Help learners identify their “Review Mode”:</p>
+<p>Help learners identify their review focus:</p>
 <ul>
 <li>
-<strong>Safety Mode:</strong> Are my data paths correct? Any secrets
+<strong>Safety:</strong> Are data paths correct? Are secrets
 exposed?</li>
 <li>
-<strong>Correctness Mode:</strong> Does the logic match my research
+<strong>Correctness:</strong> Does the logic match research
 requirements?</li>
 <li>
-<strong>Maintainability Mode:</strong> Is the code readable for my
-future self?</li>
+<strong>Maintainability:</strong> Is the code readable?</li>
 </ul>
 <hr>
 <br><h3 id="04-validation-headingInstructor2">
-<a href="04-validation.html#headingInstructor2">Teaching Tip: Future-Proofing</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor2"></a>
+<a href="04-validation.html#headingInstructor2">Teaching tip: Future-proofing</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor2"></a>
 </h3>
-<p>Remind learners: “Asserts aren’t just for checking the AI today; they
-are for protecting you 6 months from now when you get new data.” This
-reframes validation from a “chore” to “insurance.”</p>
+<p>Remind learners that assertions protect them in the future when they
+receive new data, acting as a form of research insurance.</p>
 <hr>
 <br><h3 id="04-validation-headingInstructor3">
-<a href="04-validation.html#headingInstructor3">Teaching Tip: Persona Switching</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor3"></a>
+<a href="04-validation.html#headingInstructor3">Teaching tip: Persona switching</a><a class="anchor" aria-label="anchor" href="#04-validation-headingInstructor3"></a>
 </h3>
-<p>This demonstrates how changing the <strong>Persona</strong> (from
-‘Helpful Assistant’ to ‘Strict Auditor’) can bypass the model’s tendency
-to be over-confident in its own work.</p>
+<p>This shows how changing the persona from ‘Helpful Assistant’ to
+‘Strict Auditor’ can bypass model over-confidence.</p>
 <hr>
-<br></section><section id="05-limitations"><h2 class="section-heading"><a href="05-limitations.html">Limitations and Cautions</a></h2>
+<br></section><section id="05-limitations"><h2 class="section-heading"><a href="05-limitations.html">Limitations and cautions</a></h2>
 <hr class="half-width">
 <h3 id="05-limitations-headingInstructor1">
-<a href="05-limitations.html#headingInstructor1">Managing Expectations</a><a class="anchor" aria-label="anchor" href="#05-limitations-headingInstructor1"></a>
+<a href="05-limitations.html#headingInstructor1">Managing expectations</a><a class="anchor" aria-label="anchor" href="#05-limitations-headingInstructor1"></a>
 </h3>
-<p>As models improve (e.g., Gemini 1.5 Pro vs Flash), they are becoming
-harder to trick into hallucinating. * <strong>If it refuses:</strong>
-Praise the model! Point out that it correctly identified its lack of
-knowledge. * <strong>Backup:</strong> Have a screenshot ready of a
-“classic” hallucination (like the famous “recurse-center” library or a
-made-up court case) just in case everyone’s AI behaves perfectly.</p>
+<p>Models are becoming less likely to hallucinate. * <strong>If it
+refuses:</strong> Acknowledge that the model correctly identified its
+own limitations. * <strong>Backup:</strong> Have a screenshot of a known
+hallucination ready to show if the AI performs perfectly during the
+session.</p>
 <hr>
-<br></section><section id="06-resources"><h2 class="section-heading"><a href="06-resources.html">Resources and Next Steps</a></h2>
+<br></section><section id="06-resources"><h2 class="section-heading"><a href="06-resources.html">Resources and next steps</a></h2>
 <hr class="half-width"></section></section>
 </div>
     </main>
@@ -687,8 +678,8 @@ made-up court case) just in case everyone’s AI behaves perfectly.</p>
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/instructor-notes.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/instructor-notes.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-10",
-  "datePublished": "2026-03-10"
+  "dateModified": "2026-03-11",
+  "datePublished": "2026-03-11"
 }
 
   </script><script>
