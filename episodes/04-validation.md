@@ -4,7 +4,7 @@ teaching: 30
 exercises: 20
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+:::::::::::::::::::::::::::::::::::::::::::::::::: objectives
 
 ## Objectives
 
@@ -15,27 +15,27 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+:::::::::::::::::::::::::::::::::::::::::::::::::::: questions
 
 - How do I move from vibe coding to research orchestration?
 - What is rewrite time and why does it matter for research reproducibility?
 - How can I use one AI to catch the errors of another?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The approval gate: verification over generation
 
-In an agentic research workflow, your role is to audit and approve code rather than write it. The standard has shifted from vibe coding—prototyping by intuition—to spec-driven orchestration.
+In an agentic research workflow, your role is to audit and approve code rather than write it. The standard has shifted from vibe coding to spec-driven orchestration.
 
 The approval gate is the point where you decide AI-generated code is robust enough for research production. It separates a working prototype from validated science.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
 ## The review-first standard
 The bottleneck in research is no longer writing code; it is verifying it. A high-performance workflow follows this cycle:
 Plan → Agent Implementation → Automated AI-Powered Testing → Human Review.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Measuring efficiency: rewrite time
 
@@ -44,7 +44,7 @@ Rewrite time is a metric to determine if an AI workflow is actually helping your
 - **Definition:** The manual effort in minutes a researcher spends making AI-generated output production-ready.
 - **Goal:** If you spend 20 minutes prompting but then 40 minutes fixing the code, your rewrite time is too high. 
 
-::::::::::::::::::::::::::::::::::::::::: challenge
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge: calculate your rewrite time
 
@@ -55,7 +55,7 @@ Look back at a script you recently generated with an AI agent.
     - AI over-confidence? 
     - Lack of local context?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## The four-layer validation stack
 
@@ -83,7 +83,7 @@ This is where your research expertise is irreplaceable. AI does not know that a 
 
 We use a challenger model to audit an implementation model rather than trusting a single AI.
 
-::::::::::::::::::::::::::::::::::::::::: challenge
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge: orchestrate a peer review
 
@@ -94,25 +94,27 @@ We use a challenger model to audit an implementation model rather than trusting 
 
 3. Reflect: Did the challenger model find something the implementation model missed?
 
-:::::::::::::::::::::::::::::::::::::::: solution
+::::::::::::::::::::::::::::::::::::::::::::::::: solution
 
 ## Why this works
 Models have different blind spots. Forcing a second AI to act as an auditor helps bypass the tendency of the primary assistant to be over-confident. This process reduces your manual rewrite time.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::: instructor
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Teaching tip: approval fatigue
-Warn learners about approval fatigue—the tendency to accept AI suggestions without reading them. The four-layer stack is designed to make the AI prove it is correct before you review the code.
+Warn learners about approval fatigue the tendency to accept AI suggestions without reading them. The four-layer stack is designed to make the AI prove it is correct before you review the code.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: keypoints
 
 - The approval gate separates experimental prototypes from validated research.
 - Rewrite time is the primary metric for measuring AI workflow value.
 - Requirement constraints prevent the AI from drifting away from research specs.
 - Multi-model verification uses a second AI to act as a skeptical peer reviewer.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
