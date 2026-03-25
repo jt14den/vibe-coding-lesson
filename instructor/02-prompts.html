@@ -230,6 +230,7 @@
 <li><a href="#the-bootstrap-workflow">The Bootstrap Workflow</a></li>
 <li><a href="#the-clear-framework">The CLEAR framework</a></li>
 <li><a href="#introspection">Introspection</a></li>
+<li><a href="#plan-before-you-act">Plan before you act</a></li>
 <li><a href="#ai-failures">AI failures</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -331,7 +332,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Best practices for prompting</h1>
-        <p>Last updated on 2026-03-11 |
+        <p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/02-prompts.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -367,6 +368,28 @@
 <li>Use introspection to refine code.</li>
 </ul></div>
 </div>
+</div>
+</div>
+</div>
+<div id="working-inside-the-gemini-cli" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="working-inside-the-gemini-cli" class="callout-inner">
+<h3 class="callout-title">Working inside the Gemini CLI</h3>
+<div class="callout-content">
+<p>All prompts in this episode are typed inside an active Gemini CLI
+session. Start one in your project folder before the exercises:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+</div>
+<p>Then type prompts directly at the <code>&gt;</code> prompt. Shell
+commands (like <code>python script.py</code>) are run in a separate
+terminal window.</p>
 </div>
 </div>
 </div>
@@ -480,7 +503,7 @@ result at alpha=0.05.”</td>
   Teaching tip: Visual aids
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Write CLEAR vertically on a whiteboard. As you explain each letter,
 add the keyword (Concise, Logical, Explicit, Adaptive, Reflective). This
@@ -516,7 +539,7 @@ to critique its own output. This is often called self-correction.</p>
   The introspection concept
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>Emphasize this section. Most learners treat AI output as final. The
 idea that they can ask the AI to fix its own work is often a new
@@ -536,7 +559,7 @@ way?”</li>
 </ul><div class="section level3">
 <h3 id="reasoning-models">Reasoning models<a class="anchor" aria-label="anchor" href="#reasoning-models"></a></h3>
 <p>As of 2025, reasoning models (such as OpenAI o1/o3, DeepSeek-R1, or
-Gemini 2.0 Thinking) have emerged. These models perform chain of thought
+Gemini 2.5 Thinking) have emerged. These models perform chain of thought
 reasoning before they answer.</p>
 <p><strong>When to use them:</strong></p>
 <ul><li>
@@ -548,6 +571,94 @@ hard errors, or writing scientific formulas where accuracy is
 important.</li>
 </ul><p>When using a reasoning model, you often do not need to ask for
 introspection—they do it before showing the code.</p>
+</div>
+</section><section><h2 class="section-heading" id="plan-before-you-act">Plan before you act<a class="anchor" aria-label="anchor" href="#plan-before-you-act"></a></h2>
+<hr class="half-width"><p>As tasks grow more complex, asking the agent to write code
+immediately leads to more rewrite time. The emerging best practice is to
+request a plan first, review it, and approve it before any files are
+written.</p>
+<div class="section level3">
+<h3 id="the-think-then-do-pattern">The think-then-do pattern<a class="anchor" aria-label="anchor" href="#the-think-then-do-pattern"></a></h3>
+<p>Start any multi-step task with an explicit planning prompt:</p>
+<pre><code>Before writing any code, describe your approach in numbered steps. Do not write any files yet.</code></pre>
+<p>Review the plan, push back on steps you disagree with, and ask for
+alternatives. Once you are satisfied, say “proceed with step 1.”</p>
+</div>
+<div class="section level3">
+<h3 id="checkpoint-prompts">Checkpoint prompts<a class="anchor" aria-label="anchor" href="#checkpoint-prompts"></a></h3>
+<p>Break large tasks into explicit phases so you review the output at
+each stage before moving forward:</p>
+<pre><code>Step 1 only: read the three CSV files and tell me what inconsistencies you find. Do not write any code yet.</code></pre>
+<p>This is especially valuable in research because it catches
+misunderstandings about your data before they propagate into broken
+code.</p>
+</div>
+<div class="section level3">
+<h3 id="the-plan-file">The plan file<a class="anchor" aria-label="anchor" href="#the-plan-file"></a></h3>
+<p>For complex projects, ask the agent to write a <code>PLAN.md</code>
+first:</p>
+<pre><code>Write a PLAN.md outlining the steps to clean and merge these files. I will review and edit it before you write any code.</code></pre>
+<p>This makes the plan a reviewable, editable artifact — a more formal
+version of the Bootstrap Workflow. Once approved, refer back to it in
+follow-up prompts: “Proceed with step 2 from PLAN.md.”</p>
+<div id="plan-files-vs.-the-living-spec" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="plan-files-vs.-the-living-spec" class="callout-inner">
+<h3 class="callout-title">Plan files vs. the Living Spec</h3>
+<div class="callout-content">
+<p>A <code>PLAN.md</code> and your <code>GEMINI.md</code> serve
+different purposes. The spec defines persistent rules and constraints
+that apply across all sessions. The plan describes the steps for a
+specific task. Keep them separate: plans are temporary, specs are
+durable.</p>
+</div>
+</div>
+</div>
+<div id="challenge-plan-before-you-clean" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-plan-before-you-clean" class="callout-inner">
+<h3 class="callout-title">Challenge: Plan before you clean</h3>
+<div class="callout-content">
+<p>Practice the think-then-do pattern before moving on to the data
+cleaning episode. Inside your Gemini CLI session, type:</p>
+<pre><code>I have three CSV files from different research sites with inconsistent column names and date formats. Before writing any code, outline a step-by-step plan for cleaning and merging them into a single dataset. Do not write any files yet.</code></pre>
+<p>Review the plan. Does it include an audit step? Does it address
+missing values? Revise the plan in the conversation until you are
+satisfied, then save it by asking: “Write this plan to PLAN.md.”</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  What a good plan includes
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<ul><li>An <strong>audit step</strong> — inspect files before changing
+them</li>
+<li>A <strong>schema harmonization step</strong> — standardize column
+names</li>
+<li>A <strong>date standardization step</strong>
+</li>
+<li>A <strong>missing value strategy</strong>
+</li>
+<li>An <strong>output verification step</strong>
+</li>
+</ul><p>If the agent skipped any of these, ask it to revise before you
+proceed. The goal is to catch gaps in the plan, not in the code.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="ai-failures">AI failures<a class="anchor" aria-label="anchor" href="#ai-failures"></a></h2>
 <hr class="half-width"><p>AI agents are designed to be helpful, which can lead them to take
@@ -602,31 +713,27 @@ intermediate steps.”</li>
 <div class="callout-content">
 <p>Practice the CLEAR framework to visualize the relationship between
 “Date” and “Score” in a dataset.</p>
-<ol style="list-style-type: decimal"><li><p><strong>Run a vague command:</strong>
-<code>gemini "Create a plot of the data I just made."</code>
-<em>Observe: Does it work? Is the plot useful? Where did it save
-it?</em></p></li>
-<li><p><strong>Refine the command:</strong> Write a new prompt that
+<ol style="list-style-type: decimal"><li><p><strong>Start with a vague prompt</strong> — type this inside
+your Gemini CLI session:
+<code>Create a plot of the data I just made.</code> <em>Observe: Does it
+work? Is the plot useful? Where did it save it?</em></p></li>
+<li><p><strong>Refine the prompt:</strong> Write a new prompt that
 applies context (what the data is), specificity (scatterplot with
 regression line), and output instructions (save as
 <code>fig/trend_analysis.png</code>).</p></li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
   Example refined prompt
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."</span></span></code></pre>
-</div>
+<pre><code>Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist).</code></pre>
 <div class="section level3">
 <h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a></h3>
 <ul><li>How much longer was your refined prompt compared to your first
@@ -650,13 +757,14 @@ file?</li>
 <p>Test the AI as a verifier principle. Ask the AI to find flaws in its
 code before you run it.</p>
 <ol style="list-style-type: decimal"><li>
-<strong>Generate a script:</strong> Use a prompt like:
-<code>gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."</code>
+<strong>Generate a script</strong> — type this prompt inside your
+Gemini CLI session:
+<code>Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values.</code>
 </li>
 <li>
 <strong>Force introspection:</strong> Once the code is generated, do
-not run it. Instead, prompt the AI again:
-<code>gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."</code>
+not run it. Follow up in the same session:
+<code>Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version.</code>
 </li>
 <li>
 <strong>Compare:</strong> Did the AI find a mistake in its first
@@ -664,14 +772,14 @@ draft? Did it add a guard clause like <code>min_periods=1</code>?</li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
   Reflection
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>AI models are often more accurate when asked to critique logic than
 when asked to generate it. This second pass is part of the editor
@@ -688,6 +796,8 @@ mindset and reduces manual debugging.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul><li>Be specific and provide context.</li>
+<li>Plan before you act: request a numbered plan and approve it before
+any files are written.</li>
 <li>Always validate AI outputs.</li>
 <li>Introspection improves code quality.</li>
 </ul></div>
@@ -758,8 +868,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/02-prompts.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/02-prompts.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-11",
-  "datePublished": "2026-03-24"
+  "dateModified": "2026-03-25",
+  "datePublished": "2026-03-25"
 }
 
   </script><script>

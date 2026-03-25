@@ -332,7 +332,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Resources and next steps</h1>
-        <p>Last updated on 2026-03-11 |
+        <p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/06-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -375,7 +375,7 @@
 tools like Claude Code (Anthropic’s CLI), GitHub Copilot, and Aider (a
 CLI agent that works with multiple models) provide terminal support.</p>
 <p>Some researchers use AI-native code editors like Cursor to interact
-with an entire repository. Models like Gemini 2.0 and DeepSeek-V3/R1
+with an entire repository. Models like Gemini 2.5 and DeepSeek-V3/R1
 have increased the speed of these interactions.</p>
 <p>Research-specific tools are also emerging. Elicit and Consensus focus
 on scientific paper discovery and evidence-based claims. Google’s
@@ -413,7 +413,7 @@ Alibaba (e.g., Qwen2.5-Coder) that can be run offline for security.</li>
 <div class="callout-content">
 <p>Local models offer privacy but require significant hardware
 (especially GPU VRAM) to match the performance of cloud models like
-Gemini 2.0. Many researchers use a hybrid approach: cloud models for
+Gemini 2.5. Many researchers use a hybrid approach: cloud models for
 general scripting and local models for sensitive data.</p>
 </div>
 </div>
@@ -421,23 +421,23 @@ general scripting and local models for sensitive data.</p>
 </section><section><h2 class="section-heading" id="advanced-trends">Advanced trends<a class="anchor" aria-label="anchor" href="#advanced-trends"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="automated-research-discovery">Automated research discovery<a class="anchor" aria-label="anchor" href="#automated-research-discovery"></a></h3>
-<p>For time-sensitive research, specialized agents can scan social
-platforms, developer forums, and prediction markets to identify trends
-before they appear in traditional journals. The <code>last30days</code>
-agent skill is a tool for this “real-time literature mapping.”</p>
-<div id="the-orchestrators-deep-research-prompt" class="callout">
+<p>For time-sensitive research, AI agents can scan social platforms,
+developer forums, and prediction markets to identify trends before they
+appear in traditional journals. This “real-time literature mapping”
+works by prompting the agent to synthesize signal from fast-moving
+sources alongside traditional ones.</p>
+<div id="a-deep-research-prompt-pattern" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="the-orchestrators-deep-research-prompt" class="callout-inner">
-<h3 class="callout-title">The orchestrator’s deep research prompt</h3>
+<div id="a-deep-research-prompt-pattern" class="callout-inner">
+<h3 class="callout-title">A deep research prompt pattern</h3>
 <div class="callout-content">
-<p>Use this prompt with a research discovery agent (like
-<code>last30days</code>) to trigger high-signal synthesis:</p>
-<p>“Act as a research orchestrator. Use the <code>last30days</code> tool
-to find the most discussed [TOPIC] from the last 30 days across Reddit,
-X, and Hacker News.</p>
+<p>Use a prompt like this with any AI assistant that has web search
+access:</p>
+<p>“Act as a research orchestrator. Find the most discussed [TOPIC] from
+the last 30 days across Reddit, X, and Hacker News.</p>
 <ol style="list-style-type: decimal"><li>
 <strong>Discovery</strong>: Identify the top 3 tools or
 methodologies mentioned.</li>
@@ -445,8 +445,8 @@ methodologies mentioned.</li>
 <strong>Sentiment</strong>: Quote the most upvoted critique for
 each.</li>
 <li>
-<strong>Verification</strong>: Cross-reference these with Polymarket
-or web sources for real-world impact.</li>
+<strong>Verification</strong>: Cross-reference these with web
+sources for real-world impact.</li>
 <li>
 <strong>Validation</strong>: Apply ‘Layer 4: Domain
 Plausibility’—identify one trend that sounds plausible but may be an
@@ -499,20 +499,20 @@ Add an AI usage section to your project documentation:</p>
 <h3 class="callout-title">Example attribution</h3>
 <div class="callout-content">
 <ul><li>
-<strong>Model:</strong> Google Gemini 2.0 Thinking (via Aider)</li>
+<strong>Model:</strong> Google Gemini 2.5 Flash</li>
 <li>
 <strong>Role:</strong> Spec drafting and spec-guided cleaning.</li>
 <li>
 <strong>Verification:</strong> Verified by [Your Name] via
-<strong>AGENTS.md</strong> rules and <code>validate_data.py</code>.</li>
+<code>GEMINI.md</code> rules and <code>validate_data.py</code>.</li>
 </ul></div>
 </div>
 </div>
 <p><strong>2. In manuscripts:</strong> Cite the model in the methods or
 acknowledgements section.</p>
 <ul><li>
-<em>Example:</em> “We used Google Gemini (version 1.5) to assist
-with data cleaning scripts. Prompts and raw outputs are available in the
+<em>Example:</em> “We used Google Gemini 2.5 Flash to assist with
+data cleaning scripts. Prompts and raw outputs are available in the
 supplementary material.”</li>
 </ul></div>
 <div class="section level3">
@@ -538,14 +538,15 @@ your use of the tool.</li>
 <div class="callout-content">
 <ul class="task-list"><li><label><input type="checkbox">CLI agents coordinate actions
 directly on your files.</label></li>
-<li><label><input type="checkbox"><strong>AGENTS.md</strong> acts as
-your ‘Living Spec’ and source of truth.</label></li>
+<li><label><input type="checkbox">A Living Spec
+(<code>GEMINI.md</code> or portable <code>AGENTS.md</code>) is your
+source of truth.</label></li>
 <li><label><input type="checkbox">The <strong>Bootstrap
 Workflow</strong> creates your spec from your data.</label></li>
 <li><label><input type="checkbox">Use <strong>Layer 4: Domain
 Plausibility</strong> to catch research logic errors.</label></li>
-<li><label><input type="checkbox"><strong>Commit-as-Draft</strong>
-with Aider ensures every change is traceable.</label></li>
+<li><label><input type="checkbox">Track AI-generated code with Git so
+every change is reversible.</label></li>
 </ul></div>
 </div>
 </div>
@@ -679,7 +680,7 @@ unit tests, or metamorphic checks?</li>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A pre-defined protocol reduces decision fatigue during complex coding
 sessions. Deciding how to verify work early prevents approval fatigue
@@ -766,8 +767,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/06-resources.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/06-resources.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-11",
-  "datePublished": "2026-03-24"
+  "dateModified": "2026-03-25",
+  "datePublished": "2026-03-25"
 }
 
   </script><script>

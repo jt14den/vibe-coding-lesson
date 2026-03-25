@@ -369,7 +369,7 @@
         
 <section id="aio-01-cli-intro"><p>Content from <a href="01-cli-intro.html">CLI-based AI</a></p>
 <hr>
-<p>Last updated on 2026-03-11 |
+<p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/01-cli-intro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -516,7 +516,7 @@ changes.</p>
 <div class="section level3">
 <h3 id="long-context">Long context<a class="anchor" aria-label="anchor" href="#long-context"></a>
 </h3>
-<p>Models like Gemini 2.0 have a long context window of 1 million to 2
+<p>Models like Gemini 2.5 have a long context window of 1 million to 2
 million tokens. You can provide the AI with your entire project
 folder—scripts, documentation, and small datasets—at once.</p>
 <p>This allows you to describe the desired state of your project, and
@@ -540,6 +540,86 @@ outdated information.</p>
 </div>
 </div>
 </div>
+<div id="how-much-context-is-enough" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="how-much-context-is-enough" class="callout-inner">
+<h3 class="callout-title">How much context is enough?</h3>
+<div class="callout-content">
+<p>More context is not always better. Attention quality can degrade when
+the context window is very full — the model may lose track of
+information buried in the middle. A rough guide for research
+projects:</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th>Project size</th>
+<th>What to include</th>
+<th>What to exclude</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Small (&lt; 10 files)</td>
+<td>Everything</td>
+<td>Nothing — just start</td>
+</tr>
+<tr class="even">
+<td>Medium (10–50 files)</td>
+<td>Spec + files relevant to the current task</td>
+<td>Archives, unrelated scripts, raw data</td>
+</tr>
+<tr class="odd">
+<td>Large (50+ files)</td>
+<td>Explicit file references per task</td>
+<td>Everything else</td>
+</tr>
+</tbody>
+</table>
+<p>For research data specifically: never load full datasets. Provide a
+schema, column list, or the first few rows instead. If the agent starts
+making errors that feel like it “forgot” earlier instructions, that is
+often a sign the context is too large and diluted — try starting a fresh
+session with tighter scoping.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="starting-a-gemini-cli-session">Starting a Gemini CLI session<a class="anchor" aria-label="anchor" href="#starting-a-gemini-cli-session"></a>
+</h2>
+<hr class="half-width">
+<p>Navigate to your project folder in the terminal, then run
+<code>gemini</code> with no arguments to open an interactive
+session:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+</div>
+<p>The CLI loads your <code>GEMINI.md</code> automatically if one
+exists, then displays a prompt where you type requests directly. To exit
+at any time, type <code>exit</code> or press Ctrl+D.</p>
+<div id="working-directory-matters" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="working-directory-matters" class="callout-inner">
+<h3 class="callout-title">Working directory matters</h3>
+<div class="callout-content">
+<p>Always start the Gemini CLI from inside your project folder. The
+agent uses the current directory to find your files and spec. Starting
+from the wrong folder — such as your home directory — is one of the most
+common sources of confusion in a workshop.</p>
+</div>
+</div>
+</div>
 <div id="challenge-your-first-ai-cli-command" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -548,13 +628,16 @@ outdated information.</p>
 <div id="challenge-your-first-ai-cli-command" class="callout-inner">
 <h3 class="callout-title">Challenge: Your first AI CLI command</h3>
 <div class="callout-content">
-<p>Verify the tool is working by running this command in your
-terminal:</p>
-<div class="codewrapper sourceCode" id="cb2">
+<p>Navigate to your project folder and start a session:</p>
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
 </div>
+<p>Once the CLI is running, type the following prompt and press
+Enter:</p>
+<pre><code>Tell me what operating system I am currently using and list the files in this directory.</code></pre>
 <p>Compare the output to what you see when you run <code>ls</code> (or
 <code>dir</code> on Windows) and <code>uname -a</code>. Did the AI
 accurately describe your environment?</p>
@@ -568,7 +651,7 @@ accurately describe your environment?</p>
   Example output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
@@ -598,24 +681,87 @@ your OS and the files in your folder.</p>
 </div>
 </div>
 </div>
-</div>
-</section><section><h2 class="section-heading" id="the-living-spec-agents-md-and-context-md">The Living Spec: AGENTS.md and CONTEXT.md<a class="anchor" aria-label="anchor" href="#the-living-spec-agents-md-and-context-md"></a>
+</section><section><h2 class="section-heading" id="the-living-spec">The Living Spec<a class="anchor" aria-label="anchor" href="#the-living-spec"></a>
 </h2>
 <hr class="half-width">
 <p>To get the most out of a CLI agent, provide it with persistent
 context about your project. This acts as a “Living Spec”—a set of rules
-and goals the agent must follow.</p>
+and goals the agent must follow across every session.</p>
+<p>Every major CLI tool has its own <strong>native</strong> spec file
+that it loads automatically when you start a session:</p>
+<table class="table">
+<thead><tr class="header">
+<th>Tool</th>
+<th>Native spec file</th>
+<th>Auto-loaded?</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Gemini CLI</td>
+<td><code>GEMINI.md</code></td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Claude Code</td>
+<td><code>CLAUDE.md</code></td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>OpenAI Codex</td>
+<td><code>AGENTS.md</code></td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Cursor</td>
+<td><code>.cursorrules</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>You can also use a <strong>portable</strong> spec
+file—<code>AGENTS.md</code> is a common convention—that you explicitly
+reference in any prompt: <code>"Read AGENTS.md and then..."</code>. It
+is not auto-loaded by any single tool, but it travels with your project
+if you switch tools.</p>
+<div id="which-approach-should-you-use" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="which-approach-should-you-use" class="callout-inner">
+<h3 class="callout-title">Which approach should you use?</h3>
+<div class="callout-content">
 <ul>
 <li>
-<strong>Standard Agent Rule File</strong>: <code>AGENTS.md</code>
-(or <code>CLAUDE.md</code>, <code>.cursorrules</code> depending on the
-tool).</li>
+<strong>Stick with one tool?</strong> Use the native file
+(<code>GEMINI.md</code> here) for a smoother experience — you never have
+to mention it in your prompts.</li>
 <li>
-<strong>The CONTEXT.md file</strong>: A tool-agnostic master file
-that acts as a “Source of Truth.”</li>
+<strong>Move between tools?</strong> Keep a portable
+<code>AGENTS.md</code> and reference it explicitly. The spec stays the
+same; only the tool changes.</li>
 </ul>
+<p>For this lesson we use <code>GEMINI.md</code> as the native file. The
+same content and concepts apply if you switch to any other tool.</p>
+</div>
+</div>
+</div>
 <div class="section level3">
-<h3 id="what-to-include-in-agents-md">What to include in AGENTS.md<a class="anchor" aria-label="anchor" href="#what-to-include-in-agents-md"></a>
+<h3 id="initialize-your-project">Initialize your project<a class="anchor" aria-label="anchor" href="#initialize-your-project"></a>
+</h3>
+<p>The Gemini CLI includes an <code>init</code> command that creates a
+<code>GEMINI.md</code> template in your working directory:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
+</div>
+<p>This generates a starter file with placeholder sections for you to
+fill in. Open it in any text editor to customize it for your
+project.</p>
+</div>
+<div class="section level3">
+<h3 id="what-to-include-in-your-spec-file">What to include in your spec file<a class="anchor" aria-label="anchor" href="#what-to-include-in-your-spec-file"></a>
 </h3>
 <p>Use this file to define:</p>
 <ul>
@@ -629,16 +775,17 @@ now.</li>
 <strong>Verification Gates</strong>: How you will confirm the code
 is correct.</li>
 </ul>
-<div id="challenge-create-your-agents.md" class="callout challenge">
+<div id="challenge-initialize-and-customize-your-spec-file" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-create-your-agents.md" class="callout-inner">
-<h3 class="callout-title">Challenge: Create your AGENTS.md</h3>
+<div id="challenge-initialize-and-customize-your-spec-file" class="callout-inner">
+<h3 class="callout-title">Challenge: Initialize and customize your spec
+file</h3>
 <div class="callout-content">
-<p>In your project directory, create a file named
-<code>AGENTS.md</code>. Instead of just listing goals, define one “Hard
+<p>In your project directory, run <code>gemini init</code> to create a
+<code>GEMINI.md</code> file. Then edit it to define one “Hard
 Constraint” (something the AI <em>must</em> do) and one “Success Metric”
 (how you know it’s done).</p>
 </div>
@@ -648,26 +795,26 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">
-  Example AGENTS.md
+  Example spec file
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -682,8 +829,10 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
 <div class="callout-content">
 <ul>
 <li>CLI agents coordinate actions across multiple files.</li>
-<li>The <code>AGENTS.md</code> file is a Living Spec that reduces
-“context drift.”</li>
+<li>Run <code>gemini init</code> to create a <code>GEMINI.md</code>
+Living Spec that reduces “context drift.”</li>
+<li>A portable <code>AGENTS.md</code> lets the same spec travel across
+different AI tools.</li>
 <li>Research orchestration shifts focus from writing syntax to
 validating intent.</li>
 </ul>
@@ -697,7 +846,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-02-prompts"><p>Content from <a href="02-prompts.html">Best practices for prompting</a></p>
 <hr>
-<p>Last updated on 2026-03-11 |
+<p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/02-prompts.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -729,6 +878,28 @@ any links that you are not going to use.
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div id="working-inside-the-gemini-cli" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="working-inside-the-gemini-cli" class="callout-inner">
+<h3 class="callout-title">Working inside the Gemini CLI</h3>
+<div class="callout-content">
+<p>All prompts in this episode are typed inside an active Gemini CLI
+session. Start one in your project folder before the exercises:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+</div>
+<p>Then type prompts directly at the <code>&gt;</code> prompt. Shell
+commands (like <code>python script.py</code>) are run in a separate
+terminal window.</p>
 </div>
 </div>
 </div>
@@ -897,7 +1068,7 @@ way?”</li>
 <h3 id="reasoning-models">Reasoning models<a class="anchor" aria-label="anchor" href="#reasoning-models"></a>
 </h3>
 <p>As of 2025, reasoning models (such as OpenAI o1/o3, DeepSeek-R1, or
-Gemini 2.0 Thinking) have emerged. These models perform chain of thought
+Gemini 2.5 Thinking) have emerged. These models perform chain of thought
 reasoning before they answer.</p>
 <p><strong>When to use them:</strong></p>
 <ul>
@@ -911,6 +1082,101 @@ important.</li>
 </ul>
 <p>When using a reasoning model, you often do not need to ask for
 introspection—they do it before showing the code.</p>
+</div>
+</section><section><h2 class="section-heading" id="plan-before-you-act">Plan before you act<a class="anchor" aria-label="anchor" href="#plan-before-you-act"></a>
+</h2>
+<hr class="half-width">
+<p>As tasks grow more complex, asking the agent to write code
+immediately leads to more rewrite time. The emerging best practice is to
+request a plan first, review it, and approve it before any files are
+written.</p>
+<div class="section level3">
+<h3 id="the-think-then-do-pattern">The think-then-do pattern<a class="anchor" aria-label="anchor" href="#the-think-then-do-pattern"></a>
+</h3>
+<p>Start any multi-step task with an explicit planning prompt:</p>
+<pre><code>Before writing any code, describe your approach in numbered steps. Do not write any files yet.</code></pre>
+<p>Review the plan, push back on steps you disagree with, and ask for
+alternatives. Once you are satisfied, say “proceed with step 1.”</p>
+</div>
+<div class="section level3">
+<h3 id="checkpoint-prompts">Checkpoint prompts<a class="anchor" aria-label="anchor" href="#checkpoint-prompts"></a>
+</h3>
+<p>Break large tasks into explicit phases so you review the output at
+each stage before moving forward:</p>
+<pre><code>Step 1 only: read the three CSV files and tell me what inconsistencies you find. Do not write any code yet.</code></pre>
+<p>This is especially valuable in research because it catches
+misunderstandings about your data before they propagate into broken
+code.</p>
+</div>
+<div class="section level3">
+<h3 id="the-plan-file">The plan file<a class="anchor" aria-label="anchor" href="#the-plan-file"></a>
+</h3>
+<p>For complex projects, ask the agent to write a <code>PLAN.md</code>
+first:</p>
+<pre><code>Write a PLAN.md outlining the steps to clean and merge these files. I will review and edit it before you write any code.</code></pre>
+<p>This makes the plan a reviewable, editable artifact — a more formal
+version of the Bootstrap Workflow. Once approved, refer back to it in
+follow-up prompts: “Proceed with step 2 from PLAN.md.”</p>
+<div id="plan-files-vs.-the-living-spec" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="plan-files-vs.-the-living-spec" class="callout-inner">
+<h3 class="callout-title">Plan files vs. the Living Spec</h3>
+<div class="callout-content">
+<p>A <code>PLAN.md</code> and your <code>GEMINI.md</code> serve
+different purposes. The spec defines persistent rules and constraints
+that apply across all sessions. The plan describes the steps for a
+specific task. Keep them separate: plans are temporary, specs are
+durable.</p>
+</div>
+</div>
+</div>
+<div id="challenge-plan-before-you-clean" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-plan-before-you-clean" class="callout-inner">
+<h3 class="callout-title">Challenge: Plan before you clean</h3>
+<div class="callout-content">
+<p>Practice the think-then-do pattern before moving on to the data
+cleaning episode. Inside your Gemini CLI session, type:</p>
+<pre><code>I have three CSV files from different research sites with inconsistent column names and date formats. Before writing any code, outline a step-by-step plan for cleaning and merging them into a single dataset. Do not write any files yet.</code></pre>
+<p>Review the plan. Does it include an audit step? Does it address
+missing values? Revise the plan in the conversation until you are
+satisfied, then save it by asking: “Write this plan to PLAN.md.”</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  What a good plan includes
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<ul>
+<li>An <strong>audit step</strong> — inspect files before changing
+them</li>
+<li>A <strong>schema harmonization step</strong> — standardize column
+names</li>
+<li>A <strong>date standardization step</strong>
+</li>
+<li>A <strong>missing value strategy</strong>
+</li>
+<li>An <strong>output verification step</strong>
+</li>
+</ul>
+<p>If the agent skipped any of these, ask it to revise before you
+proceed. The goal is to catch gaps in the plan, not in the code.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="ai-failures">AI failures<a class="anchor" aria-label="anchor" href="#ai-failures"></a>
 </h2>
@@ -977,11 +1243,11 @@ intermediate steps.”</li>
 <p>Practice the CLEAR framework to visualize the relationship between
 “Date” and “Score” in a dataset.</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Run a vague command:</strong>
-<code>gemini "Create a plot of the data I just made."</code>
-<em>Observe: Does it work? Is the plot useful? Where did it save
-it?</em></p></li>
-<li><p><strong>Refine the command:</strong> Write a new prompt that
+<li><p><strong>Start with a vague prompt</strong> — type this inside
+your Gemini CLI session:
+<code>Create a plot of the data I just made.</code> <em>Observe: Does it
+work? Is the plot useful? Where did it save it?</em></p></li>
+<li><p><strong>Refine the prompt:</strong> Write a new prompt that
 applies context (what the data is), specificity (scatterplot with
 regression line), and output instructions (save as
 <code>fig/trend_analysis.png</code>).</p></li>
@@ -989,20 +1255,16 @@ regression line), and output instructions (save as
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
   Example refined prompt
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."</span></span></code></pre>
-</div>
+<pre><code>Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist).</code></pre>
 <div class="section level3">
 <h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a>
 </h3>
@@ -1030,13 +1292,14 @@ file?</li>
 code before you run it.</p>
 <ol style="list-style-type: decimal">
 <li>
-<strong>Generate a script:</strong> Use a prompt like:
-<code>gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."</code>
+<strong>Generate a script</strong> — type this prompt inside your
+Gemini CLI session:
+<code>Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values.</code>
 </li>
 <li>
 <strong>Force introspection:</strong> Once the code is generated, do
-not run it. Instead, prompt the AI again:
-<code>gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."</code>
+not run it. Follow up in the same session:
+<code>Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version.</code>
 </li>
 <li>
 <strong>Compare:</strong> Did the AI find a mistake in its first
@@ -1045,14 +1308,14 @@ draft? Did it add a guard clause like <code>min_periods=1</code>?</li>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
   Reflection
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>AI models are often more accurate when asked to critique logic than
 when asked to generate it. This second pass is part of the editor
@@ -1070,6 +1333,8 @@ mindset and reduces manual debugging.</p>
 <div class="callout-content">
 <ul>
 <li>Be specific and provide context.</li>
+<li>Plan before you act: request a numbered plan and approve it before
+any files are written.</li>
 <li>Always validate AI outputs.</li>
 <li>Introspection improves code quality.</li>
 </ul>
@@ -1083,7 +1348,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-03-data-cleaning"><p>Content from <a href="03-data-cleaning.html">Data cleaning with AI</a></p>
 <hr>
-<p>Last updated on 2026-03-11 |
+<p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1118,6 +1383,26 @@ any links that you are not going to use.
 </div>
 </div>
 </div>
+<div id="working-inside-the-gemini-cli" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="working-inside-the-gemini-cli" class="callout-inner">
+<h3 class="callout-title">Working inside the Gemini CLI</h3>
+<div class="callout-content">
+<p>All prompts in this episode are typed inside an active Gemini CLI
+session. Start one in your project folder before the exercises:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+</div>
+<p>Run Python scripts in a separate terminal window when instructed.</p>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="cleaning-messy-data">Cleaning messy data<a class="anchor" aria-label="anchor" href="#cleaning-messy-data"></a>
 </h2>
 <hr class="half-width">
@@ -1131,11 +1416,7 @@ use AI to simulate a multi-site study where each location used different
 naming conventions or date formats. Run this command to generate three
 files: <code>site_A.csv</code>, <code>site_B.csv</code>, and
 <code>site_C.csv</code>.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."</span></span></code></pre>
-</div>
+<pre><code>Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023').</code></pre>
 <p>After running <code>python make_messy_data.py</code>, you will have
 three inconsistent files in your directory.</p>
 </div>
@@ -1146,11 +1427,7 @@ three inconsistent files in your directory.</p>
 We can ask the AI to write an inspection script that reads every CSV in
 the folder and reports the filenames, column names, and missing value
 counts.</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column."</span></span></code></pre>
-</div>
+<pre><code>Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column.</code></pre>
 <p>Run the inspection script. You should see inconsistencies like
 <code>site_A</code> using <code>ParticipantID</code> while
 <code>site_B</code> uses <code>id</code>.</p>
@@ -1180,11 +1457,7 @@ the script follows the project’s rules.</p>
 </h3>
 <p>We will now ask Gemini to generate a script using the rules defined
 in <code>AGENTS.md</code>.</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renaming IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules."</span></span></code></pre>
-</div>
+<pre><code>Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renames IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules.</code></pre>
 
 <div id="the-editor-role" class="callout">
 <div class="callout-square">
@@ -1240,13 +1513,9 @@ logic. Run the updated script and verify the results in
   Example command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."</span></span></code></pre>
-</div>
+<pre><code>Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.</code></pre>
 <div class="section level3">
 <h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a>
 </h3>
@@ -1267,11 +1536,7 @@ logic. Run the updated script and verify the results in
 <p>For the final step, have the AI generate a README that explains the
 data pipeline, including the raw files, cleaning steps, and final output
 format.</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."</span></span></code></pre>
-</div>
+<pre><code>Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format.</code></pre>
 <div id="challenge-provenance-tracking" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1303,13 +1568,9 @@ code and when.</p>
   Example command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"</span></span></code></pre>
-</div>
+<pre><code>Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'</code></pre>
 <div class="section level3">
 <h3 id="reflection-1">Reflection<a class="anchor" aria-label="anchor" href="#reflection-1"></a>
 </h3>
@@ -1548,7 +1809,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-05-limitations"><p>Content from <a href="05-limitations.html">Limitations and cautions</a></p>
 <hr>
-<p>Last updated on 2026-03-11 |
+<p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/05-limitations.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1698,20 +1959,18 @@ the documentation instead of querying an LLM.</li>
 </div>
 </div>
 
-<div id="challenge-identify-hallucinations" class="callout challenge">
+<div id="challenge-test-for-hallucinations" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-identify-hallucinations" class="callout-inner">
-<h3 class="callout-title">Challenge: Identify hallucinations</h3>
+<div id="challenge-test-for-hallucinations" class="callout-inner">
+<h3 class="callout-title">Challenge: Test for hallucinations</h3>
 <div class="callout-content">
-<p>AI models sometimes invent information when they lack an answer.</p>
-<p><strong>Task:</strong> Ask Gemini to explain a non-existent package
-or function.
-<code>gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"</code></p>
-<p>Did the model admit it does not know, or did it invent
-instructions?</p>
+<p>Inside your Gemini CLI session, type:</p>
+<pre><code>How do I use the 'pypanda-researcher' library to automatically write my conclusion?</code></pre>
+<p>Note whether the model admits it does not know, hedges with
+uncertainty, or confidently invents instructions.</p>
 </div>
 </div>
 </div>
@@ -1722,10 +1981,15 @@ instructions?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<p>AI often confidently describes how to use fake libraries. Always
-verify the existence of suggested libraries and functions.</p>
+<p>Current models (Gemini 2.5, Claude, GPT-4o) are significantly better
+at refusing or flagging uncertainty than earlier generations — you may
+get a clean “this doesn’t exist” response. That is the correct behavior.
+The lesson here is not that hallucination always happens, but that you
+cannot assume it won’t: always verify suggested libraries and functions
+exist before using them. Older or smaller models are still more likely
+to confabulate.</p>
 </div>
 </div>
 </div>
@@ -1787,7 +2051,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-06-resources"><p>Content from <a href="06-resources.html">Resources and next steps</a></p>
 <hr>
-<p>Last updated on 2026-03-11 |
+<p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/06-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1828,7 +2092,7 @@ any links that you are not going to use.
 tools like Claude Code (Anthropic’s CLI), GitHub Copilot, and Aider (a
 CLI agent that works with multiple models) provide terminal support.</p>
 <p>Some researchers use AI-native code editors like Cursor to interact
-with an entire repository. Models like Gemini 2.0 and DeepSeek-V3/R1
+with an entire repository. Models like Gemini 2.5 and DeepSeek-V3/R1
 have increased the speed of these interactions.</p>
 <p>Research-specific tools are also emerging. Elicit and Consensus focus
 on scientific paper discovery and evidence-based claims. Google’s
@@ -1872,7 +2136,7 @@ Alibaba (e.g., Qwen2.5-Coder) that can be run offline for security.</li>
 <div class="callout-content">
 <p>Local models offer privacy but require significant hardware
 (especially GPU VRAM) to match the performance of cloud models like
-Gemini 2.0. Many researchers use a hybrid approach: cloud models for
+Gemini 2.5. Many researchers use a hybrid approach: cloud models for
 general scripting and local models for sensitive data.</p>
 </div>
 </div>
@@ -1883,23 +2147,23 @@ general scripting and local models for sensitive data.</p>
 <div class="section level3">
 <h3 id="automated-research-discovery">Automated research discovery<a class="anchor" aria-label="anchor" href="#automated-research-discovery"></a>
 </h3>
-<p>For time-sensitive research, specialized agents can scan social
-platforms, developer forums, and prediction markets to identify trends
-before they appear in traditional journals. The <code>last30days</code>
-agent skill is a tool for this “real-time literature mapping.”</p>
-<div id="the-orchestrators-deep-research-prompt" class="callout">
+<p>For time-sensitive research, AI agents can scan social platforms,
+developer forums, and prediction markets to identify trends before they
+appear in traditional journals. This “real-time literature mapping”
+works by prompting the agent to synthesize signal from fast-moving
+sources alongside traditional ones.</p>
+<div id="a-deep-research-prompt-pattern" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="the-orchestrators-deep-research-prompt" class="callout-inner">
-<h3 class="callout-title">The orchestrator’s deep research prompt</h3>
+<div id="a-deep-research-prompt-pattern" class="callout-inner">
+<h3 class="callout-title">A deep research prompt pattern</h3>
 <div class="callout-content">
-<p>Use this prompt with a research discovery agent (like
-<code>last30days</code>) to trigger high-signal synthesis:</p>
-<p>“Act as a research orchestrator. Use the <code>last30days</code> tool
-to find the most discussed [TOPIC] from the last 30 days across Reddit,
-X, and Hacker News.</p>
+<p>Use a prompt like this with any AI assistant that has web search
+access:</p>
+<p>“Act as a research orchestrator. Find the most discussed [TOPIC] from
+the last 30 days across Reddit, X, and Hacker News.</p>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Discovery</strong>: Identify the top 3 tools or
@@ -1908,8 +2172,8 @@ methodologies mentioned.</li>
 <strong>Sentiment</strong>: Quote the most upvoted critique for
 each.</li>
 <li>
-<strong>Verification</strong>: Cross-reference these with Polymarket
-or web sources for real-world impact.</li>
+<strong>Verification</strong>: Cross-reference these with web
+sources for real-world impact.</li>
 <li>
 <strong>Validation</strong>: Apply ‘Layer 4: Domain
 Plausibility’—identify one trend that sounds plausible but may be an
@@ -1974,12 +2238,12 @@ Add an AI usage section to your project documentation:</p>
 <div class="callout-content">
 <ul>
 <li>
-<strong>Model:</strong> Google Gemini 2.0 Thinking (via Aider)</li>
+<strong>Model:</strong> Google Gemini 2.5 Flash</li>
 <li>
 <strong>Role:</strong> Spec drafting and spec-guided cleaning.</li>
 <li>
 <strong>Verification:</strong> Verified by [Your Name] via
-<strong>AGENTS.md</strong> rules and <code>validate_data.py</code>.</li>
+<code>GEMINI.md</code> rules and <code>validate_data.py</code>.</li>
 </ul>
 </div>
 </div>
@@ -1988,8 +2252,8 @@ Add an AI usage section to your project documentation:</p>
 acknowledgements section.</p>
 <ul>
 <li>
-<em>Example:</em> “We used Google Gemini (version 1.5) to assist
-with data cleaning scripts. Prompts and raw outputs are available in the
+<em>Example:</em> “We used Google Gemini 2.5 Flash to assist with
+data cleaning scripts. Prompts and raw outputs are available in the
 supplementary material.”</li>
 </ul>
 </div>
@@ -2020,14 +2284,15 @@ your use of the tool.</li>
 <ul class="task-list">
 <li><label><input type="checkbox">CLI agents coordinate actions
 directly on your files.</label></li>
-<li><label><input type="checkbox"><strong>AGENTS.md</strong> acts as
-your ‘Living Spec’ and source of truth.</label></li>
+<li><label><input type="checkbox">A Living Spec
+(<code>GEMINI.md</code> or portable <code>AGENTS.md</code>) is your
+source of truth.</label></li>
 <li><label><input type="checkbox">The <strong>Bootstrap
 Workflow</strong> creates your spec from your data.</label></li>
 <li><label><input type="checkbox">Use <strong>Layer 4: Domain
 Plausibility</strong> to catch research logic errors.</label></li>
-<li><label><input type="checkbox"><strong>Commit-as-Draft</strong>
-with Aider ensures every change is traceable.</label></li>
+<li><label><input type="checkbox">Track AI-generated code with Git so
+every change is reversible.</label></li>
 </ul>
 </div>
 </div>
@@ -2174,7 +2439,7 @@ unit tests, or metamorphic checks?</li>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A pre-defined protocol reduces decision fatigue during complex coding
 sessions. Deciding how to verify work early prevents approval fatigue
@@ -2253,8 +2518,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/aio.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/aio.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-24",
-  "datePublished": "2026-03-24"
+  "dateModified": "2026-03-25",
+  "datePublished": "2026-03-25"
 }
 
   </script><script>

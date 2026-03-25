@@ -329,7 +329,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Limitations and cautions</h1>
-        <p>Last updated on 2026-03-11 |
+        <p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/05-limitations.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -466,20 +466,18 @@ the documentation instead of querying an LLM.</li>
 </div>
 </div>
 
-<div id="challenge-identify-hallucinations" class="callout challenge">
+<div id="challenge-test-for-hallucinations" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="challenge-identify-hallucinations" class="callout-inner">
-<h3 class="callout-title">Challenge: Identify hallucinations</h3>
+<div id="challenge-test-for-hallucinations" class="callout-inner">
+<h3 class="callout-title">Challenge: Test for hallucinations</h3>
 <div class="callout-content">
-<p>AI models sometimes invent information when they lack an answer.</p>
-<p><strong>Task:</strong> Ask Gemini to explain a non-existent package
-or function.
-<code>gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"</code></p>
-<p>Did the model admit it does not know, or did it invent
-instructions?</p>
+<p>Inside your Gemini CLI session, type:</p>
+<pre><code>How do I use the 'pypanda-researcher' library to automatically write my conclusion?</code></pre>
+<p>Note whether the model admits it does not know, hedges with
+uncertainty, or confidently invents instructions.</p>
 </div>
 </div>
 </div>
@@ -490,10 +488,15 @@ instructions?</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<p>AI often confidently describes how to use fake libraries. Always
-verify the existence of suggested libraries and functions.</p>
+<p>Current models (Gemini 2.5, Claude, GPT-4o) are significantly better
+at refusing or flagging uncertainty than earlier generations — you may
+get a clean “this doesn’t exist” response. That is the correct behavior.
+The lesson here is not that hallucination always happens, but that you
+cannot assume it won’t: always verify suggested libraries and functions
+exist before using them. Older or smaller models are still more likely
+to confabulate.</p>
 </div>
 </div>
 </div>
@@ -607,8 +610,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/05-limitations.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/05-limitations.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-11",
-  "datePublished": "2026-03-24"
+  "dateModified": "2026-03-25",
+  "datePublished": "2026-03-25"
 }
 
   </script><script>

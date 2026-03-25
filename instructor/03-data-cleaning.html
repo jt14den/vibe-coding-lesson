@@ -328,7 +328,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Data cleaning with AI</h1>
-        <p>Last updated on 2026-03-11 |
+        <p>Last updated on 2026-03-25 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/03-data-cleaning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -375,7 +375,7 @@
   Live coding
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>This episode uses live coding. Learners should follow along by
 running commands on their own machines.</p>
@@ -396,6 +396,26 @@ can take 10-30 seconds.</p>
 </div>
 </div>
 </div>
+<div id="working-inside-the-gemini-cli" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="working-inside-the-gemini-cli" class="callout-inner">
+<h3 class="callout-title">Working inside the Gemini CLI</h3>
+<div class="callout-content">
+<p>All prompts in this episode are typed inside an active Gemini CLI
+session. Start one in your project folder before the exercises:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+</div>
+<p>Run Python scripts in a separate terminal window when instructed.</p>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="cleaning-messy-data">Cleaning messy data<a class="anchor" aria-label="anchor" href="#cleaning-messy-data"></a></h2>
 <hr class="half-width"><p>Cleaning and merging inconsistent files is a common bottleneck in
 research. We will use Gemini to standardize messy CSV files.</p>
@@ -406,11 +426,7 @@ use AI to simulate a multi-site study where each location used different
 naming conventions or date formats. Run this command to generate three
 files: <code>site_A.csv</code>, <code>site_B.csv</code>, and
 <code>site_C.csv</code>.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."</span></span></code></pre>
-</div>
+<pre><code>Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023').</code></pre>
 <p>After running <code>python make_messy_data.py</code>, you will have
 three inconsistent files in your directory.</p>
 </div>
@@ -420,11 +436,7 @@ three inconsistent files in your directory.</p>
 We can ask the AI to write an inspection script that reads every CSV in
 the folder and reports the filenames, column names, and missing value
 counts.</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column."</span></span></code></pre>
-</div>
+<pre><code>Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column.</code></pre>
 <p>Run the inspection script. You should see inconsistencies like
 <code>site_A</code> using <code>ParticipantID</code> while
 <code>site_B</code> uses <code>id</code>.</p>
@@ -451,11 +463,7 @@ the script follows the project’s rules.</p>
 <h3 id="harmonizing-files-with-the-spec">Harmonizing files with the Spec<a class="anchor" aria-label="anchor" href="#harmonizing-files-with-the-spec"></a></h3>
 <p>We will now ask Gemini to generate a script using the rules defined
 in <code>AGENTS.md</code>.</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renaming IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules."</span></span></code></pre>
-</div>
+<pre><code>Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renames IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules.</code></pre>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
@@ -464,7 +472,7 @@ in <code>AGENTS.md</code>.</p>
   Backup scripts
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>If a learner’s AI fails to generate working code, provide the
 pre-written versions from <code>instructors/files/</code>: -
@@ -513,7 +521,7 @@ methodology.</p>
   Challenge tip
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <p>This challenge requires modifying existing code. If learners are
 stuck, suggest they ask the AI to read <code>clean_and_merge.py</code>
@@ -545,13 +553,9 @@ logic. Run the updated script and verify the results in
   Example command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."</span></span></code></pre>
-</div>
+<pre><code>Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.</code></pre>
 <div class="section level3">
 <h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a></h3>
 <ul><li>Did the AI edit the relevant part or rewrite the whole file?</li>
@@ -568,11 +572,7 @@ logic. Run the updated script and verify the results in
 <p>For the final step, have the AI generate a README that explains the
 data pipeline, including the raw files, cleaning steps, and final output
 format.</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."</span></span></code></pre>
-</div>
+<pre><code>Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format.</code></pre>
 <div id="challenge-provenance-tracking" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -600,13 +600,9 @@ code and when.</p>
   Example command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"</span></span></code></pre>
-</div>
+<pre><code>Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'</code></pre>
 <div class="section level3">
 <h3 id="reflection-1">Reflection<a class="anchor" aria-label="anchor" href="#reflection-1"></a></h3>
 <ul><li>Why record the model version and date?</li>
@@ -695,8 +691,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/instructor/03-data-cleaning.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/instructor/03-data-cleaning.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-11",
-  "datePublished": "2026-03-24"
+  "dateModified": "2026-03-25",
+  "datePublished": "2026-03-25"
 }
 
   </script><script>
