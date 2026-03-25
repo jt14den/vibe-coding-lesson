@@ -106,52 +106,39 @@ Unlike browser tools, the Gemini CLI has access to your working environment. It 
 
 ## Security responsibility
 
-Giving an AI agent access to your filesystem is a security responsibility. A buggy or misaligned agent could delete files or access sensitive data like `.ssh` keys or `.env` files.
+Giving an AI agent access to your filesystem is a security responsibility. A buggy or misconfigured agent could delete files or access sensitive data, such as passwords.
 
-### Mitigating risk with sandboxing
-
-Sandboxing runs the AI tool in a restricted environment where it can only see and modify specific files.
-
-In this lesson, we use Docker to create a sandbox. When you run the agent inside a Docker container:
-1.  **Isolation**: The agent is isolated from your personal files and operating system.
-2.  **Controlled access**: You choose which folder the agent can see by mounting it as a volume.
-3.  **Safe failure**: If the agent runs a destructive command, it only affects temporary files inside the container.
-
-Always consider the blast radius of your tools. Ensure files are backed up or under version control (like Git) so you can revert unwanted changes.
+Always consider that your tools can have unintended consequences. Ensure files are backed up or under version control (like Git) so you can revert unwanted changes.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Long context
 
-Models like Gemini 2.5 have a long context window of 1 million to 2 million tokens. You can provide the AI with your entire project folder—scripts, documentation, and small datasets—at once.
+Like humans, we only have a certain amount of working memory and LLMs operate in similar fashion. This is called the **context window** in LLM tools. Models like Gemini 2.5 have a long context window of 1 million to 2 million tokens. You can provide the AI with your entire project folder—scripts, documentation, and small datasets—at once.
 
 This allows you to describe the desired state of your project, and the agent coordinates changes across multiple files. In a research context, this is declarative programming with AI agents.
 
-::::::::::::::::::::::::::::::::::::::::: caution
-
-## Context poisoning
-
-Large context windows carry a risk of context poisoning. If your directory contains old scripts or contradictory documentation in an `/archive` folder, the AI may hallucinate based on that outdated information.
-
-**Best practice:** Use explicit scoping. Tell the agent: "Ignore the `/archive` folder and only consider `.py` files in the `src/` directory."
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## How much context is enough?
-
-More context is not always better. Attention quality can degrade when the context window is very full — the model may lose track of information buried in the middle. A rough guide for research projects:
-
-| Project size | What to include | What to exclude |
-|---|---|---|
-| Small (< 10 files) | Everything | Nothing — just start |
-| Medium (10–50 files) | Spec + files relevant to the current task | Archives, unrelated scripts, raw data |
-| Large (50+ files) | Explicit file references per task | Everything else |
-
-For research data specifically: never load full datasets. Provide a schema, column list, or the first few rows instead. If the agent starts making errors that feel like it "forgot" earlier instructions, that is often a sign the context is too large and diluted — try starting a fresh session with tighter scoping.
+TODO: change this some caveat about degredation of the llm as you load more to the context it could degrade. This is called context poisioning. Just be mindful that managing this context is an important part of the workflow you are building. Take out these heuristics below.  context window is important. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Let's make sure this works
+
+Open a terminal window and type `gemini --help` and you should see something like 
+
+Usage: gemini [options] [command]
+
+Gemini CLI - Defaults to interactive mode. Use -p/--prompt for non-interactive (headless) mode.
+
+Commands:
+  gemini [query..]             Launch Gemini CLI                                                                                                      [default]
+  gemini mcp                   Manage MCP servers
+  gemini extensions <command>  Manage Gemini CLI extensions.                                                                               [aliases: extension]
+  gemini skills <command>      Manage agent skills.                                                                                            [aliases: skill]
+  gemini hooks <command>       Manage Gemini CLI hooks.                                                                                         [aliases: hook]
+... 
 
 ## Starting a Gemini CLI session
 
@@ -172,26 +159,17 @@ Always start the Gemini CLI from inside your project folder. The agent uses the 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge: Your first AI CLI command
 
 Navigate to your project folder and start a session:
 
 ```bash
-cd path/to/your/project
-gemini
+cd /path/to/project/directory ##need to scaffold 
+gemini -p "Tell me what operating system I am currently using and list the files in this directory."
 ```
 
-Once the CLI is running, type the following prompt and press Enter:
-
-```
-Tell me what operating system I am currently using and list the files in this directory.
-```
-
-Compare the output to what you see when you run `ls` (or `dir` on Windows) and `uname -a`. Did the AI accurately describe your environment?
-
-:::::::::::::::::::::::::::::::::::::::: solution
+Compare the output to what you see when you run `ls` (or `dir` on Windows). Did the AI accurately describe your environment?
 
 ## Example output
 
@@ -204,21 +182,35 @@ The AI should return a response similar to:
 - data/
 ..."
 
-### Reflection
-- Did the AI see files that you didn't manually upload?
-- How does this change your approach to copying and pasting code?
+Notice that gemini can 'see' your files and understands what environment you are working in. 
 
-::::::::::::::::::::::::::::::::::::::::: callout
+We have a project folder that we want to start a project in, let's initialize it as a gemini project and see what that does. 
 
-## Note on variations
 
-The AI's exact wording will vary, but it should correctly identify your OS and the files in your folder.
+### Initialize your project
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+The Gemini CLI includes an `init` command that creates a `GEMINI.md` template in your working directory:
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+```bash
+gemini
+```
+You are now in gemini itself. Now let type the slash key and see the slash commands that are available to us, page thru and see the full list. Now, if you noticed the `/init` command, this is the one that will initialize our project in gemini. Let's run it
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+```bash
+/init
+```
+
+Notice that it does a bunch of stuff and inspects your file folders. After it finishes let's see what new files have been created. You can do this inside gemini by: 
+
+```bash
+!ls
+```
+
+This shows the files that are create. You would see a file name `gemini.md`. Let's look inside the file using the `cat` command with `!`:
+
+```bash
+!cat gemini.md
+```
 
 ## The Living Spec
 
