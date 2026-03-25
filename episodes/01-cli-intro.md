@@ -39,7 +39,7 @@ If it returns a version number, they are ready. If the command is not found, the
 
 Most researchers use chat-based AI in a browser. These tools are good for brainstorming but run in an isolated sandbox. They cannot see your files, run your code, or understand your project structure without manual uploads.
 
-A CLI agent runs in your terminal and has access to three things a browser tool does not.
+A CLI (Command Line Interface) agent runs in your terminal — the same place you run Python scripts or navigate your filesystem with `ls` and `cd` — and has access to three things a browser tool does not.
 
 **Your files and data.** The agent can read your actual datasets, inspect your directory structure, and write scripts directly to disk. You are not copying and pasting between a chat window and a code editor. The agent works in your project the way a collaborator sitting at your machine would.
 
