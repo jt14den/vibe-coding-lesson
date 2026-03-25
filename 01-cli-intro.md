@@ -206,11 +206,41 @@ Notice that it does a bunch of stuff and inspects your file folders. After it fi
 !ls
 ```
 
-This shows the files that are create. You would see a file name `gemini.md`. Let's look inside the file using the `cat` command with `!`:
+This shows the files that are created. You should see a file named `GEMINI.md`. Let's look inside it using the `cat` command with `!`:
 
 ```bash
-!cat gemini.md
+!cat GEMINI.md
 ```
+
+Here is what Gemini generated for a fresh empty project folder:
+
+```markdown
+# Project Context: vibe-coding-lesson
+
+## Directory Overview
+
+The `/Users/geno/Desktop/vibe-coding-lesson` directory appears to be an empty
+project directory. It currently contains only this `GEMINI.md` file, which
+serves as an index and context provider for the project.
+
+## Key Files
+
+*   **`GEMINI.md`**: This file contains project-specific context, documentation,
+    and instructional information for AI agents and developers. It is intended to
+    be updated as the project evolves.
+
+## Usage
+
+This directory is intended to be a workspace for the 'vibe-coding-lesson'
+project. As it is currently empty, it is ready for initialization or the
+addition of new files and code. Future usage will depend on the specific goals
+of the 'vibe-coding-lesson' project.
+
+---
+*Last analyzed on: March 25, 2026*
+```
+
+A few things to notice. Gemini scanned the directory and described what it found. Because the folder was empty, it does not have much to say yet. Once you add data files, scripts, and documentation, running `/init` again will produce a richer spec that reflects your actual project. This is also something you will want to edit by hand — add your goals, constraints, and any rules you want the agent to follow.
 
 ## The Living Spec
 
