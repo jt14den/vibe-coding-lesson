@@ -126,8 +126,9 @@ TODO: change this some caveat about degredation of the llm as you load more to t
 
 ## Let's make sure this works
 
-Open a terminal window and type `gemini --help` and you should see something like 
+Open a terminal window and type `gemini --help` and you should see something like: 
 
+```bash
 Usage: gemini [options] [command]
 
 Gemini CLI - Defaults to interactive mode. Use -p/--prompt for non-interactive (headless) mode.
@@ -138,7 +139,8 @@ Commands:
   gemini extensions <command>  Manage Gemini CLI extensions.                                                                               [aliases: extension]
   gemini skills <command>      Manage agent skills.                                                                                            [aliases: skill]
   gemini hooks <command>       Manage Gemini CLI hooks.                                                                                         [aliases: hook]
-... 
+...
+```
 
 ## Starting a Gemini CLI session
 
