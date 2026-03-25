@@ -266,6 +266,10 @@ In your project directory, run `gemini init` to create a `GEMINI.md` file. Then 
 
 ## Example spec file
 
+<!-- TODO: Once model config mechanism is confirmed, add a 'model: gemini-2.5-flash-lite'
+     line (or equivalent) to this example so learners see model pinning as a
+     standard part of the spec from the start. -->
+
 ```markdown
 # Project: Arctic Sea Ice Analysis
 
