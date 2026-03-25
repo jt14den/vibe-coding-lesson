@@ -488,18 +488,21 @@ once.</p>
 <p>This allows you to describe the desired state of your project, and
 the agent coordinates changes across multiple files. In a research
 context, this is declarative programming with AI agents.</p>
-<div id="callout2" class="callout">
+<div id="a-large-context-window-is-not-a-free-pass" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div class="callout-inner">
+<div id="a-large-context-window-is-not-a-free-pass" class="callout-inner">
+<h3 class="callout-title">A large context window is not a free pass</h3>
 <div class="callout-content">
-<p>TODO: change this some caveat about degredation of the llm as you
-load more to the context it could degrade. This is called context
-poisioning. Just be mindful that managing this context is an important
-part of the workflow you are building. Take out these heuristics below.
-context window is important.</p>
+<p>The more you load into a session, the more the model has to track.
+Beyond a certain point, quality degrades — the model may lose track of
+earlier instructions, produce inconsistent output, or fixate on the
+wrong files. This is sometimes called context poisoning.</p>
+<p>A large context window makes this easier to run into, not harder.
+Managing what goes into your context is part of the workflow, not an
+afterthought.</p>
 </div>
 </div>
 </div>
@@ -734,7 +737,7 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
   Example spec file
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <!-- TODO: Once model config mechanism is confirmed, add a 'model: gemini-2.5-flash-lite'
      line (or equivalent) to this example so learners see model pinning as a
