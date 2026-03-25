@@ -14,7 +14,7 @@ This lesson is designed to help researchers navigate the transition from **imper
 ---
 
 ## Episode 1: Understanding CLI-Based AI
-- **Auth Check:** Ensure all learners have their `GEMINI_API_KEY` exported. If they are using Docker, confirm they passed the environment variable correctly.
+- **Auth Check:** Ask learners to run `gemini --version`. If it returns a version number they are ready. If not, have them run `gemini auth login` and sign in with a Google account before continuing.
 - **The Browser vs. CLI distinction:** Use the analogy of a "consultant" (Browser) vs. a "research assistant with keys to the lab" (CLI).
 - **Discussion:** The prompt about "ChatGPT writing code that looks correct but fails" is a great way to bond over shared frustration and set the stage for why we need the CLI (to run and test immediately).
 
