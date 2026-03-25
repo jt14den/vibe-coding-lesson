@@ -33,6 +33,18 @@ gemini --version
 
 If you see a version number, you are ready. If the command is not found, restart your terminal and try again.
 
+<!-- TODO: Add a step here to configure the default model to gemini-2.5-flash-lite.
+     This keeps all learners on the same free-tier model during the workshop.
+     Need to confirm the correct mechanism for @google/gemini-cli:
+       - Is it a config file (e.g. ~/.gemini/config.json or settings.json)?
+       - An environment variable (GEMINI_MODEL or similar)?
+       - A flag passed when starting the CLI?
+       - A setting in GEMINI.md?
+     Also decide whether to provide a pre-configured starter folder that learners
+     download before class (with GEMINI.md and model config pre-set).
+     Reflect the chosen approach in setup.md, episode 01 GEMINI.md example,
+     and instructor notes. -->
+
 :::::::::::::::::::::::::::::::::::::::::::::::::: caution
 
 ### Security and working directory
