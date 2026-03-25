@@ -208,11 +208,11 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#path-1-direct-local-install-recommended">Path 1: Direct Local Install (Recommended)</a></li>
-<li><a href="#path-2-local-sandbox-advanced-docker">Path 2: Local Sandbox (Advanced / Docker)</a></li>
-<li><a href="#path-3-dedicated-ai-sandboxes-automated">Path 3: Dedicated AI Sandboxes (Automated)</a></li>
-<li><a href="#path-4-github-codespaces-zero-install-trial">Path 4: GitHub Codespaces (Zero-Install Trial)</a></li>
-<li><a href="#institutional-context-access">Institutional Context &amp; Access</a></li>
+        <ul><li><a href="#install-node.js-and-python">1. Install Node.js and Python</a></li>
+<li><a href="#install-the-gemini-cli">2. Install the Gemini CLI</a></li>
+<li><a href="#authenticate">3. Authenticate</a></li>
+<li><a href="#verify-the-install">4. Verify the install</a></li>
+<li><a href="#institutional-context-and-access">Institutional context and access</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -399,114 +399,91 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
 </section><section id="setup"><p>To follow this lesson, you will need the Gemini CLI and Python
-installed on your machine. The primary benefit of a CLI-based AI is its
-ability to interact directly with your local files and environment. For
-advanced users, we recommend using a <strong>Sandbox</strong> to isolate
-the agent from your sensitive files.</p>
-<section><h2 class="section-heading" id="path-1-direct-local-install-recommended">Path 1: Direct Local Install (Recommended)<a class="anchor" aria-label="anchor" href="#path-1-direct-local-install-recommended"></a></h2>
-<hr class="half-width"><p>This is the standard way to use CLI AI tools. It gives the agent
-direct access to your project files, allowing it to read data, write
-scripts, and run commands in your actual working directory.</p>
-<div id="a-note-on-security-sandboxing" class="callout caution">
-<div class="callout-square">
-<i class="callout-icon" data-feather="alert-triangle"></i>
-</div>
-<span class="callout-header">Caution</span>
-<div id="a-note-on-security-sandboxing" class="callout-inner">
-<h3 class="callout-title">A Note on Security &amp; Sandboxing</h3>
-<div class="callout-content">
-<p>Giving an AI agent direct access to your filesystem is a significant
-responsibility. A buggy or misaligned agent could theoretically modify
-or delete important files.</p>
-<p><strong>Some researchers prefer to run these tools in a
-“Sandbox”</strong> to isolate the agent from their personal files. We
-provide a <code>Dockerfile</code> and instructions for this in the
-<strong>Path 2: Docker</strong> below. However, for this workshop, you
-can run the tool directly as long as you: 1. Only run the agent in
-dedicated project folders. 2. Ensure you have a backup or use Git to
-track changes. 3. Never run the agent in folders containing sensitive
-system configuration or personal data (like your Home directory or
-<code>.ssh</code> folder).</p>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="install-node-js-python">1. Install Node.js &amp; Python<a class="anchor" aria-label="anchor" href="#install-node-js-python"></a></h3>
-<ul><li>
+installed on your machine. The steps below get you set up with a direct
+local install, which is the approach used throughout the lesson.</p>
+<section><h2 class="section-heading" id="install-node-js-and-python">1. Install Node.js and Python<a class="anchor" aria-label="anchor" href="#install-node-js-and-python"></a></h2>
+<hr class="half-width"><ul><li>
 <strong>Node.js</strong>: Download the LTS version from <a href="https://nodejs.org" class="external-link">nodejs.org</a> or use a package manager
-(<code>brew install node</code>).</li>
+(<code>brew install node</code> on macOS).</li>
 <li>
-<strong>Python</strong>: Ensure you have Python 3.9+ installed
-(<code>python --version</code>).</li>
-</ul></div>
-<div class="section level3">
-<h3 id="install-the-gemini-cli">2. Install the Gemini CLI<a class="anchor" aria-label="anchor" href="#install-the-gemini-cli"></a></h3>
-<p>Open your terminal and run:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<strong>Python</strong>: Ensure you have Python 3.9+ installed.
+Check with <code>python --version</code>.</li>
+</ul></section><section><h2 class="section-heading" id="install-the-gemini-cli">2. Install the Gemini CLI<a class="anchor" aria-label="anchor" href="#install-the-gemini-cli"></a></h2>
+<hr class="half-width"><div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @google/gemini-cli</span></code></pre>
 </div>
-</div>
-<div class="section level3">
-<h3 id="authenticate">3. Authenticate<a class="anchor" aria-label="anchor" href="#authenticate"></a></h3>
-<p>Run the following command and sign in with your Google account when
-the browser opens:</p>
+</section><section><h2 class="section-heading" id="authenticate">3. Authenticate<a class="anchor" aria-label="anchor" href="#authenticate"></a></h2>
+<hr class="half-width"><p>Run this command and sign in with your Google account when the
+browser opens:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> auth login</span></code></pre>
 </div>
 <p>The CLI stores your credentials locally. You will not need to repeat
-this step in future sessions.</p>
-<hr></div>
-</section><section><h2 class="section-heading" id="path-2-local-sandbox-advanced-docker">Path 2: Local Sandbox (Advanced / Docker)<a class="anchor" aria-label="anchor" href="#path-2-local-sandbox-advanced-docker"></a></h2>
-<hr class="half-width"><p>If you are comfortable with Docker and want the extra security of an
-isolated environment, you can use our pre-configured sandbox. This
-requires some additional setup but ensures the AI cannot see anything
-outside the folder you “mount” to it.</p>
-<ol style="list-style-type: decimal"><li><p><strong>Install Docker Desktop</strong>: Download from <a href="https://www.docker.com/" class="external-link">docker.com</a>.</p></li>
-<li><p><strong>Build the Sandbox</strong>:
-<code>bash     docker build -t vibe-coding-sandbox .</code></p></li>
-<li><p><strong>Run the Sandbox</strong>:
-<code>bash     docker run -it -v "$(pwd):/home/researcher/project" vibe-coding-sandbox</code>
-<em>This command “mounts” your current folder into the container,
-allowing the AI to work only on those files.</em></p></li>
-<li><p><strong>Authenticate inside the container</strong>:
-<code>bash     gemini auth login</code> This opens a browser window on
-your host machine to complete sign-in.</p></li>
-</ol><hr></section><section><h2 class="section-heading" id="path-3-dedicated-ai-sandboxes-automated">Path 3: Dedicated AI Sandboxes (Automated)<a class="anchor" aria-label="anchor" href="#path-3-dedicated-ai-sandboxes-automated"></a></h2>
-<hr class="half-width"><p>Modern tools now offer automated sandboxing specifically for AI
-agents. These provide a more seamless experience than manual Docker
-configuration.</p>
+this step.</p>
+</section><section><h2 class="section-heading" id="verify-the-install">4. Verify the install<a class="anchor" aria-label="anchor" href="#verify-the-install"></a></h2>
+<hr class="half-width"><div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">--version</span></span></code></pre>
+</div>
+<p>If you see a version number, you are ready. If the command is not
+found, restart your terminal and try again.</p>
+<div id="security-and-working-directory" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="security-and-working-directory" class="callout-inner">
+<h3 class="callout-title">Security and working directory</h3>
+<div class="callout-content">
+<p>The Gemini CLI runs in your terminal and has direct access to the
+files in your current folder. A few habits to keep in mind:</p>
+<ol style="list-style-type: decimal"><li>Always start the CLI from a dedicated project folder, not your home
+directory.</li>
+<li>Keep files under version control (Git) so you can revert unwanted
+changes.</li>
+<li>Never start the CLI in folders with sensitive system files,
+credentials, or private data.</li>
+</ol></div>
+</div>
+</div>
+<div id="running-in-a-sandbox-optional" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="running-in-a-sandbox-optional" class="callout-inner">
+<h3 class="callout-title">Running in a sandbox (optional)</h3>
+<div class="callout-content">
+<p>Some researchers prefer to isolate the CLI from their personal files
+entirely. Two options worth knowing about:</p>
 <ul><li>
-<strong><a href="https://agent-safehouse.dev/" class="external-link">Agent
-Safehouse</a></strong>: A specialized environment for running AI agents
-safely with built-in security controls.</li>
+<strong>Docker</strong>: The lesson repository includes a
+<code>Dockerfile</code> that builds a container with the Gemini CLI
+pre-installed. The agent can only see files you explicitly mount into
+it. See the <a href="https://docs.docker.com/" class="external-link">Docker documentation</a>
+for setup, or <a href="https://docs.docker.com/ai/sandboxes/" class="external-link">Docker AI
+Sandboxes</a> for a purpose-built option.</li>
 <li>
-<strong><a href="https://docs.docker.com/ai/sandboxes/" class="external-link">Docker AI
-Sandboxes</a></strong>: Docker’s official solution for creating
-isolated, ephemeral environments for AI development.</li>
-</ul><hr></section><section><h2 class="section-heading" id="path-4-github-codespaces-zero-install-trial">Path 4: GitHub Codespaces (Zero-Install Trial)<a class="anchor" aria-label="anchor" href="#path-4-github-codespaces-zero-install-trial"></a></h2>
-<hr class="half-width"><p>If you just want to try the tools without installing anything, you
-can launch this lesson in a browser. This is great for a quick demo, but
-remember that <strong>you are not acting on your own local
-files</strong>; you are in a temporary cloud environment.</p>
-<ol style="list-style-type: decimal"><li>
-<strong>Open the Repository</strong>: <a href="https://github.com/jt14den/vibe-coding-lesson" class="external-link">jt14den/vibe-coding-lesson</a>
-</li>
-<li>
-<strong>Launch Codespace</strong>: Click <strong>Code &gt;
-Codespaces &gt; Create codespace on main</strong>.</li>
-<li>
-<strong>Authenticate</strong>: Run <code>gemini auth login</code>
-inside the codespace terminal and follow the browser prompt.</li>
-</ol><hr></section><section><h2 class="section-heading" id="institutional-context-access">Institutional Context &amp; Access<a class="anchor" aria-label="anchor" href="#institutional-context-access"></a></h2>
+<strong>Agent Safehouse</strong>: <a href="https://agent-safehouse.dev/" class="external-link">agent-safehouse.dev</a> is a
+dedicated environment for running AI agents with built-in isolation
+controls.</li>
+</ul><p>Both approaches require more setup and are not needed for this
+workshop, but are worth exploring if you plan to use these tools
+regularly with sensitive data.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="institutional-context-and-access">Institutional context and access<a class="anchor" aria-label="anchor" href="#institutional-context-and-access"></a></h2>
 <hr class="half-width"><p>Many campuses (like the University of California) have enterprise AI
-agreements. However, CLI/API access is often a separate feature that
-must be requested from IT. If your campus license doesn’t cover the CLI,
-you may need to use a personal account for this workshop. <strong>Always
-follow your institution’s data privacy policies.</strong></p>
+agreements. CLI access is often a separate feature that requires IT
+provisioning. If your institution’s license does not cover the CLI, you
+may need to use a personal Google account for this workshop. Always
+follow your institution’s data privacy policies.</p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
