@@ -462,17 +462,18 @@ locally via Ollama.</p>
 of a script. <strong>Spec-Driven Research Orchestration</strong>
 offloads syntax generation to the AI, letting you focus on the
 high-level logic and the <strong>Living Spec</strong>.</p>
-<!-- TODO: Replace this diagram. Current version is a placeholder.
-     Needs redesign to reflect updated workflow (GEMINI.md, plan-before-act,
-     approval gate). Design and final spec coming later. -->
 <pre class="mermaid"><code>graph TD
-    A[Researcher/Orchestrator] --&gt;|High-Level Goal| B(AGENTS.md: The Living Spec)
-    B --&gt;|Spec + Data| C(AI Agent)
-    C --&gt;|Draft Code/Update| D{Verification}
-    D --&gt;|Passed| E[Final Output]
-    D --&gt;|Failed| F[Refinement]
-    F --&gt; B
-    style D fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
+    A[Researcher] --&gt;|Define goal| B(GEMINI.md\nLiving Spec)
+    B --&gt; C[Request a plan]
+    C --&gt; D{Approval Gate}
+    D --&gt;|Approve| E(AI Agent executes)
+    D --&gt;|Revise| C
+    E --&gt;|Draft code| F{Verification}
+    F --&gt;|Passed| G[Final Output]
+    F --&gt;|Failed| H[Refinement]
+    H --&gt; B
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
 
 <p>This introduces a new challenge: <strong>verification load</strong>.
 You must coordinate and validate the agent’s actions against your
@@ -1527,7 +1528,7 @@ logic. Run the updated script and verify the results in
   Example command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.</code></pre>
 <div class="section level3">
@@ -1582,7 +1583,7 @@ code and when.</p>
   Example command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'</code></pre>
 <div class="section level3">
@@ -1787,7 +1788,7 @@ implementation model missed?</p></li>
   Why this works
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Models have different blind spots. Forcing a second AI to act as an
 auditor helps bypass the tendency of the primary assistant to be
@@ -1995,7 +1996,7 @@ uncertainty, or confidently invents instructions.</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Current models (Gemini 2.5, Claude, GPT-4o) are significantly better
 at refusing or flagging uncertainty than earlier generations — you may
@@ -2453,7 +2454,7 @@ unit tests, or metamorphic checks?</li>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A pre-defined protocol reduces decision fatigue during complex coding
 sessions. Deciding how to verify work early prevents approval fatigue

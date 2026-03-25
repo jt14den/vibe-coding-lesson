@@ -450,17 +450,18 @@ locally via Ollama.</p>
 of a script. <strong>Spec-Driven Research Orchestration</strong>
 offloads syntax generation to the AI, letting you focus on the
 high-level logic and the <strong>Living Spec</strong>.</p>
-<!-- TODO: Replace this diagram. Current version is a placeholder.
-     Needs redesign to reflect updated workflow (GEMINI.md, plan-before-act,
-     approval gate). Design and final spec coming later. -->
 <pre class="mermaid"><code>graph TD
-    A[Researcher/Orchestrator] --&gt;|High-Level Goal| B(AGENTS.md: The Living Spec)
-    B --&gt;|Spec + Data| C(AI Agent)
-    C --&gt;|Draft Code/Update| D{Verification}
-    D --&gt;|Passed| E[Final Output]
-    D --&gt;|Failed| F[Refinement]
-    F --&gt; B
-    style D fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
+    A[Researcher] --&gt;|Define goal| B(GEMINI.md\nLiving Spec)
+    B --&gt; C[Request a plan]
+    C --&gt; D{Approval Gate}
+    D --&gt;|Approve| E(AI Agent executes)
+    D --&gt;|Revise| C
+    E --&gt;|Draft code| F{Verification}
+    F --&gt;|Passed| G[Final Output]
+    F --&gt;|Failed| H[Refinement]
+    H --&gt; B
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#f9f,stroke:#333,stroke-width:2px</code></pre>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
