@@ -373,10 +373,23 @@
 for brainstorming but run in an isolated sandbox. They cannot see your
 files, run your code, or understand your project structure without
 manual uploads.</p>
-<p>CLI tools run in your terminal and have access to your project’s file
-system. They can read data, write scripts, and execute commands. This
-turns the AI into a research assistant that can iterate on tasks within
-your working environment.</p>
+<p>A CLI agent runs in your terminal and has access to three things a
+browser tool does not.</p>
+<p><strong>Your files and data.</strong> The agent can read your actual
+datasets, inspect your directory structure, and write scripts directly
+to disk. You are not copying and pasting between a chat window and a
+code editor. The agent works in your project the way a collaborator
+sitting at your machine would.</p>
+<p><strong>Your installed tools.</strong> Your machine probably has
+domain-specific software on it: geospatial tools like GDAL,
+bioinformatics pipelines, R packages, custom scripts, institutional data
+connectors. A browser AI has no idea these exist. A CLI agent can call
+them directly, pass output between them, and build on what you already
+have installed.</p>
+<p><strong>An iterative loop.</strong> When a script fails, the agent
+sees the error output in the terminal and can try again. You are not
+copying stack traces back into a chat window. The feedback loop is tight
+and stays in one place.</p>
 <div id="data-privacy-and-institutional-context" class="callout caution">
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
@@ -589,7 +602,7 @@ accurately describe your environment?</p>
   Example output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
@@ -711,7 +724,7 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
   Example spec file
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
