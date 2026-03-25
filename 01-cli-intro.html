@@ -506,24 +506,31 @@ context window is important.</p>
 </div>
 </section><section><h2 class="section-heading" id="lets-make-sure-this-works">Let’s make sure this works<a class="anchor" aria-label="anchor" href="#lets-make-sure-this-works"></a></h2>
 <hr class="half-width"><p>Open a terminal window and type <code>gemini --help</code> and you
-should see something like</p>
-<p>Usage: gemini [options] [command]</p>
-<p>Gemini CLI - Defaults to interactive mode. Use -p/–prompt for
-non-interactive (headless) mode.</p>
-<p>Commands: gemini [query..] Launch Gemini CLI [default] gemini mcp
-Manage MCP servers gemini extensions <command> Manage Gemini CLI
-extensions. [aliases: extension] gemini skills <command> Manage agent
-skills. [aliases: skill] gemini hooks <command> Manage Gemini CLI hooks.
-[aliases: hook] …</command></command></command></p>
+should see something like:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">Usage:</span> gemini <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">command</span><span class="pp">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">Gemini</span> CLI <span class="at">-</span> Defaults to interactive mode. Use <span class="at">-p</span>/--prompt for non-interactive <span class="er">(</span><span class="ex">headless</span><span class="kw">)</span> <span class="ex">mode.</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="ex">Commands:</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="ex">gemini</span> <span class="pp">[</span><span class="ss">query..</span><span class="pp">]</span>             Launch Gemini CLI                                                                                                      <span class="pp">[</span><span class="ss">default</span><span class="pp">]</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="ex">gemini</span> mcp                   Manage MCP servers</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  <span class="ex">gemini</span> extensions <span class="op">&lt;</span>command<span class="op">&gt;</span>  Manage Gemini CLI extensions.                                                                               [aliases: extension]</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  <span class="ex">gemini</span> skills <span class="op">&lt;</span>command<span class="op">&gt;</span>      Manage agent skills.                                                                                            [aliases: skill]</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  <span class="ex">gemini</span> hooks <span class="op">&lt;</span>command<span class="op">&gt;</span>       Manage Gemini CLI hooks.                                                                                         [aliases: hook]</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="ex">...</span></span></code></pre>
+</div>
 </section><section><h2 class="section-heading" id="starting-a-gemini-cli-session">Starting a Gemini CLI session<a class="anchor" aria-label="anchor" href="#starting-a-gemini-cli-session"></a></h2>
 <hr class="half-width"><p>Navigate to your project folder in the terminal, then run
 <code>gemini</code> with no arguments to open an interactive
 session:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
 </div>
 <p>The CLI loads your <code>GEMINI.md</code> automatically if one
 exists, then displays a prompt where you type requests directly. To exit
@@ -545,11 +552,11 @@ common sources of confusion in a workshop.</p>
 </div>
 </section><section><h2 class="section-heading" id="challenge-your-first-ai-cli-command">Challenge: Your first AI CLI command<a class="anchor" aria-label="anchor" href="#challenge-your-first-ai-cli-command"></a></h2>
 <hr class="half-width"><p>Navigate to your project folder and start a session:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> /path/to/project/directory <span class="co">##need to scaffold </span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">-p</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="bu">cd</span> /path/to/project/directory <span class="co">##need to scaffold </span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">-p</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
 </div>
 <p>Compare the output to what you see when you run <code>ls</code> (or
 <code>dir</code> on Windows). Did the AI accurately describe your
@@ -566,63 +573,63 @@ initialize it as a gemini project and see what that does.</p>
 <h3 id="initialize-your-project">Initialize your project<a class="anchor" aria-label="anchor" href="#initialize-your-project"></a></h3>
 <p>The Gemini CLI includes an <code>init</code> command that creates a
 <code>GEMINI.md</code> template in your working directory:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
 </div>
 <p>You are now in gemini itself. Now let type the slash key and see the
 slash commands that are available to us, page thru and see the full
 list. Now, if you noticed the <code>/init</code> command, this is the
 one that will initialize our project in gemini. Let’s run it</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">/init</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">/init</span></span></code></pre>
 </div>
 <p>Notice that it does a bunch of stuff and inspects your file folders.
 After it finishes let’s see what new files have been created. You can do
 this inside gemini by:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">!ls</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">!ls</span></span></code></pre>
 </div>
 <p>This shows the files that are created. You should see a file named
 <code>GEMINI.md</code>. Let’s look inside it using the <code>cat</code>
 command with <code>!</code>:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">!cat</span> GEMINI.md</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">!cat</span> GEMINI.md</span></code></pre>
 </div>
 <p>Here is what Gemini generated for a fresh empty project folder:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu"># Project Context: vibe-coding-lesson</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">## Directory Overview</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>The <span class="in">`/Users/geno/Desktop/vibe-coding-lesson`</span> directory appears to be an empty</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>project directory. It currently contains only this <span class="in">`GEMINI.md`</span> file, which</span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>serves as an index and context provider for the project.</span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="fu">## Key Files</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="ss">*   </span>**`GEMINI.md`**: This file contains project-specific context, documentation,</span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>    and instructional information for AI agents and developers. It is intended to</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>    be updated as the project evolves.</span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="fu">## Usage</span></span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>This directory is intended to be a workspace for the 'vibe-coding-lesson'</span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>project. As it is currently empty, it is ready for initialization or the</span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>addition of new files and code. Future usage will depend on the specific goals</span>
-<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>of the 'vibe-coding-lesson' project.</span>
-<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a>---</span>
-<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a>*Last analyzed on: March 25, 2026*</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu"># Project Context: vibe-coding-lesson</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">## Directory Overview</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>The <span class="in">`/Users/geno/Desktop/vibe-coding-lesson`</span> directory appears to be an empty</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>project directory. It currently contains only this <span class="in">`GEMINI.md`</span> file, which</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>serves as an index and context provider for the project.</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="fu">## Key Files</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="ss">*   </span>**`GEMINI.md`**: This file contains project-specific context, documentation,</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>    and instructional information for AI agents and developers. It is intended to</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>    be updated as the project evolves.</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="fu">## Usage</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>This directory is intended to be a workspace for the 'vibe-coding-lesson'</span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>project. As it is currently empty, it is ready for initialization or the</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>addition of new files and code. Future usage will depend on the specific goals</span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>of the 'vibe-coding-lesson' project.</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>---</span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>*Last analyzed on: March 25, 2026*</span></code></pre>
 </div>
 <p>A few things to notice. Gemini scanned the directory and described
 what it found. Because the folder was empty, it does not have much to
@@ -683,10 +690,10 @@ same content and concepts apply if you switch to any other tool.</p>
 <h3 id="initialize-your-project-1">Initialize your project<a class="anchor" aria-label="anchor" href="#initialize-your-project-1"></a></h3>
 <p>The Gemini CLI includes an <code>init</code> command that creates a
 <code>GEMINI.md</code> template in your working directory:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
 </div>
 <p>This generates a starter file with placeholder sections for you to
 fill in. Open it in any text editor to customize it for your
@@ -727,26 +734,26 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
   Example spec file
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <!-- TODO: Once model config mechanism is confirmed, add a 'model: gemini-2.5-flash-lite'
      line (or equivalent) to this example so learners see model pinning as a
      standard part of the spec from the start. -->
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
