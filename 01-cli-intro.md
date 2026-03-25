@@ -24,10 +24,14 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Setup check
-Before starting, ensure all learners can authenticate. There are two paths:
 
-- **API key**: Ask them to run `echo $GEMINI_API_KEY`. If it returns a blank line, they need to run the export command again.
-- **Google account (OAuth)**: Learners who authenticated via `gemini auth login` will not have an API key set — this is fine. Ask them to run `gemini --version` to confirm the tool is working.
+Ask all learners to run:
+
+```bash
+gemini --version
+```
+
+If it returns a version number, they are ready. If the command is not found, they need to complete the install and run `gemini auth login` before continuing.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

@@ -32,11 +32,14 @@ npm install -g @google/gemini-cli
 ```
 
 ### 3. Authenticate
-You will need an API key from [Google AI Studio](https://aistudio.google.com/).
+
+Run the following command and sign in with your Google account when the browser opens:
+
 ```bash
-export GEMINI_API_KEY=your_api_key_here
+gemini auth login
 ```
-*(Tip: Add this line to your `.bashrc` or `.zshrc` to make it permanent.)*
+
+The CLI stores your credentials locally. You will not need to repeat this step in future sessions.
 
 ---
 
@@ -51,9 +54,15 @@ If you are comfortable with Docker and want the extra security of an isolated en
     ```
 3.  **Run the Sandbox**:
     ```bash
-    docker run -it -v "$(pwd):/home/researcher/project" -e GEMINI_API_KEY=$GEMINI_API_KEY vibe-coding-sandbox
+    docker run -it -v "$(pwd):/home/researcher/project" vibe-coding-sandbox
     ```
     *This command "mounts" your current folder into the container, allowing the AI to work only on those files.*
+
+4.  **Authenticate inside the container**:
+    ```bash
+    gemini auth login
+    ```
+    This opens a browser window on your host machine to complete sign-in.
 
 ---
 
@@ -72,7 +81,7 @@ If you just want to try the tools without installing anything, you can launch th
 
 1.  **Open the Repository**: [jt14den/vibe-coding-lesson](https://github.com/jt14den/vibe-coding-lesson)
 2.  **Launch Codespace**: Click **Code > Codespaces > Create codespace on main**.
-3.  **Set Key**: Run `export GEMINI_API_KEY=your_key` inside the codespace terminal.
+3.  **Authenticate**: Run `gemini auth login` inside the codespace terminal and follow the browser prompt.
 
 ---
 

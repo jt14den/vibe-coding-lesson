@@ -30,7 +30,7 @@ This episode uses live coding. Learners should follow along by running commands 
 :::::::::::::::::::::::::::::::::::::::::: prereq
 
 ## Prerequisites
-Ensure your `GEMINI_API_KEY` is set. Generating scripts can take 10-30 seconds.
+Ensure you are authenticated (`gemini auth login`) and have a Gemini CLI session running in your project folder. Generating scripts can take 10-30 seconds.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
