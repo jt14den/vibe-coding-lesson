@@ -65,6 +65,10 @@ However, CLI or API access under these agreements is not always documented. Camp
 
 Traditional programming requires you to remember the syntax and logic of a script. **Spec-Driven Research Orchestration** offloads syntax generation to the AI, letting you focus on the high-level logic and the **Living Spec**.
 
+<!-- TODO: Replace this diagram. Current version is a placeholder.
+     Needs redesign to reflect updated workflow (GEMINI.md, plan-before-act,
+     approval gate). Design and final spec coming later. -->
+
 ```mermaid
 graph TD
     A[Researcher/Orchestrator] -->|High-Level Goal| B(AGENTS.md: The Living Spec)
