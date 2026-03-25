@@ -39,7 +39,13 @@ If it returns a version number, they are ready. If the command is not found, the
 
 Most researchers use chat-based AI in a browser. These tools are good for brainstorming but run in an isolated sandbox. They cannot see your files, run your code, or understand your project structure without manual uploads.
 
-CLI tools run in your terminal and have access to your project's file system. They can read data, write scripts, and execute commands. This turns the AI into a research assistant that can iterate on tasks within your working environment.
+A CLI agent runs in your terminal and has access to three things a browser tool does not.
+
+**Your files and data.** The agent can read your actual datasets, inspect your directory structure, and write scripts directly to disk. You are not copying and pasting between a chat window and a code editor. The agent works in your project the way a collaborator sitting at your machine would.
+
+**Your installed tools.** Your machine probably has domain-specific software on it: geospatial tools like GDAL, bioinformatics pipelines, R packages, custom scripts, institutional data connectors. A browser AI has no idea these exist. A CLI agent can call them directly, pass output between them, and build on what you already have installed.
+
+**An iterative loop.** When a script fails, the agent sees the error output in the terminal and can try again. You are not copying stack traces back into a chat window. The feedback loop is tight and stays in one place.
 
 ::::::::::::::::::::::::::::::::::::::::: caution
 
