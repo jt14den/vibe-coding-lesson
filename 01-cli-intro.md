@@ -24,8 +24,10 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Setup check
-Before starting, ensure all learners have their `GEMINI_API_KEY` exported in their shell.
-**Quick test:** Ask them to run `echo $GEMINI_API_KEY`. If it returns a blank line, they need to run the export command again.
+Before starting, ensure all learners can authenticate. There are two paths:
+
+- **API key**: Ask them to run `echo $GEMINI_API_KEY`. If it returns a blank line, they need to run the export command again.
+- **Google account (OAuth)**: Learners who authenticated via `gemini auth login` will not have an API key set — this is fine. Ask them to run `gemini --version` to confirm the tool is working.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -107,7 +109,7 @@ Always consider the blast radius of your tools. Ensure files are backed up or un
 
 ### Long context
 
-Models like Gemini 2.0 have a long context window of 1 million to 2 million tokens. You can provide the AI with your entire project folder—scripts, documentation, and small datasets—at once.
+Models like Gemini 2.5 have a long context window of 1 million to 2 million tokens. You can provide the AI with your entire project folder—scripts, documentation, and small datasets—at once.
 
 This allows you to describe the desired state of your project, and the agent coordinates changes across multiple files. In a research context, this is declarative programming with AI agents.
 
@@ -121,14 +123,56 @@ Large context windows carry a risk of context poisoning. If your directory conta
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## How much context is enough?
+
+More context is not always better. Attention quality can degrade when the context window is very full — the model may lose track of information buried in the middle. A rough guide for research projects:
+
+| Project size | What to include | What to exclude |
+|---|---|---|
+| Small (< 10 files) | Everything | Nothing — just start |
+| Medium (10–50 files) | Spec + files relevant to the current task | Archives, unrelated scripts, raw data |
+| Large (50+ files) | Explicit file references per task | Everything else |
+
+For research data specifically: never load full datasets. Provide a schema, column list, or the first few rows instead. If the agent starts making errors that feel like it "forgot" earlier instructions, that is often a sign the context is too large and diluted — try starting a fresh session with tighter scoping.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Starting a Gemini CLI session
+
+Navigate to your project folder in the terminal, then run `gemini` with no arguments to open an interactive session:
+
+```bash
+cd path/to/your/project
+gemini
+```
+
+The CLI loads your `GEMINI.md` automatically if one exists, then displays a prompt where you type requests directly. To exit at any time, type `exit` or press Ctrl+D.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Working directory matters
+
+Always start the Gemini CLI from inside your project folder. The agent uses the current directory to find your files and spec. Starting from the wrong folder — such as your home directory — is one of the most common sources of confusion in a workshop.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge: Your first AI CLI command
 
-Verify the tool is working by running this command in your terminal:
+Navigate to your project folder and start a session:
 
 ```bash
-gemini "Tell me what operating system I am currently using and list the files in this directory."
+cd path/to/your/project
+gemini
+```
+
+Once the CLI is running, type the following prompt and press Enter:
+
+```
+Tell me what operating system I am currently using and list the files in this directory.
 ```
 
 Compare the output to what you see when you run `ls` (or `dir` on Windows) and `uname -a`. Did the AI accurately describe your environment?
@@ -162,14 +206,43 @@ The AI's exact wording will vary, but it should correctly identify your OS and t
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## The Living Spec: AGENTS.md and CONTEXT.md
+## The Living Spec
 
-To get the most out of a CLI agent, provide it with persistent context about your project. This acts as a "Living Spec"—a set of rules and goals the agent must follow.
+To get the most out of a CLI agent, provide it with persistent context about your project. This acts as a "Living Spec"—a set of rules and goals the agent must follow across every session.
 
-*   **Standard Agent Rule File**: `AGENTS.md` (or `CLAUDE.md`, `.cursorrules` depending on the tool).
-*   **The CONTEXT.md file**: A tool-agnostic master file that acts as a "Source of Truth."
+Every major CLI tool has its own **native** spec file that it loads automatically when you start a session:
 
-### What to include in AGENTS.md
+| Tool | Native spec file | Auto-loaded? |
+|---|---|---|
+| Gemini CLI | `GEMINI.md` | Yes |
+| Claude Code | `CLAUDE.md` | Yes |
+| OpenAI Codex | `AGENTS.md` | Yes |
+| Cursor | `.cursorrules` | Yes |
+
+You can also use a **portable** spec file—`AGENTS.md` is a common convention—that you explicitly reference in any prompt: `"Read AGENTS.md and then..."`. It is not auto-loaded by any single tool, but it travels with your project if you switch tools.
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Which approach should you use?
+
+- **Stick with one tool?** Use the native file (`GEMINI.md` here) for a smoother experience — you never have to mention it in your prompts.
+- **Move between tools?** Keep a portable `AGENTS.md` and reference it explicitly. The spec stays the same; only the tool changes.
+
+For this lesson we use `GEMINI.md` as the native file. The same content and concepts apply if you switch to any other tool.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+### Initialize your project
+
+The Gemini CLI includes an `init` command that creates a `GEMINI.md` template in your working directory:
+
+```bash
+gemini init
+```
+
+This generates a starter file with placeholder sections for you to fill in. Open it in any text editor to customize it for your project.
+
+### What to include in your spec file
 
 Use this file to define:
 
@@ -179,13 +252,13 @@ Use this file to define:
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Create your AGENTS.md
+## Challenge: Initialize and customize your spec file
 
-In your project directory, create a file named `AGENTS.md`. Instead of just listing goals, define one "Hard Constraint" (something the AI *must* do) and one "Success Metric" (how you know it's done).
+In your project directory, run `gemini init` to create a `GEMINI.md` file. Then edit it to define one "Hard Constraint" (something the AI *must* do) and one "Success Metric" (how you know it's done).
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
-## Example AGENTS.md
+## Example spec file
 
 ```markdown
 # Project: Arctic Sea Ice Analysis
@@ -209,7 +282,8 @@ To analyze trends in sea ice extent from 1980-2020.
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - CLI agents coordinate actions across multiple files.
-- The `AGENTS.md` file is a Living Spec that reduces "context drift."
+- Run `gemini init` to create a `GEMINI.md` Living Spec that reduces "context drift."
+- A portable `AGENTS.md` lets the same spec travel across different AI tools.
 - Research orchestration shifts focus from writing syntax to validating intent.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

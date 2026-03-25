@@ -28,7 +28,7 @@ Giving an AI agent direct access to your filesystem is a significant responsibil
 ### 2. Install the Gemini CLI
 Open your terminal and run:
 ```bash
-npm install -g @google/generative-ai-cli
+npm install -g @google/gemini-cli
 ```
 
 ### 3. Authenticate

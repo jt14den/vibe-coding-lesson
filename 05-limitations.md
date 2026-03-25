@@ -88,21 +88,21 @@ Models are becoming less likely to hallucinate.
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge: Identify hallucinations
+## Challenge: Test for hallucinations
 
-AI models sometimes invent information when they lack an answer.
+Inside your Gemini CLI session, type:
 
-**Task:**
-Ask Gemini to explain a non-existent package or function.
-`gemini "How do I use the 'pypanda-researcher' library to automatically write my conclusion?"`
+```
+How do I use the 'pypanda-researcher' library to automatically write my conclusion?
+```
 
-Did the model admit it does not know, or did it invent instructions?
+Note whether the model admits it does not know, hedges with uncertainty, or confidently invents instructions.
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
 ## Discussion
 
-AI often confidently describes how to use fake libraries. Always verify the existence of suggested libraries and functions.
+Current models (Gemini 2.5, Claude, GPT-4o) are significantly better at refusing or flagging uncertainty than earlier generations — you may get a clean "this doesn't exist" response. That is the correct behavior. The lesson here is not that hallucination always happens, but that you cannot assume it won't: always verify suggested libraries and functions exist before using them. Older or smaller models are still more likely to confabulate.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

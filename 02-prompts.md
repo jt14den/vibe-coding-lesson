@@ -22,6 +22,21 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Working inside the Gemini CLI
+
+All prompts in this episode are typed inside an active Gemini CLI session. Start one in your project folder before the exercises:
+
+```bash
+cd path/to/your/project
+gemini
+```
+
+Then type prompts directly at the `>` prompt. Shell commands (like `python script.py`) are run in a separate terminal window.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Five principles of effective prompting
 
 Effective prompting is clear technical communication. To get the best results, start by being specific. Include constraints, filenames, and a description of your expected output. Vague requests lead to generic answers, while precise instructions result in usable code.
@@ -114,7 +129,7 @@ AI models are often better at verifying code than writing it. Never accept the f
 
 ### Reasoning models
 
-As of 2025, reasoning models (such as OpenAI o1/o3, DeepSeek-R1, or Gemini 2.0 Thinking) have emerged. These models perform chain of thought reasoning before they answer.
+As of 2025, reasoning models (such as OpenAI o1/o3, DeepSeek-R1, or Gemini 2.5 Thinking) have emerged. These models perform chain of thought reasoning before they answer.
 
 **When to use them:**
 
@@ -122,6 +137,76 @@ As of 2025, reasoning models (such as OpenAI o1/o3, DeepSeek-R1, or Gemini 2.0 T
 - **Reasoning models:** Best for complex logic, debugging hard errors, or writing scientific formulas where accuracy is important.
 
 When using a reasoning model, you often do not need to ask for introspection—they do it before showing the code.
+
+## Plan before you act
+
+As tasks grow more complex, asking the agent to write code immediately leads to more rewrite time. The emerging best practice is to request a plan first, review it, and approve it before any files are written.
+
+### The think-then-do pattern
+
+Start any multi-step task with an explicit planning prompt:
+
+```
+Before writing any code, describe your approach in numbered steps. Do not write any files yet.
+```
+
+Review the plan, push back on steps you disagree with, and ask for alternatives. Once you are satisfied, say "proceed with step 1."
+
+### Checkpoint prompts
+
+Break large tasks into explicit phases so you review the output at each stage before moving forward:
+
+```
+Step 1 only: read the three CSV files and tell me what inconsistencies you find. Do not write any code yet.
+```
+
+This is especially valuable in research because it catches misunderstandings about your data before they propagate into broken code.
+
+### The plan file
+
+For complex projects, ask the agent to write a `PLAN.md` first:
+
+```
+Write a PLAN.md outlining the steps to clean and merge these files. I will review and edit it before you write any code.
+```
+
+This makes the plan a reviewable, editable artifact — a more formal version of the Bootstrap Workflow. Once approved, refer back to it in follow-up prompts: "Proceed with step 2 from PLAN.md."
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Plan files vs. the Living Spec
+
+A `PLAN.md` and your `GEMINI.md` serve different purposes. The spec defines persistent rules and constraints that apply across all sessions. The plan describes the steps for a specific task. Keep them separate: plans are temporary, specs are durable.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge: Plan before you clean
+
+Practice the think-then-do pattern before moving on to the data cleaning episode. Inside your Gemini CLI session, type:
+
+```
+I have three CSV files from different research sites with inconsistent column names and date formats. Before writing any code, outline a step-by-step plan for cleaning and merging them into a single dataset. Do not write any files yet.
+```
+
+Review the plan. Does it include an audit step? Does it address missing values? Revise the plan in the conversation until you are satisfied, then save it by asking: "Write this plan to PLAN.md."
+
+:::::::::::::::::::::::::::::::::::::::: solution
+
+## What a good plan includes
+
+- An **audit step** — inspect files before changing them
+- A **schema harmonization step** — standardize column names
+- A **date standardization step**
+- A **missing value strategy**
+- An **output verification step**
+
+If the agent skipped any of these, ask it to revise before you proceed. The goal is to catch gaps in the plan, not in the code.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## AI failures
 
@@ -156,19 +241,21 @@ Have you seen an AI make a confident mistake? In your research, what signs indic
 
 Practice the CLEAR framework to visualize the relationship between "Date" and "Score" in a dataset.
 
-1.  **Run a vague command:**
-    `gemini "Create a plot of the data I just made."`
+1.  **Start with a vague prompt** — type this inside your Gemini CLI session:
+    ```
+    Create a plot of the data I just made.
+    ```
     *Observe: Does it work? Is the plot useful? Where did it save it?*
 
-2.  **Refine the command:**
+2.  **Refine the prompt:**
     Write a new prompt that applies context (what the data is), specificity (scatterplot with regression line), and output instructions (save as `fig/trend_analysis.png`).
 
 :::::::::::::::::::::::::::::::::::::::: solution
 
 ## Example refined prompt
 
-```bash
-gemini "Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist)."
+```
+Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist).
 ```
 
 ### Reflection
@@ -187,8 +274,14 @@ gemini "Using the 'master_dataset.csv' file, create a Python script to generate 
 
 Test the AI as a verifier principle. Ask the AI to find flaws in its code before you run it.
 
-1.  **Generate a script:** Use a prompt like: `gemini "Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values."`
-2.  **Force introspection:** Once the code is generated, do not run it. Instead, prompt the AI again: `gemini "Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version."`
+1.  **Generate a script** — type this prompt inside your Gemini CLI session:
+    ```
+    Write a Python script that reads 'data.csv' and calculates the rolling 7-day average of a 'score' column. Handle missing values.
+    ```
+2.  **Force introspection:** Once the code is generated, do not run it. Follow up in the same session:
+    ```
+    Review the rolling average script you just wrote. Are there any edge cases (like having fewer than 7 days of data) where this would fail? If so, provide an updated version.
+    ```
 3.  **Compare:** Did the AI find a mistake in its first draft? Did it add a guard clause like `min_periods=1`?
 
 :::::::::::::::::::::::::::::::::::::::: solution
@@ -204,6 +297,7 @@ AI models are often more accurate when asked to critique logic than when asked t
 ::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Be specific and provide context.
+- Plan before you act: request a numbered plan and approve it before any files are written.
 - Always validate AI outputs.
 - Introspection improves code quality.
 
