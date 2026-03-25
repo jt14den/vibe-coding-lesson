@@ -416,19 +416,15 @@
 </button>
 <div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
-<p>Before starting, ensure all learners can authenticate. There are two
-paths:</p>
-<ul>
-<li>
-<strong>API key</strong>: Ask them to run
-<code>echo $GEMINI_API_KEY</code>. If it returns a blank line, they need
-to run the export command again.</li>
-<li>
-<strong>Google account (OAuth)</strong>: Learners who authenticated
-via <code>gemini auth login</code> will not have an API key set — this
-is fine. Ask them to run <code>gemini --version</code> to confirm the
-tool is working.</li>
-</ul>
+<p>Ask all learners to run:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">--version</span></span></code></pre>
+</div>
+<p>If it returns a version number, they are ready. If the command is not
+found, they need to complete the install and run
+<code>gemini auth login</code> before continuing.</p>
 </div>
 </div>
 </div>
@@ -643,11 +639,11 @@ session with tighter scoping.</p>
 <p>Navigate to your project folder in the terminal, then run
 <code>gemini</code> with no arguments to open an interactive
 session:</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
 </div>
 <p>The CLI loads your <code>GEMINI.md</code> automatically if one
 exists, then displays a prompt where you type requests directly. To exit
@@ -676,11 +672,11 @@ common sources of confusion in a workshop.</p>
 <h3 class="callout-title">Challenge: Your first AI CLI command</h3>
 <div class="callout-content">
 <p>Navigate to your project folder and start a session:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
 </div>
 <p>Once the CLI is running, type the following prompt and press
 Enter:</p>
@@ -798,10 +794,10 @@ same content and concepts apply if you switch to any other tool.</p>
 </h3>
 <p>The Gemini CLI includes an <code>init</code> command that creates a
 <code>GEMINI.md</code> template in your working directory:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
 </div>
 <p>This generates a starter file with placeholder sections for you to
 fill in. Open it in any text editor to customize it for your
@@ -847,21 +843,21 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -1473,7 +1469,7 @@ any links that you are not going to use.
   Live coding
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>This episode uses live coding. Learners should follow along by
 running commands on their own machines.</p>
@@ -1485,8 +1481,9 @@ running commands on their own machines.</p>
 <div id="prerequisites" class="callout-inner">
 <h3 class="callout-title">Prerequisites</h3>
 <div class="callout-content">
-<p>Ensure your <code>GEMINI_API_KEY</code> is set. Generating scripts
-can take 10-30 seconds.</p>
+<p>Ensure you are authenticated (<code>gemini auth login</code>) and
+have a Gemini CLI session running in your project folder. Generating
+scripts can take 10-30 seconds.</p>
 </div>
 </div>
 </div>
@@ -1577,7 +1574,7 @@ in <code>AGENTS.md</code>.</p>
   Backup scripts
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>If a learner’s AI fails to generate working code, provide the
 pre-written versions from <code>instructors/files/</code>: -
@@ -1626,7 +1623,7 @@ methodology.</p>
   Challenge tip
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
 <div class="accordion-body">
 <p>This challenge requires modifying existing code. If learners are
 stuck, suggest they ask the AI to read <code>clean_and_merge.py</code>
@@ -1658,7 +1655,7 @@ logic. Run the updated script and verify the results in
   Example command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.</code></pre>
 <div class="section level3">
@@ -1713,7 +1710,7 @@ code and when.</p>
   Example command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'</code></pre>
 <div class="section level3">
@@ -2129,7 +2126,7 @@ the documentation instead of querying an LLM.</li>
   Managing expectations
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Models are becoming less likely to hallucinate. * <strong>If it
 refuses:</strong> Acknowledge that the model correctly identified its
@@ -2162,7 +2159,7 @@ uncertainty, or confidently invents instructions.</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Current models (Gemini 2.5, Claude, GPT-4o) are significantly better
 at refusing or flagging uncertainty than earlier generations — you may

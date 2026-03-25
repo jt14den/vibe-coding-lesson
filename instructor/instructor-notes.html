@@ -402,9 +402,10 @@ implications of giving an AI direct access to the filesystem.</li>
 <hr class="half-width">
 <ul>
 <li>
-<strong>Auth Check:</strong> Ensure all learners have their
-<code>GEMINI_API_KEY</code> exported. If they are using Docker, confirm
-they passed the environment variable correctly.</li>
+<strong>Auth Check:</strong> Ask learners to run
+<code>gemini --version</code>. If it returns a version number they are
+ready. If not, have them run <code>gemini auth login</code> and sign in
+with a Google account before continuing.</li>
 <li>
 <strong>The Browser vs. CLI distinction:</strong> Use the analogy of
 a “consultant” (Browser) vs. a “research assistant with keys to the lab”
@@ -521,19 +522,15 @@ any links that you are not going to use.
 <h3 id="01-cli-intro-headingInstructor1">
 <a href="01-cli-intro.html#headingInstructor1">Setup check</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor1"></a>
 </h3>
-<p>Before starting, ensure all learners can authenticate. There are two
-paths:</p>
-<ul>
-<li>
-<strong>API key</strong>: Ask them to run
-<code>echo $GEMINI_API_KEY</code>. If it returns a blank line, they need
-to run the export command again.</li>
-<li>
-<strong>Google account (OAuth)</strong>: Learners who authenticated
-via <code>gemini auth login</code> will not have an API key set — this
-is fine. Ask them to run <code>gemini --version</code> to confirm the
-tool is working.</li>
-</ul>
+<p>Ask all learners to run:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">--version</span></span></code></pre>
+</div>
+<p>If it returns a version number, they are ready. If the command is not
+found, they need to complete the install and run
+<code>gemini auth login</code> before continuing.</p>
 <hr>
 <br><h3 id="01-cli-intro-headingInstructor2">
 <a href="01-cli-intro.html#headingInstructor2">Discussion prompt</a><a class="anchor" aria-label="anchor" href="#01-cli-intro-headingInstructor2"></a>
@@ -575,8 +572,9 @@ running commands on their own machines.</p>
 <div id="prerequisites" class="callout-inner">
 <h3 class="callout-title">Prerequisites</h3>
 <div class="callout-content">
-<p>Ensure your <code>GEMINI_API_KEY</code> is set. Generating scripts
-can take 10-30 seconds.</p>
+<p>Ensure you are authenticated (<code>gemini auth login</code>) and
+have a Gemini CLI session running in your project folder. Generating
+scripts can take 10-30 seconds.</p>
 </div>
 </div>
 </div>

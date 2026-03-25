@@ -450,32 +450,31 @@ system configuration or personal data (like your Home directory or
 </div>
 <div class="section level3">
 <h3 id="authenticate">3. Authenticate<a class="anchor" aria-label="anchor" href="#authenticate"></a></h3>
-<p>You will need an API key from <a href="https://aistudio.google.com/" class="external-link">Google AI Studio</a>.</p>
+<p>Run the following command and sign in with your Google account when
+the browser opens:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">export</span> <span class="va">GEMINI_API_KEY</span><span class="op">=</span>your_api_key_here</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gemini</span> auth login</span></code></pre>
 </div>
-<p><em>(Tip: Add this line to your <code>.bashrc</code> or
-<code>.zshrc</code> to make it permanent.)</em></p>
+<p>The CLI stores your credentials locally. You will not need to repeat
+this step in future sessions.</p>
 <hr></div>
 </section><section><h2 class="section-heading" id="path-2-local-sandbox-advanced-docker">Path 2: Local Sandbox (Advanced / Docker)<a class="anchor" aria-label="anchor" href="#path-2-local-sandbox-advanced-docker"></a></h2>
 <hr class="half-width"><p>If you are comfortable with Docker and want the extra security of an
 isolated environment, you can use our pre-configured sandbox. This
 requires some additional setup but ensures the AI cannot see anything
 outside the folder you “mount” to it.</p>
-<ol style="list-style-type: decimal"><li>
-<strong>Install Docker Desktop</strong>: Download from <a href="https://www.docker.com/" class="external-link">docker.com</a>.</li>
-<li>
-<strong>Build the Sandbox</strong>:
-<code>bash     docker build -t vibe-coding-sandbox .</code>
-</li>
-<li>
-<strong>Run the Sandbox</strong>:
-<code>bash     docker run -it -v "$(pwd):/home/researcher/project" -e GEMINI_API_KEY=$GEMINI_API_KEY vibe-coding-sandbox</code>
+<ol style="list-style-type: decimal"><li><p><strong>Install Docker Desktop</strong>: Download from <a href="https://www.docker.com/" class="external-link">docker.com</a>.</p></li>
+<li><p><strong>Build the Sandbox</strong>:
+<code>bash     docker build -t vibe-coding-sandbox .</code></p></li>
+<li><p><strong>Run the Sandbox</strong>:
+<code>bash     docker run -it -v "$(pwd):/home/researcher/project" vibe-coding-sandbox</code>
 <em>This command “mounts” your current folder into the container,
-allowing the AI to work only on those files.</em>
-</li>
+allowing the AI to work only on those files.</em></p></li>
+<li><p><strong>Authenticate inside the container</strong>:
+<code>bash     gemini auth login</code> This opens a browser window on
+your host machine to complete sign-in.</p></li>
 </ol><hr></section><section><h2 class="section-heading" id="path-3-dedicated-ai-sandboxes-automated">Path 3: Dedicated AI Sandboxes (Automated)<a class="anchor" aria-label="anchor" href="#path-3-dedicated-ai-sandboxes-automated"></a></h2>
 <hr class="half-width"><p>Modern tools now offer automated sandboxing specifically for AI
 agents. These provide a more seamless experience than manual Docker
@@ -500,9 +499,8 @@ files</strong>; you are in a temporary cloud environment.</p>
 <strong>Launch Codespace</strong>: Click <strong>Code &gt;
 Codespaces &gt; Create codespace on main</strong>.</li>
 <li>
-<strong>Set Key</strong>: Run
-<code>export GEMINI_API_KEY=your_key</code> inside the codespace
-terminal.</li>
+<strong>Authenticate</strong>: Run <code>gemini auth login</code>
+inside the codespace terminal and follow the browser prompt.</li>
 </ol><hr></section><section><h2 class="section-heading" id="institutional-context-access">Institutional Context &amp; Access<a class="anchor" aria-label="anchor" href="#institutional-context-access"></a></h2>
 <hr class="half-width"><p>Many campuses (like the University of California) have enterprise AI
 agreements. However, CLI/API access is often a separate feature that

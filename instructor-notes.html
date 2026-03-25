@@ -400,9 +400,10 @@ implications of giving an AI direct access to the filesystem.</li>
 <hr class="half-width">
 <ul>
 <li>
-<strong>Auth Check:</strong> Ensure all learners have their
-<code>GEMINI_API_KEY</code> exported. If they are using Docker, confirm
-they passed the environment variable correctly.</li>
+<strong>Auth Check:</strong> Ask learners to run
+<code>gemini --version</code>. If it returns a version number they are
+ready. If not, have them run <code>gemini auth login</code> and sign in
+with a Google account before continuing.</li>
 <li>
 <strong>The Browser vs. CLI distinction:</strong> Use the analogy of
 a “consultant” (Browser) vs. a “research assistant with keys to the lab”
