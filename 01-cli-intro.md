@@ -120,7 +120,11 @@ This allows you to describe the desired state of your project, and the agent coo
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-TODO: change this some caveat about degredation of the llm as you load more to the context it could degrade. This is called context poisioning. Just be mindful that managing this context is an important part of the workflow you are building. Take out these heuristics below.  context window is important. 
+## A large context window is not a free pass
+
+The more you load into a session, the more the model has to track. Beyond a certain point, quality degrades — the model may lose track of earlier instructions, produce inconsistent output, or fixate on the wrong files. This is sometimes called context poisoning.
+
+A large context window makes this easier to run into, not harder. Managing what goes into your context is part of the workflow, not an afterthought.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
