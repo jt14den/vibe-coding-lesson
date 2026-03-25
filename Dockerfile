@@ -20,7 +20,7 @@ WORKDIR /home/researcher/project
 ENV NPM_CONFIG_PREFIX=/home/researcher/.npm-global
 ENV PATH=$PATH:/home/researcher/.npm-global/bin
 
-RUN npm install -g @google/generative-ai-cli
+RUN npm install -g @google/gemini-cli
 
 # Default command
 CMD ["bash"]

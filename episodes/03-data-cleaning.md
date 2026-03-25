@@ -36,6 +36,21 @@ Ensure your `GEMINI_API_KEY` is set. Generating scripts can take 10-30 seconds.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::::::: callout
+
+## Working inside the Gemini CLI
+
+All prompts in this episode are typed inside an active Gemini CLI session. Start one in your project folder before the exercises:
+
+```bash
+cd path/to/your/project
+gemini
+```
+
+Run Python scripts in a separate terminal window when instructed.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Cleaning messy data
 
 Cleaning and merging inconsistent files is a common bottleneck in research. We will use Gemini to standardize messy CSV files.
@@ -44,8 +59,8 @@ Cleaning and merging inconsistent files is a common bottleneck in research. We w
 
 To practice cleaning, we need a dataset with inconsistencies. We can use AI to simulate a multi-site study where each location used different naming conventions or date formats. Run this command to generate three files: `site_A.csv`, `site_B.csv`, and `site_C.csv`.
 
-```bash
-gemini "Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023'). Run the script."
+```
+Create a python script named 'make_messy_data.py'. It should generate 3 CSV files ('site_A.csv', 'site_B.csv', 'site_C.csv') with 50 rows each. Columns should include 'ID', 'Date', and 'Score', but make them inconsistent (e.g., 'ParticipantID' vs 'id', 'date' vs 'Date_Time'). Add some missing values and varied date formats (like '2023/01/05' vs 'Jan 5, 2023').
 ```
 
 After running `python make_messy_data.py`, you will have three inconsistent files in your directory.
@@ -54,8 +69,8 @@ After running `python make_messy_data.py`, you will have three inconsistent file
 
 Before fixing the files, we need to understand the inconsistencies. We can ask the AI to write an inspection script that reads every CSV in the folder and reports the filenames, column names, and missing value counts.
 
-```bash
-gemini "Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column."
+```
+Write a Python script called 'inspect_data.py' that reads every CSV file in the current folder. For each file, print the filename, the list of column names, and the number of missing values in each column.
 ```
 
 Run the inspection script. You should see inconsistencies like `site_A` using `ParticipantID` while `site_B` uses `id`.
@@ -75,8 +90,8 @@ In **Spec-Driven Research Orchestration**, we don't just ask for a script. We re
 
 We will now ask Gemini to generate a script using the rules defined in `AGENTS.md`.
 
-```bash
-gemini "Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renaming IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules."
+```
+Read 'AGENTS.md' and the 3 site CSVs. Write a script called 'clean_and_merge.py' that renames IDs and standardizes dates according to the schema in the spec. Fill missing scores with the median and save to 'master_dataset.csv'. Add comments linking code steps to spec rules.
 ```
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
@@ -122,8 +137,8 @@ Imagine you need to exclude any participant with a score below 10. Use the Gemin
 
 ## Example command
 
-```bash
-gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script."
+```
+Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.
 ```
 
 ### Reflection
@@ -140,8 +155,8 @@ gemini "Read 'clean_and_merge.py'. Modify the script to filter out any rows wher
 
 For the final step, have the AI generate a README that explains the data pipeline, including the raw files, cleaning steps, and final output format.
 
-```bash
-gemini "Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format."
+```
+Create a README.md file that explains the data processing pipeline we just built. List the original files, the cleaning steps performed, and the final output format.
 ```
 
 ::::::::::::::::::::::::::::::::::::::::: challenge
@@ -160,8 +175,8 @@ To ensure research is reproducible, track which model generated your code and wh
 
 ## Example command
 
-```bash
-gemini "Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.0 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'"
+```
+Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'
 ```
 
 ### Reflection

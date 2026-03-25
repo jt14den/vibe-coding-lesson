@@ -25,7 +25,7 @@ exercises: 10
 
 The ecosystem of AI tools for research is expanding. For coding, tools like Claude Code (Anthropic's CLI), GitHub Copilot, and Aider (a CLI agent that works with multiple models) provide terminal support.
 
-Some researchers use AI-native code editors like Cursor to interact with an entire repository. Models like Gemini 2.0 and DeepSeek-V3/R1 have increased the speed of these interactions.
+Some researchers use AI-native code editors like Cursor to interact with an entire repository. Models like Gemini 2.5 and DeepSeek-V3/R1 have increased the speed of these interactions.
 
 Research-specific tools are also emerging. Elicit and Consensus focus on scientific paper discovery and evidence-based claims. Google's NotebookLM allows you to ground an AI's knowledge in your own collection of research PDFs for summarizing and querying documents.
 
@@ -45,25 +45,25 @@ For researchers handling sensitive data or requiring reproducibility, local AI i
 
 ## Privacy and performance
 
-Local models offer privacy but require significant hardware (especially GPU VRAM) to match the performance of cloud models like Gemini 2.0. Many researchers use a hybrid approach: cloud models for general scripting and local models for sensitive data.
+Local models offer privacy but require significant hardware (especially GPU VRAM) to match the performance of cloud models like Gemini 2.5. Many researchers use a hybrid approach: cloud models for general scripting and local models for sensitive data.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Advanced trends
 
 ### Automated research discovery
-For time-sensitive research, specialized agents can scan social platforms, developer forums, and prediction markets to identify trends before they appear in traditional journals. The `last30days` agent skill is a tool for this "real-time literature mapping."
+For time-sensitive research, AI agents can scan social platforms, developer forums, and prediction markets to identify trends before they appear in traditional journals. This "real-time literature mapping" works by prompting the agent to synthesize signal from fast-moving sources alongside traditional ones.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-### The orchestrator's deep research prompt
-Use this prompt with a research discovery agent (like `last30days`) to trigger high-signal synthesis:
+### A deep research prompt pattern
+Use a prompt like this with any AI assistant that has web search access:
 
-"Act as a research orchestrator. Use the `last30days` tool to find the most discussed [TOPIC] from the last 30 days across Reddit, X, and Hacker News. 
+"Act as a research orchestrator. Find the most discussed [TOPIC] from the last 30 days across Reddit, X, and Hacker News.
 
 1. **Discovery**: Identify the top 3 tools or methodologies mentioned.
 2. **Sentiment**: Quote the most upvoted critique for each.
-3. **Verification**: Cross-reference these with Polymarket or web sources for real-world impact.
+3. **Verification**: Cross-reference these with web sources for real-world impact.
 4. **Validation**: Apply 'Layer 4: Domain Plausibility'—identify one trend that sounds plausible but may be an AI-generated 'vibe' without empirical backing."
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -97,16 +97,16 @@ Add an AI usage section to your project documentation:
 
 ### Example attribution
 
-*   **Model:** Google Gemini 2.0 Thinking (via Aider)
+*   **Model:** Google Gemini 2.5 Flash
 *   **Role:** Spec drafting and spec-guided cleaning.
-*   **Verification:** Verified by [Your Name] via **AGENTS.md** rules and `validate_data.py`.
+*   **Verification:** Verified by [Your Name] via `GEMINI.md` rules and `validate_data.py`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **2. In manuscripts:**
 Cite the model in the methods or acknowledgements section.
 
-*   *Example:* "We used Google Gemini (version 1.5) to assist with data cleaning scripts. Prompts and raw outputs are available in the supplementary material."
+*   *Example:* "We used Google Gemini 2.5 Flash to assist with data cleaning scripts. Prompts and raw outputs are available in the supplementary material."
 
 ### Resources and standards
 
@@ -119,10 +119,10 @@ Cite the model in the methods or acknowledgements section.
 ## Summary checklist
 
 - [ ] CLI agents coordinate actions directly on your files.
-- [ ] **AGENTS.md** acts as your 'Living Spec' and source of truth.
+- [ ] A Living Spec (`GEMINI.md` or portable `AGENTS.md`) is your source of truth.
 - [ ] The **Bootstrap Workflow** creates your spec from your data.
 - [ ] Use **Layer 4: Domain Plausibility** to catch research logic errors.
-- [ ] **Commit-as-Draft** with Aider ensures every change is traceable.
+- [ ] Track AI-generated code with Git so every change is reversible.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
