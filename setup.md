@@ -2,89 +2,62 @@
 title: Setup
 ---
 
-To follow this lesson, you will need the Gemini CLI and Python installed on your machine. The primary benefit of a CLI-based AI is its ability to interact directly with your local files and environment. For advanced users, we recommend using a **Sandbox** to isolate the agent from your sensitive files.
+To follow this lesson, you will need the Gemini CLI and Python installed on your machine. The steps below get you set up with a direct local install, which is the approach used throughout the lesson.
 
-## Path 1: Direct Local Install (Recommended)
+## 1. Install Node.js and Python
 
-This is the standard way to use CLI AI tools. It gives the agent direct access to your project files, allowing it to read data, write scripts, and run commands in your actual working directory.
+- **Node.js**: Download the LTS version from [nodejs.org](https://nodejs.org) or use a package manager (`brew install node` on macOS).
+- **Python**: Ensure you have Python 3.9+ installed. Check with `python --version`.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::: caution
+## 2. Install the Gemini CLI
 
-### A Note on Security & Sandboxing
-
-Giving an AI agent direct access to your filesystem is a significant responsibility. A buggy or misaligned agent could theoretically modify or delete important files. 
-
-**Some researchers prefer to run these tools in a "Sandbox"** to isolate the agent from their personal files. We provide a `Dockerfile` and instructions for this in the **Path 2: Docker** below. However, for this workshop, you can run the tool directly as long as you:
-1. Only run the agent in dedicated project folders.
-2. Ensure you have a backup or use Git to track changes.
-3. Never run the agent in folders containing sensitive system configuration or personal data (like your Home directory or `.ssh` folder).
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-### 1. Install Node.js & Python
-- **Node.js**: Download the LTS version from [nodejs.org](https://nodejs.org) or use a package manager (`brew install node`).
-- **Python**: Ensure you have Python 3.9+ installed (`python --version`).
-
-### 2. Install the Gemini CLI
-Open your terminal and run:
 ```bash
 npm install -g @google/gemini-cli
 ```
 
-### 3. Authenticate
+## 3. Authenticate
 
-Run the following command and sign in with your Google account when the browser opens:
+Run this command and sign in with your Google account when the browser opens:
 
 ```bash
 gemini auth login
 ```
 
-The CLI stores your credentials locally. You will not need to repeat this step in future sessions.
+The CLI stores your credentials locally. You will not need to repeat this step.
 
----
+## 4. Verify the install
 
-## Path 2: Local Sandbox (Advanced / Docker)
+```bash
+gemini --version
+```
 
-If you are comfortable with Docker and want the extra security of an isolated environment, you can use our pre-configured sandbox. This requires some additional setup but ensures the AI cannot see anything outside the folder you "mount" to it.
+If you see a version number, you are ready. If the command is not found, restart your terminal and try again.
 
-1.  **Install Docker Desktop**: Download from [docker.com](https://www.docker.com/).
-2.  **Build the Sandbox**:
-    ```bash
-    docker build -t vibe-coding-sandbox .
-    ```
-3.  **Run the Sandbox**:
-    ```bash
-    docker run -it -v "$(pwd):/home/researcher/project" vibe-coding-sandbox
-    ```
-    *This command "mounts" your current folder into the container, allowing the AI to work only on those files.*
+:::::::::::::::::::::::::::::::::::::::::::::::::: caution
 
-4.  **Authenticate inside the container**:
-    ```bash
-    gemini auth login
-    ```
-    This opens a browser window on your host machine to complete sign-in.
+### Security and working directory
 
----
+The Gemini CLI runs in your terminal and has direct access to the files in your current folder. A few habits to keep in mind:
 
-## Path 3: Dedicated AI Sandboxes (Automated)
+1. Always start the CLI from a dedicated project folder, not your home directory.
+2. Keep files under version control (Git) so you can revert unwanted changes.
+3. Never start the CLI in folders with sensitive system files, credentials, or private data.
 
-Modern tools now offer automated sandboxing specifically for AI agents. These provide a more seamless experience than manual Docker configuration.
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-*   **[Agent Safehouse](https://agent-safehouse.dev/)**: A specialized environment for running AI agents safely with built-in security controls.
-*   **[Docker AI Sandboxes](https://docs.docker.com/ai/sandboxes/)**: Docker's official solution for creating isolated, ephemeral environments for AI development.
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
----
+### Running in a sandbox (optional)
 
-## Path 4: GitHub Codespaces (Zero-Install Trial)
+Some researchers prefer to isolate the CLI from their personal files entirely. Two options worth knowing about:
 
-If you just want to try the tools without installing anything, you can launch this lesson in a browser. This is great for a quick demo, but remember that **you are not acting on your own local files**; you are in a temporary cloud environment.
+- **Docker**: The lesson repository includes a `Dockerfile` that builds a container with the Gemini CLI pre-installed. The agent can only see files you explicitly mount into it. See the [Docker documentation](https://docs.docker.com/) for setup, or [Docker AI Sandboxes](https://docs.docker.com/ai/sandboxes/) for a purpose-built option.
+- **Agent Safehouse**: [agent-safehouse.dev](https://agent-safehouse.dev/) is a dedicated environment for running AI agents with built-in isolation controls.
 
-1.  **Open the Repository**: [jt14den/vibe-coding-lesson](https://github.com/jt14den/vibe-coding-lesson)
-2.  **Launch Codespace**: Click **Code > Codespaces > Create codespace on main**.
-3.  **Authenticate**: Run `gemini auth login` inside the codespace terminal and follow the browser prompt.
+Both approaches require more setup and are not needed for this workshop, but are worth exploring if you plan to use these tools regularly with sensitive data.
 
----
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Institutional Context & Access
+## Institutional context and access
 
-Many campuses (like the University of California) have enterprise AI agreements. However, CLI/API access is often a separate feature that must be requested from IT. If your campus license doesn't cover the CLI, you may need to use a personal account for this workshop. **Always follow your institution's data privacy policies.**
+Many campuses (like the University of California) have enterprise AI agreements. CLI access is often a separate feature that requires IT provisioning. If your institution's license does not cover the CLI, you may need to use a personal Google account for this workshop. Always follow your institution's data privacy policies.
