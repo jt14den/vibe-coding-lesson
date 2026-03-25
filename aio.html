@@ -507,105 +507,55 @@ scripts to your disk and can iterate based on terminal errors.</p>
 <h3 class="callout-title">Security responsibility</h3>
 <div class="callout-content">
 <p>Giving an AI agent access to your filesystem is a security
-responsibility. A buggy or misaligned agent could delete files or access
-sensitive data like <code>.ssh</code> keys or <code>.env</code>
-files.</p>
-<div class="section level3">
-<h3 id="mitigating-risk-with-sandboxing">Mitigating risk with sandboxing<a class="anchor" aria-label="anchor" href="#mitigating-risk-with-sandboxing"></a>
-</h3>
-<p>Sandboxing runs the AI tool in a restricted environment where it can
-only see and modify specific files.</p>
-<p>In this lesson, we use Docker to create a sandbox. When you run the
-agent inside a Docker container: 1. <strong>Isolation</strong>: The
-agent is isolated from your personal files and operating system. 2.
-<strong>Controlled access</strong>: You choose which folder the agent
-can see by mounting it as a volume. 3. <strong>Safe failure</strong>: If
-the agent runs a destructive command, it only affects temporary files
-inside the container.</p>
-<p>Always consider the blast radius of your tools. Ensure files are
-backed up or under version control (like Git) so you can revert unwanted
-changes.</p>
-</div>
+responsibility. A buggy or misconfigured agent could delete files or
+access sensitive data, such as passwords.</p>
+<p>Always consider that your tools can have unintended consequences.
+Ensure files are backed up or under version control (like Git) so you
+can revert unwanted changes.</p>
 </div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="long-context">Long context<a class="anchor" aria-label="anchor" href="#long-context"></a>
 </h3>
-<p>Models like Gemini 2.5 have a long context window of 1 million to 2
-million tokens. You can provide the AI with your entire project
-folder—scripts, documentation, and small datasets—at once.</p>
+<p>Like humans, we only have a certain amount of working memory and LLMs
+operate in similar fashion. This is called the <strong>context
+window</strong> in LLM tools. Models like Gemini 2.5 have a long context
+window of 1 million to 2 million tokens. You can provide the AI with
+your entire project folder—scripts, documentation, and small datasets—at
+once.</p>
 <p>This allows you to describe the desired state of your project, and
 the agent coordinates changes across multiple files. In a research
 context, this is declarative programming with AI agents.</p>
-<div id="context-poisoning" class="callout caution">
-<div class="callout-square">
-<i class="callout-icon" data-feather="alert-triangle"></i>
-</div>
-<span class="callout-header">Caution</span>
-<div id="context-poisoning" class="callout-inner">
-<h3 class="callout-title">Context poisoning</h3>
-<div class="callout-content">
-<p>Large context windows carry a risk of context poisoning. If your
-directory contains old scripts or contradictory documentation in an
-<code>/archive</code> folder, the AI may hallucinate based on that
-outdated information.</p>
-<p><strong>Best practice:</strong> Use explicit scoping. Tell the agent:
-“Ignore the <code>/archive</code> folder and only consider
-<code>.py</code> files in the <code>src/</code> directory.”</p>
-</div>
-</div>
-</div>
-<div id="how-much-context-is-enough" class="callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="how-much-context-is-enough" class="callout-inner">
-<h3 class="callout-title">How much context is enough?</h3>
+<div class="callout-inner">
 <div class="callout-content">
-<p>More context is not always better. Attention quality can degrade when
-the context window is very full — the model may lose track of
-information buried in the middle. A rough guide for research
-projects:</p>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-</colgroup>
-<thead><tr class="header">
-<th>Project size</th>
-<th>What to include</th>
-<th>What to exclude</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Small (&lt; 10 files)</td>
-<td>Everything</td>
-<td>Nothing — just start</td>
-</tr>
-<tr class="even">
-<td>Medium (10–50 files)</td>
-<td>Spec + files relevant to the current task</td>
-<td>Archives, unrelated scripts, raw data</td>
-</tr>
-<tr class="odd">
-<td>Large (50+ files)</td>
-<td>Explicit file references per task</td>
-<td>Everything else</td>
-</tr>
-</tbody>
-</table>
-<p>For research data specifically: never load full datasets. Provide a
-schema, column list, or the first few rows instead. If the agent starts
-making errors that feel like it “forgot” earlier instructions, that is
-often a sign the context is too large and diluted — try starting a fresh
-session with tighter scoping.</p>
+<p>TODO: change this some caveat about degredation of the llm as you
+load more to the context it could degrade. This is called context
+poisioning. Just be mindful that managing this context is an important
+part of the workflow you are building. Take out these heuristics below.
+context window is important.</p>
 </div>
 </div>
 </div>
 </div>
+</section><section><h2 class="section-heading" id="lets-make-sure-this-works">Let’s make sure this works<a class="anchor" aria-label="anchor" href="#lets-make-sure-this-works"></a>
+</h2>
+<hr class="half-width">
+<p>Open a terminal window and type <code>gemini --help</code> and you
+should see something like</p>
+<p>Usage: gemini [options] [command]</p>
+<p>Gemini CLI - Defaults to interactive mode. Use -p/–prompt for
+non-interactive (headless) mode.</p>
+<p>Commands: gemini [query..] Launch Gemini CLI [default] gemini mcp
+Manage MCP servers gemini extensions <command> Manage Gemini CLI
+extensions. [aliases: extension] gemini skills <command> Manage agent
+skills. [aliases: skill] gemini hooks <command> Manage Gemini CLI hooks.
+[aliases: hook] …</command></command></command></p>
 </section><section><h2 class="section-heading" id="starting-a-gemini-cli-session">Starting a Gemini CLI session<a class="anchor" aria-label="anchor" href="#starting-a-gemini-cli-session"></a>
 </h2>
 <hr class="half-width">
@@ -636,65 +586,63 @@ common sources of confusion in a workshop.</p>
 </div>
 </div>
 </div>
-<div id="challenge-your-first-ai-cli-command" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="challenge-your-first-ai-cli-command" class="callout-inner">
-<h3 class="callout-title">Challenge: Your first AI CLI command</h3>
-<div class="callout-content">
+</section><section><h2 class="section-heading" id="challenge-your-first-ai-cli-command">Challenge: Your first AI CLI command<a class="anchor" aria-label="anchor" href="#challenge-your-first-ai-cli-command"></a>
+</h2>
+<hr class="half-width">
 <p>Navigate to your project folder and start a session:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> path/to/your/project</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> /path/to/project/directory <span class="co">##need to scaffold </span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">-p</span> <span class="st">"Tell me what operating system I am currently using and list the files in this directory."</span></span></code></pre>
 </div>
-<p>Once the CLI is running, type the following prompt and press
-Enter:</p>
-<pre><code>Tell me what operating system I am currently using and list the files in this directory.</code></pre>
 <p>Compare the output to what you see when you run <code>ls</code> (or
-<code>dir</code> on Windows) and <code>uname -a</code>. Did the AI
-accurately describe your environment?</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Example output
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
+<code>dir</code> on Windows). Did the AI accurately describe your
+environment?</p>
+</section><section><h2 class="section-heading" id="example-output">Example output<a class="anchor" aria-label="anchor" href="#example-output"></a>
+</h2>
+<hr class="half-width">
 <p>The AI should return a response similar to:</p>
 <p>“You are currently using macOS (Darwin). The files in this directory
 are: - index.md - config.yaml - episodes/ - data/ …”</p>
+<p>Notice that gemini can ‘see’ your files and understands what
+environment you are working in.</p>
+<p>We have a project folder that we want to start a project in, let’s
+initialize it as a gemini project and see what that does.</p>
 <div class="section level3">
-<h3 id="reflection">Reflection<a class="anchor" aria-label="anchor" href="#reflection"></a>
+<h3 id="initialize-your-project">Initialize your project<a class="anchor" aria-label="anchor" href="#initialize-your-project"></a>
 </h3>
-<ul>
-<li>Did the AI see files that you didn’t manually upload?</li>
-<li>How does this change your approach to copying and pasting code?</li>
-</ul>
-<div id="note-on-variations" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<p>The Gemini CLI includes an <code>init</code> command that creates a
+<code>GEMINI.md</code> template in your working directory:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre>
 </div>
-<span class="callout-header">Callout</span>
-<div id="note-on-variations" class="callout-inner">
-<h3 class="callout-title">Note on variations</h3>
-<div class="callout-content">
-<p>The AI’s exact wording will vary, but it should correctly identify
-your OS and the files in your folder.</p>
+<p>You are now in gemini itself. Now let type the slash key and see the
+slash commands that are available to us, page thru and see the full
+list. Now, if you noticed the <code>/init</code> command, this is the
+one that will initialize our project in gemini. Let’s run it</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">/init</span></span></code></pre>
 </div>
+<p>Notice that it does a bunch of stuff and inspects your file folders.
+After it finishes let’s see what new files have been created. You can do
+this inside gemini by:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">!ls</span></span></code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
+<p>This shows the files that are create. You would see a file name
+<code>gemini.md</code>. Let’s look inside the file using the
+<code>cat</code> command with <code>!</code>:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">!cat</span> gemini.md</span></code></pre>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="the-living-spec">The Living Spec<a class="anchor" aria-label="anchor" href="#the-living-spec"></a>
@@ -763,14 +711,14 @@ same content and concepts apply if you switch to any other tool.</p>
 </div>
 </div>
 <div class="section level3">
-<h3 id="initialize-your-project">Initialize your project<a class="anchor" aria-label="anchor" href="#initialize-your-project"></a>
+<h3 id="initialize-your-project-1">Initialize your project<a class="anchor" aria-label="anchor" href="#initialize-your-project-1"></a>
 </h3>
 <p>The Gemini CLI includes an <code>init</code> command that creates a
 <code>GEMINI.md</code> template in your working directory:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
 </div>
 <p>This generates a starter file with placeholder sections for you to
 fill in. Open it in any text editor to customize it for your
@@ -807,30 +755,30 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
   Example spec file
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -1173,7 +1121,7 @@ satisfied, then save it by asking: “Write this plan to PLAN.md.”</p>
   What a good plan includes
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>An <strong>audit step</strong> — inspect files before changing
@@ -1278,7 +1226,7 @@ regression line), and output instructions (save as
   Example refined prompt
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>Using the 'master_dataset.csv' file, create a Python script to generate a scatterplot of 'date' vs 'score'. Add a linear regression trendline. Label the axes clearly. Save the final plot to a file named 'fig/trend_analysis.png' (create the directory if it doesn't exist).</code></pre>
 <div class="section level3">
@@ -1331,7 +1279,7 @@ draft? Did it add a guard clause like <code>min_periods=1</code>?</li>
   Reflection
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>AI models are often more accurate when asked to critique logic than
 when asked to generate it. This second pass is part of the editor
@@ -1529,7 +1477,7 @@ logic. Run the updated script and verify the results in
   Example command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.</code></pre>
 <div class="section level3">
@@ -1584,7 +1532,7 @@ code and when.</p>
   Example command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'</code></pre>
 <div class="section level3">
@@ -1789,7 +1737,7 @@ implementation model missed?</p></li>
   Why this works
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Models have different blind spots. Forcing a second AI to act as an
 auditor helps bypass the tendency of the primary assistant to be
@@ -1997,7 +1945,7 @@ uncertainty, or confidently invents instructions.</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Current models (Gemini 2.5, Claude, GPT-4o) are significantly better
 at refusing or flagging uncertainty than earlier generations — you may
@@ -2455,7 +2403,7 @@ unit tests, or metamorphic checks?</li>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A pre-defined protocol reduces decision fatigue during complex coding
 sessions. Deciding how to verify work early prevents approval fatigue
