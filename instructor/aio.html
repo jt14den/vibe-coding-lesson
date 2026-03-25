@@ -414,7 +414,7 @@
   Setup check
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Ask all learners to run:</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -505,7 +505,7 @@ high-level logic and the <strong>Living Spec</strong>.</p>
   Discussion prompt
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>Ask learners: “Have you ever used ChatGPT to write code that looked
 correct but failed when you ran it?” This is a good time to introduce
@@ -679,14 +679,49 @@ this inside gemini by:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">!ls</span></span></code></pre>
 </div>
-<p>This shows the files that are create. You would see a file name
-<code>gemini.md</code>. Let’s look inside the file using the
-<code>cat</code> command with <code>!</code>:</p>
+<p>This shows the files that are created. You should see a file named
+<code>GEMINI.md</code>. Let’s look inside it using the <code>cat</code>
+command with <code>!</code>:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">!cat</span> gemini.md</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">!cat</span> GEMINI.md</span></code></pre>
 </div>
+<p>Here is what Gemini generated for a fresh empty project folder:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu"># Project Context: vibe-coding-lesson</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">## Directory Overview</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>The <span class="in">`/Users/geno/Desktop/vibe-coding-lesson`</span> directory appears to be an empty</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>project directory. It currently contains only this <span class="in">`GEMINI.md`</span> file, which</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>serves as an index and context provider for the project.</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="fu">## Key Files</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="ss">*   </span>**`GEMINI.md`**: This file contains project-specific context, documentation,</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>    and instructional information for AI agents and developers. It is intended to</span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>    be updated as the project evolves.</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="fu">## Usage</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>This directory is intended to be a workspace for the 'vibe-coding-lesson'</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>project. As it is currently empty, it is ready for initialization or the</span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>addition of new files and code. Future usage will depend on the specific goals</span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>of the 'vibe-coding-lesson' project.</span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a>---</span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a>*Last analyzed on: March 25, 2026*</span></code></pre>
+</div>
+<p>A few things to notice. Gemini scanned the directory and described
+what it found. Because the folder was empty, it does not have much to
+say yet. Once you add data files, scripts, and documentation, running
+<code>/init</code> again will produce a richer spec that reflects your
+actual project. This is also something you will want to edit by hand —
+add your goals, constraints, and any rules you want the agent to
+follow.</p>
 </div>
 </section><section><h2 class="section-heading" id="the-living-spec">The Living Spec<a class="anchor" aria-label="anchor" href="#the-living-spec"></a>
 </h2>
@@ -758,10 +793,10 @@ same content and concepts apply if you switch to any other tool.</p>
 </h3>
 <p>The Gemini CLI includes an <code>init</code> command that creates a
 <code>GEMINI.md</code> template in your working directory:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">gemini</span> init</span></code></pre>
 </div>
 <p>This generates a starter file with placeholder sections for you to
 fill in. Open it in any text editor to customize it for your
@@ -805,26 +840,26 @@ Constraint” (something the AI <em>must</em> do) and one “Success Metric”
   Example spec file
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <!-- TODO: Once model config mechanism is confirmed, add a 'model: gemini-2.5-flash-lite'
      line (or equivalent) to this example so learners see model pinning as a
      standard part of the spec from the start. -->
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu"># Project: Arctic Sea Ice Analysis</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">## Goal</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>To analyze trends in sea ice extent from 1980-2020.</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">## Rules of the Road</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="ss">- </span>**Hard Constraint**: Only use the <span class="in">`xarray`</span> library for spatial data processing.</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="ss">- </span>**Success Metric**: All final plots must include a valid DOI reference for the data source.</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="fu">## Conventions</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="ss">- </span>Use snake_case for variable names.</span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="ss">- </span>Save all plots to the <span class="in">`figures/`</span> directory.</span></code></pre>
 </div>
 </div>
 </div>
@@ -1436,7 +1471,7 @@ any links that you are not going to use.
   Live coding
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>This episode uses live coding. Learners should follow along by
 running commands on their own machines.</p>
@@ -1541,7 +1576,7 @@ in <code>AGENTS.md</code>.</p>
   Backup scripts
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>If a learner’s AI fails to generate working code, provide the
 pre-written versions from <code>instructors/files/</code>: -
@@ -1590,7 +1625,7 @@ methodology.</p>
   Challenge tip
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <p>This challenge requires modifying existing code. If learners are
 stuck, suggest they ask the AI to read <code>clean_and_merge.py</code>
@@ -1622,7 +1657,7 @@ logic. Run the updated script and verify the results in
   Example command
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Modify the script to filter out any rows where 'score' is less than 10. Keep all other logic the same. Save the updated script.</code></pre>
 <div class="section level3">
@@ -1677,7 +1712,7 @@ code and when.</p>
   Example command
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>Read 'clean_and_merge.py'. Add a docstring at the very top of the file as a provenance header. Include the model name 'Gemini 2.5 Flash', today's date, and a summary of the prompt: 'Standardize site IDs, format dates, and impute missing scores with site medians.'</code></pre>
 <div class="section level3">
@@ -2093,7 +2128,7 @@ the documentation instead of querying an LLM.</li>
   Managing expectations
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Models are becoming less likely to hallucinate. * <strong>If it
 refuses:</strong> Acknowledge that the model correctly identified its
@@ -2126,7 +2161,7 @@ uncertainty, or confidently invents instructions.</p>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Current models (Gemini 2.5, Claude, GPT-4o) are significantly better
 at refusing or flagging uncertainty than earlier generations — you may
