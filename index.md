@@ -15,7 +15,7 @@ The term "vibe coding" (coined by Andrej Karpathy) describes the early 2023-2024
 
 ### What this shift supports
 
-- **Code orchestrator over author**: Your primary role shifts from writing syntax to auditing logic and specifying constraints in a **Living Spec (AGENTS.md)**.
+- **Code orchestrator over author**: Your primary role shifts from writing syntax to auditing logic and specifying constraints in a **Living Spec (GEMINI.md)**.
 - **Specification-driven development**: You spend more time defining what the data should look like and why, and less time debugging boilerplate.
 - **Cognitive load management**: By offloading syntax to an agent, you free up mental resources for research decisions.
 
@@ -42,10 +42,10 @@ Using AI to generate code is research-adjacent labor. It becomes research only w
 By the end of this lesson, participants will be able to:
 
 - Manage changes across a project using CLI-based AI agents.
-- Orchestrate agents using the **AGENTS.md** 'Living Spec'.
+- Orchestrate agents using a **Living Spec (GEMINI.md)**.
 - Apply a four-layer validation stack (requirements, tests, metamorphic checks, **domain plausibility**).
 - Implement approval gates to prevent fatigue and spec drift.
-- Track the provenance and reproducibility of agent-generated results using Aider.
+- Track the provenance and reproducibility of agent-generated results using Git.
 
 ## Acknowledgements
 This lesson is adapted from the workshop "Vibe Coding for Research" developed by Bruno Smaniotto and Tom van Nuenen at the UC Berkeley D-Lab. 
