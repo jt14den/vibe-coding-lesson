@@ -254,7 +254,7 @@ Every major CLI tool has its own **native** spec file that it loads automaticall
 | OpenAI Codex | `AGENTS.md` | Yes |
 | Cursor | `.cursorrules` | Yes |
 
-You can also use a **portable** spec file—`AGENTS.md` is a common convention—that you explicitly reference in any prompt: `"Read AGENTS.md and then..."`. It is not auto-loaded by any single tool, but it travels with your project if you switch tools.
+You can also use a **portable** spec file—`AGENTS.md` is a common convention—that you explicitly reference in any prompt: `"Read AGENTS.md and then..."`. It is not auto-loaded by any single tool, but it travels with your project if you switch tools. AGENTS.md was standardized in 2025 by the Agentic AI Foundation under the Linux Foundation — co-founded by Anthropic, OpenAI, and Block — making it the emerging cross-tool portable spec format.
 
 ### What to include in your spec file
 

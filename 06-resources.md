@@ -31,7 +31,15 @@ Research-specific tools are also emerging. Elicit and Consensus focus on scienti
 
 ## Extending capabilities
 
-AI tools can now connect with other software. Many browser-based models offer extensions for Google Drive, WolframAlpha, and other services. The Model Context Protocol (MCP) is an open standard that allows AI assistants to connect to local or remote data sources—such as a PostgreSQL database or your local file system—without requiring you to upload data to a central server.
+AI tools can now connect with other software. Many browser-based models offer extensions for Google Drive, WolframAlpha, and other services. The Model Context Protocol (MCP) is an open standard that allows AI assistants to connect to local or remote data sources—such as a PostgreSQL database or your local file system—without requiring you to upload data to a central server. In December 2025, Anthropic donated MCP to the Agentic AI Foundation under the Linux Foundation. The 2026 MCP roadmap (published March 2026) focuses on enterprise authentication, audit trails, and agent-to-agent communication.
+
+::::::::::::::::::::::::::::::::::::::::: caution
+
+## MCP security: shadow IT risk
+
+MCP servers are installed by individual researchers or developers, often without institutional IT oversight. Security researchers have identified risks including prompt injection via malicious MCP servers and tools that silently exfiltrate data. Before connecting an MCP server, verify it is actively maintained and from a trusted source. Your institution's IT policy may not yet cover MCP-enabled tools.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Local models and open tooling
 
@@ -70,6 +78,12 @@ Use a prompt like this with any AI assistant that has web search access:
 
 ### Multi-model ensembles
 In advanced workflows, you can use different models for different tasks. For example, one model generates code, another critiques it, and a third writes validation tests. This reduces the chance of a single model's bias affecting results.
+
+### GitHub Agentic Workflows
+
+GitHub Agentic Workflows (technical preview, February 2026) let you write repository automation goals in plain Markdown instead of YAML. GitHub Actions executes them using an LLM. This is a direct production application of the Markdown-as-spec pattern taught in this lesson.
+
+Research-relevant use cases include automated issue triage, CI failure analysis, and pull request review. See the [GitHub Agentic Workflows changelog](https://github.blog/changelog/2026-02-13-github-agentic-workflows-are-now-in-technical-preview/) for current status.
 
 ### Provenance tracking
 Include metadata in the header of AI-generated files to ensure reproducibility:
