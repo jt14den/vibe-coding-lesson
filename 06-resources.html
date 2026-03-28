@@ -332,7 +332,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Resources and next steps</h1>
-        <p>Last updated on 2026-03-25 |
+        <p>Last updated on 2026-03-28 |
 
         <a href="https://github.com/jt14den/vibe-coding-lesson/edit/main/episodes/06-resources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -385,7 +385,27 @@ models offer extensions for Google Drive, WolframAlpha, and other
 services. The Model Context Protocol (MCP) is an open standard that
 allows AI assistants to connect to local or remote data sources—such as
 a PostgreSQL database or your local file system—without requiring you to
-upload data to a central server.</p>
+upload data to a central server. In December 2025, Anthropic donated MCP
+to the Agentic AI Foundation under the Linux Foundation. The 2026 MCP
+roadmap (published March 2026) focuses on enterprise authentication,
+audit trails, and agent-to-agent communication.</p>
+<div id="mcp-security-shadow-it-risk" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="mcp-security-shadow-it-risk" class="callout-inner">
+<h3 class="callout-title">MCP security: shadow IT risk</h3>
+<div class="callout-content">
+<p>MCP servers are installed by individual researchers or developers,
+often without institutional IT oversight. Security researchers have
+identified risks including prompt injection via malicious MCP servers
+and tools that silently exfiltrate data. Before connecting an MCP
+server, verify it is actively maintained and from a trusted source. Your
+institution’s IT policy may not yet cover MCP-enabled tools.</p>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="local-models-and-open-tooling">Local models and open tooling<a class="anchor" aria-label="anchor" href="#local-models-and-open-tooling"></a></h2>
 <hr class="half-width"><p>For researchers handling sensitive data or requiring reproducibility,
 local AI is a growing trend. Running models on your own hardware ensures
@@ -459,6 +479,16 @@ AI-generated ‘vibe’ without empirical backing.”</li>
 tasks. For example, one model generates code, another critiques it, and
 a third writes validation tests. This reduces the chance of a single
 model’s bias affecting results.</p>
+</div>
+<div class="section level3">
+<h3 id="github-agentic-workflows">GitHub Agentic Workflows<a class="anchor" aria-label="anchor" href="#github-agentic-workflows"></a></h3>
+<p>GitHub Agentic Workflows (technical preview, February 2026) let you
+write repository automation goals in plain Markdown instead of YAML.
+GitHub Actions executes them using an LLM. This is a direct production
+application of the Markdown-as-spec pattern taught in this lesson.</p>
+<p>Research-relevant use cases include automated issue triage, CI
+failure analysis, and pull request review. See the <a href="https://github.blog/changelog/2026-02-13-github-agentic-workflows-are-now-in-technical-preview/" class="external-link">GitHub
+Agentic Workflows changelog</a> for current status.</p>
 </div>
 <div class="section level3">
 <h3 id="provenance-tracking">Provenance tracking<a class="anchor" aria-label="anchor" href="#provenance-tracking"></a></h3>
@@ -678,7 +708,7 @@ unit tests, or metamorphic checks?</li>
   Discussion
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A pre-defined protocol reduces decision fatigue during complex coding
 sessions. Deciding how to verify work early prevents approval fatigue
@@ -765,8 +795,8 @@ any links that you are not going to use.
   "url": "https://jt14den.github.io/vibe-coding-lesson/06-resources.html",
   "identifier": "https://jt14den.github.io/vibe-coding-lesson/06-resources.html",
   "dateCreated": "2026-01-08",
-  "dateModified": "2026-03-25",
-  "datePublished": "2026-03-26"
+  "dateModified": "2026-03-28",
+  "datePublished": "2026-03-28"
 }
 
   </script><script>
