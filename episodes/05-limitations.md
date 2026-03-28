@@ -56,6 +56,7 @@ Semantic drift occurs when an agent makes a change that alters data assumptions 
 *   **Hallucinated functions:** The model uses libraries or APIs that do not exist.
 *   **Outdated approaches:** The AI uses deprecated syntax from its training data.
 *   **Confident incorrectness:** The AI presents wrong formulas or logic as certain.
+*   **Tool poisoning via MCP:** When an agent calls external tools through MCP, a misconfigured or malicious MCP server can inject instructions into the agent's context (prompt injection). This can cause the agent to take unintended actions or leak data. Mitigation: only install MCP servers from trusted, audited sources.
 *   **Over-engineering:** The model generates complex code for simple problems.
 
 :::::::::::::::::::::::::::::::::::::: discussion
